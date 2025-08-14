@@ -1,0 +1,256 @@
+\
+const theme = {
+  red: "#e11d48",
+  text: "#111827",
+  subtext: "#4b5563",
+  border: "#e5e7eb",
+  bg: "#ffffff",
+  bgAlt: "#f9fafb",
+};
+
+// ---------- UI PRIMITIVES ----------
+const Container = ({ children, wide=false }) => (
+  <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>{children}</div>
+);
+
+const H2 = ({ children }) => (
+  <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>{children}</h2>
+);
+
+const Button = ({ children, variant="primary", size="md", href, onClick }) => {
+  const base = {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 12,
+    padding: size === "lg" ? "14px 18px" : "10px 14px",
+    fontWeight: 700,
+    border: "1px solid transparent",
+    cursor: "pointer",
+    textDecoration: "none",
+    fontSize: size === "lg" ? 16 : 14,
+  };
+  const variants = {
+    primary: { background: theme.red, color: "#fff" },
+    secondary: { background: "#fff", color: theme.text, border: `1px solid ${theme.border}` },
+  };
+  const Comp = href ? "a" : "button";
+  const props = href ? { href } : { onClick };
+  return <Comp {...props} style={{ ...base, ...variants[variant] }}>{children}</Comp>;
+};
+
+const Badge = ({ children }) => (
+  <span style={{ display: "inline-block", background: "#ffe4e6", color: "#9f1239", padding: "6px 10px", borderRadius: 10, fontSize: 12, fontWeight: 700 }}>{children}</span>
+);
+
+const Card = ({ children }) => (
+  <div style={{ border: `1px solid ${theme.border}`, borderRadius: 16, overflow: "hidden", background: "#fff" }}>{children}</div>
+);
+const CardHeader = ({ title, extra }) => (
+  <div style={{ padding: 18, borderBottom: `1px solid ${theme.border}`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+    <div style={{ fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 10 }}>{title}</div>
+    {extra}
+  </div>
+);
+const CardBody = ({ children }) => (
+  <div style={{ padding: 18, color: theme.subtext, fontSize: 14, lineHeight: 1.55 }}>{children}</div>
+);
+
+const Field = ({ label, children }) => (
+  <label style={{ display: "block" }}>
+    <div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>{label}</div>
+    {children}
+  </label>
+);
+
+const Input = (props) => (
+  <input {...props} style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} />
+);
+
+const Textarea = (props) => (
+  <textarea {...props} style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} />
+);
+
+const CheckIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
+    <path d="M20 6L9 17l-5-5"/>
+  </svg>
+);
+
+// Inline icons (no external packages)
+const RocketIcon = ({ size=24 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z"/>
+    <path d="M12 6l6 6 3-9-9 3z"/>
+    <path d="M15 9l-6 6"/>
+    <path d="M5 7l3 3"/>
+  </svg>
+);
+const ScaleIcon = ({ size=24 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3v18"/>
+    <path d="M7 7h10"/>
+    <path d="M3 7l4 9 4-9"/>
+    <path d="M13 7l4 9 4-9"/>
+  </svg>
+);
+
+// ---------- DATA ----------
+const ventures = [
+  { name: "RVshare.com", blurb: "The world's largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
+  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", tag: "Healthtech" },
+  { name: "RVing.com", blurb: "A curated marketplace for epic RV trips and premium rentals.", tag: "Travel" },
+  { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
+  { name: "StemCells.org", blurb: "A compliance-first marketplace for regenerative medicine providers.", tag: "MedTech" },
+  { name: "UHNW.org", blurb: "A private network and directory for ultra-high-net-worth services.", tag: "Finance" },
+  { name: "CustomHomeBuilders.com", blurb: "The official directory for custom home builders in every U.S. market.", tag: "PropTech" },
+  { name: "FundManagers.org", blurb: "An industry registry connecting LPs with verified fund managers.", tag: "Capital Markets" },
+  { name: "FinancialAdvisors.org", blurb: "A consumer-first directory of fiduciary advisors with transparent profiles.", tag: "Wealth" },
+];
+
+const steps = [
+  { phase: "Phase 1", title: "We Create the Foundation", text: "We originate the big idea, craft a detailed business plan, and secure a premium, category-defining domain name — giving your marketplace instant credibility from day one." },
+  { phase: "Phase 2", title: "You Step In as Founding CEO", text: "Join as a part-time Founding CEO (~10 hrs/week) and collaborate directly with our world-class design and development team to build and launch the marketplace. No need to quit your day job yet." },
+  { phase: "Phase 3", title: "Gain Traction & Revenue", text: "With the platform live, you'll work alongside our marketing experts to attract users, validate demand, and generate early revenue streams." },
+  { phase: "Phase 4", title: "Scale Full-Time", text: "Once traction is proven, you'll transition into a full-time CEO role, leading the growth, team expansion, and brand building as we scale the marketplace into a category leader." },
+  { phase: "Phase 5", title: "Spin Out & Realize the Upside", text: "When the marketplace matures, we spin it out as a standalone company. With significant equity earned along the way, you have the potential for a life-changing financial outcome." },
+];
+
+const whoWeWant = [
+  { label: "Relentlessly Driven", desc: "You bring unwavering energy and follow-through, no matter the obstacles. (Pure grit and persistence)" },
+  { label: "Strategic Navigator", desc: "You assess the landscape, anticipate challenges, and chart the smartest path forward. (High-level strategy and foresight)" },
+  { label: "Builder at Heart", desc: "You love turning visions into tangible realities, from concept to completion. (Hands-on creation and execution)" },
+  { label: "Innovative Thinker", desc: "You see opportunities others miss and generate creative solutions that break the mold. (Originality and idea generation)" },
+  { label: "Resourceful Achiever", desc: "You turn limited time, budget, or tools into results that outperform expectations. (Scrappiness and efficiency)" },
+  { label: "Lifelong Learner", desc: "You constantly expand your skills and knowledge to stay ahead of the curve. (Adaptability and growth mindset)" },
+];
+
+const faqs = [
+  { q: "Is this remote?", a: "Yes. U.S. time-zone overlap for a weekly studio sync is preferred." },
+  { q: "How does equity work?", a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance." },
+  { q: "What if I can't commit full-time later?", a: "You can remain part-time, but milestone equity top-ups and leadership scope are tied to full-time commitment." },
+  { q: "What exactly does a part-time Founding CEO do in the first few months?", a: "In the early days, your job is to turn an idea into traction — without risking it all. You'll be validating the market, building the product (with our team's help), and signing up early customers. Think of it as the 'fun' phase of startup building — high creativity, big wins, and zero corporate red tape." },
+  { q: "Do I need prior startup or CEO experience?", a: "Not at all. We look for builders at heart — people who take action, figure things out, and don't wait for permission. Some of our best CEOs are former employees who always knew they had more in them." },
+  { q: "Do I have to be technical or know how to code?", a: "No coding required. You'll have access to world-class developers and designers who bring your vision to life while you focus on leadership, customers, and growth." },
+  { q: "How flexible are the 10 hours per week?", a: "Very. Most of our part-time CEOs work evenings, weekends, or carve out focused blocks during the week. This is designed to fit around your life until it's ready to become your life." },
+  { q: "How long until I can go full-time?", a: "We've seen CEOs make the leap in as little as 6–9 months. Once you have real traction — paying customers, product-market fit, and momentum — you'll be ready to step in full-time with confidence." },
+  { q: "Can I keep my day job while doing this?", a: "Absolutely. In fact, that's the point. We created this program so you can prove the business works before walking away from a steady paycheck." },
+  { q: "What resources will I get to help me succeed?", a: "You'll have hands-on support from day one — developers, designers, marketing firepower, experienced advisors, and funding for the essentials. We're your unfair advantage." },
+  { q: "Will I have a co-founder or be working solo?", a: "You'll have the studio team as your de facto co-founders. We're with you through the highs, lows, pivots, and breakthroughs — you'll never feel like you're building alone." },
+  { q: "Do you provide funding?", a: "Yes. We cover the costs needed to get your marketplace off the ground so you can focus on building, not bootstrapping." },
+  { q: "How does equity work?", a: "You'll own a meaningful stake in the company you're building. As the business grows, so does your ownership value — giving you the chance at a life-changing outcome." },
+  { q: "Do I get paid during the part-time phase?", a: "We offer two tracks: More Equity / No Pay — maximize your upside. Less Equity + Hourly Compensation — get paid while you build." },
+  { q: "What happens if the startup doesn't work out?", a: "Then you walk away with new skills, experience, and a powerful network — at zero financial cost to you. It's the safest way to swing for something big." },
+  { q: "Who are you looking for?", a: "We want hungry builders — people who take ownership, learn fast, and thrive in uncertainty. You don't need the perfect resume, just the right mindset." },
+  { q: "What does the selection process look like?", a: "We start with a short application, then a conversation about your goals, skills, and fit. If it's right, we move quickly — sometimes from first call to start date in under two weeks." },
+  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi‑Fi, and the drive to make it happen." },
+  { q: "Can you share examples of founders who started part-time and succeeded?", a: "Yes — we have multiple CEOs who began with 10 hours a week, proved traction, and are now running their companies full-time with growing teams and healthy revenue. This path works." },
+  { q: "Do I need to have my own business idea?", a: "Nope. We bring the ideas — battle-tested marketplace concepts with proven demand. Your job is to lead, adapt, and bring the vision to life." },
+  { q: "Do I need to code?", a: "No. Our in-house product team ships the platform; you focus on growth, partnerships, and ops." },
+  { q: "Which venture would I lead?", a: "We match your background to one of the active marketplaces and can incubate new ones together." },
+];
+
+// ---------- APP ----------
+export default function App() {
+  return (
+    <div style={{ minHeight: "100vh", background: theme.bg, color: theme.text }}>
+      {/* Header */}
+      <header style={{ position: "sticky", top: 0, zIndex: 40, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(6px)", borderBottom: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 12, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
+              <span style={{ fontWeight: 700 }}>Marketplace Holdings</span>
+            </div>
+            <a href="#apply" style={{ textDecoration: "none" }}>
+              <button style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "10px 14px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 14, background: theme.red, color: "#fff" }}>Apply</button>
+            </a>
+          </div>
+        </Container>
+      </header>
+
+      {/* Hero */}
+      <section>
+        <Container>
+          <div style={{ padding: "84px 0" }}>
+            <h1 style={{ fontSize: 44, lineHeight: 1.1, fontWeight: 800, letterSpacing: -0.5 }}>
+              Build a Company That Could Change Your Life — <span style={{ color: theme.red }}>Without Quitting Your Job</span>
+            </h1>
+            <p style={{ marginTop: 16, color: theme.subtext, maxWidth: 880, fontSize: 16 }}>
+              <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and launch your product while proving traction before going all-in. Build momentum first, then step into a full-time role with significant equity and the potential for a life-changing financial outcome.
+            </p>
+            <div style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center" }}>
+              <a href="#apply" style={{ textDecoration: "none" }}>
+                <button style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "14px 18px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 16, background: theme.red, color: "#fff" }}>Apply Now</button>
+              </a>
+              <a href="#model" style={{ color: theme.text, textDecoration: "none", fontWeight: 700 }}>Learn how it works →</a>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Ventures (shortened) */}
+      <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
+              <H2>Active & Incubating Ventures</H2>
+            </div>
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
+              {ventures.map((v) => (
+                <div key={v.name} style={{ border: `1px solid ${theme.border}`, borderRadius: 16, padding: 18, background: "#fff" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <div style={{ fontWeight: 800 }}>{v.name}</div>
+                    <span style={{ display: "inline-block", background: "#ffe4e6", color: "#9f1239", padding: "6px 10px", borderRadius: 10, fontSize: 12, fontWeight: 700 }}>{v.tag}</span>
+                  </div>
+                  <p style={{ color: theme.subtext, marginTop: 8 }}>{v.blurb}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Apply */}
+      <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: "48px 0", maxWidth: 740 }}>
+            <H2>Apply</H2>
+            <p style={{ color: theme.subtext, marginTop: 6 }}>Tell us a bit about you and the venture(s) you're excited about.</p>
+            <form style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 18 }} onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Full Name</div><input placeholder="Jane Founder" style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+              </div>
+              <div>
+                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Email</div><input type="email" placeholder="jane@domain.com" style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Why You?</div><textarea rows="5" placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+              </div>
+              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+                <button type="submit" onClick={() => alert('Submitted!')} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "10px 14px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 14, background: theme.red, color: "#fff" }}>Submit</button>
+                <span style={{ fontSize: 13, color: theme.subtext }}>We'll follow up within a few days.</span>
+              </div>
+            </form>
+          </div>
+        </Container>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", justifyContent: "space-between", padding: "18px 0", color: theme.subtext, fontSize: 14 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
+              <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+              <a href="#apply" style={{ color: theme.text, textDecoration: "none" }}>Apply</a>
+              <a href="#ventures" style={{ color: theme.text, textDecoration: "none" }}>Ventures</a>
+            </div>
+          </div>
+        </Container>
+      </footer>
+    </div>
+  );
+}
