@@ -535,7 +535,23 @@ export default function App() {
         </Container>
       </section>
       
-
+{/* Why Equity Is Your Shot at Life-Changing Wealth */}
+<section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+  <Container>
+    <div style={{ padding: "48px 0" }}>
+      <H2>Why Equity Is Your Shot at Life-Changing Wealth</H2>
+      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+        A paycheck stops the moment you do. Equity keeps working—compounding your effort, your vision, and your wins, even while you sleep.
+      </p>
+      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+        At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them. You don’t have to risk it all or go it alone—we bring the proven system, the capital, and the mentorship.
+      </p>
+      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+        Here, you’re not an employee. You’re a builder. An owner. Someone whose equity stake grows in value as the marketplace you lead takes off. When your company wins, you don’t just get a pat on the back—you get a life-changing outcome.
+      </p>
+    </div>
+  </Container>
+</section>
 
       
       {/* Footer */}
