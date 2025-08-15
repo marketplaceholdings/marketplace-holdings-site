@@ -316,7 +316,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Choose Your Path to CEO */}
+      {/* Choose Your Path to */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
