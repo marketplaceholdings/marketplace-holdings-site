@@ -246,21 +246,31 @@ export default function App() {
               </Card>
             </div>
 
-            <Card>
-                <CardHeader title="Capital & Runway" />
-                <CardBody>
-                  We fund the early build and provide the runway to test, iterate, and prove traction — without you risking your own capital.
-                </CardBody>
-              </Card>
-            </div>
+{/* Two added cards — wrap them in a grid */}
+<div
+  style={{
+    display: "grid",
+    gap: 16,
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    marginTop: 18
+  }}
+>
+  <Card>
+    <CardHeader title="Capital & Runway" />
+    <CardBody>
+      We fund the early build and provide the runway to test, iterate, and prove traction —
+      without you risking your own capital.
+    </CardBody>
+  </Card>
 
-          <Card>
-                <CardHeader title="Playbooks & Proven Frameworks" />
-                <CardBody>
-                  Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error and execute what’s already been proven to work.
-                </CardBody>
-              </Card>
-            </div>
+  <Card>
+    <CardHeader title="Playbooks & Proven Frameworks" />
+    <CardBody>
+      Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error
+      and execute what’s already been proven to work.
+    </CardBody>
+  </Card>
+</div>
            
           </div>
         </Container>
