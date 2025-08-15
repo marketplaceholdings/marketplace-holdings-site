@@ -368,9 +368,10 @@ export default function App() {
 
            
             </div>
-          </div>
-        </Container>
-      </section>
+              </div>
+    </Container>
+  </div>
+
 
       
       {/* Choose Your Path to */}
