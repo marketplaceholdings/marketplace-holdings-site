@@ -239,12 +239,7 @@ export default function App() {
               </Card>
             </div>
 
-            <div style={{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
-              <span style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Select Proof Points:</span>
-              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>3+ Exits</span>
-              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>Zero-to-One Playbook</span>
-              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>Performance Marketing Engine</span>
-            </div>
+           
           </div>
         </Container>
       </section>
