@@ -633,7 +633,7 @@ export default function App() {
                   </div>
                   <P>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</P>
                   <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.65 }}>
-                    <li><strong>Largest equity stake</strong> (15–25%).</li>
+                    <li><strong>Largest equity stake</strong> (X–Y%).</li>
                     <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
                     <li><strong>Deferred salary</strong> until traction milestone.</li>
                     <li>Optional <strong>acceleration bonus</strong> when traction is hit.</li>
@@ -672,7 +672,7 @@ export default function App() {
                   </div>
                   <P>For the strategic builder. Keep some cash flow now while building long-term equity value.</P>
                   <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.65 }}>
-                    <li><strong>Meaningful equity stake</strong> (8–15%).</li>
+                    <li><strong>Meaningful equity stake</strong> (A–B%).</li>
                     <li><strong>Monthly stipend</strong> from day one.</li>
                     <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
                     <li>Transition to <strong>full-time CEO</strong> when traction is proven.</li>
