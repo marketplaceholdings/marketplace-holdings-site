@@ -962,11 +962,17 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
-                {/* Founder images row */}
-                <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
-                  <Img src={PH(300, 300, "Founder 1")} alt="Founder portrait: Mark Jenney" aspect="1/1" radius="50%" style={{ width: 72 }} />
-                  <Img src={PH(300, 300, "Founder 2")} alt="Founder portrait: Zach Whitehead" aspect="1/1" radius="50%" style={{ width: 72 }} />
-                </div>
+                {/* Founder image row (single) */}
+<div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+  <Img
+    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+    alt="Founder portrait: Mark Jenney"
+    aspect="1/1"
+    radius="50%"
+    style={{ width: 72 }}
+  />
+</div>
+
 
                 <H2>Dear Future CEO,</H2>
                 <P size={16.5}>
