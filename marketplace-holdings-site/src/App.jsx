@@ -224,6 +224,13 @@ export default function App() {
                 </CardBody>
               </Card>
 
+               <Card>
+                <CardHeader title="Proven Track Record" />
+                <CardBody>
+                  $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
+                </CardBody>
+              </Card>
+
               <Card>
                 <CardHeader title="Engineering & Design Resources" />
                 <CardBody>
