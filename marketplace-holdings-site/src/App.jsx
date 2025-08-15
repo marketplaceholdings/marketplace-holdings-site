@@ -588,32 +588,53 @@ export default function App() {
       </section>
 
       {/* Who We're Looking For */}
-      <section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
-        <Container>
-          <div style={{ padding: `${theme.space(12)} 0` }}>
-            <H2>Who We're Looking For</H2>
-            <div
-              style={{
-                display: "grid",
-                gap: 10,
-                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                marginTop: 12,
-              }}
-            >
-              {whoWeWant.map((item) => (
-                <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                  <CheckIcon />
-                  <p style={{ margin: 0, color: theme.text }}>
-                    <strong>{item.label}</strong>
-                    {" — "}
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+<section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
+  <style>{`
+    /* Friendlier spacing + one column on small screens */
+    @media (max-width: 639px) {
+      #kpis .kpis-grid {
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+      }
+    }
+    #kpis .kpis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      column-gap: 16px;
+      row-gap: 14px;
+      margin-top: 14px;
+    }
+    #kpis .trait {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    #kpis .trait p {
+      margin: 0;
+      line-height: 1.65;
+      color: ${theme.text};
+    }
+  `}</style>
+
+  <Container>
+    <div style={{ padding: `${theme.space(12)} 0` }}>
+      <H2>Who We're Looking For</H2>
+
+      <div className="kpis-grid">
+        {whoWeWant.map((item) => (
+          <div key={item.label} className="trait">
+            <CheckIcon />
+            <p>
+              <strong>{item.label}</strong>
+              {" — "}
+              {item.desc}
+            </p>
           </div>
-        </Container>
-      </section>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
 
       {/* Choose Your Path */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
