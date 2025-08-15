@@ -351,6 +351,48 @@ export default function App() {
         </Container>
       </section>
 
+      {/* Equity = Ownership */}
+      <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>Why Equity Is Your Best Shot at Real Wealth</H2>
+            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              Salaries stop when you stop working. Equity doesn’t. Ownership lets your effort compound—even while you sleep.
+              Our studio model is designed so you earn <strong>meaningful equity</strong> in the company you help build.
+              When your marketplace wins, you win—often in a life-changing way.
+            </p>
+
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Upside, Not Just Income" />
+                <CardBody>
+                  Equity aligns incentives and captures the long-term value you’re creating—beyond a monthly paycheck.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Milestone Top-Ups" />
+                <CardBody>
+                  Perform and get rewarded. Hit traction milestones and unlock additional ownership grants.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Spin-Out Potential" />
+                <CardBody>
+                  When the venture matures, we spin it out. Your equity becomes a direct stake in a standalone company.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Founder Economics" />
+                <CardBody>
+                  Choose the track that fits your appetite—defer cash for higher equity or take a stipend with meaningful ownership.
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      
       {/* Choose Your Path to */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
