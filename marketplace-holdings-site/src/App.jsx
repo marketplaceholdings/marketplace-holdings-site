@@ -330,25 +330,33 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Who We're Looking For */}
-      <section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
-        <Container>
-          <div style={{ padding: "48px 0" }}>
-            <H2>Who We're Looking For</H2>
-            <div style={{ display: "grid", gap: 10, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
-              {whoWeWant.map((item) => (
-                <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                  <CheckIcon />
-                  <p style={{ margin: 0, color: theme.text }}>
-                    <strong>{item.label}</strong>
-                    {" — "}
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+     {/* Who We're Looking For */}
+<section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
+  <Container>
+    <div style={{ padding: "48px 0" }}>
+      <H2>Who We're Looking For</H2>
+      <div
+        style={{
+          display: "grid",
+          gap: 10,
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          marginTop: 12,
+        }}
+      >
+        {whoWeWant.map((item) => (
+          <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+            <CheckIcon />
+            <p style={{ margin: 0, color: theme.text }}>
+              <strong>{item.label}</strong>
+              {" — "}
+              {item.desc}
+            </p>
           </div>
-        </Container>
-      </section>
+        ))}
+      </div>
+    </div> {/* ✅ this was missing */}
+  </Container>
+</section>
 
   
 
