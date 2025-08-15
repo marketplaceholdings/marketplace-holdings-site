@@ -1049,7 +1049,7 @@ export default function App() {
                 <div
                   style={{
                     marginTop: 18,
-                    padding: 16,
+                    padding: 38,
                     border: `1px dashed ${theme.border}`,
                     borderRadius: theme.radius.lg,
                     background: theme.bgAlt,
