@@ -713,17 +713,24 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Apply */}
+    {/* Apply */}
 <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
   <style>{`
-    /* Maintain equal horizontal padding on mobile */
+    /* Symmetric horizontal padding on small screens (prevents right-edge flush) */
     @media (max-width: 639px) {
-      #apply .apply-wrapper {
+      #apply .apply-inner {
         padding-left: 16px;
         padding-right: 16px;
       }
     }
-    /* Always single column for clarity */
+    /* Ensure form controls size correctly within padded container */
+    #apply input,
+    #apply textarea,
+    #apply select {
+      box-sizing: border-box;
+      width: 100%;
+    }
+    /* Always single column + consistent gaps */
     #apply .apply-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -734,12 +741,15 @@ export default function App() {
   `}</style>
 
   <Container>
-    <div className="apply-wrapper" style={{ padding: `${theme.space(12)} 0`, maxWidth: 820, margin: "0 auto" }}>
+    {/* This wrapper guarantees extra horizontal padding on mobile only */}
+    <div className="apply-inner" style={{ padding: `${theme.space(12)} 0`, maxWidth: 820, margin: "0 auto" }}>
       <Card hover={false}>
         <CardHeader
-          title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
-            <span>Apply</span>
-          </span>}
+          title={
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+              <span>Apply</span>
+            </span>
+          }
         />
         <CardBody>
           <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
@@ -750,31 +760,37 @@ export default function App() {
                 <Input placeholder="Jane Founder" />
               </Field>
             </div>
+
             <div>
               <Field label="Email">
                 <Input type="email" placeholder="jane@domain.com" />
               </Field>
             </div>
+
             <div>
               <Field label="LinkedIn">
                 <Input placeholder="https://linkedin.com/in/..." />
               </Field>
             </div>
+
             <div>
               <Field label="Location">
                 <Input placeholder="City, Country" />
               </Field>
             </div>
+
             <div style={{ gridColumn: "1 / -1" }}>
               <Field label="Venture Interest">
                 <Input placeholder="Select or type a venture" />
               </Field>
             </div>
+
             <div style={{ gridColumn: "1 / -1" }}>
               <Field label="Why You?">
                 <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
               </Field>
             </div>
+
             <div style={{ gridColumn: "1 / -1" }}>
               <Field label="Resume / Portfolio URL">
                 <Input placeholder="https://..." />
@@ -782,12 +798,8 @@ export default function App() {
             </div>
 
             <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-              <Button size="md" onClick={() => alert("Submitted!")}>
-                Submit
-              </Button>
-              <Button size="md" variant="ghost" href="#faq">
-                View FAQs
-              </Button>
+              <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
+              <Button size="md" variant="ghost" href="#faq">View FAQs</Button>
             </div>
           </form>
         </CardBody>
@@ -795,6 +807,7 @@ export default function App() {
     </div>
   </Container>
 </section>
+
 
 
       {/* FAQs */}
