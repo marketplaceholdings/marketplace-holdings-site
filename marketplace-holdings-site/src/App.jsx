@@ -232,7 +232,7 @@ export default function App() {
               </Card>
 
               <Card>
-                <CardHeader title="Engineering & Design" />
+                <CardHeader title="Engineering & Design Resources" />
                 <CardBody>
                   From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our proven design system and sprint process cut months off your time to value.
                 </CardBody>
@@ -246,6 +246,21 @@ export default function App() {
               </Card>
             </div>
 
+            <Card>
+                <CardHeader title="Capital & Runway" />
+                <CardBody>
+                  We fund the early build and provide the runway to test, iterate, and prove traction — without you risking your own capital.
+                </CardBody>
+              </Card>
+            </div>
+
+          <Card>
+                <CardHeader title="Playbooks & Proven Frameworks" />
+                <CardBody>
+                  Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error and execute what’s already been proven to work.
+                </CardBody>
+              </Card>
+            </div>
            
           </div>
         </Container>
