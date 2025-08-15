@@ -799,7 +799,7 @@ export default function App() {
 
             <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
               <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
-              <Button size="md" variant="ghost" href="#faq">View FAQs</Button>
+            
             </div>
           </form>
         </CardBody>
