@@ -97,7 +97,7 @@ const ScaleIcon = ({ size=24 }) => (
 // ---------- DATA ----------
 const ventures = [
   { name: "RVshare.com", blurb: "The world's largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
-  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", tag: "Healthtech" },
+  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", },
   { name: "RVing.com", blurb: "A curated marketplace for epic RV trips and premium rentals.", tag: "Travel" },
   { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
   { name: "StemCells.org", blurb: "A compliance-first marketplace for regenerative medicine providers.", tag: "MedTech" },
