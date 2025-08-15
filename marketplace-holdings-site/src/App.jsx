@@ -178,7 +178,7 @@ export default function App() {
             </p>
             <div style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center" }}>
               <Button href="#apply" size="lg">Apply Now</Button>
-              <a href="#model" style={{ color: theme.text, textDecoration: "none", fontWeight: 700 }}>Learn how it works →</a>
+              
             </div>
           </div>
         </Container>
