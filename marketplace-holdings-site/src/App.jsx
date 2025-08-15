@@ -1,4 +1,3 @@
-\
 const theme = {
   red: "#e11d48",
   text: "#111827",
@@ -9,7 +8,7 @@ const theme = {
 };
 
 // ---------- UI PRIMITIVES ----------
-const Container = ({ children, wide=false }) => (
+const Container = ({ children, wide = false }) => (
   <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>{children}</div>
 );
 
@@ -17,7 +16,7 @@ const H2 = ({ children }) => (
   <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>{children}</h2>
 );
 
-const Button = ({ children, variant="primary", size="md", href, onClick }) => {
+const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
   const base = {
     display: "inline-flex",
     alignItems: "center",
@@ -73,25 +72,25 @@ const Textarea = (props) => (
 
 const CheckIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
-    <path d="M20 6L9 17l-5-5"/>
+    <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
 // Inline icons (no external packages)
-const RocketIcon = ({ size=24 }) => (
+const RocketIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z"/>
-    <path d="M12 6l6 6 3-9-9 3z"/>
-    <path d="M15 9l-6 6"/>
-    <path d="M5 7l3 3"/>
+    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
+    <path d="M12 6l6 6 3-9-9 3z" />
+    <path d="M15 9l-6 6" />
+    <path d="M5 7l3 3" />
   </svg>
 );
-const ScaleIcon = ({ size=24 }) => (
+const ScaleIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3v18"/>
-    <path d="M7 7h10"/>
-    <path d="M3 7l4 9 4-9"/>
-    <path d="M13 7l4 9 4-9"/>
+    <path d="M12 3v18" />
+    <path d="M7 7h10" />
+    <path d="M3 7l4 9 4-9" />
+    <path d="M13 7l4 9 4-9" />
   </svg>
 );
 
@@ -143,7 +142,7 @@ const faqs = [
   { q: "What happens if the startup doesn't work out?", a: "Then you walk away with new skills, experience, and a powerful network — at zero financial cost to you. It's the safest way to swing for something big." },
   { q: "Who are you looking for?", a: "We want hungry builders — people who take ownership, learn fast, and thrive in uncertainty. You don't need the perfect resume, just the right mindset." },
   { q: "What does the selection process look like?", a: "We start with a short application, then a conversation about your goals, skills, and fit. If it's right, we move quickly — sometimes from first call to start date in under two weeks." },
-  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi‑Fi, and the drive to make it happen." },
+  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi-Fi, and the drive to make it happen." },
   { q: "Can you share examples of founders who started part-time and succeeded?", a: "Yes — we have multiple CEOs who began with 10 hours a week, proved traction, and are now running their companies full-time with growing teams and healthy revenue. This path works." },
   { q: "Do I need to have my own business idea?", a: "Nope. We bring the ideas — battle-tested marketplace concepts with proven demand. Your job is to lead, adapt, and bring the vision to life." },
   { q: "Do I need to code?", a: "No. Our in-house product team ships the platform; you focus on growth, partnerships, and ops." },
@@ -162,9 +161,7 @@ export default function App() {
               <div style={{ width: 32, height: 32, borderRadius: 12, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span style={{ fontWeight: 700 }}>Marketplace Holdings</span>
             </div>
-            <a href="#apply" style={{ textDecoration: "none" }}>
-              <button style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "10px 14px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 14, background: theme.red, color: "#fff" }}>Apply</button>
-            </a>
+            <Button href="#apply" size="md">Apply</Button>
           </div>
         </Container>
       </header>
@@ -180,16 +177,14 @@ export default function App() {
               <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and launch your product while proving traction before going all-in. Build momentum first, then step into a full-time role with significant equity and the potential for a life-changing financial outcome.
             </p>
             <div style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center" }}>
-              <a href="#apply" style={{ textDecoration: "none" }}>
-                <button style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "14px 18px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 16, background: theme.red, color: "#fff" }}>Apply Now</button>
-              </a>
+              <Button href="#apply" size="lg">Apply Now</Button>
               <a href="#model" style={{ color: theme.text, textDecoration: "none", fontWeight: 700 }}>Learn how it works →</a>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Ventures (shortened) */}
+      {/* Ventures (shortened render for brevity) */}
       <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -198,13 +193,12 @@ export default function App() {
             </div>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
               {ventures.map((v) => (
-                <div key={v.name} style={{ border: `1px solid ${theme.border}`, borderRadius: 16, padding: 18, background: "#fff" }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <div style={{ fontWeight: 800 }}>{v.name}</div>
-                    <span style={{ display: "inline-block", background: "#ffe4e6", color: "#9f1239", padding: "6px 10px", borderRadius: 10, fontSize: 12, fontWeight: 700 }}>{v.tag}</span>
-                  </div>
-                  <p style={{ color: theme.subtext, marginTop: 8 }}>{v.blurb}</p>
-                </div>
+                <Card key={v.name}>
+                  <CardHeader title={v.name} extra={<Badge>{v.tag}</Badge>} />
+                  <CardBody>
+                    <p>{v.blurb}</p>
+                  </CardBody>
+                </Card>
               ))}
             </div>
           </div>
@@ -219,16 +213,18 @@ export default function App() {
             <p style={{ color: theme.subtext, marginTop: 6 }}>Tell us a bit about you and the venture(s) you're excited about.</p>
             <form style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 18 }} onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Full Name</div><input placeholder="Jane Founder" style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+                <Field label="Full Name"><Input placeholder="Jane Founder" /></Field>
               </div>
               <div>
-                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Email</div><input type="email" placeholder="jane@domain.com" style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+                <Field label="Email"><Input type="email" placeholder="jane@domain.com" /></Field>
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
-                <label><div style={{ fontSize: 13, color: theme.text, marginBottom: 6, fontWeight: 600 }}>Why You?</div><textarea rows="5" placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} /></label>
+                <Field label="Why You?">
+                  <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
+                </Field>
               </div>
               <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                <button type="submit" onClick={() => alert('Submitted!')} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "10px 14px", fontWeight: 700, border: "1px solid transparent", cursor: "pointer", fontSize: 14, background: theme.red, color: "#fff" }}>Submit</button>
+                <Button size="md" onClick={() => alert('Submitted!')}>Submit</Button>
                 <span style={{ fontSize: 13, color: theme.subtext }}>We'll follow up within a few days.</span>
               </div>
             </form>
