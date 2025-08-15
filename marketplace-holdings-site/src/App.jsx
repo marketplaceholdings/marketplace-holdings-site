@@ -225,13 +225,6 @@ export default function App() {
               </Card>
 
               <Card>
-                <CardHeader title="Advisors with Real Wins" />
-                <CardBody>
-                  A curated network of growth leaders and domain experts who've been where you're going. Expect practical guidance on GTM, hiring, and navigating zero-to-one.
-                </CardBody>
-              </Card>
-
-              <Card>
                 <CardHeader title="Engineering & Design Resources" />
                 <CardBody>
                   Access to skilled engineers and designers aligned to your venture — from product spec and UX to MVP and iteration. Standardized components and processes accelerate time to value.
