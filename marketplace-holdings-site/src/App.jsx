@@ -514,6 +514,38 @@ export default function App() {
         </Container>
       </section>
 
+      {/* Founder Story */}
+      <section id="founder-story" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>From Homeless to the Top 0.001%</H2>
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
+              <Card>
+                <CardBody>
+                  Our founder grew up homeless—shelters, cars, uncertainty. That reality forged relentless persistence,
+                  creative problem-solving, and an obsession with building value. Years later, after launching and scaling
+                  multiple companies, he achieved outcomes that place him in the top 0.001%.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardBody>
+                  The mission of Marketplace Holdings is simple: <strong>build products that create massive value in the marketplace and generate life-changing wealth for the people who build them.</strong> With a proven system, capital, and mentorship, you don’t have to risk it all to swing big.
+                </CardBody>
+              </Card>
+            </div>
+
+            <div style={{ marginTop: 16 }}>
+              <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: 16, padding: 18 }}>
+                <p style={{ margin: 0, color: theme.text }}>
+                  If we can do it, so can you—especially with a studio that’s done it before standing behind you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      
       {/* Footer */}
       <footer style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
