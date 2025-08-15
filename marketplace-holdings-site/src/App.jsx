@@ -257,6 +257,46 @@ export default function App() {
         </Container>
       </section>
 
+      {/* Why Only Marketplaces */}
+      <section id="why-marketplaces" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>Why We Only Build Online Marketplaces</H2>
+            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces on the internet, serving millions of users and generating over $1B in transactions. That journey gave us a <strong>battle-tested playbook</strong> for going from zero to category leader.
+            </p>
+
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Crack the Chicken-and-Egg" />
+                <CardBody>
+                  Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Scalable Growth Loops" />
+                <CardBody>
+                  Playbooks for acquisition, conversion, and retention that turn early traction into durable network effects.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Capital Efficient" />
+                <CardBody>
+                  Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Operator DNA" />
+                <CardBody>
+                  We’ve run marketplace P&amp;Ls, shipped product at speed, and scaled operations—now we bring that muscle to your build.
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      
       {/* Ventures */}
       <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
