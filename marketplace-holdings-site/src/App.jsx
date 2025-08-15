@@ -113,6 +113,58 @@ const P = ({ children, dim = false, size = 16, style }) => (
 );
 
 /* -------------------------------------------------
+   IMAGE UTILITIES (placeholders)
+-------------------------------------------------- */
+// Neutral grey SVG placeholder (swap src later)
+const PH = (w = 1200, h = 800, label = "Placeholder") =>
+  `data:image/svg+xml;utf8,` +
+  encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'>
+      <defs>
+        <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>
+          <stop offset='0' stop-color='#f1f5f9'/>
+          <stop offset='1' stop-color='#e2e8f0'/>
+        </linearGradient>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#g)'/>
+      <g fill='#94a3b8' font-family='Inter, system-ui' text-anchor='middle'>
+        <text x='50%' y='50%' font-size='28' dy='8'>${label}</text>
+      </g>
+    </svg>`
+  );
+
+// Reusable Image with cover/contain + radius + border
+const Img = ({ src, alt, aspect = "16/9", cover = true, radius = "16px", border = true, shadow = "sm", style }) => (
+  <div
+    style={{
+      position: "relative",
+      width: "100%",
+      aspectRatio: aspect,
+      overflow: "hidden",
+      borderRadius: radius,
+      border: border ? `1px solid ${theme.border}` : "none",
+      boxShadow: shadow ? theme.shadow[shadow] : "none",
+      background: "#fff",
+      ...style,
+    }}
+  >
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      style={{
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        objectFit: cover ? "cover" : "contain",
+        display: "block",
+      }}
+    />
+  </div>
+);
+
+/* -------------------------------------------------
    UI PRIMITIVES
 -------------------------------------------------- */
 const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
@@ -179,7 +231,7 @@ const Card = ({ children, hover = true }) => (
   </div>
 );
 
-const CardHeader = ({ title, extra }) => (
+const CardHeader = ({ title, extra, media }) => (
   <div
     style={{
       padding: 20,
@@ -191,8 +243,9 @@ const CardHeader = ({ title, extra }) => (
       background: "linear-gradient(180deg, #ffffff, #fcfdff)",
     }}
   >
-    <div style={{ fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 10, color: theme.text, fontFamily: stack }}>
-      {title}
+    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      {media}
+      <div style={{ fontSize: 18, fontWeight: 800, color: theme.text, fontFamily: stack }}>{title}</div>
     </div>
     {extra}
   </div>
@@ -271,13 +324,7 @@ const CheckIcon = () => (
 );
 
 const MenuIcon = ({ open = false, size = 22 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    style={{ display: "block" }}
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" style={{ display: "block" }}>
     {open ? (
       <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     ) : (
@@ -290,21 +337,25 @@ const MenuIcon = ({ open = false, size = 22 }) => (
   </svg>
 );
 
-const RocketIcon = ({ size = 22 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
-    <path d="M12 6l6 6 3-9-9 3z" />
-    <path d="M15 9l-6 6" />
-    <path d="M5 7l3 3" />
-  </svg>
-);
-const ScaleIcon = ({ size = 22 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3v18" />
-    <path d="M7 7h10" />
-    <path d="M3 7l4 9 4-9" />
-    <path d="M13 7l4 9 4-9" />
-  </svg>
+/* Cute line icons to accompany list items (SVG inline so color matches theme) */
+const SmallIcon = ({ path }) => (
+  <span
+    aria-hidden="true"
+    style={{
+      display: "inline-flex",
+      width: 28,
+      height: 28,
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: 10,
+      background: "#fff0f2",
+      border: `1px solid ${theme.border}`,
+    }}
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d={path} />
+    </svg>
+  </span>
 );
 
 /* -------------------------------------------------
@@ -331,12 +382,12 @@ const steps = [
 ];
 
 const whoWeWant = [
-  { label: "Relentlessly Driven", desc: "You bring unwavering energy and follow-through, no matter the obstacles. (Pure grit and persistence)" },
-  { label: "Strategic Navigator", desc: "You assess the landscape, anticipate challenges, and chart the smartest path forward. (High-level strategy and foresight)" },
-  { label: "Builder at Heart", desc: "You love turning visions into tangible realities, from concept to completion. (Hands-on creation and execution)" },
-  { label: "Innovative Thinker", desc: "You see opportunities others miss and generate creative solutions that break the mold. (Originality and idea generation)" },
-  { label: "Resourceful Achiever", desc: "You turn limited time, budget, or tools into results that outperform expectations. (Scrappiness and efficiency)" },
-  { label: "Lifelong Learner", desc: "You constantly expand your skills and knowledge to stay ahead of the curve. (Adaptability and growth mindset)" },
+  { label: "Relentlessly Driven", desc: "You bring unwavering energy and follow-through, no matter the obstacles." },
+  { label: "Strategic Navigator", desc: "You assess the landscape, anticipate challenges, and chart the smartest path forward." },
+  { label: "Builder at Heart", desc: "You love turning visions into tangible realities, from concept to completion." },
+  { label: "Innovative Thinker", desc: "You see opportunities others miss and generate creative solutions that break the mold." },
+  { label: "Resourceful Achiever", desc: "You turn limited time, budget, or tools into results that outperform expectations." },
+  { label: "Lifelong Learner", desc: "You constantly expand your skills and knowledge to stay ahead of the curve." },
 ];
 
 const faqs = [
@@ -350,9 +401,9 @@ const faqs = [
   { q: "What resources and support will I get?", a: "Hands-on help from day one — developers, designers, marketing support, experienced advisors, and funding for the essentials. We act as your partner throughout the build." },
   { q: "What happens if the startup doesn’t work out?", a: "You’ll walk away with new skills, experience, and a stronger network — without having put your own capital at risk." },
   { q: "How do you match me with a venture?", a: "We’ll align your background and interests with one of our marketplaces or collaborate on a new concept together." },
-  { q: "What could my equity be worth in ~5 years?", a: "Targets (not guarantees) assume strong execution and market conditions. In Track 1, goal range is $5M–$10M+. In Track 2, $20M–$40M+." },
-  { q: "What exactly does a part-time Founding CEO do in the first few months?", a: "Turn an idea into traction. Validate the market, work with our team to build/refine the product, and start signing early customers or partners." },
-  { q: "Will I have a co-founder or be working solo?", a: "You’ll be the driving force as the Founding CEO with our studio alongside you across strategy, product, marketing, and key decisions." },
+  { q: "What could my equity be worth in ~5 years?", a: "Targets (not guarantees) assume strong execution and market conditions." },
+  { q: "What exactly does a part-time Founding CEO do in the first few months?", a: "Turn an idea into traction. Validate the market, build/refine the product, and start signing early customers or partners." },
+  { q: "Will I have a co-founder or be working solo?", a: "You’ll be the driving force as the Founding CEO, with our studio alongside you across strategy, product, marketing, and key decisions." },
 ];
 
 /* -------------------------------------------------
@@ -376,7 +427,6 @@ export default function App() {
   const scrolled = useScrolled();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
-  // Close mobile menu when navigating (hash change or click outside overlay)
   React.useEffect(() => {
     const onHashChange = () => setMenuOpen(false);
     window.addEventListener("hashchange", onHashChange);
@@ -412,6 +462,11 @@ export default function App() {
           opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
           transition: opacity .18s ease; z-index: 50;
         }
+        /* Simple two-column for image/text blocks */
+        .media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
+        @media (max-width: 980px) { .media-grid { grid-template-columns: 1fr; } }
+        /* Logo row */
+        .logo-row { display:flex; flex-wrap:wrap; gap:18px; align-items:center; opacity:.85 }
       `}</style>
 
       {/* Header */}
@@ -470,11 +525,7 @@ export default function App() {
         </Container>
 
         {/* Backdrop */}
-        <div
-          className="backdrop"
-          onClick={() => setMenuOpen(false)}
-          role="presentation"
-        />
+        <div className="backdrop" onClick={() => setMenuOpen(false)} role="presentation" />
 
         {/* Mobile menu sheet */}
         <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
@@ -487,15 +538,27 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero with background image */}
       <section
         style={{
+          position: "relative",
+          overflow: "hidden",
           background:
             "radial-gradient(900px 400px at 20% -10%, rgba(225,29,72,.08), transparent 60%), radial-gradient(700px 280px at 90% 0%, rgba(2,6,23,.06), transparent 60%)",
         }}
       >
+        {/* Hero BG image (swap src) */}
+        <Img
+          src={PH(2400, 1200, "Hero Background — swap with aspirational/team shot")}
+          alt=""
+          aspect="3/1"
+          cover
+          border={false}
+          shadow={null}
+          style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
+        />
         <Container>
-          <div style={{ padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
+          <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
               Build a Company That Could Change Your Life —{" "}
               <span style={{ color: theme.red, textDecoration: "underline", textDecorationThickness: 4, textUnderlineOffset: 6 }}>
@@ -507,7 +570,12 @@ export default function App() {
               Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and
               launch while proving traction before going all-in.
             </P>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6 }}>
+            {/* Hero collage (optional secondary image) */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
+              <Img src={PH(1200, 800, "Product mockup / dashboard")} alt="Illustrative product dashboard mockup" aspect="16/10" />
+              <Img src={PH(1200, 800, "Founder collaboration photo")} alt="Team collaborating in a workspace" aspect="16/10" />
+            </div>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
               <Button href="#why-us" variant="secondary" size="lg">How We Help</Button>
             </div>
@@ -528,70 +596,82 @@ export default function App() {
             marginTop: 18,
           }}
         >
+          {/* Each card gets a small illustration/icon thumbnail */}
           <Card>
-            <CardHeader title="Proven Track Record" />
+            <CardHeader
+              title="Proven Track Record"
+              media={<SmallIcon path="M3 12l7 7 11-11" />}
+            />
             <CardBody>
               $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.
             </CardBody>
           </Card>
 
           <Card>
-            <CardHeader title="People & Expertise" />
-            <CardBody>
-              Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who accelerate your path.
-            </CardBody>
+            <CardHeader title="People & Expertise" media={<SmallIcon path="M20 21v-2a4 4 0 0 0-3-3.87M4 21v-2a4 4 0 0 1 3-3.87M7 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />} />
+            <CardBody>Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who accelerate your path.</CardBody>
           </Card>
 
           <Card>
-            <CardHeader title="Engineering & Design Resources" />
-            <CardBody>
-              From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our design system shortens time-to-value.
-            </CardBody>
+            <CardHeader title="Engineering & Design Resources" media={<SmallIcon path="M3 3h18v14H3zM3 17l6 4 6-4" />} />
+            <CardBody>From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our design system shortens time-to-value.</CardBody>
           </Card>
 
-            <Card>
-              <CardHeader title="Go-to-Market" />
-              <CardBody>
-                Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.
-              </CardBody>
-            </Card>
+          <Card>
+            <CardHeader title="Go-to-Market" media={<SmallIcon path="M3 12h18M12 3v18" />} />
+            <CardBody>Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.</CardBody>
+          </Card>
 
           <Card>
-            <CardHeader title="Capital & Runway" />
+            <CardHeader title="Capital & Runway" media={<SmallIcon path="M12 1v22M5 7h14" />} />
             <CardBody>We fund the early build and provide runway to test, iterate, and prove traction — without risking your savings.</CardBody>
           </Card>
 
           <Card>
-            <CardHeader title="Playbooks & Frameworks" />
+            <CardHeader title="Playbooks & Frameworks" media={<SmallIcon path="M4 6h16M4 12h16M4 18h16" />} />
             <CardBody>Battle-tested playbooks for growth, product, and GTM — execute what’s proven to work and skip trial-and-error.</CardBody>
           </Card>
         </div>
       </Section>
 
-      {/* Why Marketplaces */}
+      {/* Why Marketplaces — side image */}
       <Section id="why-marketplaces">
-        <H2>Why We Only Build Online Marketplaces</H2>
-        <P dim>
-          We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces online, serving millions of users and generating over $1B in transactions.
-        </P>
+        <div className="media-grid">
+          <div>
+            <H2>Why We Only Build Online Marketplaces</H2>
+            <P dim>
+              We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces online, serving millions of users and generating over $1B in transactions.
+            </P>
 
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", marginTop: 18 }}>
-          <Card>
-            <CardHeader title="Crack the Chicken-and-Egg" />
-            <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
-          </Card>
-          <Card>
-            <CardHeader title="Scalable Growth Loops" />
-            <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
-          </Card>
-          <Card>
-            <CardHeader title="Capital Efficient" />
-            <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
-          </Card>
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Crack the Chicken-and-Egg" />
+                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Scalable Growth Loops" />
+                <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Capital Efficient" />
+                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
+              </Card>
+            </div>
+          </div>
+
+          {/* Product/Marketplace mockup image */}
+          <div>
+            <Img
+              src={PH(1400, 1000, "Marketplace mockup — desktop & mobile")}
+              alt="Conceptual marketplace UI preview on desktop and mobile"
+              aspect="4/3"
+              style={{ marginTop: 10 }}
+            />
+          </div>
         </div>
       </Section>
 
-      {/* Ventures */}
+      {/* Ventures with logos/thumbs */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -599,7 +679,21 @@ export default function App() {
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
           {ventures.map((v) => (
             <Card key={v.name}>
-              <CardHeader title={v.name} />
+              <CardHeader
+                title={v.name}
+                media={
+                  <Img
+                    src={PH(240, 120, "Logo")}
+                    alt={`${v.name} logo`}
+                    aspect="3/1"
+                    cover={false}
+                    border
+                    radius="10px"
+                    shadow={null}
+                    style={{ width: 72, minWidth: 72 }}
+                  />
+                }
+              />
               <CardBody>
                 <p style={{ margin: 0 }}>{v.blurb}</p>
               </CardBody>
@@ -608,20 +702,43 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Journey */}
+      {/* Journey with subtle background line */}
       <Section id="model" alt>
         <H2>The Journey</H2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 18 }}>
-          {steps.map((s) => (
-            <Card key={s.title}>
-              <CardHeader title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>} />
-              <CardBody>{s.text}</CardBody>
-            </Card>
-          ))}
+        <div style={{ position: "relative", marginTop: 18 }}>
+          {/* light roadmap line */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: 12,
+              top: 0,
+              bottom: 0,
+              width: 2,
+              background: "linear-gradient(#e5e7eb, #f1f5f9)",
+              borderRadius: 2,
+              opacity: 0.7,
+            }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginLeft: 24 }}>
+            {steps.map((s, i) => (
+              <Card key={s.title}>
+                <CardHeader
+                  title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>}
+                  media={
+                    <SmallIcon
+                      path={["M5 12l5 5L20 7", "M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L2 9h7z", "M3 12h18", "M12 2v20", "M4 6h16"][i % 5]}
+                    />
+                  }
+                />
+                <CardBody>{s.text}</CardBody>
+              </Card>
+            ))}
+          </div>
         </div>
       </Section>
 
-      {/* Who We're Looking For */}
+      {/* Who We're Looking For with icons */}
       <Section id="kpis">
         <H2>Who We're Looking For</H2>
         <div
@@ -632,9 +749,20 @@ export default function App() {
             marginTop: 14,
           }}
         >
-          {whoWeWant.map((item) => (
-            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-              <CheckIcon />
+          {whoWeWant.map((item, idx) => (
+            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+              <SmallIcon
+                path={
+                  [
+                    "M13 2L3 14h7l1 8 10-12h-7l-1-8z", // bolt
+                    "M12 2l7 7-7 7-7-7 7-7z", // compass-ish
+                    "M3 22V10l9-7 9 7v12", // home/build
+                    "M12 20l9-8-9-8-9 8 9 8z", // diamond/innovate
+                    "M3 12h18M12 3v18", // plus/grid
+                    "M5 3h14M5 9h10M5 15h14", // lines/learn
+                  ][idx % 6]
+                }
+              />
               <p style={{ margin: 0, color: theme.text }}>
                 <strong>{item.label}</strong>
                 {" — "}
@@ -650,13 +778,10 @@ export default function App() {
         <H2>Choose Your Path</H2>
         <P dim>Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.</P>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-          {/* Track 1 */}
           <Card>
             <CardBody>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <div style={{ background: "#ffe4e6", padding: 10, borderRadius: theme.radius.md, display: "inline-flex" }}>
-                  <RocketIcon />
-                </div>
+                <SmallIcon path="M5 12l5 5L20 7" />
                 <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>High Equity, Deferred Compensation</h3>
               </div>
               <P>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</P>
@@ -666,20 +791,16 @@ export default function App() {
                 <li><strong>Deferred salary</strong> until traction milestone.</li>
                 <li>Optional <strong>acceleration bonus</strong> when traction is hit.</li>
               </ul>
-              <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Founders with runway who want to swing for the fences.</div>
               <div style={{ marginTop: 14 }}>
                 <Button href="#apply-track-1">Apply for Track 1</Button>
               </div>
             </CardBody>
           </Card>
 
-          {/* Track 2 */}
           <Card>
             <CardBody>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <div style={{ background: "#eef2ff", padding: 10, borderRadius: theme.radius.md, display: "inline-flex" }}>
-                  <ScaleIcon />
-                </div>
+                <SmallIcon path="M12 3v18M3 12h18" />
                 <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Smaller Equity, Upfront Compensation</h3>
               </div>
               <P>For the strategic builder. Keep some cash flow now while building long-term equity value.</P>
@@ -689,7 +810,6 @@ export default function App() {
                 <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
                 <li>Transition to <strong>full-time CEO</strong> when traction is proven.</li>
               </ul>
-              <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Builders who want to de-risk the leap while keeping upside.</div>
               <div style={{ marginTop: 14 }}>
                 <Button href="#apply-track-2" variant="dark">Apply for Track 2</Button>
               </div>
@@ -697,11 +817,13 @@ export default function App() {
           </Card>
         </div>
 
-        <div style={{ marginTop: 18 }}>
-          <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: theme.radius.xl, padding: 18 }}>
-            <p style={{ margin: 0, color: theme.text }}>
-              <strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the difference is how you balance short-term income with long-term ownership.
-            </p>
+        {/* Trust/partners logo row */}
+        <div style={{ marginTop: 22, border: `1px solid ${theme.border}`, background: "#fff", borderRadius: theme.radius.xl, padding: 16 }}>
+          <div className="logo-row" aria-label="Trusted by">
+            <Img src={PH(220, 80, "Logo A")} alt="Partner A" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
+            <Img src={PH(220, 80, "Logo B")} alt="Partner B" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
+            <Img src={PH(220, 80, "Logo C")} alt="Partner C" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
+            <Img src={PH(220, 80, "Logo D")} alt="Partner D" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
           </div>
         </div>
       </Section>
@@ -817,7 +939,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Founder Letter */}
+      {/* Founder Letter with headshots */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <style>{`
           @media (max-width: 639px) {
@@ -840,6 +962,12 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
+                {/* Founder images row */}
+                <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+                  <Img src={PH(300, 300, "Founder 1")} alt="Founder portrait: Mark Jenney" aspect="1/1" radius="50%" style={{ width: 72 }} />
+                  <Img src={PH(300, 300, "Founder 2")} alt="Founder portrait: Zach Whitehead" aspect="1/1" radius="50%" style={{ width: 72 }} />
+                </div>
+
                 <H2>Dear Future CEO,</H2>
                 <P size={16.5}>
                   Some of the most talented people we’ve ever met aren’t running companies — they’re stuck in jobs. Not because they lack
@@ -971,10 +1099,11 @@ export default function App() {
               <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
-            <div>
-              <a href="#apply" style={{ textDecoration: "none" }}>
-                <Button size="md">Apply</Button>
-              </a>
+            <div className="logo-row">
+              {/* Optional tiny logo repeats for social proof */}
+              <Img src={PH(160, 60, "Logo E")} alt="Logo E" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
+              <Img src={PH(160, 60, "Logo F")} alt="Logo F" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
+              <Img src={PH(160, 60, "Logo G")} alt="Logo G" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
             </div>
           </div>
         </Container>
