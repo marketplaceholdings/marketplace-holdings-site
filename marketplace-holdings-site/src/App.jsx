@@ -552,7 +552,7 @@ export default function App() {
       <section id="founder-story" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <H2>From Homeless to the Top 0.1%</H2>
+            <H2>From Homeless to the Top 1%</H2>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
               <Card>
                 <CardBody>
