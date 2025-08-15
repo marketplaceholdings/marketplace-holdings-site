@@ -714,75 +714,88 @@ export default function App() {
       </section>
 
       {/* Apply */}
-      <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
-        <style>{`
-          /* Maintain equal horizontal padding on mobile */
-          @media (max-width: 639px) {
-            #apply .apply-wrapper {
-              padding-left: 16px;
-              padding-right: 16px;
-            }
-          }
-          /* Always single column for clarity */
-          #apply .apply-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 16px;
-          }
-          a { color: ${theme.red}; text-decoration-thickness: 2px; text-underline-offset: 2px; }
-          a:hover { opacity: .9; }
-        `}</style>
+<section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+  <style>{`
+    /* Maintain equal horizontal padding on mobile */
+    @media (max-width: 639px) {
+      #apply .apply-wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+    /* Always single column for clarity */
+    #apply .apply-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 16px;
+    }
+    a { color: ${theme.red}; text-decoration-thickness: 2px; text-underline-offset: 2px; }
+    a:hover { opacity: .9; }
+  `}</style>
 
-        <Container>
-          <div className="apply-wrapper" style={{ padding: `${theme.space(12)} 0`, maxWidth: 740, margin: "0 auto" }}>
-            <H2>Apply</H2>
-            <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
+  <Container>
+    <div className="apply-wrapper" style={{ padding: `${theme.space(12)} 0`, maxWidth: 820, margin: "0 auto" }}>
+      <Card hover={false}>
+        <CardHeader
+          title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+            <span>Apply</span>
+          </span>}
+        />
+        <CardBody>
+          <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
 
-            <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <Field label="Full Name">
-                  <Input placeholder="Jane Founder" />
-                </Field>
-              </div>
-              <div>
-                <Field label="Email">
-                  <Input type="email" placeholder="jane@domain.com" />
-                </Field>
-              </div>
-              <div>
-                <Field label="LinkedIn">
-                  <Input placeholder="https://linkedin.com/in/..." />
-                </Field>
-              </div>
-              <div>
-                <Field label="Location">
-                  <Input placeholder="City, Country" />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Venture Interest">
-                  <Input placeholder="Select or type a venture" />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Why You?">
-                  <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Resume / Portfolio URL">
-                  <Input placeholder="https://..." />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                <Button size="md" onClick={() => alert("Submitted!")}>
-                  Submit
-                </Button>
-              </div>
-            </form>
-          </div>
-        </Container>
-      </section>
+          <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
+            <div>
+              <Field label="Full Name">
+                <Input placeholder="Jane Founder" />
+              </Field>
+            </div>
+            <div>
+              <Field label="Email">
+                <Input type="email" placeholder="jane@domain.com" />
+              </Field>
+            </div>
+            <div>
+              <Field label="LinkedIn">
+                <Input placeholder="https://linkedin.com/in/..." />
+              </Field>
+            </div>
+            <div>
+              <Field label="Location">
+                <Input placeholder="City, Country" />
+              </Field>
+            </div>
+            <div style={{ gridColumn: "1 / -1" }}>
+              <Field label="Venture Interest">
+                <Input placeholder="Select or type a venture" />
+              </Field>
+            </div>
+            <div style={{ gridColumn: "1 / -1" }}>
+              <Field label="Why You?">
+                <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
+              </Field>
+            </div>
+            <div style={{ gridColumn: "1 / -1" }}>
+              <Field label="Resume / Portfolio URL">
+                <Input placeholder="https://..." />
+              </Field>
+            </div>
+
+            <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+              <Button size="md" onClick={() => alert("Submitted!")}>
+                Submit
+              </Button>
+              <Button size="md" variant="ghost" href="#faq">
+                View FAQs
+              </Button>
+            </div>
+          </form>
+        </CardBody>
+      </Card>
+    </div>
+  </Container>
+</section>
+
 
       {/* FAQs */}
       <section id="faq" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
