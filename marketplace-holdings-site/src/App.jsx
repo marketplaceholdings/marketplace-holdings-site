@@ -193,7 +193,7 @@ export default function App() {
               From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.
             </p>
 
-        
+      
 
             <div
   style={{
