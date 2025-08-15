@@ -365,15 +365,10 @@ export default function App() {
              <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               Here, you’re not an employee. You’re a builder. An owner. Someone whose equity stake grows in value as the marketplace you lead takes off. When your company wins, you don’t just get a pat on the back—you get a life-changing outcome.
             </p>
+          </div>
+        </Container>
+      </section>
 
-           
-            </div>
-              </div>
-    </Container>
-  </div>
-
-
-      
       {/* Choose Your Path to */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
