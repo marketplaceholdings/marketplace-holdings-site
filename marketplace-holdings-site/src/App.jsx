@@ -458,44 +458,82 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Apply */}
+           {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
-          <div style={{ padding: "48px 0", maxWidth: 740 }}>
+          <div style={{ padding: "48px 0", maxWidth: 740, margin: "0 auto" }}>
             <H2>Apply</H2>
-            <p style={{ color: theme.subtext, marginTop: 6 }}>Tell us a bit about you and the venture(s) you're excited about.</p>
-            <form style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 18 }} onSubmit={(e) => e.preventDefault()}>
+            <p style={{ color: theme.subtext, marginTop: 6 }}>
+              Tell us a bit about you and the venture(s) you're excited about.
+            </p>
+            <form
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 12,
+                marginTop: 18
+              }}
+              onSubmit={(e) => e.preventDefault()}
+            >
               <div>
-                <Field label="Full Name"><Input placeholder="Jane Founder" /></Field>
+                <Field label="Full Name">
+                  <Input placeholder="Jane Founder" />
+                </Field>
               </div>
               <div>
-                <Field label="Email"><Input type="email" placeholder="jane@domain.com" /></Field>
+                <Field label="Email">
+                  <Input type="email" placeholder="jane@domain.com" />
+                </Field>
               </div>
               <div>
-                <Field label="LinkedIn"><Input placeholder="https://linkedin.com/in/..." /></Field>
+                <Field label="LinkedIn">
+                  <Input placeholder="https://linkedin.com/in/..." />
+                </Field>
               </div>
               <div>
-                <Field label="Location"><Input placeholder="City, Country" /></Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Venture Interest"><Input placeholder="Select or type a venture" /></Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Why You?">
-                  <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
+                <Field label="Location">
+                  <Input placeholder="City, Country" />
                 </Field>
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Resume / Portfolio URL"><Input placeholder="https://..." /></Field>
+                <Field label="Venture Interest">
+                  <Input placeholder="Select or type a venture" />
+                </Field>
               </div>
-              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                <Button size="md" onClick={() => alert('Submitted!')}>Submit</Button>
-                <span style={{ fontSize: 13, color: theme.subtext }}>We'll follow up within a few days.</span>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <Field label="Why You?">
+                  <Textarea
+                    rows={5}
+                    placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring."
+                  />
+                </Field>
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <Field label="Resume / Portfolio URL">
+                  <Input placeholder="https://..." />
+                </Field>
+              </div>
+              <div
+                style={{
+                  gridColumn: "1 / -1",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  marginTop: 6
+                }}
+              >
+                <Button size="md" onClick={() => alert("Submitted!")}>
+                  Submit
+                </Button>
+                <span style={{ fontSize: 13, color: theme.subtext }}>
+                  We'll follow up within a few days.
+                </span>
               </div>
             </form>
           </div>
         </Container>
       </section>
+
 
       {/* FAQs */}
       <section id="faq" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
