@@ -216,38 +216,7 @@ export default function App() {
               </div>
             </div>
 
-            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-              <Card>
-                <CardHeader title="Proven Track Record" />
-                <CardBody>
-                  $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
-                </CardBody>
-              </Card>
-
-               <Card>
-                <CardHeader title="People & Expertise" />
-                <CardBody>
-                  Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who’ve been where you’re going and know how to get you there faster.
-                </CardBody>
-              </Card>
-
-              <Card>
-                <CardHeader title="Engineering & Design Resources" />
-                <CardBody>
-                  From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our proven design system and sprint process cut months off your time to value.
-                </CardBody>
-              </Card>
-
-              <Card>
-                <CardHeader title="Go-to-Market" />
-                <CardBody>
-                  Full-stack marketing support — strategy, creatives, analytics, and paid media execution paired with meaningful test budgets to find signal fast and scale what works.
-                </CardBody>
-              </Card>
-            </div>
-
-{/* Two added cards — wrap them in a grid */}
-<div
+            <div
   style={{
     display: "grid",
     gap: 16,
@@ -255,6 +224,39 @@ export default function App() {
     marginTop: 18
   }}
 >
+  <Card>
+    <CardHeader title="Proven Track Record" />
+    <CardBody>
+      $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces.
+      We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed —
+      and we bring that muscle to your build.
+    </CardBody>
+  </Card>
+
+  <Card>
+    <CardHeader title="People & Expertise" />
+    <CardBody>
+      Founders and advisors with real wins — battle-tested operators in growth, GTM,
+      and product who’ve been where you’re going and know how to get you there faster.
+    </CardBody>
+  </Card>
+
+  <Card>
+    <CardHeader title="Engineering & Design Resources" />
+    <CardBody>
+      From MVP to iteration, you’ll have engineers and designers aligned to your venture.
+      Our proven design system and sprint process cut months off your time to value.
+    </CardBody>
+  </Card>
+
+  <Card>
+    <CardHeader title="Go-to-Market" />
+    <CardBody>
+      Full-stack marketing support — strategy, creatives, analytics, and paid media
+      execution paired with meaningful test budgets to find signal fast and scale what works.
+    </CardBody>
+  </Card>
+
   <Card>
     <CardHeader title="Capital & Runway" />
     <CardBody>
