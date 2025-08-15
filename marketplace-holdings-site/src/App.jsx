@@ -518,13 +518,13 @@ export default function App() {
       <section id="founder-story" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <H2>From Homeless to the Top 0.001%</H2>
+            <H2>From Homeless to the Top 0.1%</H2>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
               <Card>
                 <CardBody>
                   Our founder grew up homeless—shelters, cars, uncertainty. That reality forged relentless persistence,
                   creative problem-solving, and an obsession with building value. Years later, after launching and scaling
-                  multiple companies, he achieved outcomes that place him in the top 0.001%.
+                  multiple companies, he achieved outcomes that place him in the top 0.1%.
                 </CardBody>
               </Card>
               <Card>
