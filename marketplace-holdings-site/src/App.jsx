@@ -449,10 +449,7 @@ export default function App() {
               launch your product while proving traction before going all-in. Build momentum first, then step into a full-time role
               with significant equity and the potential for a life-changing financial outcome.
             </P>
-            <div style={{ marginTop: theme.space(6), display: "flex", gap: 12, alignItems: "center" }}>
-              <Button href="#apply" size="lg">Apply Now</Button>
-              <Button href="#why-us" variant="secondary" size="lg">How It Works</Button>
-            </div>
+            
           </div>
         </Container>
       </section>
