@@ -541,9 +541,7 @@ export default function App() {
                 <Button size="md" onClick={() => alert("Submitted!")}>
                   Submit
                 </Button>
-                <span style={{ fontSize: 13, color: theme.subtext }}>
-                  We'll follow up within a few days.
-                </span>
+                
               </div>
             </form>
           </div>
