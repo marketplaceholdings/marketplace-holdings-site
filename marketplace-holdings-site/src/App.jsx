@@ -1064,8 +1064,8 @@ export default function App() {
 </P>
                 </div>
 
-                <H3 style={{ marginTop: 22 }}>Who We’re Looking For</H3>
-                <ul style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
+                <H3 style={{ marginTop: 38 }}>Who We’re Looking For</H3>
+                <ul style={{ marginTop: 14, paddingLeft: 20, color: theme.subtext }}>
                   <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
                   <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
                   <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
