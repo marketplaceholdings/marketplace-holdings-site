@@ -467,18 +467,12 @@ export default function App() {
             }
           }
           /* Two columns on >=640px, single column below */
-          #apply .apply-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 16px;
-          }
-          @media (min-width: 640px) {
-            #apply .apply-grid {
-              grid-template-columns: 1fr 1fr;
-              column-gap: 20px;
-              row-gap: 16px;
-            }
-          }
+        #apply .apply-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* always single column */
+  row-gap: 16px;
+}
+
         `}</style>
 
         <Container>
