@@ -536,7 +536,7 @@ export default function App() {
       </section>
       
 {/* Why Equity Is Your Shot at Life-Changing Wealth */}
-<section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+<section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
   <Container>
     <div style={{ padding: "48px 0" }}>
       <H2>Why Equity Is Your Shot at Life-Changing Wealth</H2>
