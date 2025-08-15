@@ -1059,7 +1059,9 @@ export default function App() {
                   <P dim>
                     A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins. We’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
                   </P>
-                  <P dim>Here, you’re not an employee. You’re a builder. An owner.</P>
+                  <P dim style={{ margin: 0 }}>
+  Here, you’re not an employee. You’re a builder. An owner.
+</P>
                 </div>
 
                 <H3 style={{ marginTop: 22 }}>Who We’re Looking For</H3>
