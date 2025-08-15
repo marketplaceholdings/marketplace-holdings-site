@@ -958,9 +958,9 @@ export default function App() {
           <P dim>We move fast — it’s possible to go from first conversation to building within two weeks.</P>
 
           <P>
-            <strong>– Mark Jenney</strong>
+            <strong>– Zach Whitehead, Mark Jenney</strong>
             <br />
-            Founder, Marketplace Holdings
+            Founders, Marketplace Holdings
           </P>
         </article>
       </div>
