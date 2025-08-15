@@ -125,29 +125,60 @@ const whoWeWant = [
 ];
 
 const faqs = [
-  { q: "Is this remote?", a: "Yes. U.S. time-zone overlap for a weekly studio sync is preferred." },
-  { q: "How does equity work?", a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance." },
-  { q: "What if I can't commit full-time later?", a: "You can remain part-time, but milestone equity top-ups and leadership scope are tied to full-time commitment." },
-  { q: "What exactly does a part-time Founding CEO do in the first few months?", a: "In the early days, your job is to turn an idea into traction — without risking it all. You'll be validating the market, building the product (with our team's help), and signing up early customers. Think of it as the 'fun' phase of startup building — high creativity, big wins, and zero corporate red tape." },
-  { q: "Do I need prior startup or CEO experience?", a: "Not at all. We look for builders at heart — people who take action, figure things out, and don't wait for permission. Some of our best CEOs are former employees who always knew they had more in them." },
-  { q: "Do I have to be technical or know how to code?", a: "No coding required. You'll have access to world-class developers and designers who bring your vision to life while you focus on leadership, customers, and growth." },
-  { q: "How flexible are the 10 hours per week?", a: "Very. Most of our part-time CEOs work evenings, weekends, or carve out focused blocks during the week. This is designed to fit around your life until it's ready to become your life." },
-  { q: "How long until I can go full-time?", a: "We've seen CEOs make the leap in as little as 6–9 months. Once you have real traction — paying customers, product-market fit, and momentum — you'll be ready to step in full-time with confidence." },
-  { q: "Can I keep my day job while doing this?", a: "Absolutely. In fact, that's the point. We created this program so you can prove the business works before walking away from a steady paycheck." },
-  { q: "What resources will I get to help me succeed?", a: "You'll have hands-on support from day one — developers, designers, marketing firepower, experienced advisors, and funding for the essentials. We're your unfair advantage." },
-  { q: "Will I have a co-founder or be working solo?", a: "You'll have the studio team as your de facto co-founders. We're with you through the highs, lows, pivots, and breakthroughs — you'll never feel like you're building alone." },
-  { q: "Do you provide funding?", a: "Yes. We cover the costs needed to get your marketplace off the ground so you can focus on building, not bootstrapping." },
-  { q: "How does equity work?", a: "You'll own a meaningful stake in the company you're building. As the business grows, so does your ownership value — giving you the chance at a life-changing outcome." },
-  { q: "Do I get paid during the part-time phase?", a: "We offer two tracks: More Equity / No Pay — maximize your upside. Less Equity + Hourly Compensation — get paid while you build." },
-  { q: "What happens if the startup doesn't work out?", a: "Then you walk away with new skills, experience, and a powerful network — at zero financial cost to you. It's the safest way to swing for something big." },
-  { q: "Who are you looking for?", a: "We want hungry builders — people who take ownership, learn fast, and thrive in uncertainty. You don't need the perfect resume, just the right mindset." },
-  { q: "What does the selection process look like?", a: "We start with a short application, then a conversation about your goals, skills, and fit. If it's right, we move quickly — sometimes from first call to start date in under two weeks." },
-  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi‑Fi, and the drive to make it happen." },
-  { q: "Can you share examples of founders who started part-time and succeeded?", a: "Yes — we have multiple CEOs who began with 10 hours a week, proved traction, and are now running their companies full-time with growing teams and healthy revenue. This path works." },
-  { q: "Do I need to have my own business idea?", a: "Nope. We bring the ideas — battle-tested marketplace concepts with proven demand. Your job is to lead, adapt, and bring the vision to life." },
-  { q: "Do I need to code?", a: "No. Our in-house product team ships the platform; you focus on growth, partnerships, and ops." },
-  { q: "Which venture would I lead?", a: "We match your background to one of the active marketplaces and can incubate new ones together." },
+  {
+    q: "Is this remote?",
+    a: "Yes. We’re remote-first. U.S. time-zone overlap for a weekly video call is preferred, but you can build from anywhere with a laptop, Wi-Fi, and the drive to make it happen."
+  },
+  {
+    q: "Do I need prior startup or CEO experience?",
+    a: "No. We’re looking for builders at heart — people who take action, solve problems, and lead projects to completion. If you have initiative and persistence, you can learn the rest with our support."
+  },
+  {
+    q: "Do I have to be technical or know how to code?",
+    a: "You should be comfortable working online and navigating web tools. Being a coder or digital marketer is a plus, but not required — you’ll have access to experienced developers and designers to build the product while you lead and grow the venture."
+  },
+  {
+    q: "How do equity and compensation work?",
+    a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance. Two tracks: More Equity / Deferred Hourly Compensation (maximize upside) or Less Equity + Upfront Hourly Compensation (earn income while you build)."
+  },
+  {
+    q: "How flexible are the ~10 hours per week?",
+    a: "Very. You can work evenings, weekends, or carve out focused blocks during the week. It’s designed to fit around your current commitments until the venture is ready for full-time focus."
+  },
+  {
+    q: "How long until I can go full-time?",
+    a: "That depends on traction — paying customers, product-market fit, and growth momentum. Once the business proves itself, you can step in full-time with confidence."
+  },
+  {
+    q: "Can I keep my day job while doing this?",
+    a: "Yes. The goal is to validate the business before making the leap from your current role."
+  },
+  {
+    q: "What resources and support will I get?",
+    a: "Hands-on help from day one — developers, designers, marketing support, experienced advisors, and funding for the essentials. We act as your partner throughout the build."
+  },
+  {
+    q: "What happens if the startup doesn’t work out?",
+    a: "You’ll walk away with new skills, experience, and a stronger network — without having put your own capital at risk."
+  },
+  {
+    q: "How do you match me with a venture?",
+    a: "We’ll align your background and interests with one of our marketplaces or collaborate on a new concept together."
+  },
+  {
+    q: "What could my equity be worth in ~5 years?",
+    a: "Our aim is for your equity to create transformational wealth if the venture hits its targets. In Track 1, the goal is for your equity stake to be worth $5M to $10M+. In Track 2, the goal is $20M to $40M+. These are targets, not guarantees, and depend on execution, market conditions, and scaling the company into a category leader."
+  },
+  {
+    q: "What exactly does a part-time Founding CEO do in the first few months?",
+    a: "Turn an idea into traction. You’ll validate the market, work with our team to build and refine the product, and start signing up early customers or partners. It’s the builder’s phase — high creativity, fast feedback, and laying the foundation for growth."
+  },
+  {
+    q: "Will I have a co-founder or be working solo?",
+    a: "You won’t be building alone. You’ll be the driving force as the Founding CEO, with our studio alongside you — acting as de facto co-founders across strategy, product, marketing, and key decisions."
+  }
 ];
+
 
 // ---------- APP ----------
 export default function App() {
