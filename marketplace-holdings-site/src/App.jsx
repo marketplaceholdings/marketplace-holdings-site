@@ -188,7 +188,7 @@ export default function App() {
       <section id="why-us" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <H2>Why This Studio Wins</H2>
+            <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               The unfair advantages you get from day one — so you can focus on building, learning, and compounding traction.
             </p>
@@ -200,9 +200,9 @@ export default function App() {
                 <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Multiple exits across SaaS, e-commerce, and marketplaces.</div>
               </div>
               <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Advisory Network</div>
-                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Industry Operators</div>
-                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Hands-on experts in growth, GTM, and product.</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>The Right People in Your Corner</div>
+                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Advisors with Real Wins</div>
+                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Proven operators with battle-tested guidance in growth, GTM & product.</div>
               </div>
               <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
                 <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Product Velocity</div>
