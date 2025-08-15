@@ -1076,9 +1076,9 @@ export default function App() {
                 </P>
 
                 <P>
-                  <strong>– Mark Jenney, Zach Whitehead</strong>
+                  <strong>– Mark Jenney</strong>
                   <br />
-                  Founders, Marketplace Holdings
+                  Founder, Marketplace Holdings
                 </P>
               </article>
             </div>
