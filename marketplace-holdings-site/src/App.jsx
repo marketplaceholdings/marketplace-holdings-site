@@ -7,16 +7,22 @@ const theme = {
   bgAlt: "#f9fafb",
 };
 
-// ---------- UI PRIMITIVES ----------
-const Container = ({ children, wide=false }) => (
-  <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>{children}</div>
+/* =========================
+   UI PRIMITIVES
+   ========================= */
+const Container = ({ children, wide = false }) => (
+  <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>
+    {children}
+  </div>
 );
 
 const H2 = ({ children }) => (
-  <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>{children}</h2>
+  <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>
+    {children}
+  </h2>
 );
 
-const Button = ({ children, variant="primary", size="md", href, onClick }) => {
+const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
   const base = {
     display: "inline-flex",
     alignItems: "center",
@@ -43,16 +49,22 @@ const Badge = ({ children }) => (
 );
 
 const Card = ({ children }) => (
-  <div style={{ border: `1px solid ${theme.border}`, borderRadius: 16, overflow: "hidden", background: "#fff" }}>{children}</div>
+  <div style={{ border: `1px solid ${theme.border}`, borderRadius: 16, overflow: "hidden", background: "#fff" }}>
+    {children}
+  </div>
 );
+
 const CardHeader = ({ title, extra }) => (
   <div style={{ padding: 18, borderBottom: `1px solid ${theme.border}`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
     <div style={{ fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 10 }}>{title}</div>
     {extra}
   </div>
 );
+
 const CardBody = ({ children }) => (
-  <div style={{ padding: 18, color: theme.subtext, fontSize: 14, lineHeight: 1.55 }}>{children}</div>
+  <div style={{ padding: 18, color: theme.subtext, fontSize: 14, lineHeight: 1.55 }}>
+    {children}
+  </div>
 );
 
 const Field = ({ label, children }) => (
@@ -72,32 +84,34 @@ const Textarea = (props) => (
 
 const CheckIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
-    <path d="M20 6L9 17l-5-5"/>
+    <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
-// Inline icons (no external packages)
-const RocketIcon = ({ size=24 }) => (
+const RocketIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z"/>
-    <path d="M12 6l6 6 3-9-9 3z"/>
-    <path d="M15 9l-6 6"/>
-    <path d="M5 7l3 3"/>
-  </svg>
-);
-const ScaleIcon = ({ size=24 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3v18"/>
-    <path d="M7 7h10"/>
-    <path d="M3 7l4 9 4-9"/>
-    <path d="M13 7l4 9 4-9"/>
+    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
+    <path d="M12 6l6 6 3-9-9 3z" />
+    <path d="M15 9l-6 6" />
+    <path d="M5 7l3 3" />
   </svg>
 );
 
-// ---------- DATA ----------
+const ScaleIcon = ({ size = 24 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3v18" />
+    <path d="M7 7h10" />
+    <path d="M3 7l4 9 4-9" />
+    <path d="M13 7l4 9 4-9" />
+  </svg>
+);
+
+/* =========================
+   DATA
+   ========================= */
 const ventures = [
   { name: "RVshare.com", blurb: "The largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
-  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", },
+  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery." },
   { name: "RVing.com", blurb: "A curated marketplace for epic RV trips and premium rentals.", tag: "Travel" },
   { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
   { name: "StemCells.org", blurb: "A compliance-first marketplace for regenerative medicine providers.", tag: "MedTech" },
@@ -137,23 +151,24 @@ const faqs = [
   { q: "What resources will I get to help me succeed?", a: "You'll have hands-on support from day one — developers, designers, marketing firepower, experienced advisors, and funding for the essentials. We're your unfair advantage." },
   { q: "Will I have a co-founder or be working solo?", a: "You'll have the studio team as your de facto co-founders. We're with you through the highs, lows, pivots, and breakthroughs — you'll never feel like you're building alone." },
   { q: "Do you provide funding?", a: "Yes. We cover the costs needed to get your marketplace off the ground so you can focus on building, not bootstrapping." },
-  { q: "How does equity work?", a: "You'll own a meaningful stake in the company you're building. As the business grows, so does your ownership value — giving you the chance at a life-changing outcome." },
   { q: "Do I get paid during the part-time phase?", a: "We offer two tracks: More Equity / No Pay — maximize your upside. Less Equity + Hourly Compensation — get paid while you build." },
   { q: "What happens if the startup doesn't work out?", a: "Then you walk away with new skills, experience, and a powerful network — at zero financial cost to you. It's the safest way to swing for something big." },
   { q: "Who are you looking for?", a: "We want hungry builders — people who take ownership, learn fast, and thrive in uncertainty. You don't need the perfect resume, just the right mindset." },
   { q: "What does the selection process look like?", a: "We start with a short application, then a conversation about your goals, skills, and fit. If it's right, we move quickly — sometimes from first call to start date in under two weeks." },
-  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi‑Fi, and the drive to make it happen." },
+  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi-Fi, and the drive to make it happen." },
   { q: "Can you share examples of founders who started part-time and succeeded?", a: "Yes — we have multiple CEOs who began with 10 hours a week, proved traction, and are now running their companies full-time with growing teams and healthy revenue. This path works." },
   { q: "Do I need to have my own business idea?", a: "Nope. We bring the ideas — battle-tested marketplace concepts with proven demand. Your job is to lead, adapt, and bring the vision to life." },
   { q: "Do I need to code?", a: "No. Our in-house product team ships the platform; you focus on growth, partnerships, and ops." },
   { q: "Which venture would I lead?", a: "We match your background to one of the active marketplaces and can incubate new ones together." },
 ];
 
-// ---------- APP ----------
+/* =========================
+   APP
+   ========================= */
 export default function App() {
   return (
     <div style={{ minHeight: "100vh", background: theme.bg, color: theme.text }}>
-      {/* Header */}
+      {/* ===== Header ===== */}
       <header style={{ position: "sticky", top: 0, zIndex: 40, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(6px)", borderBottom: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
@@ -166,7 +181,7 @@ export default function App() {
         </Container>
       </header>
 
-      {/* Hero */}
+      {/* ===== Hero ===== */}
       <section>
         <Container>
           <div style={{ padding: "84px 0" }}>
@@ -178,13 +193,12 @@ export default function App() {
             </p>
             <div style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center" }}>
               <Button href="#apply" size="lg">Apply Now</Button>
-              
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Why Us Section */}
+      {/* ===== Why Us ===== */}
       <section id="why-us" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -192,72 +206,19 @@ export default function App() {
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.
             </p>
-
-      
-
-            <div
-  style={{
-    display: "grid",
-    gap: 16,
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-    marginTop: 18
-  }}
->
-  <Card>
-    <CardHeader title="Proven Track Record" />
-    <CardBody>
-      $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces.
-      We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed —
-      and we bring that muscle to your build.
-    </CardBody>
-  </Card>
-
-  <Card>
-    <CardHeader title="People & Expertise" />
-    <CardBody>
-      Founders and advisors with real wins — battle-tested operators in growth, GTM,
-      and product who’ve been where you’re going and know how to get you there faster.
-    </CardBody>
-  </Card>
-
-  <Card>
-    <CardHeader title="Engineering & Design Resources" />
-    <CardBody>
-      From MVP to iteration, you’ll have engineers and designers aligned to your venture.
-      Our proven design system and sprint process cut months off your time to value.
-    </CardBody>
-  </Card>
-
-  <Card>
-    <CardHeader title="Go-to-Market" />
-    <CardBody>
-      Full-stack marketing support — strategy, creatives, analytics, and paid media
-      execution paired with meaningful test budgets to find signal fast and scale what works.
-    </CardBody>
-  </Card>
-
-  <Card>
-    <CardHeader title="Capital & Runway" />
-    <CardBody>
-      We fund the early build and provide the runway to test, iterate, and prove traction —
-      without you risking your own capital.
-    </CardBody>
-  </Card>
-
-  <Card>
-    <CardHeader title="Playbooks & Proven Frameworks" />
-    <CardBody>
-      Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error
-      and execute what’s already been proven to work.
-    </CardBody>
-  </Card>
-</div>
-           
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              <Card><CardHeader title="Proven Track Record" /><CardBody>$1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.</CardBody></Card>
+              <Card><CardHeader title="People & Expertise" /><CardBody>Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who’ve been where you’re going and know how to get you there faster.</CardBody></Card>
+              <Card><CardHeader title="Engineering & Design Resources" /><CardBody>From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our proven design system and sprint process cut months off your time to value.</CardBody></Card>
+              <Card><CardHeader title="Go-to-Market" /><CardBody>Full-stack marketing support — strategy, creatives, analytics, and paid media execution paired with meaningful test budgets to find signal fast and scale what works.</CardBody></Card>
+              <Card><CardHeader title="Capital & Runway" /><CardBody>We fund the early build and provide the runway to test, iterate, and prove traction — without you risking your own capital.</CardBody></Card>
+              <Card><CardHeader title="Playbooks & Proven Frameworks" /><CardBody>Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error and execute what’s already been proven to work.</CardBody></Card>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* Why Only Marketplaces */}
+      {/* ===== Why Only Marketplaces ===== */}
       <section id="why-marketplaces" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -265,47 +226,25 @@ export default function App() {
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces on the internet, serving millions of users and generating over $1B in transactions. That journey gave us a <strong>battle-tested playbook</strong> for going from zero to category leader.
             </p>
-
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-              <Card>
-                <CardHeader title="Crack the Chicken-and-Egg" />
-                <CardBody>
-                  Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Scalable Growth Loops" />
-                <CardBody>
-                  Playbooks for acquisition, conversion, and retention that turn early traction into durable network effects.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Capital Efficient" />
-                <CardBody>
-                  Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.
-                </CardBody>
-              </Card>
-            
+              <Card><CardHeader title="Crack the Chicken-and-Egg" /><CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody></Card>
+              <Card><CardHeader title="Scalable Growth Loops" /><CardBody>Playbooks for acquisition, conversion, and retention that turn early traction into durable network effects.</CardBody></Card>
+              <Card><CardHeader title="Capital Efficient" /><CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody></Card>
             </div>
           </div>
         </Container>
       </section>
 
-      
-      {/* Ventures */}
+      {/* ===== Ventures ===== */}
       <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
-              <H2>Active & Incubating Ventures</H2>
-            </div>
+            <H2>Active & Incubating Ventures</H2>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
               {ventures.map((v) => (
                 <Card key={v.name}>
                   <CardHeader title={v.name} />
-                  <CardBody>
-                    <p>{v.blurb}</p>
-                  </CardBody>
+                  <CardBody><p>{v.blurb}</p></CardBody>
                 </Card>
               ))}
             </div>
@@ -313,7 +252,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Model (The Journey) */}
+      {/* ===== The Journey ===== */}
       <section id="model" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -330,7 +269,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Who We're Looking For */}
+      {/* ===== Who We're Looking For ===== */}
       <section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -340,17 +279,16 @@ export default function App() {
                 <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckIcon />
                   <p style={{ margin: 0, color: theme.text }}>
-                    <strong>{item.label}</strong>
-                    {" — "}
-                    {item.desc}
+                    <strong>{item.label}</strong> — {item.desc}
                   </p>
                 </div>
               ))}
+            </div>
           </div>
         </Container>
       </section>
 
-    {/* Equity = Ownership */}
+      {/* ===== Equity = Ownership ===== */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -368,7 +306,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Choose Your Path to */}
+      {/* ===== Choose Your Path ===== */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -376,6 +314,7 @@ export default function App() {
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.
             </p>
+
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
               {/* Track 1 */}
               <Card>
@@ -426,24 +365,24 @@ export default function App() {
 
             <div style={{ marginTop: 18 }}>
               <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: 16, padding: 18 }}>
-                <p style={{ margin: 0, color: theme.text }}><strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the only difference is how you choose to balance short-term income with long-term ownership.</p>
+                <p style={{ margin: 0, color: theme.text }}>
+                  <strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the only difference is how you choose to balance short-term income with long-term ownership.
+                </p>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-                    {/* Apply */}
+      {/* ===== Apply Form ===== */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
         <style>{`
-          /* Maintain equal horizontal padding on mobile */
           @media (max-width: 639px) {
             #apply .apply-wrapper {
               padding-left: 16px;
               padding-right: 16px;
             }
           }
-          /* Two columns on >=640px, single column below */
           #apply .apply-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -457,76 +396,29 @@ export default function App() {
             }
           }
         `}</style>
-
         <Container>
           <div className="apply-wrapper" style={{ padding: "48px 0", maxWidth: 740, margin: "0 auto" }}>
             <H2>Apply</H2>
             <p style={{ color: theme.subtext, marginTop: 6 }}>
               Tell us a bit about you and the venture(s) you're excited about.
             </p>
-
             <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <Field label="Full Name">
-                  <Input placeholder="Jane Founder" />
-                </Field>
-              </div>
-              <div>
-                <Field label="Email">
-                  <Input type="email" placeholder="jane@domain.com" />
-                </Field>
-              </div>
-              <div>
-                <Field label="LinkedIn">
-                  <Input placeholder="https://linkedin.com/in/..." />
-                </Field>
-              </div>
-              <div>
-                <Field label="Location">
-                  <Input placeholder="City, Country" />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Venture Interest">
-                  <Input placeholder="Select or type a venture" />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Why You?">
-                  <Textarea
-                    rows={5}
-                    placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring."
-                  />
-                </Field>
-              </div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field label="Resume / Portfolio URL">
-                  <Input placeholder="https://..." />
-                </Field>
-              </div>
-              <div
-                style={{
-                  gridColumn: "1 / -1",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  marginTop: 6
-                }}
-              >
-                <Button size="md" onClick={() => alert("Submitted!")}>
-                  Submit
-                </Button>
-                
+              <div><Field label="Full Name"><Input placeholder="Jane Founder" /></Field></div>
+              <div><Field label="Email"><Input type="email" placeholder="jane@domain.com" /></Field></div>
+              <div><Field label="LinkedIn"><Input placeholder="https://linkedin.com/in/..." /></Field></div>
+              <div><Field label="Location"><Input placeholder="City, Country" /></Field></div>
+              <div style={{ gridColumn: "1 / -1" }}><Field label="Venture Interest"><Input placeholder="Select or type a venture" /></Field></div>
+              <div style={{ gridColumn: "1 / -1" }}><Field label="Why You?"><Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." /></Field></div>
+              <div style={{ gridColumn: "1 / -1" }}><Field label="Resume / Portfolio URL"><Input placeholder="https://..." /></Field></div>
+              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+                <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
               </div>
             </form>
           </div>
         </Container>
       </section>
 
-
-
-
-      {/* FAQs */}
+      {/* ===== FAQs ===== */}
       <section id="faq" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -542,28 +434,16 @@ export default function App() {
           </div>
         </Container>
       </section>
-      
 
-      {/* Founder Story */}
+      {/* ===== Founder Story ===== */}
       <section id="founder-story" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
             <H2>From Homeless to the Top 1%</H2>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
-              <Card>
-                <CardBody>
-                  Our founder grew up homeless—shelters, cars, uncertainty. That reality forged relentless persistence,
-                  creative problem-solving, and an obsession with building value. Years later, after launching and scaling
-                  multiple companies, he achieved outcomes that place him in the top 0.1%.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardBody>
-                  The mission of Marketplace Holdings is simple: <strong>build products that create massive value in the marketplace and generate life-changing wealth for the people who build them.</strong> With a proven system, capital, and mentorship, you don’t have to risk it all to swing big.
-                </CardBody>
-              </Card>
+              <Card><CardBody>Our founder grew up homeless—shelters, cars, uncertainty. That reality forged relentless persistence, creative problem-solving, and an obsession with building value. Years later, after launching and scaling multiple companies, he achieved outcomes that place him in the top 0.1%.</CardBody></Card>
+              <Card><CardBody>The mission of Marketplace Holdings is simple: <strong>build products that create massive value in the marketplace and generate life-changing wealth for the people who build them.</strong> With a proven system, capital, and mentorship, you don’t have to risk it all to swing big.</CardBody></Card>
             </div>
-
             <div style={{ marginTop: 16 }}>
               <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: 16, padding: 18 }}>
                 <p style={{ margin: 0, color: theme.text }}>
@@ -575,8 +455,7 @@ export default function App() {
         </Container>
       </section>
 
-      
-      {/* Footer */}
+      {/* ===== Footer ===== */}
       <footer style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", justifyContent: "space-between", padding: "18px 0", color: theme.subtext, fontSize: 14 }}>
@@ -584,7 +463,6 @@ export default function App() {
               <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
-           
           </div>
         </Container>
       </footer>
