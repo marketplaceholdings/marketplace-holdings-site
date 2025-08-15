@@ -438,7 +438,7 @@ export default function App() {
 
       {/* Hero */}
       <section style={{ background: `radial-gradient(1000px 400px at 20% -10%, rgba(225,29,72,.06), transparent 60%)` }}>
-        <Container wide>
+        <Container>
           <div style={{ padding: "96px 0 72px" }}>
             <H1>
               Build a Company That Could Change Your Life — <span style={{ color: theme.red }}>Without Quitting Your Job</span>
