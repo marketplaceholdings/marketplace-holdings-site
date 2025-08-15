@@ -397,7 +397,7 @@ export default function App() {
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <H2>Choose Your Path to CEO</H2>
+            <H2>Choose Your Path</H2>
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
               Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.
             </p>
