@@ -285,12 +285,7 @@ export default function App() {
                   Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.
                 </CardBody>
               </Card>
-              <Card>
-                <CardHeader title="Operator DNA" />
-                <CardBody>
-                  We’ve run marketplace P&amp;Ls, shipped product at speed, and scaled operations—now we bring that muscle to your build.
-                </CardBody>
-              </Card>
+            
             </div>
           </div>
         </Container>
