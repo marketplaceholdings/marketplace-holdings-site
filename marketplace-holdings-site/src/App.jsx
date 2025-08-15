@@ -560,23 +560,162 @@ export default function App() {
         </Container>
       </section>
       
-{/* Why Equity Is Your Shot at Life-Changing Wealth */}
+{/* Founder Letter Section (styled for readability) */}
 <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
   <Container>
-    <div style={{ padding: "48px 0" }}>
-      <H2>Why Equity Is Your Shot at Life-Changing Wealth</H2>
-      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-        A paycheck stops the moment you do. Equity keeps working—compounding your effort, your vision, and your wins, even while you sleep.
-      </p>
-      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-        At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them. You don’t have to risk it all or go it alone—we bring the proven system, the capital, and the mentorship.
-      </p>
-      <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-        Here, you’re not an employee. You’re a builder. An owner. Someone whose equity stake grows in value as the marketplace you lead takes off. When your company wins, you don’t just get a pat on the back—you get a life-changing outcome.
-      </p>
+    <div
+      style={{
+        padding: "56px 0",
+        display: "grid",
+        placeItems: "center"
+      }}
+    >
+      <article
+        style={{
+          width: "100%",
+          maxWidth: 860,
+          background: "#fff",
+          border: `1px solid ${theme.border}`,
+          borderRadius: 16,
+          padding: 28,
+          lineHeight: 1.65
+        }}
+      >
+        {/* Letter Heading */}
+        <H2>Dear Future CEO,</H2>
+
+        {/* Lead intro (slightly larger for emphasis) */}
+        <p style={{ marginTop: 10, fontSize: 16.5, color: theme.text }}>
+          Some of the most talented people we’ve ever met aren’t running companies — they’re stuck in jobs.
+          Not because they lack drive, but because the leap feels too risky.
+        </p>
+        <p style={{ marginTop: 10, fontSize: 16.5, color: theme.text }}>
+          We built Marketplace Holdings to change that.
+        </p>
+
+        {/* 10-hours + test-drive */}
+        <p style={{ marginTop: 12, color: theme.subtext }}>
+          That’s why we start our Founding CEOs with <strong>just ~10 hours a week</strong>. It lets you keep your paycheck
+          while proving traction on something that could change your life. It also lets us both see if this is the right fit
+          before going all in. Building a company together is like a marriage — and you don’t marry someone on the first date.
+        </p>
+
+        {/* Divider */}
+        <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
+
+        {/* Opportunity */}
+        <h3 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: theme.text }}>The Opportunity</h3>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          We specialize in building online marketplaces that become category leaders. We’ve done over{" "}
+          <strong>$1B in online sales</strong>, scaled marketplaces from zero to millions of users, and built growth systems
+          that compound over time.
+        </p>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          Now, we’re looking for high-agency, results-driven people who can lead and grow a venture while keeping their current job.
+        </p>
+
+        {/* How it works */}
+        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Here’s How It Works</h3>
+        <ol style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
+          <li style={{ marginTop: 8 }}>
+            <strong>We bring the idea and infrastructure.</strong> Category-defining marketplace concept. Premium domain name.
+            World-class product and marketing team. Capital to build and test — without touching your savings.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong>You bring your leadership and expertise.</strong> We’re looking for people with tech or digital marketing experience
+            who can execute, adapt, and think strategically. This isn’t theory — you’ll be hands-on building, launching, and growing from day one.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong>You start part-time (~10 hours/week).</strong> Work evenings, weekends, or whenever fits your schedule. Build traction before you make the leap.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong>You transition to full-time when it’s working.</strong> Once you’ve got product-market fit, paying customers, and momentum, you go all-in — with significant equity and a proven growth engine behind you.
+          </li>
+        </ol>
+
+        {/* Unfair Advantage in two-column-ish bullets on wider screens */}
+        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Your Unfair Advantage</h3>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 10,
+            marginTop: 10
+          }}
+        >
+          <p style={{ margin: 0, color: theme.subtext }}>
+            <strong>$1B+ Track Record</strong> — We’ve built and exited multiple high-growth companies.
+          </p>
+          <p style={{ margin: 0, color: theme.subtext }}>
+            <strong>Full Product Team</strong> — Engineers, designers, and marketers who move fast.
+          </p>
+          <p style={{ margin: 0, color: theme.subtext }}>
+            <strong>Capital & Runway</strong> — We fund the early build and market tests.
+          </p>
+          <p style={{ margin: 0, color: theme.subtext }}>
+            <strong>Proven Playbooks</strong> — Growth, product, and GTM strategies tested at scale.
+          </p>
+        </div>
+
+        {/* What’s in it for you */}
+        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>What’s In It for You</h3>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          You skip the most dangerous part of starting a company — the lonely, underfunded early days — and jump straight to building
+          with resources, mentorship, and capital in place.
+        </p>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          When the venture scales, we spin it out, and your equity stake could mean a <strong>life-changing financial outcome</strong>.
+        </p>
+
+        {/* Equity rationale (kept concise) */}
+        <div
+          style={{
+            marginTop: 18,
+            padding: 16,
+            border: `1px dashed ${theme.border}`,
+            borderRadius: 12,
+            background: theme.bgAlt
+          }}
+        >
+          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 800, color: theme.text }}>
+            Why Equity Is Your Shot at Life-Changing Wealth
+          </h3>
+          <p style={{ marginTop: 8, color: theme.subtext }}>
+            A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins, even while you sleep.
+            At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
+          </p>
+          <p style={{ marginTop: 8, color: theme.subtext }}>
+            Here, you’re not an employee. You’re a builder. An owner. When your company wins, you don’t just get a pat on the back — you get a life-changing outcome.
+          </p>
+        </div>
+
+        {/* Who we’re looking for */}
+        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Who We’re Looking For</h3>
+        <ul style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
+          <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
+          <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
+          <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
+          <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
+        </ul>
+
+        {/* CTA */}
+        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Your Next Step</h3>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a> or reply to this email with your LinkedIn profile and a few lines on why you’d be a great fit.
+        </p>
+        <p style={{ marginTop: 10, color: theme.subtext }}>
+          We move fast — it’s possible to go from first conversation to building within two weeks.
+        </p>
+
+        <p style={{ marginTop: 16, color: theme.text }}>
+          <strong>– Mark Jenney</strong><br />
+          Founder, Marketplace Holdings
+        </p>
+      </article>
     </div>
   </Container>
 </section>
+
 
       
       {/* Footer */}
