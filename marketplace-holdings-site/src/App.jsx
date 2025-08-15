@@ -1,3 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import * as React from "react";
+
+// --------------------------------------
+// THEME (tokens)
+// --------------------------------------
 const theme = {
   red: "#e11d48",
   text: "#111827",
@@ -5,54 +11,174 @@ const theme = {
   border: "#e5e7eb",
   bg: "#ffffff",
   bgAlt: "#f9fafb",
+
+  // tokens
+  radius: { sm: 8, md: 12, lg: 16, xl: 24 },
+  space: (n) => `${n * 4}px`, // 4px scale
+  shadow: {
+    sm: "0 1px 2px rgba(17,24,39,.06)",
+    md: "0 6px 20px rgba(17,24,39,.08)",
+    lg: "0 16px 40px rgba(17,24,39,.12)",
+  },
 };
 
-// ---------- UI PRIMITIVES ----------
-const Container = ({ children, wide=false }) => (
-  <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>{children}</div>
+// --------------------------------------
+// UI PRIMITIVES
+// --------------------------------------
+const Container = ({ children, wide = false }) => (
+  <div
+    style={{
+      maxWidth: wide ? 1320 : 1080,
+      margin: "0 auto",
+      padding: "0 16px",
+    }}
+  >
+    {children}
+  </div>
 );
 
+const H1 = ({ children }) => (
+  <h1
+    style={{
+      fontSize: 48,
+      lineHeight: 1.1,
+      fontWeight: 800,
+      letterSpacing: -0.5,
+      color: theme.text,
+      margin: 0,
+    }}
+  >
+    {children}
+  </h1>
+);
 const H2 = ({ children }) => (
-  <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>{children}</h2>
+  <h2
+    style={{
+      fontSize: 28,
+      lineHeight: 1.2,
+      fontWeight: 800,
+      letterSpacing: -0.2,
+      color: theme.text,
+      margin: 0,
+    }}
+  >
+    {children}
+  </h2>
+);
+const H3 = ({ children }) => (
+  <h3
+    style={{
+      fontSize: 18,
+      lineHeight: 1.3,
+      fontWeight: 800,
+      color: theme.text,
+      margin: 0,
+    }}
+  >
+    {children}
+  </h3>
+);
+const P = ({ children, dim = false, size = 16 }) => (
+  <p
+    style={{
+      marginTop: theme.space(3),
+      color: dim ? theme.subtext : theme.text,
+      fontSize: size,
+      lineHeight: 1.65,
+    }}
+  >
+    {children}
+  </p>
 );
 
-const Button = ({ children, variant="primary", size="md", href, onClick }) => {
+const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
   const base = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 12,
-    padding: size === "lg" ? "14px 18px" : "10px 14px",
+    borderRadius: theme.radius.lg,
+    padding: size === "lg" ? `${theme.space(3)} ${theme.space(4)}` : `${theme.space(2.5)} ${theme.space(3.5)}`,
     fontWeight: 700,
     border: "1px solid transparent",
     cursor: "pointer",
     textDecoration: "none",
     fontSize: size === "lg" ? 16 : 14,
+    boxShadow: theme.shadow.sm,
+    transition: "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease",
+    outline: "none",
   };
   const variants = {
     primary: { background: theme.red, color: "#fff" },
     secondary: { background: "#fff", color: theme.text, border: `1px solid ${theme.border}` },
+    ghost: { background: "transparent", color: theme.text, border: `1px solid ${theme.border}` },
   };
   const Comp = href ? "a" : "button";
   const props = href ? { href } : { onClick };
-  return <Comp {...props} style={{ ...base, ...variants[variant] }}>{children}</Comp>;
+  return (
+    <Comp
+      {...props}
+      style={{ ...base, ...variants[variant] }}
+      onMouseEnter={(e) => (e.currentTarget.style.boxShadow = theme.shadow.md)}
+      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = theme.shadow.sm)}
+      onMouseDown={(e) => (e.currentTarget.style.transform = "translateY(1px)")}
+      onMouseUp={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+      onFocus={(e) => (e.currentTarget.style.boxShadow = `0 0 0 4px rgba(225,29,72,.15), ${theme.shadow.md}`)}
+      onBlur={(e) => (e.currentTarget.style.boxShadow = theme.shadow.sm)}
+    >
+      {children}
+    </Comp>
+  );
 };
 
 const Badge = ({ children }) => (
-  <span style={{ display: "inline-block", background: "#ffe4e6", color: "#9f1239", padding: "6px 10px", borderRadius: 10, fontSize: 12, fontWeight: 700 }}>{children}</span>
+  <span
+    style={{
+      display: "inline-block",
+      background: "#ffe4e6",
+      color: "#9f1239",
+      padding: "6px 10px",
+      borderRadius: theme.radius.md,
+      fontSize: 12,
+      fontWeight: 700,
+    }}
+  >
+    {children}
+  </span>
 );
 
-const Card = ({ children }) => (
-  <div style={{ border: `1px solid ${theme.border}`, borderRadius: 16, overflow: "hidden", background: "#fff" }}>{children}</div>
+const Card = ({ children, hover = true }) => (
+  <div
+    style={{
+      border: `1px solid ${theme.border}`,
+      borderRadius: theme.radius.lg,
+      overflow: "hidden",
+      background: "#fff",
+      boxShadow: theme.shadow.sm,
+      transition: "transform .12s ease, box-shadow .2s ease",
+    }}
+    onMouseEnter={(e) => hover && (e.currentTarget.style.boxShadow = theme.shadow.md)}
+    onMouseLeave={(e) => hover && (e.currentTarget.style.boxShadow = theme.shadow.sm)}
+  >
+    {children}
+  </div>
 );
 const CardHeader = ({ title, extra }) => (
-  <div style={{ padding: 18, borderBottom: `1px solid ${theme.border}`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+  <div
+    style={{
+      padding: 18,
+      borderBottom: `1px solid ${theme.border}`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 12,
+    }}
+  >
     <div style={{ fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 10 }}>{title}</div>
     {extra}
   </div>
 );
 const CardBody = ({ children }) => (
-  <div style={{ padding: 18, color: theme.subtext, fontSize: 14, lineHeight: 1.55 }}>{children}</div>
+  <div style={{ padding: 18, color: theme.subtext, fontSize: 14, lineHeight: 1.65 }}>{children}</div>
 );
 
 const Field = ({ label, children }) => (
@@ -63,42 +189,95 @@ const Field = ({ label, children }) => (
 );
 
 const Input = (props) => (
-  <input {...props} style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} />
+  <input
+    {...props}
+    style={{
+      width: "100%",
+      padding: "12px 14px",
+      borderRadius: theme.radius.md,
+      border: `1px solid ${theme.border}`,
+      fontSize: 14,
+      outline: "none",
+      transition: "box-shadow .2s ease, border-color .2s ease",
+    }}
+    onFocus={(e) => {
+      e.currentTarget.style.borderColor = theme.red;
+      e.currentTarget.style.boxShadow = "0 0 0 4px rgba(225,29,72,.12)";
+    }}
+    onBlur={(e) => {
+      e.currentTarget.style.borderColor = theme.border;
+      e.currentTarget.style.boxShadow = "none";
+    }}
+    placeholder={props.placeholder}
+  />
 );
 
 const Textarea = (props) => (
-  <textarea {...props} style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: `1px solid ${theme.border}`, fontSize: 14 }} />
+  <textarea
+    {...props}
+    style={{
+      width: "100%",
+      padding: "12px 14px",
+      borderRadius: theme.radius.md,
+      border: `1px solid ${theme.border}`,
+      fontSize: 14,
+      outline: "none",
+      transition: "box-shadow .2s ease, border-color .2s ease",
+      minHeight: 120,
+      resize: "vertical",
+    }}
+    onFocus={(e) => {
+      e.currentTarget.style.borderColor = theme.red;
+      e.currentTarget.style.boxShadow = "0 0 0 4px rgba(225,29,72,.12)";
+    }}
+    onBlur={(e) => {
+      e.currentTarget.style.borderColor = theme.border;
+      e.currentTarget.style.boxShadow = "none";
+    }}
+  />
 );
 
 const CheckIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
-    <path d="M20 6L9 17l-5-5"/>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={theme.red}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ marginTop: 3 }}
+  >
+    <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
 // Inline icons (no external packages)
-const RocketIcon = ({ size=24 }) => (
+const RocketIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z"/>
-    <path d="M12 6l6 6 3-9-9 3z"/>
-    <path d="M15 9l-6 6"/>
-    <path d="M5 7l3 3"/>
+    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
+    <path d="M12 6l6 6 3-9-9 3z" />
+    <path d="M15 9l-6 6" />
+    <path d="M5 7l3 3" />
   </svg>
 );
-const ScaleIcon = ({ size=24 }) => (
+const ScaleIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3v18"/>
-    <path d="M7 7h10"/>
-    <path d="M3 7l4 9 4-9"/>
-    <path d="M13 7l4 9 4-9"/>
+    <path d="M12 3v18" />
+    <path d="M7 7h10" />
+    <path d="M3 7l4 9 4-9" />
+    <path d="M13 7l4 9 4-9" />
   </svg>
 );
 
-// ---------- DATA ----------
+// --------------------------------------
+// DATA
+// --------------------------------------
 const ventures = [
   { name: "RVshare.com", blurb: "The largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
-  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", },
-  { name: "RVing.com", blurb: "A comprehensive RV marketplace and community — from buying, selling, and renting RVs to finding gear, destinations, and services for your next adventure.", tag: "Travel" },
+  { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery." },
+  { name: "RVing.com", blurb: "A curated marketplace for epic RV trips and premium rentals.", tag: "Travel" },
   { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
   { name: "StemCells.org", blurb: "A compliance-first marketplace for regenerative medicine providers.", tag: "MedTech" },
   { name: "UHNW.org", blurb: "A private network and directory for ultra-high-net-worth services.", tag: "Finance" },
@@ -127,89 +306,152 @@ const whoWeWant = [
 const faqs = [
   {
     q: "Is this remote?",
-    a: "Yes. We’re remote-first. U.S. time-zone overlap for a weekly video call is preferred, but you can build from anywhere with a laptop, Wi-Fi, and the drive to make it happen."
+    a: "Yes. We’re remote-first. U.S. time-zone overlap for a weekly video call is preferred, but you can build from anywhere with a laptop, Wi-Fi, and the drive to make it happen.",
   },
   {
     q: "Do I need prior startup or CEO experience?",
-    a: "No. We’re looking for builders at heart — people who take action, solve problems, and lead projects to completion. If you have initiative and persistence, you can learn the rest with our support."
+    a: "No. We’re looking for builders at heart — people who take action, solve problems, and lead projects to completion. If you have initiative and persistence, you can learn the rest with our support.",
   },
   {
     q: "Do I have to be technical or know how to code?",
-    a: "You should be comfortable working online and navigating web tools. Being a coder or digital marketer is a plus, but not required — you’ll have access to experienced developers and designers to build the product while you lead and grow the venture."
+    a: "You should be comfortable working online and navigating web tools. Being a coder or digital marketer is a plus, but not required — you’ll have access to experienced developers and designers to build the product while you lead and grow the venture.",
   },
   {
     q: "How do equity and compensation work?",
-    a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance. Two tracks: More Equity / Deferred Hourly Compensation (maximize upside) or Less Equity + Upfront Hourly Compensation (earn income while you build)."
+    a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance. Two tracks: More Equity / Deferred Hourly Compensation (maximize upside) or Less Equity + Upfront Hourly Compensation (earn income while you build).",
   },
   {
     q: "How flexible are the ~10 hours per week?",
-    a: "Very. You can work evenings, weekends, or carve out focused blocks during the week. It’s designed to fit around your current commitments until the venture is ready for full-time focus."
+    a: "Very. You can work evenings, weekends, or carve out focused blocks during the week. It’s designed to fit around your current commitments until the venture is ready for full-time focus.",
   },
   {
     q: "How long until I can go full-time?",
-    a: "That depends on traction — paying customers, product-market fit, and growth momentum. Once the business proves itself, you can step in full-time with confidence."
+    a: "That depends on traction — paying customers, product-market fit, and growth momentum. Once the business proves itself, you can step in full-time with confidence.",
   },
   {
     q: "Can I keep my day job while doing this?",
-    a: "Yes. The goal is to validate the business before making the leap from your current role."
+    a: "Yes. The goal is to validate the business before making the leap from your current role.",
   },
   {
     q: "What resources and support will I get?",
-    a: "Hands-on help from day one — developers, designers, marketing support, experienced advisors, and funding for the essentials. We act as your partner throughout the build."
+    a: "Hands-on help from day one — developers, designers, marketing support, experienced advisors, and funding for the essentials. We act as your partner throughout the build.",
   },
   {
     q: "What happens if the startup doesn’t work out?",
-    a: "You’ll walk away with new skills, experience, and a stronger network — without having put your own capital at risk."
+    a: "You’ll walk away with new skills, experience, and a stronger network — without having put your own capital at risk.",
   },
   {
     q: "How do you match me with a venture?",
-    a: "We’ll align your background and interests with one of our marketplaces or collaborate on a new concept together."
+    a: "We’ll align your background and interests with one of our marketplaces or collaborate on a new concept together.",
   },
   {
     q: "What could my equity be worth in ~5 years?",
-    a: "Our aim is for your equity to create transformational wealth if the venture hits its targets. In Track 1, the goal is for your equity stake to be worth $5M to $10M+. In Track 2, the goal is $20M to $40M+. These are targets, not guarantees, and depend on execution, market conditions, and scaling the company into a category leader."
+    a: "Our aim is for your equity to create transformational wealth if the venture hits its targets. In Track 1, the goal is for your equity stake to be worth $5M to $10M+. In Track 2, the goal is $20M to $40M+. These are targets, not guarantees, and depend on execution, market conditions, and scaling the company into a category leader.",
   },
   {
     q: "What exactly does a part-time Founding CEO do in the first few months?",
-    a: "Turn an idea into traction. You’ll validate the market, work with our team to build and refine the product, and start signing up early customers or partners. It’s the builder’s phase — high creativity, fast feedback, and laying the foundation for growth."
+    a: "Turn an idea into traction. You’ll validate the market, work with our team to build and refine the product, and start signing up early customers or partners. It’s the builder’s phase — high creativity, fast feedback, and laying the foundation for growth.",
   },
   {
     q: "Will I have a co-founder or be working solo?",
-    a: "You won’t be building alone. You’ll be the driving force as the Founding CEO, with our studio alongside you — acting as de facto co-founders across strategy, product, marketing, and key decisions."
-  }
+    a: "You won’t be building alone. You’ll be the driving force as the Founding CEO, with our studio alongside you — acting as de facto co-founders across strategy, product, marketing, and key decisions.",
+  },
 ];
 
+// --------------------------------------
+// SMALL HOOKS / COMPONENTS
+// --------------------------------------
+function useScrolled() {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return scrolled;
+}
 
-// ---------- APP ----------
+const FAQItem = ({ q, a }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Card>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%",
+          textAlign: "left",
+          padding: 18,
+          border: "none",
+          background: "transparent",
+          cursor: "pointer",
+          fontWeight: 800,
+          fontSize: 16,
+          color: theme.text,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        aria-expanded={open}
+      >
+        <span>{q}</span>
+        <span style={{ transform: `rotate(${open ? 90 : 0}deg)`, transition: "transform .2s ease" }}>›</span>
+      </button>
+      {open && <CardBody>{a}</CardBody>}
+    </Card>
+  );
+};
+
+// --------------------------------------
+// APP
+// --------------------------------------
 export default function App() {
+  const scrolled = useScrolled();
+
   return (
     <div style={{ minHeight: "100vh", background: theme.bg, color: theme.text }}>
       {/* Header */}
-      <header style={{ position: "sticky", top: 0, zIndex: 40, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(6px)", borderBottom: `1px solid ${theme.border}` }}>
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 40,
+          background: "rgba(255,255,255,0.9)",
+          backdropFilter: "blur(6px)",
+          borderBottom: `1px solid ${theme.border}`,
+          boxShadow: scrolled ? theme.shadow.md : "none",
+          transition: "box-shadow .2s ease",
+        }}
+      >
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ width: 32, height: 32, borderRadius: 12, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span style={{ fontWeight: 700 }}>Marketplace Holdings</span>
             </div>
-            <Button href="#apply" size="md">Apply</Button>
+            <div style={{ display: "flex", gap: 8 }}>
+              <Button href="#apply" size="md">Apply</Button>
+            </div>
           </div>
         </Container>
       </header>
 
       {/* Hero */}
-      <section>
-        <Container>
-          <div style={{ padding: "84px 0" }}>
-            <h1 style={{ fontSize: 44, lineHeight: 1.1, fontWeight: 800, letterSpacing: -0.5 }}>
+      <section style={{ background: `radial-gradient(1000px 400px at 20% -10%, rgba(225,29,72,.06), transparent 60%)` }}>
+        <Container wide>
+          <div style={{ padding: "96px 0 72px" }}>
+            <H1>
               Build a Company That Could Change Your Life — <span style={{ color: theme.red }}>Without Quitting Your Job</span>
-            </h1>
-            <p style={{ marginTop: 16, color: theme.subtext, maxWidth: 880, fontSize: 16 }}>
-              <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and launch your product while proving traction before going all-in. Build momentum first, then step into a full-time role with significant equity and the potential for a life-changing financial outcome.
-            </p>
-            <div style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center" }}>
+            </H1>
+            <P dim size={18}>
+              <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time
+              Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and
+              launch your product while proving traction before going all-in. Build momentum first, then step into a full-time role
+              with significant equity and the potential for a life-changing financial outcome.
+            </P>
+            <div style={{ marginTop: theme.space(6), display: "flex", gap: 12, alignItems: "center" }}>
               <Button href="#apply" size="lg">Apply Now</Button>
-              
+              <Button href="#why-us" variant="secondary" size="lg">How It Works</Button>
             </div>
           </div>
         </Container>
@@ -218,72 +460,65 @@ export default function App() {
       {/* Why Us Section */}
       <section id="why-us" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
-            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-              From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.
-            </p>
-
-      
+            <P dim>From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.</P>
 
             <div
-  style={{
-    display: "grid",
-    gap: 16,
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-    marginTop: 18
-  }}
->
-  <Card>
-    <CardHeader title="Proven Track Record" />
-    <CardBody>
-      $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces.
-      We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed —
-      and we bring that muscle to your build.
-    </CardBody>
-  </Card>
+              style={{
+                display: "grid",
+                gap: 16,
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                marginTop: 18,
+              }}
+            >
+              <Card>
+                <CardHeader title="Proven Track Record" />
+                <CardBody>
+                  $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth
+                  loops, and shipped product at speed — and we bring that muscle to your build.
+                </CardBody>
+              </Card>
 
-  <Card>
-    <CardHeader title="People & Expertise" />
-    <CardBody>
-      Founders and advisors with real wins — battle-tested operators in growth, GTM,
-      and product who’ve been where you’re going and know how to get you there faster.
-    </CardBody>
-  </Card>
+              <Card>
+                <CardHeader title="People & Expertise" />
+                <CardBody>
+                  Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who’ve been where you’re going
+                  and know how to get you there faster.
+                </CardBody>
+              </Card>
 
-  <Card>
-    <CardHeader title="Engineering & Design Resources" />
-    <CardBody>
-      From MVP to iteration, you’ll have engineers and designers aligned to your venture.
-      Our proven design system and sprint process cut months off your time to value.
-    </CardBody>
-  </Card>
+              <Card>
+                <CardHeader title="Engineering & Design Resources" />
+                <CardBody>
+                  From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our proven design system and sprint
+                  process cut months off your time to value.
+                </CardBody>
+              </Card>
 
-  <Card>
-    <CardHeader title="Go-to-Market" />
-    <CardBody>
-      Full-stack marketing support — strategy, creatives, analytics, and paid media
-      execution paired with meaningful test budgets to find signal fast and scale what works.
-    </CardBody>
-  </Card>
+              <Card>
+                <CardHeader title="Go-to-Market" />
+                <CardBody>
+                  Full-stack marketing support — strategy, creatives, analytics, and paid media execution paired with meaningful test budgets
+                  to find signal fast and scale what works.
+                </CardBody>
+              </Card>
 
-  <Card>
-    <CardHeader title="Capital & Runway" />
-    <CardBody>
-      We fund the early build and provide the runway to test, iterate, and prove traction —
-      without you risking your own capital.
-    </CardBody>
-  </Card>
+              <Card>
+                <CardHeader title="Capital & Runway" />
+                <CardBody>
+                  We fund the early build and provide the runway to test, iterate, and prove traction — without you risking your own capital.
+                </CardBody>
+              </Card>
 
-  <Card>
-    <CardHeader title="Playbooks & Proven Frameworks" />
-    <CardBody>
-      Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error
-      and execute what’s already been proven to work.
-    </CardBody>
-  </Card>
-</div>
-           
+              <Card>
+                <CardHeader title="Playbooks & Proven Frameworks" />
+                <CardBody>
+                  Battle-tested playbooks for growth, product, and GTM — so you can skip trial-and-error and execute what’s already been
+                  proven to work.
+                </CardBody>
+              </Card>
+            </div>
           </div>
         </Container>
       </section>
@@ -291,42 +526,36 @@ export default function App() {
       {/* Why Only Marketplaces */}
       <section id="why-marketplaces" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <H2>Why We Only Build Online Marketplaces</H2>
-            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-              We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces on the internet, serving millions of users and generating over $1B in transactions. That journey gave us a <strong>battle-tested playbook</strong> for going from zero to category leader.
-            </p>
+            <P dim>
+              We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces on the internet, serving
+              millions of users and generating over $1B in transactions. That journey gave us a <strong>battle-tested playbook</strong> for
+              going from zero to category leader.
+            </P>
 
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
               <Card>
                 <CardHeader title="Crack the Chicken-and-Egg" />
-                <CardBody>
-                  Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.
-                </CardBody>
+                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
               </Card>
               <Card>
                 <CardHeader title="Scalable Growth Loops" />
-                <CardBody>
-                  Playbooks for acquisition, conversion, and retention that turn early traction into durable network effects.
-                </CardBody>
+                <CardBody>Playbooks for acquisition, conversion, and retention that turn early traction into durable network effects.</CardBody>
               </Card>
               <Card>
                 <CardHeader title="Capital Efficient" />
-                <CardBody>
-                  Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.
-                </CardBody>
+                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
               </Card>
-            
             </div>
           </div>
         </Container>
       </section>
 
-      
       {/* Ventures */}
       <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
               <H2>Active & Incubating Ventures</H2>
             </div>
@@ -335,7 +564,7 @@ export default function App() {
                 <Card key={v.name}>
                   <CardHeader title={v.name} />
                   <CardBody>
-                    <p>{v.blurb}</p>
+                    <p style={{ margin: 0 }}>{v.blurb}</p>
                   </CardBody>
                 </Card>
               ))}
@@ -347,7 +576,7 @@ export default function App() {
       {/* Model (The Journey) */}
       <section id="model" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <H2>The Journey</H2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 18 }}>
               {steps.map((s) => (
@@ -361,56 +590,52 @@ export default function App() {
         </Container>
       </section>
 
-     {/* Who We're Looking For */}
-<section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
-  <Container>
-    <div style={{ padding: "48px 0" }}>
-      <H2>Who We're Looking For</H2>
-      <div
-        style={{
-          display: "grid",
-          gap: 10,
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          marginTop: 12,
-        }}
-      >
-        {whoWeWant.map((item) => (
-          <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-            <CheckIcon />
-            <p style={{ margin: 0, color: theme.text }}>
-              <strong>{item.label}</strong>
-              {" — "}
-              {item.desc}
-            </p>
+      {/* Who We're Looking For */}
+      <section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
+            <H2>Who We're Looking For</H2>
+            <div
+              style={{
+                display: "grid",
+                gap: 10,
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                marginTop: 12,
+              }}
+            >
+              {whoWeWant.map((item) => (
+                <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckIcon />
+                  <p style={{ margin: 0, color: theme.text }}>
+                    <strong>{item.label}</strong>
+                    {" — "}
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div> {/* ✅ this was missing */}
-  </Container>
-</section>
+        </Container>
+      </section>
 
-  
-
-      {/* Choose Your Path to */}
+      {/* Choose Your Path */}
       <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <H2>Choose Your Path</H2>
-            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-              Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.
-            </p>
+            <P dim>Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.</P>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
               {/* Track 1 */}
               <Card>
                 <CardBody>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{ background: "#ffe4e6", padding: 10, borderRadius: 12, display: "inline-flex" }}>
+                    <div style={{ background: "#ffe4e6", padding: 10, borderRadius: theme.radius.md, display: "inline-flex" }}>
                       <RocketIcon />
                     </div>
                     <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>High Equity, Deferred Compensation</h3>
                   </div>
-                  <p style={{ marginTop: 12, color: theme.text }}>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</p>
-                  <ul style={{ marginTop: 12, paddingLeft: 18 }}>
+                  <P>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</P>
+                  <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.65 }}>
                     <li><strong>Largest equity stake</strong> (15–25%).</li>
                     <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
                     <li><strong>Deferred salary</strong> until traction milestone.</li>
@@ -418,7 +643,23 @@ export default function App() {
                   </ul>
                   <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Founders with runway who want to swing for the fences.</div>
                   <div style={{ marginTop: 14 }}>
-                    <a href="#apply-track-1" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "12px 16px", background: theme.red, color: "#fff", fontWeight: 700, textDecoration: "none" }}>Apply for Track 1</a>
+                    <a
+                      href="#apply-track-1"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: theme.radius.lg,
+                        padding: "12px 16px",
+                        background: theme.red,
+                        color: "#fff",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        boxShadow: theme.shadow.sm,
+                      }}
+                    >
+                      Apply for Track 1
+                    </a>
                   </div>
                 </CardBody>
               </Card>
@@ -427,13 +668,13 @@ export default function App() {
               <Card>
                 <CardBody>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{ background: "#f3f4f6", padding: 10, borderRadius: 12, display: "inline-flex" }}>
+                    <div style={{ background: "#f3f4f6", padding: 10, borderRadius: theme.radius.md, display: "inline-flex" }}>
                       <ScaleIcon />
                     </div>
                     <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Smaller Equity, Upfront Compensation</h3>
                   </div>
-                  <p style={{ marginTop: 12, color: theme.text }}>For the strategic builder. Keep some cash flow now while building long-term equity value.</p>
-                  <ul style={{ marginTop: 12, paddingLeft: 18 }}>
+                  <P>For the strategic builder. Keep some cash flow now while building long-term equity value.</P>
+                  <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.65 }}>
                     <li><strong>Meaningful equity stake</strong> (8–15%).</li>
                     <li><strong>Monthly stipend</strong> from day one.</li>
                     <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
@@ -441,22 +682,41 @@ export default function App() {
                   </ul>
                   <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Builders who want to de-risk the leap while keeping upside.</div>
                   <div style={{ marginTop: 14 }}>
-                    <a href="#apply-track-2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "12px 16px", background: "#111827", color: "#fff", fontWeight: 700, textDecoration: "none" }}>Apply for Track 2</a>
+                    <a
+                      href="#apply-track-2"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: theme.radius.lg,
+                        padding: "12px 16px",
+                        background: "#111827",
+                        color: "#fff",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        boxShadow: theme.shadow.sm,
+                      }}
+                    >
+                      Apply for Track 2
+                    </a>
                   </div>
                 </CardBody>
               </Card>
             </div>
 
             <div style={{ marginTop: 18 }}>
-              <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: 16, padding: 18 }}>
-                <p style={{ margin: 0, color: theme.text }}><strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the only difference is how you choose to balance short-term income with long-term ownership.</p>
+              <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: theme.radius.lg, padding: 18 }}>
+                <p style={{ margin: 0, color: theme.text }}>
+                  <strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the only difference is how you choose to
+                  balance short-term income with long-term ownership.
+                </p>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-                    {/* Apply */}
+      {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
         <style>{`
           /* Maintain equal horizontal padding on mobile */
@@ -466,21 +726,20 @@ export default function App() {
               padding-right: 16px;
             }
           }
-          /* Two columns on >=640px, single column below */
-        #apply .apply-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* always single column */
-  row-gap: 16px;
-}
-
+          /* Always single column for clarity */
+          #apply .apply-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 16px;
+          }
+          a { color: ${theme.red}; text-decoration-thickness: 2px; text-underline-offset: 2px; }
+          a:hover { opacity: .9; }
         `}</style>
 
         <Container>
-          <div className="apply-wrapper" style={{ padding: "48px 0", maxWidth: 740, margin: "0 auto" }}>
+          <div className="apply-wrapper" style={{ padding: `${theme.space(12)} 0`, maxWidth: 740, margin: "0 auto" }}>
             <H2>Apply</H2>
-            <p style={{ color: theme.subtext, marginTop: 6 }}>
-              Tell us a bit about you and the venture(s) you're excited about.
-            </p>
+            <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
 
             <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
               <div>
@@ -510,10 +769,7 @@ export default function App() {
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field label="Why You?">
-                  <Textarea
-                    rows={5}
-                    placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring."
-                  />
+                  <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
                 </Field>
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
@@ -521,212 +777,179 @@ export default function App() {
                   <Input placeholder="https://..." />
                 </Field>
               </div>
-              <div
-                style={{
-                  gridColumn: "1 / -1",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  marginTop: 6
-                }}
-              >
+              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
                 <Button size="md" onClick={() => alert("Submitted!")}>
                   Submit
                 </Button>
-                
               </div>
             </form>
           </div>
         </Container>
       </section>
 
-
-
-
       {/* FAQs */}
       <section id="faq" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
-          <div style={{ padding: "48px 0" }}>
+          <div style={{ padding: `${theme.space(12)} 0` }}>
             <H2>FAQs</H2>
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
               {faqs.map((f) => (
-                <Card key={f.q}>
-                  <CardHeader title={f.q} />
-                  <CardBody>{f.a}</CardBody>
-                </Card>
+                <FAQItem key={f.q} q={f.q} a={f.a} />
               ))}
             </div>
           </div>
         </Container>
       </section>
-      
-{/* Founder Letter Section (styled for readability) */}
-<section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
-  <Container>
-    <div
-      style={{
-        padding: "56px 0",
-        display: "grid",
-        placeItems: "center"
-      }}
-    >
-      <article
-        style={{
-          width: "100%",
-          maxWidth: 860,
-          background: "#fff",
-          border: `1px solid ${theme.border}`,
-          borderRadius: 16,
-          padding: 28,
-          lineHeight: 1.65
-        }}
-      >
-        {/* Letter Heading */}
-        <H2>Dear Future CEO,</H2>
 
-        {/* Lead intro (slightly larger for emphasis) */}
-        <p style={{ marginTop: 10, fontSize: 16.5, color: theme.text }}>
-          Some of the most talented people we’ve ever met aren’t running companies — they’re stuck in jobs.
-          Not because they lack drive, but because the leap feels too risky.
-        </p>
-        <p style={{ marginTop: 10, fontSize: 16.5, color: theme.text }}>
-          We built Marketplace Holdings to change that.
-        </p>
+      {/* Founder Letter Section (styled for readability) */}
+      <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
+        <Container>
+          <div style={{ padding: "56px 0", display: "grid", placeItems: "center" }}>
+            <article
+              style={{
+                width: "100%",
+                maxWidth: 860,
+                background: "#fff",
+                border: `1px solid ${theme.border}`,
+                borderRadius: theme.radius.lg,
+                padding: 28,
+                lineHeight: 1.65,
+                boxShadow: theme.shadow.sm,
+              }}
+            >
+              <H2>Dear Future CEO,</H2>
+              <P size={16.5}>
+                Some of the most talented people we’ve ever met aren’t running companies — they’re stuck in jobs. Not because they lack
+                drive, but because the leap feels too risky.
+              </P>
+              <P size={16.5}>We built Marketplace Holdings to change that.</P>
 
-        {/* 10-hours + test-drive */}
-        <p style={{ marginTop: 12, color: theme.subtext }}>
-          That’s why we start our Founding CEOs with <strong>just ~10 hours a week</strong>. It lets you keep your paycheck
-          while proving traction on something that could change your life. It also lets us both see if this is the right fit
-          before going all in. Building a company together is like a marriage — and you don’t marry someone on the first date.
-        </p>
+              <P dim>
+                That’s why we start our Founding CEOs with <strong>just ~10 hours a week</strong>. It lets you keep your paycheck while
+                proving traction on something that could change your life. It also lets us both see if this is the right fit before going all
+                in. Building a company together is like a marriage — and you don’t marry someone on the first date.
+              </P>
 
-        {/* Divider */}
-        <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
+              <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-        {/* Opportunity */}
-        <h3 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: theme.text }}>The Opportunity</h3>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          We specialize in building online marketplaces that become category leaders. We’ve done over{" "}
-          <strong>$1B in online sales</strong>, scaled marketplaces from zero to millions of users, and built growth systems
-          that compound over time.
-        </p>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          Now, we’re looking for high-agency, results-driven people who can lead and grow a venture while keeping their current job.
-        </p>
+              <H3>The Opportunity</H3>
+              <P dim>
+                We specialize in building online marketplaces that become category leaders. We’ve done over <strong>$1B in online sales</strong>,
+                scaled marketplaces from zero to millions of users, and built growth systems that compound over time.
+              </P>
+              <P dim>Now, we’re looking for high-agency, results-driven people who can lead and grow a venture while keeping their current job.</P>
 
-        {/* How it works */}
-        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Here’s How It Works</h3>
-        <ol style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
-          <li style={{ marginTop: 8 }}>
-            <strong>We bring the idea and infrastructure.</strong> Category-defining marketplace concept. Premium domain name.
-            World-class product and marketing team. Capital to build and test — without touching your savings.
-          </li>
-          <li style={{ marginTop: 8 }}>
-            <strong>You bring your leadership and expertise.</strong> We’re looking for people with tech or digital marketing experience
-            who can execute, adapt, and think strategically. This isn’t theory — you’ll be hands-on building, launching, and growing from day one.
-          </li>
-          <li style={{ marginTop: 8 }}>
-            <strong>You start part-time (~10 hours/week).</strong> Work evenings, weekends, or whenever fits your schedule. Build traction before you make the leap.
-          </li>
-          <li style={{ marginTop: 8 }}>
-            <strong>You transition to full-time when it’s working.</strong> Once you’ve got product-market fit, paying customers, and momentum, you go all-in — with significant equity and a proven growth engine behind you.
-          </li>
-        </ol>
+              <H3 style={{ marginTop: 22 }}>Here’s How It Works</H3>
+              <ol style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
+                <li style={{ marginTop: 8 }}>
+                  <strong>We bring the idea and infrastructure.</strong> Category-defining marketplace concept. Premium domain name. World-class
+                  product and marketing team. Capital to build and test — without touching your savings.
+                </li>
+                <li style={{ marginTop: 8 }}>
+                  <strong>You bring your leadership and expertise.</strong> We’re looking for people with tech or digital marketing experience
+                  who can execute, adapt, and think strategically. This isn’t theory — you’ll be hands-on building, launching, and growing from day one.
+                </li>
+                <li style={{ marginTop: 8 }}>
+                  <strong>You start part-time (~10 hours/week).</strong> Work evenings, weekends, or whenever fits your schedule. Build traction before you make the leap.
+                </li>
+                <li style={{ marginTop: 8 }}>
+                  <strong>You transition to full-time when it’s working.</strong> Once you’ve got product-market fit, paying customers, and momentum, you go all-in — with significant equity and a proven growth engine behind you.
+                </li>
+              </ol>
 
-        {/* Unfair Advantage in two-column-ish bullets on wider screens */}
-        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Your Unfair Advantage</h3>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 10,
-            marginTop: 10
-          }}
-        >
-          <p style={{ margin: 0, color: theme.subtext }}>
-            <strong>$1B+ Track Record</strong> — We’ve built and exited multiple high-growth companies.
-          </p>
-          <p style={{ margin: 0, color: theme.subtext }}>
-            <strong>Full Product Team</strong> — Engineers, designers, and marketers who move fast.
-          </p>
-          <p style={{ margin: 0, color: theme.subtext }}>
-            <strong>Capital & Runway</strong> — We fund the early build and market tests.
-          </p>
-          <p style={{ margin: 0, color: theme.subtext }}>
-            <strong>Proven Playbooks</strong> — Growth, product, and GTM strategies tested at scale.
-          </p>
-        </div>
+              <H3 style={{ marginTop: 22 }}>Your Unfair Advantage</H3>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                  gap: 10,
+                  marginTop: 10,
+                }}
+              >
+                <P dim style={{ margin: 0 }}>
+                  <strong>$1B+ Track Record</strong> — We’ve built and exited multiple high-growth companies.
+                </P>
+                <P dim style={{ margin: 0 }}>
+                  <strong>Full Product Team</strong> — Engineers, designers, and marketers who move fast.
+                </P>
+                <P dim style={{ margin: 0 }}>
+                  <strong>Capital & Runway</strong> — We fund the early build and market tests.
+                </P>
+                <P dim style={{ margin: 0 }}>
+                  <strong>Proven Playbooks</strong> — Growth, product, and GTM strategies tested at scale.
+                </P>
+              </div>
 
-        {/* What’s in it for you */}
-        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>What’s In It for You</h3>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          You skip the most dangerous part of starting a company — the lonely, underfunded early days — and jump straight to building
-          with resources, mentorship, and capital in place.
-        </p>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          When the venture scales, we spin it out, and your equity stake could mean a <strong>life-changing financial outcome</strong>.
-        </p>
+              <H3 style={{ marginTop: 22 }}>What’s In It for You</H3>
+              <P dim>
+                You skip the most dangerous part of starting a company — the lonely, underfunded early days — and jump straight to building
+                with resources, mentorship, and capital in place.
+              </P>
+              <P dim>
+                When the venture scales, we spin it out, and your equity stake could mean a <strong>life-changing financial outcome</strong>.
+              </P>
 
-        {/* Equity rationale (kept concise) */}
-        <div
-          style={{
-            marginTop: 18,
-            padding: 16,
-            border: `1px dashed ${theme.border}`,
-            borderRadius: 12,
-            background: theme.bgAlt
-          }}
-        >
-          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 800, color: theme.text }}>
-            Why Equity Is Your Shot at Life-Changing Wealth
-          </h3>
-          <p style={{ marginTop: 8, color: theme.subtext }}>
-            A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins, even while you sleep.
-            At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
-          </p>
-          <p style={{ marginTop: 8, color: theme.subtext }}>
-            Here, you’re not an employee. You’re a builder. An owner. When your company wins, you don’t just get a pat on the back — you get a life-changing outcome.
-          </p>
-        </div>
+              <div
+                style={{
+                  marginTop: 18,
+                  padding: 16,
+                  border: `1px dashed ${theme.border}`,
+                  borderRadius: theme.radius.md,
+                  background: theme.bgAlt,
+                }}
+              >
+                <H3>Why Equity Is Your Shot at Life-Changing Wealth</H3>
+                <P dim>
+                  A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins, even while you sleep. At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
+                </P>
+                <P dim>
+                  Here, you’re not an employee. You’re a builder. An owner. When your company wins, you don’t just get a pat on the back — you get a life-changing outcome.
+                </P>
+              </div>
 
-        {/* Who we’re looking for */}
-        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Who We’re Looking For</h3>
-        <ul style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
-          <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
-          <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
-          <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
-          <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
-        </ul>
+              <H3 style={{ marginTop: 22 }}>Who We’re Looking For</H3>
+              <ul style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
+                <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
+                <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
+                <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
+                <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
+              </ul>
 
-        {/* CTA */}
-        <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Your Next Step</h3>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a> .
-        </p>
-        <p style={{ marginTop: 10, color: theme.subtext }}>
-          We move fast — it’s possible to go from first conversation to building within two weeks.
-        </p>
+              <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
+              <P dim>
+                If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a> or reply to this email with your LinkedIn profile and a few lines on why you’d be a great fit.
+              </P>
+              <P dim>We move fast — it’s possible to go from first conversation to building within two weeks.</P>
 
-        <p style={{ marginTop: 16, color: theme.text }}>
-          <strong>– Mark Jenney</strong><br />
-          Founder, Marketplace Holdings
-        </p>
-      </article>
-    </div>
-  </Container>
-</section>
+              <P>
+                <strong>– Mark Jenney</strong>
+                <br />
+                Founder, Marketplace Holdings
+              </P>
+            </article>
+          </div>
+        </Container>
+      </section>
 
-
-      
       {/* Footer */}
       <footer style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", justifyContent: "space-between", padding: "18px 0", color: theme.subtext, fontSize: 14 }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 12,
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "18px 0",
+              color: theme.subtext,
+              fontSize: 14,
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
-           
           </div>
         </Container>
       </footer>
