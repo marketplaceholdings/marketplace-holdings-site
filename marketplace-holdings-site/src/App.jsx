@@ -701,7 +701,7 @@ export default function App() {
         {/* CTA */}
         <h3 style={{ marginTop: 22, fontSize: 18, fontWeight: 800, color: theme.text }}>Your Next Step</h3>
         <p style={{ marginTop: 10, color: theme.subtext }}>
-          If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a> or reply to this email with your LinkedIn profile and a few lines on why you’d be a great fit.
+          If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a> .
         </p>
         <p style={{ marginTop: 10, color: theme.subtext }}>
           We move fast — it’s possible to go from first conversation to building within two weeks.
