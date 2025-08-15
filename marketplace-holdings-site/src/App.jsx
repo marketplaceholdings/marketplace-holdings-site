@@ -225,23 +225,23 @@ export default function App() {
               </Card>
 
                <Card>
-                <CardHeader title="Proven Track Record" />
+                <CardHeader title="People & Expertise" />
                 <CardBody>
-                  $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
+                  Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who’ve been where you’re going and know how to get you there faster.
                 </CardBody>
               </Card>
 
               <Card>
-                <CardHeader title="Engineering & Design Resources" />
+                <CardHeader title="Engineering & Design" />
                 <CardBody>
-                  Access to skilled engineers and designers aligned to your venture — from product spec and UX to MVP and iteration. Standardized components and processes accelerate time to value.
+                  From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our proven design system and sprint process cut months off your time to value.
                 </CardBody>
               </Card>
 
               <Card>
-                <CardHeader title="Full-Stack Marketing Support" />
+                <CardHeader title="Go-to-Market" />
                 <CardBody>
-                  Strategy, creatives, analytics, and paid media execution. We pair <strong>test budgets</strong> with a disciplined experimentation cadence to find signal fast and scale what works.
+                  Full-stack marketing support — strategy, creatives, analytics, and paid media execution paired with meaningful test budgets to find signal fast and scale what works.
                 </CardBody>
               </Card>
             </div>
