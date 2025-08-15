@@ -355,38 +355,18 @@ export default function App() {
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
-            <H2>Why Equity Is Your Best Shot at Real Wealth</H2>
+            <H2>Why Equity Is Your Shot at Life-Changing Wealth</H2>
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-              Salaries stop when you stop working. Equity doesn’t. Ownership lets your effort compound—even while you sleep.
-              Our studio model is designed so you earn <strong>meaningful equity</strong> in the company you help build.
-              When your marketplace wins, you win—often in a life-changing way.
+              A paycheck stops the moment you do. Equity keeps working—compounding your effort, your vision, and your wins, even while you sleep.
+            </p>
+             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              At Marketplace Holdings, we’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them. You don’t have to risk it all or go it alone—we bring the proven system, the capital, and the mentorship.
+            </p>
+             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              Here, you’re not an employee. You’re a builder. An owner. Someone whose equity stake grows in value as the marketplace you lead takes off. When your company wins, you don’t just get a pat on the back—you get a life-changing outcome.
             </p>
 
-            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-              <Card>
-                <CardHeader title="Upside, Not Just Income" />
-                <CardBody>
-                  Equity aligns incentives and captures the long-term value you’re creating—beyond a monthly paycheck.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Milestone Top-Ups" />
-                <CardBody>
-                  Perform and get rewarded. Hit traction milestones and unlock additional ownership grants.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Spin-Out Potential" />
-                <CardBody>
-                  When the venture matures, we spin it out. Your equity becomes a direct stake in a standalone company.
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Founder Economics" />
-                <CardBody>
-                  Choose the track that fits your appetite—defer cash for higher equity or take a stipend with meaningful ownership.
-                </CardBody>
-              </Card>
+           
             </div>
           </div>
         </Container>
