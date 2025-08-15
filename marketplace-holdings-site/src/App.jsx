@@ -8,7 +8,7 @@ const theme = {
 };
 
 // ---------- UI PRIMITIVES ----------
-const Container = ({ children, wide = false }) => (
+const Container = ({ children, wide=false }) => (
   <div style={{ maxWidth: wide ? 1280 : 1100, margin: "0 auto", padding: "0 16px" }}>{children}</div>
 );
 
@@ -16,7 +16,7 @@ const H2 = ({ children }) => (
   <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: -0.2, color: theme.text }}>{children}</h2>
 );
 
-const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
+const Button = ({ children, variant="primary", size="md", href, onClick }) => {
   const base = {
     display: "inline-flex",
     alignItems: "center",
@@ -72,25 +72,25 @@ const Textarea = (props) => (
 
 const CheckIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
-    <path d="M20 6L9 17l-5-5" />
+    <path d="M20 6L9 17l-5-5"/>
   </svg>
 );
 
 // Inline icons (no external packages)
-const RocketIcon = ({ size = 24 }) => (
+const RocketIcon = ({ size=24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
-    <path d="M12 6l6 6 3-9-9 3z" />
-    <path d="M15 9l-6 6" />
-    <path d="M5 7l3 3" />
+    <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z"/>
+    <path d="M12 6l6 6 3-9-9 3z"/>
+    <path d="M15 9l-6 6"/>
+    <path d="M5 7l3 3"/>
   </svg>
 );
-const ScaleIcon = ({ size = 24 }) => (
+const ScaleIcon = ({ size=24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3v18" />
-    <path d="M7 7h10" />
-    <path d="M3 7l4 9 4-9" />
-    <path d="M13 7l4 9 4-9" />
+    <path d="M12 3v18"/>
+    <path d="M7 7h10"/>
+    <path d="M3 7l4 9 4-9"/>
+    <path d="M13 7l4 9 4-9"/>
   </svg>
 );
 
@@ -142,7 +142,7 @@ const faqs = [
   { q: "What happens if the startup doesn't work out?", a: "Then you walk away with new skills, experience, and a powerful network — at zero financial cost to you. It's the safest way to swing for something big." },
   { q: "Who are you looking for?", a: "We want hungry builders — people who take ownership, learn fast, and thrive in uncertainty. You don't need the perfect resume, just the right mindset." },
   { q: "What does the selection process look like?", a: "We start with a short application, then a conversation about your goals, skills, and fit. If it's right, we move quickly — sometimes from first call to start date in under two weeks." },
-  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi-Fi, and the drive to make it happen." },
+  { q: "Where do I need to be located?", a: "We're remote-first. You can build from anywhere — all you need is a laptop, Wi‑Fi, and the drive to make it happen." },
   { q: "Can you share examples of founders who started part-time and succeeded?", a: "Yes — we have multiple CEOs who began with 10 hours a week, proved traction, and are now running their companies full-time with growing teams and healthy revenue. This path works." },
   { q: "Do I need to have my own business idea?", a: "Nope. We bring the ideas — battle-tested marketplace concepts with proven demand. Your job is to lead, adapt, and bring the vision to life." },
   { q: "Do I need to code?", a: "No. Our in-house product team ships the platform; you focus on growth, partnerships, and ops." },
@@ -184,7 +184,79 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Ventures (shortened render for brevity) */}
+      {/* Why Us Section */}
+      <section id="why-us" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>Why This Studio Wins</H2>
+            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              The unfair advantages you get from day one — so you can focus on building, learning, and compounding traction.
+            </p>
+
+            <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginTop: 18 }}>
+              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
+                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Operator Track Record</div>
+                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>$1B+ Online Sales</div>
+                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Multiple exits across SaaS, e-commerce, and marketplaces.</div>
+              </div>
+              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
+                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Advisory Network</div>
+                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Industry Operators</div>
+                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Hands-on experts in growth, GTM, and product.</div>
+              </div>
+              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
+                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Product Velocity</div>
+                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Engineering & Design Resources</div>
+                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>MVP to live product with a proven design system and sprints.</div>
+              </div>
+              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
+                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Go-to-Market</div>
+                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Strategy + Budget</div>
+                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Creative, analytics, and paid media with meaningful test budgets.</div>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Founded by Proven Operators" />
+                <CardBody>
+                  Our team has generated <strong>$1B+ in lifetime online revenue</strong> with <strong>multiple successful exits</strong>. We've run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
+                </CardBody>
+              </Card>
+
+              <Card>
+                <CardHeader title="Advisors with Real Wins" />
+                <CardBody>
+                  A curated network of growth leaders and domain experts who've been where you're going. Expect practical guidance on GTM, hiring, and navigating zero-to-one.
+                </CardBody>
+              </Card>
+
+              <Card>
+                <CardHeader title="Engineering & Design Resources" />
+                <CardBody>
+                  Access to skilled engineers and designers aligned to your venture — from product spec and UX to MVP and iteration. Standardized components and processes accelerate time to value.
+                </CardBody>
+              </Card>
+
+              <Card>
+                <CardHeader title="Full-Stack Marketing Support" />
+                <CardBody>
+                  Strategy, creatives, analytics, and paid media execution. We pair <strong>test budgets</strong> with a disciplined experimentation cadence to find signal fast and scale what works.
+                </CardBody>
+              </Card>
+            </div>
+
+            <div style={{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
+              <span style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Select Proof Points:</span>
+              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>3+ Exits</span>
+              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>Zero-to-One Playbook</span>
+              <span style={{ border: `1px solid ${theme.border}`, borderRadius: 999, padding: "6px 10px", fontSize: 12, color: theme.subtext }}>Performance Marketing Engine</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Ventures */}
       <section id="ventures" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
           <div style={{ padding: "48px 0" }}>
@@ -205,6 +277,109 @@ export default function App() {
         </Container>
       </section>
 
+      {/* Model (The Journey) */}
+      <section id="model" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>The Journey</H2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 18 }}>
+              {steps.map((s) => (
+                <Card key={s.title}>
+                  <CardHeader title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>} />
+                  <CardBody>{s.text}</CardBody>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Who We're Looking For */}
+      <section id="kpis" style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>Who We're Looking For</H2>
+            <div style={{ display: "grid", gap: 10, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 12 }}>
+              {whoWeWant.map((item) => (
+                <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckIcon />
+                  <p style={{ margin: 0, color: theme.text }}>
+                    <strong>{item.label}</strong>
+                    {" — "}
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Choose Your Path to CEO */}
+      <section id="choose-your-path" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>Choose Your Path to CEO</H2>
+            <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
+              Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.
+            </p>
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              {/* Track 1 */}
+              <Card>
+                <CardBody>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ background: "#ffe4e6", padding: 10, borderRadius: 12, display: "inline-flex" }}>
+                      <RocketIcon />
+                    </div>
+                    <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>High Equity, Deferred Compensation</h3>
+                  </div>
+                  <p style={{ marginTop: 12, color: theme.text }}>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</p>
+                  <ul style={{ marginTop: 12, paddingLeft: 18 }}>
+                    <li><strong>Largest equity stake</strong> (15–25%).</li>
+                    <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
+                    <li><strong>Deferred salary</strong> until traction milestone.</li>
+                    <li>Optional <strong>acceleration bonus</strong> when traction is hit.</li>
+                  </ul>
+                  <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Founders with runway who want to swing for the fences.</div>
+                  <div style={{ marginTop: 14 }}>
+                    <a href="#apply-track-1" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "12px 16px", background: theme.red, color: "#fff", fontWeight: 700, textDecoration: "none" }}>Apply for Track 1</a>
+                  </div>
+                </CardBody>
+              </Card>
+
+              {/* Track 2 */}
+              <Card>
+                <CardBody>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ background: "#f3f4f6", padding: 10, borderRadius: 12, display: "inline-flex" }}>
+                      <ScaleIcon />
+                    </div>
+                    <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Smaller Equity, Upfront Compensation</h3>
+                  </div>
+                  <p style={{ marginTop: 12, color: theme.text }}>For the strategic builder. Keep some cash flow now while building long-term equity value.</p>
+                  <ul style={{ marginTop: 12, paddingLeft: 18 }}>
+                    <li><strong>Meaningful equity stake</strong> (8–15%).</li>
+                    <li><strong>Monthly stipend</strong> from day one.</li>
+                    <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
+                    <li>Transition to <strong>full-time CEO</strong> when traction is proven.</li>
+                  </ul>
+                  <div style={{ marginTop: 12, fontSize: 13, color: theme.subtext }}>Best for: Builders who want to de-risk the leap while keeping upside.</div>
+                  <div style={{ marginTop: 14 }}>
+                    <a href="#apply-track-2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: 12, padding: "12px 16px", background: "#111827", color: "#fff", fontWeight: 700, textDecoration: "none" }}>Apply for Track 2</a>
+                  </div>
+                </CardBody>
+              </Card>
+            </div>
+
+            <div style={{ marginTop: 18 }}>
+              <div style={{ border: `1px solid ${theme.border}`, background: "#f3f4f6", borderRadius: 16, padding: 18 }}>
+                <p style={{ margin: 0, color: theme.text }}><strong>Both tracks</strong> get the same playbook, the same world-class team, and the same capital — the only difference is how you choose to balance short-term income with long-term ownership.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
         <Container>
@@ -218,16 +393,45 @@ export default function App() {
               <div>
                 <Field label="Email"><Input type="email" placeholder="jane@domain.com" /></Field>
               </div>
+              <div>
+                <Field label="LinkedIn"><Input placeholder="https://linkedin.com/in/..." /></Field>
+              </div>
+              <div>
+                <Field label="Location"><Input placeholder="City, Country" /></Field>
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <Field label="Venture Interest"><Input placeholder="Select or type a venture" /></Field>
+              </div>
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field label="Why You?">
                   <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
                 </Field>
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <Field label="Resume / Portfolio URL"><Input placeholder="https://..." /></Field>
               </div>
               <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
                 <Button size="md" onClick={() => alert('Submitted!')}>Submit</Button>
                 <span style={{ fontSize: 13, color: theme.subtext }}>We'll follow up within a few days.</span>
               </div>
             </form>
+          </div>
+        </Container>
+      </section>
+
+      {/* FAQs */}
+      <section id="faq" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
+        <Container>
+          <div style={{ padding: "48px 0" }}>
+            <H2>FAQs</H2>
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+              {faqs.map((f) => (
+                <Card key={f.q}>
+                  <CardHeader title={f.q} />
+                  <CardBody>{f.a}</CardBody>
+                </Card>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -242,6 +446,7 @@ export default function App() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
               <a href="#apply" style={{ color: theme.text, textDecoration: "none" }}>Apply</a>
+              <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none" }}>Choose Your Path</a>
               <a href="#ventures" style={{ color: theme.text, textDecoration: "none" }}>Ventures</a>
             </div>
           </div>
