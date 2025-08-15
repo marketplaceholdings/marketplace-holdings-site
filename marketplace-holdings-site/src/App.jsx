@@ -445,11 +445,7 @@ export default function App() {
               <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-              <a href="#apply" style={{ color: theme.text, textDecoration: "none" }}>Apply</a>
-              <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none" }}>Choose Your Path</a>
-              <a href="#ventures" style={{ color: theme.text, textDecoration: "none" }}>Ventures</a>
-            </div>
+           
           </div>
         </Container>
       </footer>
