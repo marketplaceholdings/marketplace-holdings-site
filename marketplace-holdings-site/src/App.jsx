@@ -190,7 +190,7 @@ export default function App() {
           <div style={{ padding: "48px 0" }}>
             <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
             <p style={{ marginTop: 8, color: theme.subtext, maxWidth: 900 }}>
-              The unfair advantages you get from day one — so you can focus on building, learning, and compounding traction.
+              From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.
             </p>
 
             <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginTop: 18 }}>
@@ -218,9 +218,9 @@ export default function App() {
 
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
               <Card>
-                <CardHeader title="Founded by Proven Operators" />
+                <CardHeader title="Proven Track Record" />
                 <CardBody>
-                  Our team has generated <strong>$1B+ in lifetime online revenue</strong> with <strong>multiple successful exits</strong>. We've run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
+                  $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We’ve run marketplace P&Ls, scaled growth loops, and shipped product at speed — and we bring that muscle to your build.
                 </CardBody>
               </Card>
 
