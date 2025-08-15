@@ -193,28 +193,7 @@ export default function App() {
               From day one, you get the unfair advantages most founders only dream of — so you can focus on building, learning, and compounding traction.
             </p>
 
-            <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginTop: 18 }}>
-              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Operator Track Record</div>
-                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>$1B+ Online Sales</div>
-                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Multiple exits across SaaS, e-commerce, and marketplaces.</div>
-              </div>
-              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>The Right People in Your Corner</div>
-                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Advisors with Real Wins</div>
-                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Proven operators with battle-tested guidance in growth, GTM & product.</div>
-              </div>
-              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Product Velocity</div>
-                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Engineering & Design Resources</div>
-                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>MVP to live product with a proven design system and sprints.</div>
-              </div>
-              <div style={{ border: `1px solid ${theme.border}`, borderRadius: 14, padding: 16, background: "#fff" }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: theme.subtext, letterSpacing: .4, textTransform: "uppercase" }}>Go-to-Market</div>
-                <div style={{ fontSize: 24, fontWeight: 900, marginTop: 6, color: theme.text }}>Strategy + Budget</div>
-                <div style={{ fontSize: 13, color: theme.subtext, marginTop: 4 }}>Creative, analytics, and paid media with meaningful test budgets.</div>
-              </div>
-            </div>
+        
 
             <div
   style={{
