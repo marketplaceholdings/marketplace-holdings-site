@@ -458,23 +458,34 @@ export default function App() {
         </Container>
       </section>
 
-           {/* Apply */}
+               {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}` }}>
+        {/* Local CSS for responsive grid (keeps everything self-contained) */}
+        <style>{`
+          /* Two columns on >=640px, single column below */
+          #apply .apply-grid {
+            display: grid;
+            grid-template-columns: 1fr;      /* mobile default */
+            row-gap: 16px;
+          }
+          @media (min-width: 640px) {
+            #apply .apply-grid {
+              grid-template-columns: 1fr 1fr; /* desktop/tablet */
+              column-gap: 20px;               /* space between Full Name & Email, LinkedIn & Location */
+              row-gap: 16px;                  /* vertical rhythm between rows */
+            }
+          }
+        `}</style>
+
         <Container>
           <div style={{ padding: "48px 0", maxWidth: 740, margin: "0 auto" }}>
             <H2>Apply</H2>
             <p style={{ color: theme.subtext, marginTop: 6 }}>
               Tell us a bit about you and the venture(s) you're excited about.
             </p>
-            <form
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 12,
-                marginTop: 18
-              }}
-              onSubmit={(e) => e.preventDefault()}
-            >
+
+            <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
+              {/* Row 1 */}
               <div>
                 <Field label="Full Name">
                   <Input placeholder="Jane Founder" />
@@ -485,6 +496,8 @@ export default function App() {
                   <Input type="email" placeholder="jane@domain.com" />
                 </Field>
               </div>
+
+              {/* Row 2 */}
               <div>
                 <Field label="LinkedIn">
                   <Input placeholder="https://linkedin.com/in/..." />
@@ -495,11 +508,14 @@ export default function App() {
                   <Input placeholder="City, Country" />
                 </Field>
               </div>
+
+              {/* Full-width rows */}
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field label="Venture Interest">
                   <Input placeholder="Select or type a venture" />
                 </Field>
               </div>
+
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field label="Why You?">
                   <Textarea
@@ -508,11 +524,13 @@ export default function App() {
                   />
                 </Field>
               </div>
+
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field label="Resume / Portfolio URL">
                   <Input placeholder="https://..." />
                 </Field>
               </div>
+
               <div
                 style={{
                   gridColumn: "1 / -1",
@@ -533,6 +551,7 @@ export default function App() {
           </div>
         </Container>
       </section>
+
 
 
       {/* FAQs */}
