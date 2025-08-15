@@ -266,7 +266,7 @@ export default function App() {
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
               {ventures.map((v) => (
                 <Card key={v.name}>
-                  <CardHeader title={v.name} extra={<Badge>{v.tag}</Badge>} />
+                  <CardHeader title={v.name} />
                   <CardBody>
                     <p>{v.blurb}</p>
                   </CardBody>
