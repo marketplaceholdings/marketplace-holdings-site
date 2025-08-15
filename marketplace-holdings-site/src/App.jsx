@@ -6,7 +6,7 @@ import * as React from "react";
 -------------------------------------------------- */
 const theme = {
   red: "#e11d48",
-  text: "#0f172a",      // slightly deeper for contrast
+  text: "#0f172a",
   subtext: "#475569",
   border: "#e5e7eb",
   bg: "#ffffff",
@@ -128,7 +128,8 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick }) =
     textDecoration: "none",
     fontSize: size === "lg" ? 16 : 14,
     boxShadow: theme.shadow.sm,
-    transition: "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease",
+    transition:
+      "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
   };
@@ -269,6 +270,26 @@ const CheckIcon = () => (
   </svg>
 );
 
+const MenuIcon = ({ open = false, size = 22 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    style={{ display: "block" }}
+  >
+    {open ? (
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    ) : (
+      <g stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <path d="M4 6h16" />
+        <path d="M4 12h16" />
+        <path d="M4 18h16" />
+      </g>
+    )}
+  </svg>
+);
+
 const RocketIcon = ({ size = 22 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4.5 16.5L7 14l3 3-2.5 2.5a2 2 0 0 1-3-3z" />
@@ -348,51 +369,57 @@ function useScrolled() {
   return scrolled;
 }
 
-const FAQItem = ({ q, a }) => {
-  const [open, setOpen] = React.useState(false);
-  return (
-    <Card>
-      <button
-        onClick={() => setOpen(!open)}
-        style={{
-          width: "100%",
-          textAlign: "left",
-          padding: 20,
-          border: "none",
-          background: "transparent",
-          cursor: "pointer",
-          fontWeight: 800,
-          fontSize: 16,
-          color: theme.text,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          fontFamily: stack,
-        }}
-        aria-expanded={open}
-      >
-        <span>{q}</span>
-        <span style={{ transform: `rotate(${open ? 90 : 0}deg)`, transition: "transform .2s ease" }}>›</span>
-      </button>
-      {open && <CardBody>{a}</CardBody>}
-    </Card>
-  );
-};
-
 /* -------------------------------------------------
    APP
 -------------------------------------------------- */
 export default function App() {
   const scrolled = useScrolled();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  // Close mobile menu when navigating (hash change or click outside overlay)
+  React.useEffect(() => {
+    const onHashChange = () => setMenuOpen(false);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return (
     <div style={{ minHeight: "100vh", background: theme.bg, color: theme.text, fontFamily: stack }}>
+      {/* Header styles for responsive nav */}
+      <style>{`
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .hamburger { display: none; border: 1px solid ${theme.border}; background: #fff; border-radius: 10px; padding: 8px; }
+        .hamburger:focus { outline: none; box-shadow: 0 0 0 6px rgba(225,29,72,.15); }
+        @media (max-width: 860px) {
+          .nav-links { display: none; }
+          .hamburger { display: inline-flex; }
+        }
+        .mobile-sheet {
+          position: fixed; top: 60px; right: 16px; left: 16px;
+          border: 1px solid ${theme.border}; border-radius: ${theme.radius.xl}px;
+          background: #fff; box-shadow: ${theme.shadow.lg};
+          transform: translateY(${menuOpen ? "0" : "-8px"});
+          opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
+          transition: transform .18s ease, opacity .18s ease;
+          z-index: 60;
+        }
+        .mobile-sheet a {
+          display: block; padding: 14px 18px; text-decoration: none; color: ${theme.text}; font-weight: 600;
+        }
+        .mobile-sheet a + a { border-top: 1px solid ${theme.border}; }
+        .backdrop {
+          position: fixed; inset: 0; background: rgba(15, 23, 42, .28);
+          opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
+          transition: opacity .18s ease; z-index: 50;
+        }
+      `}</style>
+
       {/* Header */}
       <header
         style={{
           position: "sticky",
           top: 0,
-          zIndex: 40,
+          zIndex: 70,
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(8px)",
           borderBottom: `1px solid ${theme.border}`,
@@ -414,14 +441,50 @@ export default function App() {
               />
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
-            <div style={{ display: "flex", gap: 10 }}>
-              <a href="#why-us" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>Why Us</a>
-              <a href="#ventures" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>Ventures</a>
-              <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>Tracks</a>
+
+            {/* Desktop links */}
+            <nav className="nav-links" aria-label="Primary">
+              <a href="#why-us" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Why Us
+              </a>
+              <a href="#ventures" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Ventures
+              </a>
+              <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Tracks
+              </a>
               <Button href="#apply" size="md">Apply</Button>
-            </div>
+            </nav>
+
+            {/* Mobile hamburger */}
+            <button
+              className="hamburger"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <MenuIcon open={menuOpen} />
+            </button>
           </div>
         </Container>
+
+        {/* Backdrop */}
+        <div
+          className="backdrop"
+          onClick={() => setMenuOpen(false)}
+          role="presentation"
+        />
+
+        {/* Mobile menu sheet */}
+        <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <a href="#why-us" onClick={() => setMenuOpen(false)}>Why Us</a>
+          <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
+          <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Tracks</a>
+          <a href="#apply" onClick={() => setMenuOpen(false)} style={{ color: "#fff", background: theme.red, borderRadius: `${theme.radius.lg}px`, margin: 12, textAlign: "center" }}>
+            Apply
+          </a>
+        </div>
       </header>
 
       {/* Hero */}
@@ -486,12 +549,12 @@ export default function App() {
             </CardBody>
           </Card>
 
-          <Card>
-            <CardHeader title="Go-to-Market" />
-            <CardBody>
-              Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.
-            </CardBody>
-          </Card>
+            <Card>
+              <CardHeader title="Go-to-Market" />
+              <CardBody>
+                Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.
+              </CardBody>
+            </Card>
 
           <Card>
             <CardHeader title="Capital & Runway" />
@@ -721,7 +784,35 @@ export default function App() {
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
           {faqs.map((f) => (
-            <FAQItem key={f.q} q={f.q} a={f.a} />
+            <Card key={f.q} >
+              <button
+                onClick={(e) => {
+                  const body = e.currentTarget.nextSibling;
+                  const open = body.style.display !== "block";
+                  body.style.display = open ? "block" : "none";
+                }}
+                style={{
+                  width: "100%",
+                  textAlign: "left",
+                  padding: 20,
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  fontWeight: 800,
+                  fontSize: 16,
+                  color: theme.text,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontFamily: stack,
+                }}
+                aria-expanded={false}
+              >
+                <span>{f.q}</span>
+                <span>›</span>
+              </button>
+              <CardBody style={{ display: "none" }}>{f.a}</CardBody>
+            </Card>
           ))}
         </div>
       </Section>
