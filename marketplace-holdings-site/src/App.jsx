@@ -661,13 +661,14 @@ export default function App() {
 
           {/* Product/Marketplace mockup image */}
           <div>
-            <Img
-              src={PH(1400, 1000, "Marketplace mockup — desktop & mobile")}
-              alt="Conceptual marketplace UI preview on desktop and mobile"
-              aspect="4/3"
-              style={{ marginTop: 10 }}
-            />
-          </div>
+  <Img
+    src="/images/rvsharehome.png"
+    alt="RV marketplace homepage mockup"
+    aspect="1487/768"   // exact shape of your screenshot
+    cover={false}       // show the whole screenshot (no cropping)
+    style={{ marginTop: 10 }}
+  />
+</div>
         </div>
       </Section>
 
