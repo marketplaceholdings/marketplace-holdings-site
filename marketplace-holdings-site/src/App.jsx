@@ -485,15 +485,17 @@ export default function App() {
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 12,
-                  background: `conic-gradient(from 180deg at 50% 50%, ${theme.red}, #fb7185, #fecdd3, ${theme.red})`,
-                  boxShadow: "inset 0 1px 2px rgba(255,255,255,.6), 0 2px 10px rgba(225,29,72,.25)",
-                }}
-              />
+<svg
+  width="34"
+  height="34"
+  viewBox="0 0 34 34"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="17" cy="17" r="16" fill="white" stroke={theme.red} strokeWidth="4" />
+  <circle cx="17" cy="17" r="10" fill="white" stroke={theme.red} strokeWidth="4" />
+  <circle cx="17" cy="17" r="4" fill={theme.red} />
+</svg>
+
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
 
