@@ -577,20 +577,19 @@ export default function App() {
             </P>
             {/* Hero collage (optional secondary image) */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
-              <Img
-  src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
-  alt="Marketplace analytics dashboard"
-  aspect="16/10"   // keeps the screenshot’s shape
-  cover={false}    // shows the full screenshot (no crop)
- />
-              <Img
-  src="/images/founders-collab.png"
-  alt="Founders collaborating in a startup office"
-  aspect="1152/768"   // matches the image's shape
-  cover={false}       // set to true if you want it to fill the box with slight crop
-/>
-
-            </div>
+  <Img
+    src="https://marketplace-holdings-site.vercel.app/images/dashboard.png"
+    alt="Marketplace analytics dashboard"
+    aspect="3/2"     // SAME aspect on both images
+    cover={true}     // fill the container (no inner gaps)
+  />
+  <Img
+    src="/images/founders-collab.png"
+    alt="Founders collaborating in a startup office"
+    aspect="3/2"     // match the left one so heights are identical
+    cover={true}     // fill the container too
+  />
+</div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
               <Button href="#why-us" variant="secondary" size="lg">How We Help</Button>
