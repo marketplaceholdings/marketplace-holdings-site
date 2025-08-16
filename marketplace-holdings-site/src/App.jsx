@@ -464,14 +464,7 @@ export default function App() {
         /* Simple two-column for image/text blocks */
         .media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
         @media (max-width: 980px) { .media-grid { grid-template-columns: 1fr; } }
-
-        /* FAQ grid: 1 column on mobile, 2 on larger screens; slightly tighter gap */
-        #faq .faq-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        @media (min-width: 860px) {
-          #faq .faq-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-        }
-
-        /* Logo row (kept for other sections if needed) */
+        /* Logo row */
         .logo-row { display:flex; flex-wrap:wrap; gap:18px; align-items:center; opacity:.85 }
       `}</style>
 
@@ -498,6 +491,7 @@ export default function App() {
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: "block" }}
               >
+                {/* Reduce radii so 4px strokes sit fully inside the 34x34 viewBox */}
                 <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="9"  fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="4"  fill={theme.red} />
@@ -556,8 +550,9 @@ export default function App() {
             "radial-gradient(900px 400px at 20% -10%, rgba(225,29,72,.08), transparent 60%), radial-gradient(700px 280px at 90% 0%, rgba(2,6,23,.06), transparent 60%)",
         }}
       >
+        {/* Hero BG image (swap src) */}
         <Img
-          src={PH(2400, 1200, "")}
+          src={PH(2400, 1200, "")}   // <- empty label, no text rendered
           alt=""
           aspect="3/1"
           cover
@@ -578,6 +573,7 @@ export default function App() {
               launch while proving traction before going all-in.
             </P>
 
+            {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
@@ -615,8 +611,13 @@ export default function App() {
           }}
         >
           <Card>
-            <CardHeader title="Proven Track Record" media={<SmallIcon path="M3 12l7 7 11-11" />} />
-            <CardBody>$1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.</CardBody>
+            <CardHeader
+              title="Proven Track Record"
+              media={<SmallIcon path="M3 12l7 7 11-11" />}
+            />
+            <CardBody>
+              $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.
+            </CardBody>
           </Card>
 
           <Card>
@@ -671,6 +672,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* Product/Marketplace mockup image */}
           <div>
             <Img
               src="/images/rvsharehome.png"
@@ -714,7 +716,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Journey */}
+      {/* Journey with subtle background line */}
       <Section id="model" alt>
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
@@ -749,7 +751,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Who We're Looking For */}
+      {/* Who We're Looking For with icons */}
       <Section id="kpis">
         <H2>Who We're Looking For</H2>
         <div
@@ -902,10 +904,10 @@ export default function App() {
         </Container>
       </section>
 
-      {/* FAQs (always visible; responsive grid) */}
+      {/* FAQs (always visible, no toggle, no arrow) */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
-        <div className="faq-grid" /* styles set in <style> above */>
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
           {faqs.map((f) => (
             <Card key={f.q}>
               <div
@@ -927,7 +929,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Founder Letter */}
+      {/* Founder Letter with headshots */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <style>{`
           @media (max-width: 639px) {
@@ -950,6 +952,7 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
+                {/* Founder image row (single) */}
                 <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
                   <Img
                     src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
@@ -1092,6 +1095,7 @@ export default function App() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {/* Bullseye SVG */}
               <svg
                 width="24"
                 height="24"
