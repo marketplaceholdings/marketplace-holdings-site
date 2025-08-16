@@ -770,7 +770,7 @@ export default function App() {
                     "M13 2L3 14h7l1 8 10-12h-7l-1-8z",
                     "M12 2l7 7-7 7-7-7 7-7z",
                     "M3 22V10l9-7 9 7v12",
-                    "M12 20l9-8-9-8-9 8 9 8z",
+                    "M12 20l9-8-9-8-9 8z",
                     "M3 12h18M12 3v18",
                     "M5 3h14M5 9h10M5 15h14",
                   ][idx % 6]
@@ -829,8 +829,6 @@ export default function App() {
             </CardBody>
           </Card>
         </div>
-
-     
       </Section>
 
       {/* Apply */}
@@ -906,39 +904,26 @@ export default function App() {
         </Container>
       </section>
 
-      {/* FAQs */}
+      {/* FAQs (always visible, no toggle, no arrow) */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
           {faqs.map((f) => (
-            <Card key={f.q} >
-              <button
-                onClick={(e) => {
-                  const body = e.currentTarget.nextSibling;
-                  const open = body.style.display !== "block";
-                  body.style.display = open ? "block" : "none";
-                }}
+            <Card key={f.q}>
+              <div
                 style={{
-                  width: "100%",
-                  textAlign: "left",
                   padding: 20,
-                  border: "none",
                   background: "transparent",
-                  cursor: "pointer",
                   fontWeight: 800,
                   fontSize: 16,
                   color: theme.text,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
                   fontFamily: stack,
+                  borderBottom: `1px solid ${theme.border}`,
                 }}
-                aria-expanded={false}
               >
-                <span>{f.q}</span>
-                <span>›</span>
-              </button>
-              <CardBody style={{ display: "none" }}>{f.a}</CardBody>
+                {f.q}
+              </div>
+              <CardBody>{f.a}</CardBody>
             </Card>
           ))}
         </div>
@@ -1095,40 +1080,38 @@ export default function App() {
       </section>
 
       {/* Footer */}
-<footer style={{ borderTop: `1px solid ${theme.border}` }}>
-  <Container>
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 12,
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "18px 0",
-        color: theme.subtext,
-        fontSize: 14,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        {/* Replaced gradient box with bullseye SVG */}
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 34 34"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ display: "block" }}
-        >
-          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="4" fill={theme.red} />
-        </svg>
-        <span>© {new Date().getFullYear()} Marketplace Holdings</span>
-      </div>
-      
-    </div>
-  </Container>
-</footer>
-
+      <footer style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 12,
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "18px 0",
+              color: theme.subtext,
+              fontSize: 14,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {/* Bullseye SVG */}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 34 34"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: "block" }}
+              >
+                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="4" fill={theme.red} />
+              </svg>
+              <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+            </div>
+          </div>
+        </Container>
+      </footer>
     </div>
   );
 }
