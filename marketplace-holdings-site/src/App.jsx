@@ -577,7 +577,12 @@ export default function App() {
             </P>
             {/* Hero collage (optional secondary image) */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
-              <Img src={PH(1200, 800, "Product mockup / dashboard")} alt="Illustrative product dashboard mockup" aspect="16/10" />
+              <Img
+  src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
+  alt="Marketplace analytics dashboard"
+  aspect="16/10"   // keeps the screenshot’s shape
+  cover={false}    // shows the full screenshot (no crop)
+ />
               <Img
   src="/images/founders-collab.png"
   alt="Founders collaborating in a startup office"
