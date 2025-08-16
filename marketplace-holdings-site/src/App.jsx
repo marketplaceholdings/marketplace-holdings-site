@@ -112,10 +112,32 @@ const P = ({ children, dim = false, size = 16, style }) => (
   </p>
 );
 
+/* Pre-headline (eyebrow) */
+const PreHeadline = ({ children }) => (
+  <div
+    style={{
+      display: "inline-block",
+      padding: "6px 10px",
+      borderRadius: theme.radius.pill,
+      background: "#fff0f2",
+      color: theme.red,
+      border: `1px solid ${theme.border}`,
+      fontFamily: stack,
+      fontWeight: 700,
+      letterSpacing: "0.02em",
+      fontSize: "clamp(12px, 1.2vw, 14px)",
+      lineHeight: 1.2,
+      boxShadow: theme.shadow.sm,
+      width: "fit-content",
+    }}
+  >
+    {children}
+  </div>
+);
+
 /* -------------------------------------------------
    IMAGE UTILITIES (placeholders)
 -------------------------------------------------- */
-// Neutral grey SVG placeholder (swap src later)
 const PH = (w = 1200, h = 800, label = "Placeholder") =>
   `data:image/svg+xml;utf8,` +
   encodeURIComponent(
@@ -485,19 +507,18 @@ export default function App() {
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-<svg
-  width="34"
-  height="34"
-  viewBox="0 0 34 34"
-  xmlns="http://www.w3.org/2000/svg"
-  style={{ display: "block" }}
->
-  {/* Reduce radii so 4px strokes sit fully inside the 34x34 viewBox */}
-  <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-  <circle cx="17" cy="17" r="9"  fill="white" stroke={theme.red} strokeWidth="4" />
-  <circle cx="17" cy="17" r="4"  fill={theme.red} />
-</svg>
-
+              <svg
+                width="34"
+                height="34"
+                viewBox="0 0 34 34"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: "block" }}
+              >
+                {/* Reduce radii so 4px strokes sit fully inside the 34x34 viewBox */}
+                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="9"  fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="4"  fill={theme.red} />
+              </svg>
 
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
@@ -564,32 +585,35 @@ export default function App() {
         />
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
+            <PreHeadline>We’re looking for entrepreneurs who feel stuck in their job.</PreHeadline>
+
             <H1>
               Build a Company That Could Change Your Life —{" "}
-              <span style={{ color: theme.red }}>
-  Without Quitting Your Job
-</span>
+              <span style={{ color: theme.red }}>Without Quitting Your Job</span>
             </H1>
+
             <P dim size={18}>
               <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time
               Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and
               launch while proving traction before going all-in.
             </P>
-            {/* Hero collage (optional secondary image) */}
+
+            {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
-  <Img
-    src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
-    alt="Marketplace analytics dashboard"
-    aspect="3/2"     // SAME aspect on both images
-    cover={true}     // fill the container (no inner gaps)
-  />
-  <Img
-    src="/images/founders-collab.png"
-    alt="Founders collaborating in a startup office"
-    aspect="3/2"     // match the left one so heights are identical
-    cover={true}     // fill the container too
-  />
-</div>
+              <Img
+                src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
+                alt="Marketplace analytics dashboard"
+                aspect="3/2"
+                cover={true}
+              />
+              <Img
+                src="/images/founders-collab.png"
+                alt="Founders collaborating in a startup office"
+                aspect="3/2"
+                cover={true}
+              />
+            </div>
+
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
               <Button href="#why-us" variant="secondary" size="lg">How We Help</Button>
@@ -611,7 +635,6 @@ export default function App() {
             marginTop: 18,
           }}
         >
-          {/* Each card gets a small illustration/icon thumbnail */}
           <Card>
             <CardHeader
               title="Proven Track Record"
@@ -676,14 +699,14 @@ export default function App() {
 
           {/* Product/Marketplace mockup image */}
           <div>
-  <Img
-    src="/images/rvsharehome.png"
-    alt="RV marketplace homepage mockup"
-    aspect="1487/768"   // exact shape of your screenshot
-    cover={false}       // show the whole screenshot (no cropping)
-    style={{ marginTop: 10 }}
-  />
-</div>
+            <Img
+              src="/images/rvsharehome.png"
+              alt="RV marketplace homepage mockup"
+              aspect="1487/768"
+              cover={false}
+              style={{ marginTop: 10 }}
+            />
+          </div>
         </div>
       </Section>
 
@@ -722,7 +745,6 @@ export default function App() {
       <Section id="model" alt>
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
-          {/* light roadmap line */}
           <div
             aria-hidden="true"
             style={{
@@ -770,12 +792,12 @@ export default function App() {
               <SmallIcon
                 path={
                   [
-                    "M13 2L3 14h7l1 8 10-12h-7l-1-8z", // bolt
-                    "M12 2l7 7-7 7-7-7 7-7z", // compass-ish
-                    "M3 22V10l9-7 9 7v12", // home/build
-                    "M12 20l9-8-9-8-9 8 9 8z", // diamond/innovate
-                    "M3 12h18M12 3v18", // plus/grid
-                    "M5 3h14M5 9h10M5 15h14", // lines/learn
+                    "M13 2L3 14h7l1 8 10-12h-7l-1-8z",
+                    "M12 2l7 7-7 7-7-7 7-7z",
+                    "M3 22V10l9-7 9 7v12",
+                    "M12 20l9-8-9-8-9 8 9 8z",
+                    "M3 12h18M12 3v18",
+                    "M5 3h14M5 9h10M5 15h14",
                   ][idx % 6]
                 }
               />
@@ -979,16 +1001,15 @@ export default function App() {
                 }}
               >
                 {/* Founder image row (single) */}
-<div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
-  <Img
-    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
-    alt="Founder portrait: Mark Jenney"
-    aspect="1/1"
-    radius="50%"
-    style={{ width: 72 }}
-  />
-</div>
-
+                <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+                  <Img
+                    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+                    alt="Founder portrait: Mark Jenney"
+                    aspect="1/1"
+                    radius="50%"
+                    style={{ width: 72 }}
+                  />
+                </div>
 
                 <H2>Dear Future CEO,</H2>
                 <P size={16.5}>
@@ -1076,19 +1097,19 @@ export default function App() {
                     A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins. We’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
                   </P>
                   <P dim style={{ margin: 0 }}>
-  Here, you’re not an employee. You’re a builder. An owner.
-</P>
+                    Here, you’re not an employee. You’re a builder. An owner.
+                  </P>
                 </div>
 
-<div style={{ paddingTop: 28 }}>
-  <H3 style={{ marginTop: 0 }}>Who We’re Looking For</H3>
-  <ul style={{ marginTop: 12, paddingLeft: 20, color: theme.subtext }}>
-    <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
-    <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
-    <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
-    <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
-  </ul>
-</div>
+                <div style={{ paddingTop: 28 }}>
+                  <H3 style={{ marginTop: 0 }}>Who We’re Looking For</H3>
+                  <ul style={{ marginTop: 12, paddingLeft: 20, color: theme.subtext }}>
+                    <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
+                    <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
+                    <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
+                    <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
+                  </ul>
+                </div>
 
                 <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
                 <P dim>
@@ -1126,7 +1147,6 @@ export default function App() {
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
             <div className="logo-row">
-              {/* Optional tiny logo repeats for social proof */}
               <Img src={PH(160, 60, "Logo E")} alt="Logo E" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
               <Img src={PH(160, 60, "Logo F")} alt="Logo F" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
               <Img src={PH(160, 60, "Logo G")} alt="Logo G" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
