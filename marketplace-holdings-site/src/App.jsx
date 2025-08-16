@@ -490,11 +490,14 @@ export default function App() {
   height="34"
   viewBox="0 0 34 34"
   xmlns="http://www.w3.org/2000/svg"
+  style={{ display: "block" }}
 >
-  <circle cx="17" cy="17" r="16" fill="white" stroke={theme.red} strokeWidth="4" />
-  <circle cx="17" cy="17" r="10" fill="white" stroke={theme.red} strokeWidth="4" />
-  <circle cx="17" cy="17" r="4" fill={theme.red} />
+  {/* Reduce radii so 4px strokes sit fully inside the 34x34 viewBox */}
+  <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+  <circle cx="17" cy="17" r="9"  fill="white" stroke={theme.red} strokeWidth="4" />
+  <circle cx="17" cy="17" r="4"  fill={theme.red} />
 </svg>
+
 
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
