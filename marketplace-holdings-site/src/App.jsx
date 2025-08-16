@@ -1103,32 +1103,44 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer style={{ borderTop: `1px solid ${theme.border}` }}>
-        <Container>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 12,
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "18px 0",
-              color: theme.subtext,
-              fontSize: 14,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 24, height: 24, borderRadius: 10, background: `linear-gradient(135deg, ${theme.red}, #fb7185)` }} />
-              <span>© {new Date().getFullYear()} Marketplace Holdings</span>
-            </div>
-            <div className="logo-row">
-              <Img src={PH(160, 60, "Logo E")} alt="Logo E" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-              <Img src={PH(160, 60, "Logo F")} alt="Logo F" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-              <Img src={PH(160, 60, "Logo G")} alt="Logo G" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-            </div>
-          </div>
-        </Container>
-      </footer>
+<footer style={{ borderTop: `1px solid ${theme.border}` }}>
+  <Container>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 12,
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "18px 0",
+        color: theme.subtext,
+        fontSize: 14,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        {/* Replaced gradient box with bullseye SVG */}
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 34 34"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ display: "block" }}
+        >
+          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="4" fill={theme.red} />
+        </svg>
+        <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+      </div>
+      <div className="logo-row">
+        <Img src={PH(160, 60, "Logo E")} alt="Logo E" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
+        <Img src={PH(160, 60, "Logo F")} alt="Logo F" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
+        <Img src={PH(160, 60, "Logo G")} alt="Logo G" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
+      </div>
+    </div>
+  </Container>
+</footer>
+
     </div>
   );
 }
