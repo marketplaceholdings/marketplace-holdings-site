@@ -561,7 +561,7 @@ export default function App() {
           style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
         />
         <Container>
-          <div style={{ position: "relative", padding: "64px 0 60px", display: "grid", gap: 18, maxWidth: 900 }}>
+          <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
               Build a Company That Could Change Your Life —{" "}
               <span style={{ color: theme.red }}>Without Quitting Your Job</span>
