@@ -259,7 +259,6 @@ const CardHeader = ({ title, extra }) => (
   </div>
 );
 
-
 const CardBody = ({ children }) => (
   <div style={{ padding: 20, color: theme.subtext, fontSize: 15, lineHeight: 1.7, fontFamily: stack }}>{children}</div>
 );
@@ -700,7 +699,8 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
         </div>
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
+        {/* UPDATED: widen min column to 320px so cards drop to 3-across when needed */}
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
           {ventures.map((v) => (
             <Card key={v.name}>
               <CardHeader
