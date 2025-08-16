@@ -571,14 +571,14 @@ export default function App() {
       >
         {/* Hero BG image (swap src) */}
         <Img
-          src={PH(2400, 1200, "Hero Background — swap with aspirational/team shot")}
-          alt=""
-          aspect="3/1"
-          cover
-          border={false}
-          shadow={null}
-          style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
-        />
+  src={PH(2400, 1200, "")}   // <- empty label, no text rendered
+  alt=""
+  aspect="3/1"
+  cover
+  border={false}
+  shadow={null}
+  style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
+/>
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <PreHeadline>Most successful founders were once just like you—stuck in jobs that didn’t fit.</PreHeadline>
