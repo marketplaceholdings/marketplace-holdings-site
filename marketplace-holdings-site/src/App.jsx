@@ -585,7 +585,7 @@ export default function App() {
         />
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
-            <PreHeadline>We’re looking for entrepreneurs who feel stuck in their job.</PreHeadline>
+            <PreHeadline>The most successful founders today were once just like you—stuck in jobs that didn’t fit.</PreHeadline>
 
             <H1>
               Build a Company That Could Change Your Life —{" "}
