@@ -578,7 +578,7 @@ export default function App() {
             {/* Hero collage (optional secondary image) */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
   <Img
-    src="https://marketplace-holdings-site.vercel.app/images/dashboard.png"
+    src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
     alt="Marketplace analytics dashboard"
     aspect="3/2"     // SAME aspect on both images
     cover={true}     // fill the container (no inner gaps)
