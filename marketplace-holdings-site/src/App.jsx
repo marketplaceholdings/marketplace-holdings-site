@@ -230,7 +230,7 @@ const Card = ({ children, hover = true }) => (
   </div>
 );
 
-const CardHeader = ({ title, extra, media }) => (
+const CardHeader = ({ title, extra }) => (
   <div
     style={{
       padding: 20,
@@ -238,17 +238,27 @@ const CardHeader = ({ title, extra, media }) => (
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      gap: 12,
       background: "linear-gradient(180deg, #ffffff, #fcfdff)",
     }}
   >
-    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      {media}
-      <div style={{ fontSize: 18, fontWeight: 800, color: theme.text, fontFamily: stack }}>{title}</div>
+    <div
+      style={{
+        fontSize: 18,
+        fontWeight: 800,
+        color: theme.text,
+        fontFamily: stack,
+        lineHeight: 1.25,
+        overflowWrap: "anywhere",
+        wordBreak: "break-word",
+        hyphens: "auto",
+      }}
+    >
+      {title}
     </div>
     {extra}
   </div>
 );
+
 
 const CardBody = ({ children }) => (
   <div style={{ padding: 20, color: theme.subtext, fontSize: 15, lineHeight: 1.7, fontFamily: stack }}>{children}</div>
