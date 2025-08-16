@@ -112,45 +112,23 @@ const P = ({ children, dim = false, size = 16, style }) => (
   </p>
 );
 
-/* Pre-headline (refined eyebrow) */
+/* Pre-headline — plain text (no box, no icon) */
 const PreHeadline = ({ children }) => (
-  <div
+  <p
     style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 10,
-      padding: "8px 12px",
-      borderRadius: theme.radius.pill,
-      background: "linear-gradient(180deg, #ffffff, #fcfdff)",
-      border: `1px solid ${theme.border}`,
-      boxShadow: theme.shadow.sm,
-      width: "fit-content",
+      margin: "0 0 6px 0",       // light spacing above the H1
+      fontFamily: stack,
+      fontWeight: 700,
+      fontSize: "clamp(13px, 1.05vw, 15px)",
+      lineHeight: 1.2,
+      letterSpacing: "0.02em",
+      color: theme.subtext,      // subtle gray to de-emphasize
     }}
   >
-    <span
-      aria-hidden="true"
-      style={{
-        width: 6,
-        height: 6,
-        borderRadius: 999,
-        background: theme.red,
-        boxShadow: "0 0 0 3px rgba(225,29,72,.18)",
-      }}
-    />
-    <span
-      style={{
-        fontFamily: stack,
-        fontWeight: 700,
-        letterSpacing: "0.02em",
-        fontSize: "clamp(12px, 1.05vw, 14px)",
-        lineHeight: 1.2,
-        color: theme.text,
-      }}
-    >
-      {children}
-    </span>
-  </div>
+    {children}
+  </p>
 );
+
 
 
 /* -------------------------------------------------
