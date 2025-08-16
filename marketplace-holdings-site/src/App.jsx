@@ -112,25 +112,6 @@ const P = ({ children, dim = false, size = 16, style }) => (
   </p>
 );
 
-/* Pre-headline — plain text (no box, no icon) */
-const PreHeadline = ({ children }) => (
-  <p
-    style={{
-      margin: "0 0 6px 0",       // light spacing above the H1
-      fontFamily: stack,
-      fontWeight: 700,
-      fontSize: "clamp(13px, 1.05vw, 15px)",
-      lineHeight: 1.2,
-      letterSpacing: "0.02em",
-      color: theme.subtext,      // subtle gray to de-emphasize
-    }}
-  >
-    {children}
-  </p>
-);
-
-
-
 /* -------------------------------------------------
    IMAGE UTILITIES (placeholders)
 -------------------------------------------------- */
@@ -571,18 +552,16 @@ export default function App() {
       >
         {/* Hero BG image (swap src) */}
         <Img
-  src={PH(2400, 1200, "")}   // <- empty label, no text rendered
-  alt=""
-  aspect="3/1"
-  cover
-  border={false}
-  shadow={null}
-  style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
-/>
+          src={PH(2400, 1200, "")}   // <- empty label, no text rendered
+          alt=""
+          aspect="3/1"
+          cover
+          border={false}
+          shadow={null}
+          style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
+        />
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
-            <PreHeadline>Most successful founders were once just like you—stuck in jobs that didn’t fit.</PreHeadline>
-
             <H1>
               Build a Company That Could Change Your Life —{" "}
               <span style={{ color: theme.red }}>Without Quitting Your Job</span>
@@ -851,7 +830,7 @@ export default function App() {
           </Card>
         </div>
 
-        {/* Trust/partners logo row */}
+      {/* Trust/partners logo row */}
         <div style={{ marginTop: 22, border: `1px solid ${theme.border}`, background: "#fff", borderRadius: theme.radius.xl, padding: 16 }}>
           <div className="logo-row" aria-label="Trusted by">
             <Img src={PH(220, 80, "Logo A")} alt="Partner A" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
