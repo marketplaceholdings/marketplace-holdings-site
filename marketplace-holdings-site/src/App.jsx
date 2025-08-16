@@ -830,15 +830,7 @@ export default function App() {
           </Card>
         </div>
 
-      {/* Trust/partners logo row */}
-        <div style={{ marginTop: 22, border: `1px solid ${theme.border}`, background: "#fff", borderRadius: theme.radius.xl, padding: 16 }}>
-          <div className="logo-row" aria-label="Trusted by">
-            <Img src={PH(220, 80, "Logo A")} alt="Partner A" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
-            <Img src={PH(220, 80, "Logo B")} alt="Partner B" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
-            <Img src={PH(220, 80, "Logo C")} alt="Partner C" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
-            <Img src={PH(220, 80, "Logo D")} alt="Partner D" aspect="11/4" cover={false} radius="10px" shadow={null} style={{ width: 140 }} />
-          </div>
-        </div>
+     
       </Section>
 
       {/* Apply */}
