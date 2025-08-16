@@ -566,9 +566,9 @@ export default function App() {
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
               Build a Company That Could Change Your Life —{" "}
-              <span style={{ color: theme.red, textDecoration: "underline", textDecorationThickness: 4, textUnderlineOffset: 6 }}>
-                Without Quitting Your Job
-              </span>
+              <span style={{ color: theme.red }}>
+  Without Quitting Your Job
+</span>
             </H1>
             <P dim size={18}>
               <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time
