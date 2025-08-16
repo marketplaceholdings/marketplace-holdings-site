@@ -579,11 +579,12 @@ export default function App() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
               <Img src={PH(1200, 800, "Product mockup / dashboard")} alt="Illustrative product dashboard mockup" aspect="16/10" />
               <Img
-  src="/images/founders-collab.jpg"
+  src="/images/founders-collab.png"
   alt="Founders collaborating in a startup office"
-  aspect="1152/768"   // optional: match the photo's shape (3:2)
-  cover={true}        // 'true' will crop slightly to fill; set to false to show 100%
+  aspect="1152/768"   // matches the image's shape
+  cover={false}       // set to true if you want it to fill the box with slight crop
 />
+
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
