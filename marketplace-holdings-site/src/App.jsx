@@ -1124,11 +1124,7 @@ export default function App() {
         </svg>
         <span>© {new Date().getFullYear()} Marketplace Holdings</span>
       </div>
-      <div className="logo-row">
-        <Img src={PH(160, 60, "Logo E")} alt="Logo E" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-        <Img src={PH(160, 60, "Logo F")} alt="Logo F" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-        <Img src={PH(160, 60, "Logo G")} alt="Logo G" aspect="8/3" cover={false} radius="8px" shadow={null} style={{ width: 100 }} />
-      </div>
+      
     </div>
   </Container>
 </footer>
