@@ -695,7 +695,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* ===== NEW SECTION (Option 2: Selective Talent Placement) ===== */}
+      {/* CEO placement explainer */}
       <Section id="ceo-placement">
         <H2>Where Proven Leaders Become Marketplace CEOs</H2>
         <P dim>
@@ -708,7 +708,6 @@ export default function App() {
           <Button href="#why-us" variant="secondary" size="md">How We Support</Button>
         </div>
       </Section>
-      {/* ===== END NEW SECTION ===== */}
 
       {/* Why Us */}
       <Section id="why-us" alt>
@@ -757,7 +756,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Journey with subtle background line */}
+      {/* Journey */}
       <Section id="model" alt>
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
@@ -792,7 +791,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Who We're Looking For with icons */}
+      {/* Who We're Looking For */}
       <Section id="kpis">
         <H2>Who We're Looking For</H2>
         <div
@@ -831,8 +830,8 @@ export default function App() {
       <Section id="choose-your-path" alt>
         <H2>Choose Your Path</H2>
         <P dim>
-          Two ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
-          sometimes the domain insider, other times the operator with a track record of winning.
+          Three ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
+          sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
         </P>
 
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
@@ -878,6 +877,29 @@ export default function App() {
               </ul>
               <div style={{ marginTop: 14 }}>
                 <Button href="#apply" variant="dark">Apply as Proven Operator</Button>
+              </div>
+            </CardBody>
+          </Card>
+
+          {/* Path 3 — Bring Your Own Idea */}
+          <Card>
+            <CardBody>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <SmallIcon path="M12 2v8M12 14v8M4 12h8M14 12h6" />
+                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
+              </div>
+              <P>
+                Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to
+                validate, build, and launch using our capital, team, and playbooks.
+              </P>
+              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+                <li><strong>Co-develop the thesis</strong> and success criteria with our studio.</li>
+                <li><strong>Access our build engine</strong> — engineers, designers, and GTM support.</li>
+                <li><strong>Structured validation</strong> to find signal fast and allocate capital wisely.</li>
+                <li><strong>Founder-led</strong> — you remain the driving force and prospective CEO.</li>
+              </ul>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply" variant="secondary">Pitch Your Idea</Button>
               </div>
             </CardBody>
           </Card>
@@ -957,7 +979,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* FAQs (always visible, no toggle, no arrow) */}
+      {/* FAQs */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
@@ -982,7 +1004,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Founder Letter with headshots */}
+      {/* Founder Letter */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <style>{`
           @media (max-width: 639px) {
@@ -1005,7 +1027,6 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
-                {/* Founder image row (single) */}
                 <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
                   <Img
                     src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
