@@ -377,36 +377,11 @@ const ventures = [
 ];
 
 const steps = [
-  {
-    phase: "Phase 1",
-    title: "We Originate & Fund",
-    text:
-      "We identify a high-potential market, secure a premium domain, and develop the business thesis. The studio funds the early build so the venture starts with credibility and momentum.",
-  },
-  {
-    phase: "Phase 2",
-    title: "We Place the CEO",
-    text:
-      "Depending on the category, we place either an industry expert with insider knowledge or a proven operator with a track record of execution. The right leader for the right market.",
-  },
-  {
-    phase: "Phase 3",
-    title: "Build With Studio Support",
-    text:
-      "Our engineering, design, and go-to-market teams build the product, brand, and early liquidity strategies. The CEO leads using our playbooks while we provide hands-on resources.",
-  },
-  {
-    phase: "Phase 4",
-    title: "Gain Traction & Scale",
-    text:
-      "We drive adoption, validate demand, and generate early revenue. With traction established, the CEO grows the team, expands the marketplace, and builds durable network effects.",
-  },
-  {
-    phase: "Phase 5",
-    title: "Spin Out & Realize the Upside",
-    text:
-      "Once the marketplace proves itself, we spin it out as a standalone company. The CEO’s meaningful equity stake creates potential for life-changing 8-, 9-, or even 10-figure outcomes.",
-  },
+  { phase: "Phase 1", title: "We Create the Foundation", text: "We originate the big idea, craft a detailed business plan, and secure a premium, category-defining domain name — giving your marketplace instant credibility from day one." },
+  { phase: "Phase 2", title: "You Step In as Founding CEO", text: "Join as a part-time Founding CEO (~10 hrs/week) and collaborate directly with our world-class design and development team to build and launch the marketplace. No need to quit your day job yet." },
+  { phase: "Phase 3", title: "Gain Traction & Revenue", text: "With the platform live, you'll work alongside our marketing experts to attract users, validate demand, and generate early revenue streams." },
+  { phase: "Phase 4", title: "Scale Full-Time", text: "Once traction is proven, you'll transition into a full-time CEO role, leading the growth, team expansion, and brand building as we scale the marketplace into a category leader." },
+  { phase: "Phase 5", title: "Spin Out & Realize the Upside", text: "When the marketplace matures, we spin it out as a standalone company. With significant equity earned along the way, you have the potential for a life-changing financial outcome." },
 ];
 
 const whoWeWant = [
@@ -594,7 +569,6 @@ export default function App() {
             "radial-gradient(900px 400px at 20% -10%, rgba(225,29,72,.08), transparent 60%), radial-gradient(700px 280px at 90% 0%, rgba(2,6,23,.06), transparent 60%)",
         }}
       >
-        {/* Hero BG image (swap src) */}
         <Img
           src={PH(2400, 1200, "")}
           alt=""
@@ -695,7 +669,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* CEO placement explainer */}
+      {/* Selective Talent Placement */}
       <Section id="ceo-placement">
         <H2>Where Proven Leaders Become Marketplace CEOs</H2>
         <P dim>
@@ -826,15 +800,14 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Choose Your Path */}
+      {/* Choose Your Path — NOW VERTICAL */}
       <Section id="choose-your-path" alt>
         <H2>Choose Your Path</H2>
         <P dim>
-          Three ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
-          sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
+          Three ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO — sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
         </P>
 
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
           {/* Path 1 — Industry Expert */}
           <Card>
             <CardBody>
@@ -885,12 +858,12 @@ export default function App() {
           <Card>
             <CardBody>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M12 2v8M12 14v8M4 12h8M14 12h6" />
+                <SmallIcon path="M12 2v20M2 12h20" />
                 <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
               </div>
               <P>
-                Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to
-                validate, build, and launch using our capital, team, and playbooks.
+                Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to validate,
+                build, and launch using our capital, team, and playbooks.
               </P>
               <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
                 <li><strong>Co-develop the thesis</strong> and success criteria with our studio.</li>
