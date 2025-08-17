@@ -780,49 +780,63 @@ export default function App() {
       </Section>
 
       {/* Choose Your Path */}
-      <Section id="choose-your-path" alt>
-        <H2>Choose Your Path</H2>
-        <P dim>Two ways to join our marketplace startup studio — pick the one that fits your appetite for risk and reward.</P>
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-          <Card>
-            <CardBody>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M5 12l5 5L20 7" />
-                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>High Equity, Deferred Compensation</h3>
-              </div>
-              <P>For the bold builder. Trade short-term cash for a bigger ownership stake — and the chance for outsized returns.</P>
-              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-                <li><strong>Largest equity stake</strong> (X–Y%).</li>
-                <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
-                <li><strong>Deferred salary</strong> until traction milestone.</li>
-                <li>Optional <strong>acceleration bonus</strong> when traction is hit.</li>
-              </ul>
-              <div style={{ marginTop: 14 }}>
-                <Button href="#apply-track-1">Apply for Track 1</Button>
-              </div>
-            </CardBody>
-          </Card>
+      {/* Choose Your Path */}
+<Section id="choose-your-path" alt>
+  <H2>Choose Your Path</H2>
+  <P dim>
+    Two ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
+    sometimes the domain insider, other times the operator with a track record of winning.
+  </P>
 
-          <Card>
-            <CardBody>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M12 3v18M3 12h18" />
-                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Smaller Equity, Upfront Compensation</h3>
-              </div>
-              <P>For the strategic builder. Keep some cash flow now while building long-term equity value.</P>
-              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-                <li><strong>Meaningful equity stake</strong> (A–B%).</li>
-                <li><strong>Monthly stipend</strong> from day one.</li>
-                <li><strong>Full studio resources</strong> — dev, design, marketing, funding.</li>
-                <li>Transition to <strong>full-time CEO</strong> when traction is proven.</li>
-              </ul>
-              <div style={{ marginTop: 14 }}>
-                <Button href="#apply-track-2" variant="dark">Apply for Track 2</Button>
-              </div>
-            </CardBody>
-          </Card>
+  <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+    {/* Path 1 — Industry Expert CEO */}
+    <Card>
+      <CardBody>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <SmallIcon path="M5 3h14M5 9h10M5 15h14" />
+          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert CEO</h3>
         </div>
-      </Section>
+        <P>
+          For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
+          strong network to accelerate credibility and adoption.
+        </P>
+        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+          <li><strong>Insider advantage</strong> on regulations, quality, supply, and demand.</li>
+          <li><strong>Instant credibility</strong> with practitioners, partners, and customers.</li>
+          <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
+          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+        </ul>
+        <div style={{ marginTop: 14 }}>
+          <Button href="#apply">Apply as Industry Expert</Button>
+        </div>
+      </CardBody>
+    </Card>
+
+    {/* Path 2 — Proven Operator CEO */}
+    <Card>
+      <CardBody>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <SmallIcon path="M3 12h18M12 3v18" />
+          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator CEO</h3>
+        </div>
+        <P>
+          For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
+          growth regardless of industry background.
+        </P>
+        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+          <li><strong>Track record of execution</strong> across GTM, ops, product, or P&amp;L ownership.</li>
+          <li><strong>Bias to action</strong>: validate, ship, iterate, and find signal fast.</li>
+          <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
+          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+        </ul>
+        <div style={{ marginTop: 14 }}>
+          <Button href="#apply" variant="dark">Apply as Proven Operator</Button>
+        </div>
+      </CardBody>
+    </Card>
+  </div>
+</Section>
+
 
       {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
