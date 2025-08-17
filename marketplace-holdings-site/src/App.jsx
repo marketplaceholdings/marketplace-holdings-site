@@ -394,19 +394,42 @@ const whoWeWant = [
 ];
 
 const faqs = [
-  { q: "Is this remote?", a: "Yes. We’re remote-first. U.S. time-zone overlap for a weekly video call is preferred, but you can build from anywhere with a laptop, Wi-Fi, and the drive to make it happen." },
-  { q: "Do I need prior startup or CEO experience?", a: "No. We’re looking for builders at heart — people who take action, solve problems, and lead projects to completion. If you have initiative and persistence, you can learn the rest with our support." },
-  { q: "Do I have to be technical or know how to code?", a: "You should be comfortable working online and navigating web tools. Being a coder or digital marketer is a plus, but not required — you’ll have access to experienced developers and designers to build the product while you lead and grow the venture." },
-  { q: "How do equity and compensation work?", a: "Standard 4-year vesting with a 1-year cliff, plus milestone top-ups for outperformance. Two tracks: More Equity / Deferred Hourly Compensation or Less Equity + Upfront Hourly Compensation." },
-  { q: "How flexible are the ~10 hours per week?", a: "Very. You can work evenings, weekends, or carve out focused blocks during the week. It’s designed to fit around your current commitments until the venture is ready for full-time focus." },
-  { q: "How long until I can go full-time?", a: "That depends on traction — paying customers, product-market fit, and growth momentum. Once the business proves itself, you can step in full-time with confidence." },
-  { q: "Can I keep my day job while doing this?", a: "Yes. The goal is to validate the business before making the leap from your current role." },
-  { q: "What resources and support will I get?", a: "Hands-on help from day one — developers, designers, marketing support, experienced advisors, and funding for the essentials. We act as your partner throughout the build." },
-  { q: "What happens if the startup doesn’t work out?", a: "You’ll walk away with new skills, experience, and a stronger network — without having put your own capital at risk." },
-  { q: "How do you match me with a venture?", a: "We’ll align your background and interests with one of our marketplaces or collaborate on a new concept together." },
-  { q: "What could my equity be worth in ~5 years?", a: "Targets (not guarantees) assume strong execution and market conditions." },
-  { q: "What exactly does a part-time Founding CEO do in the first few months?", a: "Turn an idea into traction. Validate the market, build/refine the product, and start signing early customers or partners." },
-  { q: "Will I have a co-founder or be working solo?", a: "You’ll be the driving force as the Founding CEO, with our studio alongside you across strategy, product, marketing, and key decisions." },
+  {
+    q: "Do I need to be an industry expert?",
+    a: "Not always. For some ventures, credibility and insider knowledge are critical — so we look for industry experts to step in as CEOs. For others, what matters most is proven execution and entrepreneurial drive — so we look for proven operators.",
+  },
+  {
+    q: "What if I don’t come from the industry?",
+    a: "That’s fine. Many marketplaces benefit most from strong operators who excel at building, scaling, and problem-solving. We pair these leaders with advisors, category specialists, and our playbooks so they can quickly build credibility in the space.",
+  },
+  {
+    q: "How do you decide whether to place an industry expert or a proven operator?",
+    a: "It depends on the marketplace. Some markets demand insider knowledge from day one (e.g., regulated healthcare). Others are best served by a proven builder who can execute fast, raise standards, and create traction.",
+  },
+  {
+    q: "Do I need prior startup or CEO experience?",
+    a: "No. What matters is your track record of success — whether building companies, leading teams, or achieving consistently in your field. We’re looking for people who know how to win and can translate that into leadership.",
+  },
+  {
+    q: "Do I need to code or be technical?",
+    a: "No. Our studio provides engineering and design resources. You’ll focus on leading, making decisions, and driving growth. Technical skills are a plus but not a requirement.",
+  },
+  {
+    q: "What resources and support will I get?",
+    a: "Every venture has access to our studio’s playbooks, product and engineering teams, design system, go-to-market experts, and capital to fund the early build and initial traction. You’re not alone — we’re in it with you.",
+  },
+  {
+    q: "What happens if the marketplace doesn’t succeed?",
+    a: "Even if a specific venture doesn’t scale, you walk away with new skills, experience, and relationships — plus the opportunity to be considered for another venture. Importantly, you won’t have put your own savings at risk.",
+  },
+  {
+    q: "How does equity work?",
+    a: "CEOs receive a meaningful equity stake in the venture, with standard vesting and performance top-ups. The exact structure depends on the path (Industry Expert vs Proven Operator) and the marketplace’s requirements.",
+  },
+  {
+    q: "What kind of outcomes are possible?",
+    a: "Our goal is to build category-defining marketplaces that can scale into 8-, 9-, or even 10-figure outcomes. With a meaningful equity stake, your success as CEO can be life-changing.",
+  },
 ];
 
 /* -------------------------------------------------
@@ -559,7 +582,7 @@ export default function App() {
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
-              The San Diego Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
+              The Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
             </H1>
 
             <P dim size={18}>
@@ -780,7 +803,6 @@ export default function App() {
       </Section>
 
       {/* Choose Your Path */}
-      {/* Choose Your Path */}
 <Section id="choose-your-path" alt>
   <H2>Choose Your Path</H2>
   <P dim>
@@ -836,7 +858,6 @@ export default function App() {
     </Card>
   </div>
 </Section>
-
 
       {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
