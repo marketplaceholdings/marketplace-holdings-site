@@ -377,11 +377,36 @@ const ventures = [
 ];
 
 const steps = [
-  { phase: "Phase 1", title: "We Create the Foundation", text: "We originate the big idea, craft a detailed business plan, and secure a premium, category-defining domain name — giving your marketplace instant credibility from day one." },
-  { phase: "Phase 2", title: "You Step In as Founding CEO", text: "Join as a part-time Founding CEO (~10 hrs/week) and collaborate directly with our world-class design and development team to build and launch the marketplace. No need to quit your day job yet." },
-  { phase: "Phase 3", title: "Gain Traction & Revenue", text: "With the platform live, you'll work alongside our marketing experts to attract users, validate demand, and generate early revenue streams." },
-  { phase: "Phase 4", title: "Scale Full-Time", text: "Once traction is proven, you'll transition into a full-time CEO role, leading the growth, team expansion, and brand building as we scale the marketplace into a category leader." },
-  { phase: "Phase 5", title: "Spin Out & Realize the Upside", text: "When the marketplace matures, we spin it out as a standalone company. With significant equity earned along the way, you have the potential for a life-changing financial outcome." },
+  {
+    phase: "Phase 1",
+    title: "We Originate & Fund",
+    text:
+      "We identify a high-potential market, secure a premium domain, and develop the business thesis. The studio funds the early build so the venture starts with credibility and momentum.",
+  },
+  {
+    phase: "Phase 2",
+    title: "We Place the CEO",
+    text:
+      "Depending on the category, we place either an industry expert with insider knowledge or a proven operator with a track record of execution. The right leader for the right market.",
+  },
+  {
+    phase: "Phase 3",
+    title: "Build With Studio Support",
+    text:
+      "Our engineering, design, and go-to-market teams build the product, brand, and early liquidity strategies. The CEO leads using our playbooks while we provide hands-on resources.",
+  },
+  {
+    phase: "Phase 4",
+    title: "Gain Traction & Scale",
+    text:
+      "We drive adoption, validate demand, and generate early revenue. With traction established, the CEO grows the team, expands the marketplace, and builds durable network effects.",
+  },
+  {
+    phase: "Phase 5",
+    title: "Spin Out & Realize the Upside",
+    text:
+      "Once the marketplace proves itself, we spin it out as a standalone company. The CEO’s meaningful equity stake creates potential for life-changing 8-, 9-, or even 10-figure outcomes.",
+  },
 ];
 
 const whoWeWant = [
@@ -803,61 +828,61 @@ export default function App() {
       </Section>
 
       {/* Choose Your Path */}
-<Section id="choose-your-path" alt>
-  <H2>Choose Your Path</H2>
-  <P dim>
-    Two ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
-    sometimes the domain insider, other times the operator with a track record of winning.
-  </P>
-
-  <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-    {/* Path 1 — Industry Expert */}
-    <Card>
-      <CardBody>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <SmallIcon path="M5 3h14M5 9h10M5 15h14" />
-          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
-        </div>
-        <P>
-          For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
-          strong network to accelerate credibility and adoption.
+      <Section id="choose-your-path" alt>
+        <H2>Choose Your Path</H2>
+        <P dim>
+          Two ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO —
+          sometimes the domain insider, other times the operator with a track record of winning.
         </P>
-        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-          <li><strong>Insider advantage</strong> on regulations, quality, supply, and demand.</li>
-          <li><strong>Instant credibility</strong> with practitioners, partners, and customers.</li>
-          <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
-          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
-        </ul>
-        <div style={{ marginTop: 14 }}>
-          <Button href="#apply">Apply as Industry Expert</Button>
-        </div>
-      </CardBody>
-    </Card>
 
-    {/* Path 2 — Proven Operator */}
-    <Card>
-      <CardBody>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <SmallIcon path="M3 12h18M12 3v18" />
-          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+          {/* Path 1 — Industry Expert */}
+          <Card>
+            <CardBody>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <SmallIcon path="M5 3h14M5 9h10M5 15h14" />
+                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
+              </div>
+              <P>
+                For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
+                strong network to accelerate credibility and adoption.
+              </P>
+              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+                <li><strong>Insider advantage</strong> on regulations, quality, supply, and demand.</li>
+                <li><strong>Instant credibility</strong> with practitioners, partners, and customers.</li>
+                <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
+                <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+              </ul>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply">Apply as Industry Expert</Button>
+              </div>
+            </CardBody>
+          </Card>
+
+          {/* Path 2 — Proven Operator */}
+          <Card>
+            <CardBody>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <SmallIcon path="M3 12h18M12 3v18" />
+                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
+              </div>
+              <P>
+                For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
+                growth regardless of industry background.
+              </P>
+              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+                <li><strong>Track record of execution</strong> across GTM, ops, product, or P&amp;L ownership.</li>
+                <li><strong>Bias to action</strong>: validate, ship, iterate, and find signal fast.</li>
+                <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
+                <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+              </ul>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply" variant="dark">Apply as Proven Operator</Button>
+              </div>
+            </CardBody>
+          </Card>
         </div>
-        <P>
-          For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
-          growth regardless of industry background.
-        </P>
-        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-          <li><strong>Track record of execution</strong> across GTM, ops, product, or P&amp;L ownership.</li>
-          <li><strong>Bias to action</strong>: validate, ship, iterate, and find signal fast.</li>
-          <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
-          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
-        </ul>
-        <div style={{ marginTop: 14 }}>
-          <Button href="#apply" variant="dark">Apply as Proven Operator</Button>
-        </div>
-      </CardBody>
-    </Card>
-  </div>
-</Section>
+      </Section>
 
       {/* Apply */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
