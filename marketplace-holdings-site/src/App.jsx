@@ -582,7 +582,7 @@ export default function App() {
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
-              The Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
+              The Startup Studio That Builds Category-Defining <span style={{ color: theme.red }}>Marketplaces</span>
             </H1>
 
             <P dim size={18}>
