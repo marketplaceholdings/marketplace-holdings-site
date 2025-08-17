@@ -566,12 +566,15 @@ export default function App() {
         />
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
-            <H1>The Startup Studio That Builds Category-Defining Marketplaces</H1>
+            <H1>
+  The Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
+</H1>
 
 <P dim size={18}>
   We originate ideas, fund the early build, and apply proven playbooks — premium domains, rapid product,
   liquidity tactics, growth loops, and capital — to turn ventures into category leaders.
 </P>
+
 
 
             {/* Hero collage */}
