@@ -808,13 +808,10 @@ export default function App() {
         </P>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
-          {/* Path 1 — Industry Expert */}
+          {/* Path 1 — Industry Expert (icon removed) */}
           <Card>
             <CardBody>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M5 3h14M5 9h10M5 15h14" />
-                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
-              </div>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
               <P>
                 For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
                 strong network to accelerate credibility and adoption.
@@ -831,13 +828,10 @@ export default function App() {
             </CardBody>
           </Card>
 
-          {/* Path 2 — Proven Operator */}
+          {/* Path 2 — Proven Operator (icon removed) */}
           <Card>
             <CardBody>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M3 12h18M12 3v18" />
-                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
-              </div>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
               <P>
                 For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
                 growth regardless of industry background.
@@ -854,13 +848,10 @@ export default function App() {
             </CardBody>
           </Card>
 
-          {/* Path 3 — Bring Your Own Idea */}
+          {/* Path 3 — Bring Your Own Idea (icon removed) */}
           <Card>
             <CardBody>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <SmallIcon path="M12 2v20M2 12h20" />
-                <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
-              </div>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
               <P>
                 Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to validate,
                 build, and launch using our capital, team, and playbooks.
