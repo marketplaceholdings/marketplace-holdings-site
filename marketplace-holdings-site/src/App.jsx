@@ -789,12 +789,12 @@ export default function App() {
   </P>
 
   <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-    {/* Path 1 — Industry Expert CEO */}
+    {/* Path 1 — Industry Expert */}
     <Card>
       <CardBody>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <SmallIcon path="M5 3h14M5 9h10M5 15h14" />
-          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert CEO</h3>
+          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
         </div>
         <P>
           For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
@@ -812,12 +812,12 @@ export default function App() {
       </CardBody>
     </Card>
 
-    {/* Path 2 — Proven Operator CEO */}
+    {/* Path 2 — Proven Operator */}
     <Card>
       <CardBody>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <SmallIcon path="M3 12h18M12 3v18" />
-          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator CEO</h3>
+          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
         </div>
         <P>
           For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
