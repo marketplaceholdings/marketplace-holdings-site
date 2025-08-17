@@ -571,8 +571,9 @@ export default function App() {
 </H1>
 
 <P dim size={18}>
-  We originate ideas, fund the early build, and apply proven playbooks — premium domains, rapid product,
-  liquidity tactics, growth loops, and capital — to turn ventures into category leaders.
+  <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
+  rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
+  required to accelerate traction and become category leaders.
 </P>
 
 
