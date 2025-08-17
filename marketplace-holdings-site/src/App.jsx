@@ -650,30 +650,17 @@ export default function App() {
           <H2>Active & Incubating Ventures</H2>
         </div>
         {/* UPDATED: widen min column to 320px so cards drop to 3-across when needed */}
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-          {ventures.map((v) => (
-            <Card key={v.name}>
-              <CardHeader
-                title={v.name}
-                media={
-                  <Img
-                    src={PH(240, 120, "Logo")}
-                    alt={`${v.name} logo`}
-                    aspect="3/1"
-                    cover={false}
-                    border
-                    radius="10px"
-                    shadow={null}
-                    style={{ width: 72, minWidth: 72 }}
-                  />
-                }
-              />
-              <CardBody>
-                <p style={{ margin: 0 }}>{v.blurb}</p>
-              </CardBody>
-            </Card>
-          ))}
-        </div>
+      <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+  {ventures.map((v) => (
+    <Card key={v.name}>
+      <CardHeader title={v.name} />
+      <CardBody>
+        <p style={{ margin: 0 }}>{v.blurb}</p>
+      </CardBody>
+    </Card>
+  ))}
+</div>
+
       </Section>
 
       {/* ===== MOVED SECTION: WHY US (now between Ventures and The Journey) ===== */}
