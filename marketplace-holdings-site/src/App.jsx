@@ -488,19 +488,11 @@ export default function App() {
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <svg
-                width="34"
-                height="34"
-                viewBox="0 0 34 34"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ display: "block" }}
-              >
-                {/* Reduce radii so 4px strokes sit fully inside the 34x34 viewBox */}
+              <svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
                 <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="9"  fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="4"  fill={theme.red} />
               </svg>
-
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
 
@@ -556,7 +548,7 @@ export default function App() {
       >
         {/* Hero BG image (swap src) */}
         <Img
-          src={PH(2400, 1200, "")}   // <- empty label, no text rendered
+          src={PH(2400, 1200, "")}
           alt=""
           aspect="3/1"
           cover
@@ -567,36 +559,30 @@ export default function App() {
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
-  The Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
-</H1>
+              The Startup Studio That <span style={{ color: theme.red }}>Builds Category-Defining Marketplaces</span>
+            </H1>
 
-<P dim size={18}>
-  <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
-  rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
-  required to accelerate traction and become category leaders.
-</P>
-
-
+            <P dim size={18}>
+              <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
+              rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
+              required to accelerate traction and become category leaders.
+            </P>
 
             {/* Hero collage */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
-  <Img
-    src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
-    alt="Marketplace analytics dashboard"
-    aspect="3/2"
-    cover={true}
-  />
-  <Img
-    src="/images/founders-collab.png"
-    alt="Founders collaborating in a startup office"
-    aspect="3/2"
-    cover={true}
-  />
-</div>
-
-
-
-
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
+              <Img
+                src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
+                alt="Marketplace analytics dashboard"
+                aspect="3/2"
+                cover={true}
+              />
+              <Img
+                src="/images/founders-collab.png"
+                alt="Founders collaborating in a startup office"
+                aspect="3/2"
+                cover={true}
+              />
+            </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
@@ -644,26 +630,39 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Ventures with logos/thumbs */}
+      {/* Ventures */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
         </div>
-        {/* UPDATED: widen min column to 320px so cards drop to 3-across when needed */}
-      <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-  {ventures.map((v) => (
-    <Card key={v.name}>
-      <CardHeader title={v.name} />
-      <CardBody>
-        <p style={{ margin: 0 }}>{v.blurb}</p>
-      </CardBody>
-    </Card>
-  ))}
-</div>
-
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
+          {ventures.map((v) => (
+            <Card key={v.name}>
+              <CardHeader title={v.name} />
+              <CardBody>
+                <p style={{ margin: 0 }}>{v.blurb}</p>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
       </Section>
 
-      {/* ===== MOVED SECTION: WHY US (now between Ventures and The Journey) ===== */}
+      {/* ===== NEW SECTION (Option 2: Selective Talent Placement) ===== */}
+      <Section id="ceo-placement">
+        <H2>Where Proven Leaders Become Marketplace CEOs</H2>
+        <P dim>
+          You don’t need to start from scratch. We originate the concept, secure the premium domain, and fund the early build.
+          Our model is to match people with a <strong>track record of success</strong> — alongside <strong>industry experts</strong> —
+          to lead each marketplace, backed by our engineering, design, go-to-market resources, and growth playbooks.
+        </P>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
+          <Button href="#apply" size="md">Apply to Lead</Button>
+          <Button href="#why-us" variant="secondary" size="md">How We Support</Button>
+        </div>
+      </Section>
+      {/* ===== END NEW SECTION ===== */}
+
+      {/* Why Us */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -709,7 +708,6 @@ export default function App() {
           </Card>
         </div>
       </Section>
-      {/* ===== END MOVED SECTION ===== */}
 
       {/* Journey with subtle background line */}
       <Section id="model" alt>
@@ -1090,14 +1088,7 @@ export default function App() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              {/* Bullseye SVG */}
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 34 34"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ display: "block" }}
-              >
+              <svg width="24" height="24" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
                 <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
                 <circle cx="17" cy="17" r="4" fill={theme.red} />
