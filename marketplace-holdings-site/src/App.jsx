@@ -580,19 +580,20 @@ export default function App() {
 
             {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
-              <Img
-                src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
-                alt="Marketplace analytics dashboard"
-                aspect="3/2"
-                cover={true}
-              />
-              <Img
-                src="/images/founders-collab.png"
-                alt="Founders collaborating in a startup office"
-                aspect="3/2"
-                cover={true}
-              />
-            </div>
+  <Img
+    src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
+    alt="Marketplace analytics dashboard"
+    aspect="3/2"
+    cover={true}
+  />
+  <Img
+    src="/images/rvsharehome.png"
+    alt="RV marketplace homepage mockup"
+    aspect="1487/768"
+    cover={false}
+    style={{ marginTop: 10 }}
+  />
+</div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
