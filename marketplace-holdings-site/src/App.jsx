@@ -579,14 +579,21 @@ export default function App() {
 
 
             {/* Hero collage */}
-          <div style={{ maxWidth: 820 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
   <Img
     src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
     alt="Marketplace analytics dashboard"
     aspect="3/2"
     cover={true}
   />
+  <Img
+    src="/images/founders-collab.png"
+    alt="Founders collaborating in a startup office"
+    aspect="3/2"
+    cover={true}
+  />
 </div>
+
 
 
 
