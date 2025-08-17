@@ -589,11 +589,11 @@ export default function App() {
   <Img
     src="/images/rvsharehome.png"
     alt="RV marketplace homepage mockup"
-    aspect="1487/768"
-    cover={false}
-    style={{ marginTop: 10 }}
+    aspect="3/2"   // changed to match the left image
+    cover={true}   // changed to cover so it fills evenly
   />
 </div>
+
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">See Tracks</Button>
