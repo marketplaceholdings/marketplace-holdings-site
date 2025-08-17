@@ -230,7 +230,7 @@ const Card = ({ children, hover = true }) => (
   </div>
 );
 
-const CardHeader = ({ title, extra }) => (
+const CardHeader = ({ title, extra, media }) => (
   <div
     style={{
       padding: 20,
@@ -239,6 +239,7 @@ const CardHeader = ({ title, extra }) => (
       alignItems: "center",
       justifyContent: "space-between",
       background: "linear-gradient(180deg, #ffffff, #fcfdff)",
+      gap: 12,
     }}
   >
     <div
@@ -255,7 +256,7 @@ const CardHeader = ({ title, extra }) => (
     >
       {title}
     </div>
-    {extra}
+    {media || extra}
   </div>
 );
 
@@ -323,12 +324,6 @@ const Textarea = (props) => (
       e.currentTarget.style.boxShadow = "none";
     }}
   />
-);
-
-const CheckIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.red} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 3 }}>
-    <path d="M20 6L9 17l-5-5" />
-  </svg>
 );
 
 const MenuIcon = ({ open = false, size = 22 }) => (
@@ -606,56 +601,6 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Why Us */}
-      <Section id="why-us" alt>
-        <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
-        <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
-
-        <div
-          style={{
-            display: "grid",
-            gap: 16,
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            marginTop: 18,
-          }}
-        >
-          <Card>
-            <CardHeader
-              title="Proven Track Record"
-              media={<SmallIcon path="M3 12l7 7 11-11" />}
-            />
-            <CardBody>
-              $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardHeader title="People & Expertise" media={<SmallIcon path="M20 21v-2a4 4 0 0 0-3-3.87M4 21v-2a4 4 0 0 1 3-3.87M7 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />} />
-            <CardBody>Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who accelerate your path.</CardBody>
-          </Card>
-
-          <Card>
-            <CardHeader title="Engineering & Design Resources" media={<SmallIcon path="M3 3h18v14H3zM3 17l6 4 6-4" />} />
-            <CardBody>From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our design system shortens time-to-value.</CardBody>
-          </Card>
-
-          <Card>
-            <CardHeader title="Go-to-Market" media={<SmallIcon path="M3 12h18M12 3v18" />} />
-            <CardBody>Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.</CardBody>
-          </Card>
-
-          <Card>
-            <CardHeader title="Capital & Runway" media={<SmallIcon path="M12 1v22M5 7h14" />} />
-            <CardBody>We fund the early build and provide runway to test, iterate, and prove traction — without risking your savings.</CardBody>
-          </Card>
-
-          <Card>
-            <CardHeader title="Playbooks & Frameworks" media={<SmallIcon path="M4 6h16M4 12h16M4 18h16" />} />
-            <CardBody>Battle-tested playbooks for growth, product, and GTM — execute what’s proven to work and skip trial-and-error.</CardBody>
-          </Card>
-        </div>
-      </Section>
-
       {/* Why Marketplaces — side image */}
       <Section id="why-marketplaces">
         <div className="media-grid">
@@ -725,6 +670,54 @@ export default function App() {
           ))}
         </div>
       </Section>
+
+      {/* ===== MOVED SECTION: WHY US (now between Ventures and The Journey) ===== */}
+      <Section id="why-us" alt>
+        <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
+        <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
+
+        <div
+          style={{
+            display: "grid",
+            gap: 16,
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            marginTop: 18,
+          }}
+        >
+          <Card>
+            <CardHeader title="Proven Track Record" media={<SmallIcon path="M3 12l7 7 11-11" />} />
+            <CardBody>
+              $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.
+            </CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="People & Expertise" media={<SmallIcon path="M20 21v-2a4 4 0 0 0-3-3.87M4 21v-2a4 4 0 0 1 3-3.87M7 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />} />
+            <CardBody>Founders and advisors with real wins — battle-tested operators in growth, GTM, and product who accelerate your path.</CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="Engineering & Design Resources" media={<SmallIcon path="M3 3h18v14H3zM3 17l6 4 6-4" />} />
+            <CardBody>From MVP to iteration, you’ll have engineers and designers aligned to your venture. Our design system shortens time-to-value.</CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="Go-to-Market" media={<SmallIcon path="M3 12h18M12 3v18" />} />
+            <CardBody>Full-stack marketing — strategy, creatives, analytics, and paid media with meaningful test budgets to find signal fast.</CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="Capital & Runway" media={<SmallIcon path="M12 1v22M5 7h14" />} />
+            <CardBody>We fund the early build and provide runway to test, iterate, and prove traction — without risking your savings.</CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="Playbooks & Frameworks" media={<SmallIcon path="M4 6h16M4 12h16M4 18h16" />} />
+            <CardBody>Battle-tested playbooks for growth, product, and GTM — execute what’s proven to work and skip trial-and-error.</CardBody>
+          </Card>
+        </div>
+      </Section>
+      {/* ===== END MOVED SECTION ===== */}
 
       {/* Journey with subtle background line */}
       <Section id="model" alt>
