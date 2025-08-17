@@ -566,16 +566,13 @@ export default function App() {
         />
         <Container>
           <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
-            <H1>
-              Build a Company That Could Change Your Life —{" "}
-              <span style={{ color: theme.red }}>Without Quitting Your Job</span>
-            </H1>
+            <H1>The Startup Studio That Builds Category-Defining Marketplaces</H1>
 
-            <P dim size={18}>
-              <strong>Most founders risk everything. You don't have to.</strong> Join our marketplace startup studio as a part-time
-              Founding CEO (~10 hrs/wk). We provide the idea, resources, and a skilled product team—so you can design, build, and
-              launch while proving traction before going all-in.
-            </P>
+<P dim size={18}>
+  We originate ideas, fund the early build, and apply proven playbooks — premium domains, rapid product,
+  liquidity tactics, growth loops, and capital — to turn ventures into category leaders.
+</P>
+
 
             {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
