@@ -1085,38 +1085,53 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Footer (improved spacing for address) */}
-      <footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
-        <Container>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              alignItems: "flex-start",
-              justifyContent: "center",
-              padding: "22px 0",
-              color: theme.subtext,
-              fontSize: 14,
-              lineHeight: 1.6,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <svg width="22" height="22" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-                <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
-                <circle cx="17" cy="17" r="4" fill={theme.red} />
-              </svg>
-              <span>© {new Date().getFullYear()} Marketplace Holdings</span>
-            </div>
-            <div style={{ fontSize: 13, color: "#94a3b8" }}>
-              17190 Bernardo Center Dr, Suite 200
-              <br />
-              San Diego, CA 92128
-            </div>
-          </div>
-        </Container>
-      </footer>
+     {/* Footer (with updated nav links + softer address color) */}
+<footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
+  <Container>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "24px 0",
+        color: theme.subtext,
+        fontSize: 14,
+        lineHeight: 1.6,
+      }}
+    >
+      {/* Logo + Copyright */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <svg width="22" height="22" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="4" fill={theme.red} />
+        </svg>
+        <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+      </div>
+
+      {/* Muted Nav Links */}
+      <nav style={{ display: "flex", gap: 14, fontSize: 13, color: "#94a3b8" }}>
+        <a href="#why-marketplaces" style={{ color: "inherit", textDecoration: "none" }}>Why Marketplaces</a>
+        <span>·</span>
+        <a href="#ventures" style={{ color: "inherit", textDecoration: "none" }}>Ventures</a>
+        <span>·</span>
+        <a href="#choose-your-path" style={{ color: "inherit", textDecoration: "none" }}>Opportunities</a>
+        <span>·</span>
+        <a href="#apply" style={{ color: "inherit", textDecoration: "none" }}>Apply</a>
+      </nav>
+
+      {/* Address (lighter color for balance) */}
+      <div style={{ fontSize: 13, color: "#cbd5e1" }}>
+        17190 Bernardo Center Dr, Suite 200
+        <br />
+        San Diego, CA 92128
+      </div>
+    </div>
+  </Container>
+</footer>
+
     </div>
   );
 }
