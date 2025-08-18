@@ -695,13 +695,13 @@ export default function App() {
               The Startup Studio That Builds Category-Defining <span style={{ color: theme.red }}>Marketplaces</span>
             </H1>
 
-            <P dim size={18}>
+         <P dim size={18}>
   <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong>
-</P>
-<P dim size={18}>
+  <br />
   These include premium domains, rapid product development, liquidity tactics, growth loops, and capital — giving
   ventures the unfair advantages required to accelerate traction and become category leaders.
 </P>
+
 
 
             {/* Hero collage */}
