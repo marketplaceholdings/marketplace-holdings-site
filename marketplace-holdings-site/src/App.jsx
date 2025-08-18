@@ -204,10 +204,11 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
       "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
-    // Full-width buttons get side breathing room inside cards
-    width: full ? "calc(100% - 24px)" : "auto",
-    marginLeft: full ? 12 : 0,
-    marginRight: full ? 12 : 0,
+
+    // 🔧 Full-width buttons: keep 20px breathing room on both sides
+    width: full ? "calc(100% - 40px)" : "auto",
+    marginLeft: full ? 20 : 0,
+    marginRight: full ? 20 : 0,
   };
 
   const variants = {
