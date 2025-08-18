@@ -1040,36 +1040,39 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Footer */}
-      <footer style={{ borderTop: `1px solid ${theme.border}` }}>
-        <Container>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 12,
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "18px 0",
-              color: theme.subtext,
-              fontSize: 14,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <svg width="24" height="24" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
-                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-                <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
-                <circle cx="17" cy="17" r="4" fill={theme.red} />
-              </svg>
-              <span>
-                © {new Date().getFullYear()} Marketplace Holdings
-                <br />
-                17190 Bernardo Center Dr Suite 200, San Diego, CA 92128
-              </span>
-            </div>
-          </div>
-        </Container>
-      </footer>
+     {/* Footer */}
+<footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
+  <Container>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 6,
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "22px 0",
+        color: theme.subtext,
+        fontSize: 14,
+        lineHeight: 1.6,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <svg width="22" height="22" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+          <circle cx="17" cy="17" r="4" fill={theme.red} />
+        </svg>
+        <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+      </div>
+      <div style={{ fontSize: 13, color: "#94a3b8" }}>
+        17190 Bernardo Center Dr, Suite 200  
+        <br />
+        San Diego, CA 92128
+      </div>
+    </div>
+  </Container>
+</footer>
+
     </div>
   );
 }
