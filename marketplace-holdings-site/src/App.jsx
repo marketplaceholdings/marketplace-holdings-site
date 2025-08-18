@@ -488,10 +488,8 @@ export default function App() {
           opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
           transition: opacity .18s ease; z-index: 50;
         }
-        /* Simple two-column for image/text blocks */
         .media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
         @media (max-width: 980px) { .media-grid { grid-template-columns: 1fr; } }
-        /* Logo row */
         .logo-row { display:flex; flex-wrap:wrap; gap:18px; align-items:center; opacity:.85 }
       `}</style>
 
@@ -560,7 +558,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero with background image */}
+      {/* 1) HERO */}
       <section
         style={{
           position: "relative",
@@ -590,7 +588,6 @@ export default function App() {
               required to accelerate traction and become category leaders.
             </P>
 
-            {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
@@ -614,46 +611,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* Why Marketplaces — side image */}
-      <Section id="why-marketplaces">
-        <div className="media-grid">
-          <div>
-            <H2>Why We Only Build Online Marketplaces</H2>
-            <P dim>
-              We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
-              and we apply that specialization to each new category we build.
-            </P>
-
-            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
-              <Card>
-                <CardHeader title="Crack the Chicken-and-Egg" />
-                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Scalable Growth Loops" />
-                <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Capital Efficient" />
-                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
-              </Card>
-            </div>
-          </div>
-
-          {/* Product/Marketplace mockup image */}
-          <div>
-            <Img
-              src="/images/rvsharehome.png"
-              alt="RV marketplace homepage mockup"
-              aspect="1487/768"
-              cover={false}
-              style={{ marginTop: 10 }}
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* Ventures */}
+      {/* 2) VENTURES (social proof) */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -670,21 +628,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Selective Talent Placement */}
-      <Section id="ceo-placement">
-        <H2>Where Proven Leaders Become Marketplace CEOs</H2>
-        <P dim>
-          You don’t need to start from scratch. We originate the concept, secure the premium domain, and fund the early build.
-          Our model is to match people with a <strong>track record of success</strong> — alongside <strong>industry experts</strong> —
-          to lead each marketplace, backed by our engineering, design, go-to-market resources, and growth playbooks.
-        </P>
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
-          <Button href="#apply" size="md">Apply to Lead</Button>
-          <Button href="#why-us" variant="secondary" size="md">How We Support</Button>
-        </div>
-      </Section>
-
-      {/* Why Us */}
+      {/* 3) WHY US (value props) */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -731,77 +675,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Journey */}
-      <Section id="model" alt>
-        <H2>The Journey</H2>
-        <div style={{ position: "relative", marginTop: 18 }}>
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              left: 12,
-              top: 0,
-              bottom: 0,
-              width: 2,
-              background: "linear-gradient(#e5e7eb, #f1f5f9)",
-              borderRadius: 2,
-              opacity: 0.7,
-            }}
-          />
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginLeft: 24 }}>
-            {steps.map((s, i) => (
-              <Card key={s.title}>
-                <CardHeader
-                  title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>}
-                  media={
-                    <SmallIcon
-                      path={["M5 12l5 5L20 7", "M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L2 9h7z", "M3 12h18", "M12 2v20", "M4 6h16"][i % 5]}
-                    />
-                  }
-                />
-                <CardBody>{s.text}</CardBody>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Who We're Looking For */}
-      <Section id="kpis">
-        <H2>Who We're Looking For</H2>
-        <div
-          style={{
-            display: "grid",
-            gap: 12,
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            marginTop: 14,
-          }}
-        >
-          {whoWeWant.map((item, idx) => (
-            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-              <SmallIcon
-                path={
-                  [
-                    "M13 2L3 14h7l1 8 10-12h-7l-1-8z",
-                    "M12 2l7 7-7 7-7-7 7-7z",
-                    "M3 22V10l9-7 9 7v12",
-                    "M12 20l9-8-9-8-9 8z",
-                    "M3 12h18M12 3v18",
-                    "M5 3h14M5 9h10M5 15h14",
-                  ][idx % 6]
-                }
-              />
-              <p style={{ margin: 0, color: theme.text }}>
-                <strong>{item.label}</strong>
-                {" — "}
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Choose Your Path — NOW VERTICAL */}
+      {/* 4) CHOOSE YOUR PATH (decision) */}
       <Section id="choose-your-path" alt>
         <H2>Choose Your Path</H2>
         <P dim>
@@ -810,7 +684,6 @@ export default function App() {
         </P>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
-          {/* Path 1 — Industry Expert (icon removed) */}
           <Card>
             <CardBody>
               <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
@@ -830,7 +703,6 @@ export default function App() {
             </CardBody>
           </Card>
 
-          {/* Path 2 — Proven Operator (icon removed) */}
           <Card>
             <CardBody>
               <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
@@ -850,7 +722,6 @@ export default function App() {
             </CardBody>
           </Card>
 
-          {/* Path 3 — Bring Your Own Idea (icon removed) */}
           <Card>
             <CardBody>
               <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
@@ -872,7 +743,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Apply */}
+      {/* 5) APPLY (moved up) */}
       <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
         <style>{`
           @media (max-width: 639px) {
@@ -945,7 +816,129 @@ export default function App() {
         </Container>
       </section>
 
-      {/* FAQs */}
+      {/* 6) CEO PLACEMENT (reassurance) */}
+      <Section id="ceo-placement">
+        <H2>Where Proven Leaders Become Marketplace CEOs</H2>
+        <P dim>
+          You don’t need to start from scratch. We originate the concept, secure the premium domain, and fund the early build.
+          Our model is to match people with a <strong>track record of success</strong> — alongside <strong>industry experts</strong> —
+          to lead each marketplace, backed by our engineering, design, go-to-market resources, and growth playbooks.
+        </P>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
+          <Button href="#apply" size="md">Apply to Lead</Button>
+          <Button href="#why-us" variant="secondary" size="md">How We Support</Button>
+        </div>
+      </Section>
+
+      {/* 7) JOURNEY (process) */}
+      <Section id="model" alt>
+        <H2>The Journey</H2>
+        <div style={{ position: "relative", marginTop: 18 }}>
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: 12,
+              top: 0,
+              bottom: 0,
+              width: 2,
+              background: "linear-gradient(#e5e7eb, #f1f5f9)",
+              borderRadius: 2,
+              opacity: 0.7,
+            }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginLeft: 24 }}>
+            {steps.map((s, i) => (
+              <Card key={s.title}>
+                <CardHeader
+                  title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>}
+                  media={
+                    <SmallIcon
+                      path={["M5 12l5 5L20 7", "M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L2 9h7z", "M3 12h18", "M12 2v20", "M4 6h16"][i % 5]}
+                    />
+                  }
+                />
+                <CardBody>{s.text}</CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 8) WHY MARKETPLACES (thesis) */}
+      <Section id="why-marketplaces">
+        <div className="media-grid">
+          <div>
+            <H2>Why We Only Build Online Marketplaces</H2>
+            <P dim>
+              We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
+              and we apply that specialization to each new category we build.
+            </P>
+
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Crack the Chicken-and-Egg" />
+                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Scalable Growth Loops" />
+                <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Capital Efficient" />
+                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
+              </Card>
+            </div>
+          </div>
+
+          <div>
+            <Img
+              src="/images/rvsharehome.png"
+              alt="RV marketplace homepage mockup"
+              aspect="1487/768"
+              cover={false}
+              style={{ marginTop: 10 }}
+            />
+          </div>
+        </div>
+      </Section>
+
+      {/* 9) WHO WE'RE LOOKING FOR (qualifiers) */}
+      <Section id="kpis">
+        <H2>Who We're Looking For</H2>
+        <div
+          style={{
+            display: "grid",
+            gap: 12,
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            marginTop: 14,
+          }}
+        >
+          {whoWeWant.map((item, idx) => (
+            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+              <SmallIcon
+                path={
+                  [
+                    "M13 2L3 14h7l1 8 10-12h-7l-1-8z",
+                    "M12 2l7 7-7 7-7-7 7-7z",
+                    "M3 22V10l9-7 9 7v12",
+                    "M12 20l9-8-9-8-9 8z",
+                    "M3 12h18M12 3v18",
+                    "M5 3h14M5 9h10M5 15h14",
+                  ][idx % 6]
+                }
+              />
+              <p style={{ margin: 0, color: theme.text }}>
+                <strong>{item.label}</strong>
+                {" — "}
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* 10) FAQ (objections) */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
@@ -970,7 +963,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Founder Letter — UPDATED */}
+      {/* 11) FOUNDER LETTER (story) */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <style>{`
           @media (max-width: 639px) {
@@ -993,7 +986,6 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
-                {/* Founder image row (single) */}
                 <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
                   <Img
                     src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
