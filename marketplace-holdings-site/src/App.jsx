@@ -6,40 +6,28 @@ import * as React from "react";
 -------------------------------------------------- */
 const theme = {
   red: "#e11d48",
-  redHover: "#be123c",
   text: "#0f172a",
   subtext: "#475569",
   border: "#e5e7eb",
   bg: "#ffffff",
   bgAlt: "#f8fafc",
 
-  radius: { sm: 8, md: 12, lg: 16, xl: 24, xxl: 32, pill: 999 },
+  radius: { sm: 8, md: 12, lg: 16, xl: 24, pill: 999 },
   space: (n) => `${n * 4}px`,
   shadow: {
     sm: "0 1px 2px rgba(2,6,23,.06)",
     md: "0 8px 30px rgba(2,6,23,.08)",
     lg: "0 18px 60px rgba(2,6,23,.12)",
-    xl: "0 30px 80px rgba(2,6,23,.16)",
   },
 };
 
 /* -------------------------------------------------
    GLOBAL UTILS
 -------------------------------------------------- */
-const Section = ({ children, alt = false, id, gradient = false }) => (
-  <section
-    id={id}
-    style={{
-      borderTop: `1px solid ${theme.border}`,
-      background: gradient
-        ? "linear-gradient(180deg, #ffffff, #f8fafc)"
-        : alt
-        ? theme.bgAlt
-        : theme.bg,
-    }}
-  >
+const Section = ({ children, alt = false, id }) => (
+  <section id={id} style={{ borderTop: `1px solid ${theme.border}`, background: alt ? theme.bgAlt : theme.bg }}>
     <Container>
-      <div style={{ padding: "100px 0" }}>{children}</div>
+      <div style={{ padding: "80px 0" }}>{children}</div>
     </Container>
   </section>
 );
@@ -68,7 +56,7 @@ const H1 = ({ children }) => (
       margin: 0,
       fontFamily: stack,
       fontSize: "clamp(36px, 5vw, 60px)",
-      lineHeight: 1.05,
+      lineHeight: 1.06,
       fontWeight: 800,
       letterSpacing: "-0.02em",
       color: theme.text,
@@ -84,7 +72,7 @@ const H2 = ({ children }) => (
       margin: 0,
       fontFamily: stack,
       fontSize: "clamp(22px, 2.2vw, 30px)",
-      lineHeight: 1.2,
+      lineHeight: 1.15,
       fontWeight: 800,
       letterSpacing: "-0.01em",
       color: theme.text,
@@ -94,14 +82,14 @@ const H2 = ({ children }) => (
   </h2>
 );
 
-const H3 = ({ children, weight = 700 }) => (
+const H3 = ({ children }) => (
   <h3
     style={{
       margin: 0,
       fontFamily: stack,
       fontSize: 18,
       lineHeight: 1.25,
-      fontWeight: weight, // lets us use 600 for subheads where helpful
+      fontWeight: 800,
       color: theme.text,
     }}
   >
@@ -144,16 +132,7 @@ const PH = (w = 1200, h = 800, label = "Placeholder") =>
     </svg>`
   );
 
-const Img = ({
-  src,
-  alt,
-  aspect = "16/9",
-  cover = true,
-  radius = `${theme.radius.xxl}px`,
-  border = true,
-  shadow = "md",
-  style,
-}) => (
+const Img = ({ src, alt, aspect = "16/9", cover = true, radius = "16px", border = true, shadow = "sm", style }) => (
   <div
     style={{
       position: "relative",
@@ -186,7 +165,7 @@ const Img = ({
 /* -------------------------------------------------
    UI PRIMITIVES
 -------------------------------------------------- */
-const Button = ({ children, variant = "primary", size = "md", href, onClick, full = false }) => {
+const Button = ({ children, variant = "primary", size = "md", href, onClick }) => {
   const base = {
     display: "inline-flex",
     alignItems: "center",
@@ -203,7 +182,6 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
       "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
-    width: full ? "100%" : "auto",
   };
   const variants = {
     primary: { background: theme.red, color: "#fff" },
@@ -213,25 +191,12 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
   };
   const Comp = href ? "a" : "button";
   const props = href ? { href } : { onClick };
-
-  // hover helpers
-  const onEnter = (e) => {
-    e.currentTarget.style.boxShadow = theme.shadow.md;
-    if (variant === "primary") e.currentTarget.style.background = theme.redHover;
-    if (variant === "ghost") e.currentTarget.style.background = "rgba(225,29,72,.05)";
-  };
-  const onLeave = (e) => {
-    e.currentTarget.style.boxShadow = theme.shadow.sm;
-    if (variant === "primary") e.currentTarget.style.background = theme.red;
-    if (variant === "ghost") e.currentTarget.style.background = "transparent";
-  };
-
   return (
     <Comp
       {...props}
       style={{ ...base, ...variants[variant] }}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={(e) => (e.currentTarget.style.boxShadow = theme.shadow.md)}
+      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = theme.shadow.sm)}
       onMouseDown={(e) => (e.currentTarget.style.transform = "translateY(1px)")}
       onMouseUp={(e) => (e.currentTarget.style.transform = "translateY(0)")}
       onFocus={(e) => (e.currentTarget.style.boxShadow = `0 0 0 6px rgba(225,29,72,.15), ${theme.shadow.md}`)}
@@ -246,24 +211,19 @@ const Card = ({ children, hover = true }) => (
   <div
     style={{
       border: `1px solid ${theme.border}`,
-      borderRadius: theme.radius.xxl,
+      borderRadius: theme.radius.xl,
       overflow: "hidden",
       background: "#fff",
       boxShadow: theme.shadow.sm,
-      transition: "transform .2s ease, box-shadow .2s ease, border-color .2s ease",
+      transition: "transform .12s ease, box-shadow .2s ease, border-color .2s ease",
       willChange: "transform",
     }}
     onMouseEnter={(e) => {
       if (!hover) return;
-      e.currentTarget.style.boxShadow = theme.shadow.lg;
+      e.currentTarget.style.boxShadow = theme.shadow.md;
       e.currentTarget.style.borderColor = "#e2e8f0";
-      e.currentTarget.style.transform = "translateY(-4px)";
     }}
-    onMouseLeave={(e) => {
-      if (!hover) return;
-      e.currentTarget.style.boxShadow = theme.shadow.sm;
-      e.currentTarget.style.transform = "translateY(0)";
-    }}
+    onMouseLeave={(e) => hover && (e.currentTarget.style.boxShadow = theme.shadow.sm)}
   >
     {children}
   </div>
@@ -277,14 +237,14 @@ const CardHeader = ({ title, extra, media }) => (
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      background: "linear-gradient(180deg, rgba(225,29,72,.02), #ffffff)",
+      background: "linear-gradient(180deg, #ffffff, #fcfdff)",
       gap: 12,
     }}
   >
     <div
       style={{
         fontSize: 18,
-        fontWeight: 700,
+        fontWeight: 800,
         color: theme.text,
         fontFamily: stack,
         lineHeight: 1.25,
@@ -315,10 +275,10 @@ const Input = (props) => (
     {...props}
     style={{
       width: "100%",
-      padding: "14px 16px",
-      borderRadius: theme.radius.xl,
+      padding: "12px 14px",
+      borderRadius: theme.radius.lg,
       border: `1px solid ${theme.border}`,
-      fontSize: 16,
+      fontSize: 14,
       outline: "none",
       transition: "box-shadow .2s ease, border-color .2s ease, background-color .2s ease",
       fontFamily: stack,
@@ -327,7 +287,7 @@ const Input = (props) => (
     onFocus={(e) => {
       e.currentTarget.style.borderColor = theme.red;
       e.currentTarget.style.boxShadow = "0 0 0 6px rgba(225,29,72,.12)";
-      e.currentTarget.style.background = "#fffafc";
+      e.currentTarget.style.background = "#fff";
     }}
     onBlur={(e) => {
       e.currentTarget.style.borderColor = theme.border;
@@ -343,10 +303,10 @@ const Select = (props) => (
     {...props}
     style={{
       width: "100%",
-      padding: "14px 16px",
-      borderRadius: theme.radius.xl,
+      padding: "12px 14px",
+      borderRadius: theme.radius.lg,
       border: `1px solid ${theme.border}`,
-      fontSize: 16,
+      fontSize: 14,
       outline: "none",
       transition: "box-shadow .2s ease, border-color .2s ease, background-color .2s ease",
       fontFamily: stack,
@@ -358,7 +318,7 @@ const Select = (props) => (
     onFocus={(e) => {
       e.currentTarget.style.borderColor = theme.red;
       e.currentTarget.style.boxShadow = "0 0 0 6px rgba(225,29,72,.12)";
-      e.currentTarget.style.background = "#fffafc";
+      e.currentTarget.style.background = "#fff";
     }}
     onBlur={(e) => {
       e.currentTarget.style.borderColor = theme.border;
@@ -373,12 +333,12 @@ const Textarea = (props) => (
     {...props}
     style={{
       width: "100%",
-      padding: "14px 16px",
-      borderRadius: theme.radius.xl,
+      padding: "12px 14px",
+      borderRadius: theme.radius.lg,
       border: `1px solid ${theme.border}`,
-      fontSize: 16,
+      fontSize: 14,
       outline: "none",
-      transition: "box-shadow .2s ease, border-color .2s ease, background-color .2s ease",
+      transition: "box-shadow .2s ease, border-color .2s ease",
       minHeight: 140,
       resize: "vertical",
       fontFamily: stack,
@@ -387,12 +347,10 @@ const Textarea = (props) => (
     onFocus={(e) => {
       e.currentTarget.style.borderColor = theme.red;
       e.currentTarget.style.boxShadow = "0 0 0 6px rgba(225,29,72,.12)";
-      e.currentTarget.style.background = "#fffafc";
     }}
     onBlur={(e) => {
       e.currentTarget.style.borderColor = theme.border;
       e.currentTarget.style.boxShadow = "none";
-      e.currentTarget.style.background = "#fff";
     }}
   />
 );
@@ -447,7 +405,7 @@ const ventures = [
   { name: "FinancialAdvisors.org", blurb: "A consumer-first directory of fiduciary advisors with transparent profiles.", tag: "Wealth" },
 ];
 
-/* Journey copy (final) */
+/* Updated, de-risked journey copy to match repositioning */
 const steps = [
   {
     phase: "Phase 1",
@@ -516,55 +474,12 @@ function useScrolled() {
   return scrolled;
 }
 
-function useActiveSection(ids) {
-  const [active, setActive] = React.useState("");
-  React.useEffect(() => {
-    const getOffsets = () =>
-      ids
-        .map((id) => {
-          const el = document.getElementById(id);
-          if (!el) return null;
-          const rect = el.getBoundingClientRect();
-          return { id, top: rect.top + window.scrollY };
-        })
-        .filter(Boolean);
-
-    let offsets = getOffsets();
-
-    const onScroll = () => {
-      const y = window.scrollY + 140; // header offset
-      let current = ids[0];
-      for (const s of offsets) {
-        if (y >= s.top) current = s.id;
-        else break;
-      }
-      setActive(current);
-    };
-
-    const onResize = () => (offsets = getOffsets());
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [ids]);
-  return active;
-}
-
 /* -------------------------------------------------
    APP
 -------------------------------------------------- */
 export default function App() {
   const scrolled = useScrolled();
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const active = useActiveSection([
-    "why-marketplaces",
-    "ventures",
-    "choose-your-path",
-    "apply",
-  ]);
 
   React.useEffect(() => {
     const onHashChange = () => setMenuOpen(false);
@@ -576,32 +491,17 @@ export default function App() {
     <div style={{ minHeight: "100vh", background: theme.bg, color: theme.text, fontFamily: stack }}>
       {/* Header styles for responsive nav */}
       <style>{`
-        .nav-links { display: flex; gap: 12px; align-items: center; }
-        .nav-links a {
-          color: ${theme.text};
-          text-decoration: none;
-          padding: 8px 10px;
-          border-radius: 8px;
-          font-weight: 600;
-          position: relative;
-        }
-        .nav-links a.active::after {
-          content: "";
-          position: absolute;
-          left: 10px; right: 10px; bottom: -6px;
-          height: 3px; border-radius: 4px;
-          background: ${theme.red};
-        }
-        .hamburger { display: none; border: 1px solid ${theme.border}; background: #fff; border-radius: 12px; padding: 8px; }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .hamburger { display: none; border: 1px solid ${theme.border}; background: #fff; border-radius: 10px; padding: 8px; }
         .hamburger:focus { outline: none; box-shadow: 0 0 0 6px rgba(225,29,72,.15); }
         @media (max-width: 860px) { .nav-links { display: none; } .hamburger { display: inline-flex; } }
         .mobile-sheet {
           position: fixed; top: 60px; right: 16px; left: 16px;
-          border: 1px solid ${theme.border}; border-radius: ${theme.radius.xxl}px;
-          background: #fff; box-shadow: ${theme.shadow.xl};
-          transform: translateY(${menuOpen ? "0" : "-12px"});
+          border: 1px solid ${theme.border}; border-radius: ${theme.radius.xl}px;
+          background: #fff; box-shadow: ${theme.shadow.lg};
+          transform: translateY(${menuOpen ? "0" : "-8px"});
           opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
-          transition: transform .28s cubic-bezier(.4,0,.2,1), opacity .18s ease; z-index: 60;
+          transition: transform .18s ease, opacity .18s ease; z-index: 60;
         }
         .mobile-sheet a { display: block; padding: 14px 18px; text-decoration: none; color: ${theme.text}; font-weight: 600; }
         .mobile-sheet a + a { border-top: 1px solid ${theme.border}; }
@@ -609,7 +509,6 @@ export default function App() {
         .media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
         @media (max-width: 980px) { .media-grid { grid-template-columns: 1fr; } }
         .logo-row { display:flex; flex-wrap:wrap; gap:18px; align-items:center; opacity:.85 }
-        @media (max-width: 640px) { .full-sm { width: 100%; } }
       `}</style>
 
       {/* Header */}
@@ -638,10 +537,18 @@ export default function App() {
 
             {/* Desktop links */}
             <nav className="nav-links" aria-label="Primary">
-              <a href="#why-marketplaces" className={active === "why-marketplaces" ? "active" : ""}>Why Marketplaces</a>
-              <a href="#ventures" className={active === "ventures" ? "active" : ""}>Ventures</a>
-              <a href="#choose-your-path" className={active === "choose-your-path" ? "active" : ""}>Opportunities</a>
-              <a href="#apply" className={active === "apply" ? "active" : ""}>Apply</a>
+              <a href="#why-marketplaces" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Why Marketplaces
+              </a>
+              <a href="#ventures" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Ventures
+              </a>
+              <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Opportunities
+              </a>
+              <a href="#apply" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Apply
+              </a>
             </nav>
 
             {/* Mobile hamburger */}
@@ -671,7 +578,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 1) HERO (white with soft vignette) */}
+      {/* 1) HERO (white) */}
       <section
         style={{
           position: "relative",
@@ -690,48 +597,46 @@ export default function App() {
           style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
         />
         <Container>
-          <div style={{ position: "relative", padding: "110px 0 80px", display: "grid", gap: 18, maxWidth: 900 }}>
+          <div style={{ position: "relative", padding: "96px 0 72px", display: "grid", gap: 18, maxWidth: 900 }}>
             <H1>
               The Startup Studio That Builds Category-Defining <span style={{ color: theme.red }}>Marketplaces</span>
             </H1>
 
-            <P dim size={18} style={{ maxWidth: 680 }}>
+            <P dim size={18}>
               <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
               rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
               required to accelerate traction and become category leaders.
             </P>
 
             {/* Hero collage */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 860, boxShadow: theme.shadow.lg }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
                 alt="Marketplace analytics dashboard"
                 aspect="3/2"
                 cover={true}
-                shadow="md"
               />
               <Img
                 src="/images/founders-collab.png"
                 alt="Founders collaborating in a startup office"
                 aspect="3/2"
                 cover={true}
-                shadow="md"
               />
             </div>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 10, zIndex: 1 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* 2) WHY MARKETPLACES (light gray + gradient) */}
-      <Section id="why-marketplaces" alt gradient>
+      {/* 2) WHY MARKETPLACES (light gray) */}
+      <Section id="why-marketplaces" alt>
         <div className="media-grid">
           <div>
             <H2>Why We Only Build Online Marketplaces</H2>
-            <P dim style={{ maxWidth: 680 }}>
+            <P dim>
               We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
               and we apply that specialization to each new category we build.
             </P>
@@ -784,7 +689,7 @@ export default function App() {
       {/* 4) WHY US (light gray) */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
-        <P dim style={{ maxWidth: 680 }}>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
+        <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
 
         <div
           style={{
@@ -862,7 +767,7 @@ export default function App() {
       {/* 6) OPPORTUNITIES (light gray) */}
       <Section id="choose-your-path" alt>
         <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
-        <P dim style={{ maxWidth: 680 }}>
+        <P dim>
           Three ways to lead a marketplace with us — each with meaningful equity ownership. Depending on the category and your strengths,
           we’ll place the right CEO: sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
         </P>
@@ -870,7 +775,7 @@ export default function App() {
         <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
           <Card>
             <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 1: Industry Expert</H3>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 1: Industry Expert</h3>
               <P>
                 For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
                 strong network to accelerate credibility and adoption.
@@ -881,15 +786,15 @@ export default function App() {
                 <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
                 <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
               </ul>
-              <div className="full-sm" style={{ marginTop: 14 }}>
-                <Button href="#apply" full>Apply as Industry Expert</Button>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply">Apply as Industry Expert</Button>
               </div>
             </CardBody>
           </Card>
 
           <Card>
             <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 2: Proven Operator</H3>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 2: Proven Operator</h3>
               <P>
                 For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
                 growth regardless of industry background.
@@ -900,15 +805,15 @@ export default function App() {
                 <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
                 <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
               </ul>
-              <div className="full-sm" style={{ marginTop: 14 }}>
-                <Button href="#apply" variant="dark" full>Apply as Proven Operator</Button>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply" variant="dark">Apply as Proven Operator</Button>
               </div>
             </CardBody>
           </Card>
 
           <Card>
             <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 3: Bring Your Own Marketplace Idea</H3>
+              <h3 style={{ margin: 0, fontSize: 20, fontWeight: 800 }}>Path 3: Bring Your Own Marketplace Idea</h3>
               <P>
                 Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to validate,
                 build, and launch using our capital, team, and playbooks.
@@ -919,26 +824,26 @@ export default function App() {
                 <li><strong>Structured validation</strong> to find signal fast and allocate capital wisely.</li>
                 <li><strong>Founder-led</strong> — you remain the driving force and prospective CEO.</li>
               </ul>
-              <div className="full-sm" style={{ marginTop: 14 }}>
-                <Button href="#apply" variant="secondary" full>Pitch Your Idea</Button>
+              <div style={{ marginTop: 14 }}>
+                <Button href="#apply" variant="secondary">Pitch Your Idea</Button>
               </div>
             </CardBody>
           </Card>
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
-      <Section id="equity" gradient>
+      {/* 7) FOUNDER LETTER (white) */}
+      <Section id="equity">
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
             style={{
               maxWidth: 880,
-              background: "linear-gradient(180deg, rgba(225,29,72,.03), #ffffff)",
+              background: "#fff",
               border: `1px solid ${theme.border}`,
-              borderRadius: theme.radius.xxl,
-              padding: 34,
+              borderRadius: theme.radius.xl,
+              padding: 30,
               lineHeight: 1.75,
-              boxShadow: theme.shadow.lg,
+              boxShadow: theme.shadow.sm,
             }}
           >
             <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
@@ -948,37 +853,36 @@ export default function App() {
                 aspect="1/1"
                 radius="50%"
                 style={{ width: 72 }}
-                shadow={null}
               />
             </div>
 
             <H2>Dear Future Partner,</H2>
-            <P size={16.5} style={{ maxWidth: 680 }}>
+            <P size={16.5}>
               At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
               category-defining marketplaces — as CEOs and meaningful equity owners.
             </P>
-            <P dim style={{ maxWidth: 680 }}>
+            <P dim>
               We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
               venture is <strong>who leads it</strong>. That’s where you come in.
             </P>
 
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            <H3 weight={600}>Three Ways to Partner</H3>
+            <H3>Three Ways to Partner</H3>
 
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 1: The Industry Expert</H3>
+            <H3 style={{ marginTop: 14 }}>Path 1: The Industry Expert</H3>
             <P dim>
               You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
               You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
             </P>
 
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 2: The Proven Operator</H3>
+            <H3 style={{ marginTop: 14 }}>Path 2: The Proven Operator</H3>
             <P dim>
               You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
               quickly in a category and move fast from validation to traction.
             </P>
 
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 3: The Founder With an Idea</H3>
+            <H3 style={{ marginTop: 14 }}>Path 3: The Founder With an Idea</H3>
             <P dim>
               You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
               launch using our resources and growth systems.
@@ -986,7 +890,7 @@ export default function App() {
 
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            <H3 weight={600}>Why Partner With Us</H3>
+            <H3>Why Partner With Us</H3>
             <div
               style={{
                 display: "grid",
@@ -1015,8 +919,8 @@ export default function App() {
               </P>
             </div>
 
-            <H3 style={{ marginTop: 22 }} weight={600}>The Upside</H3>
-            <P dim style={{ maxWidth: 680 }}>
+            <H3 style={{ marginTop: 22 }}>The Upside</H3>
+            <P dim>
               This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
               With meaningful equity, the upside can be life-changing.
             </P>
@@ -1030,14 +934,14 @@ export default function App() {
                 background: theme.bgAlt,
               }}
             >
-              <H3 weight={600}>Why Equity Matters</H3>
-              <P dim style={{ maxWidth: 680 }}>
+              <H3>Why Equity Matters</H3>
+              <P dim>
                 A paycheck stops the moment you do. Equity keeps compounding your effort, your vision, and your wins. Our mission is to build
                 marketplaces that dominate their categories — and reward the people who build them.
               </P>
             </div>
 
-            <H3 style={{ marginTop: 22 }} weight={600}>Your Next Step</H3>
+            <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
             <P dim>
               If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
             </P>
@@ -1089,7 +993,9 @@ export default function App() {
       {/* 9) APPLY (white) */}
       <Section id="apply">
         <style>{`
-          @media (max-width: 639px) { #apply .apply-inner { padding-left: 20px; padding-right: 20px; } }
+          @media (max-width: 639px) {
+            #apply .apply-inner { padding-left: 20px; padding-right: 20px; }
+          }
           #apply input, #apply textarea, #apply select { box-sizing: border-box; width: 100%; }
           #apply .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
           @media (max-width: 860px) { #apply .apply-grid { grid-template-columns: 1fr; } }
@@ -1146,7 +1052,7 @@ export default function App() {
                 </div>
 
                 <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                  <Button size="lg" full onClick={() => alert("Submitted!")}>Submit</Button>
+                  <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
                 </div>
               </form>
             </CardBody>
@@ -1179,17 +1085,17 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Footer */}
+      {/* Footer (improved spacing for address) */}
       <footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <Container>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 10,
+              gap: 6,
               alignItems: "flex-start",
               justifyContent: "center",
-              padding: "26px 0",
+              padding: "22px 0",
               color: theme.subtext,
               fontSize: 14,
               lineHeight: 1.6,
@@ -1203,14 +1109,6 @@ export default function App() {
               </svg>
               <span>© {new Date().getFullYear()} Marketplace Holdings</span>
             </div>
-
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a href="#why-marketplaces" style={{ color: "#94a3b8", textDecoration: "none" }}>Why Marketplaces</a>
-              <a href="#ventures" style={{ color: "#94a3b8", textDecoration: "none" }}>Ventures</a>
-              <a href="#choose-your-path" style={{ color: "#94a3b8", textDecoration: "none" }}>Opportunities</a>
-              <a href="#apply" style={{ color: "#94a3b8", textDecoration: "none" }}>Apply</a>
-            </div>
-
             <div style={{ fontSize: 13, color: "#94a3b8" }}>
               17190 Bernardo Center Dr, Suite 200
               <br />
