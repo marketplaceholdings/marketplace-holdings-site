@@ -375,12 +375,38 @@ const ventures = [
   { name: "FinancialAdvisors.org", blurb: "A consumer-first directory of fiduciary advisors with transparent profiles.", tag: "Wealth" },
 ];
 
+/* Updated, de-risked journey copy to match repositioning */
 const steps = [
-  { phase: "Phase 1", title: "We Create the Foundation", text: "We originate the big idea, craft a detailed business plan, and secure a premium, category-defining domain name — giving your marketplace instant credibility from day one." },
-  { phase: "Phase 2", title: "You Step In as Founding CEO", text: "Join as a part-time Founding CEO (~10 hrs/week) and collaborate directly with our world-class design and development team to build and launch the marketplace. No need to quit your day job yet." },
-  { phase: "Phase 3", title: "Gain Traction & Revenue", text: "With the platform live, you'll work alongside our marketing experts to attract users, validate demand, and generate early revenue streams." },
-  { phase: "Phase 4", title: "Scale Full-Time", text: "Once traction is proven, you'll transition into a full-time CEO role, leading the growth, team expansion, and brand building as we scale the marketplace into a category leader." },
-  { phase: "Phase 5", title: "Spin Out & Realize the Upside", text: "When the marketplace matures, we spin it out as a standalone company. With significant equity earned along the way, you have the potential for a life-changing financial outcome." },
+  {
+    phase: "Phase 1",
+    title: "Foundation Created by the Studio",
+    text:
+      "We originate the thesis, validate early signals, and secure a premium, category-defining domain. We fund the initial build and set success metrics — reducing risk before you step in.",
+  },
+  {
+    phase: "Phase 2",
+    title: "You Join as Part-Time Founding CEO",
+    text:
+      "Step in ~10 hrs/week while we ship the MVP with our in-house product, design, and engineering team. You lead decisions and narrative — without quitting your day job yet.",
+  },
+  {
+    phase: "Phase 3",
+    title: "Traction with GTM Muscle",
+    text:
+      "Launch with playbooks for supply/demand seeding, liquidity, and growth loops. Our paid media, content, and analytics support help you find signal and revenue quickly.",
+  },
+  {
+    phase: "Phase 4",
+    title: "Scale Full-Time with Capital & Team",
+    text:
+      "Once traction is proven, you transition full-time. We double down with capital, expand the team, and professionalize ops while you lead category expansion.",
+  },
+  {
+    phase: "Phase 5",
+    title: "Spin Out & Own the Upside",
+    text:
+      "We spin the venture into a standalone company. With meaningful, vesting equity — plus potential performance top-ups — you’re positioned for a life-changing outcome.",
+  },
 ];
 
 const whoWeWant = [
@@ -438,28 +464,18 @@ export default function App() {
         .nav-links { display: flex; gap: 10px; align-items: center; }
         .hamburger { display: none; border: 1px solid ${theme.border}; background: #fff; border-radius: 10px; padding: 8px; }
         .hamburger:focus { outline: none; box-shadow: 0 0 0 6px rgba(225,29,72,.15); }
-        @media (max-width: 860px) {
-          .nav-links { display: none; }
-          .hamburger { display: inline-flex; }
-        }
+        @media (max-width: 860px) { .nav-links { display: none; } .hamburger { display: inline-flex; } }
         .mobile-sheet {
           position: fixed; top: 60px; right: 16px; left: 16px;
           border: 1px solid ${theme.border}; border-radius: ${theme.radius.xl}px;
           background: #fff; box-shadow: ${theme.shadow.lg};
           transform: translateY(${menuOpen ? "0" : "-8px"});
           opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
-          transition: transform .18s ease, opacity .18s ease;
-          z-index: 60;
+          transition: transform .18s ease, opacity .18s ease; z-index: 60;
         }
-        .mobile-sheet a {
-          display: block; padding: 14px 18px; text-decoration: none; color: ${theme.text}; font-weight: 600;
-        }
+        .mobile-sheet a { display: block; padding: 14px 18px; text-decoration: none; color: ${theme.text}; font-weight: 600; }
         .mobile-sheet a + a { border-top: 1px solid ${theme.border}; }
-        .backdrop {
-          position: fixed; inset: 0; background: rgba(15, 23, 42, .28);
-          opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"};
-          transition: opacity .18s ease; z-index: 50;
-        }
+        .backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, .28); opacity: ${menuOpen ? 1 : 0}; pointer-events: ${menuOpen ? "auto" : "none"}; transition: opacity .18s ease; z-index: 50; }
         .media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
         @media (max-width: 980px) { .media-grid { grid-template-columns: 1fr; } }
         .logo-row { display:flex; flex-wrap:wrap; gap:18px; align-items:center; opacity:.85 }
@@ -498,7 +514,7 @@ export default function App() {
                 Ventures
               </a>
               <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
-                Paths
+                Opportunities
               </a>
               <a href="#apply" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
                 Apply
@@ -525,7 +541,7 @@ export default function App() {
         <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <a href="#why-marketplaces" onClick={() => setMenuOpen(false)}>Why Marketplaces</a>
           <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
-          <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Paths</a>
+          <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Opportunities</a>
           <a href="#apply" onClick={() => setMenuOpen(false)} style={{ color: "#fff", background: theme.red, borderRadius: `${theme.radius.lg}px`, margin: 12, textAlign: "center" }}>
             Apply
           </a>
@@ -562,6 +578,7 @@ export default function App() {
               required to accelerate traction and become category leaders.
             </P>
 
+            {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 820 }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
@@ -578,11 +595,8 @@ export default function App() {
             </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
-  <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
-</div>
-
-
-
+              <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
+            </div>
           </div>
         </Container>
       </section>
@@ -720,9 +734,9 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 6) CHOOSE YOUR PATH (light gray) */}
+      {/* 6) OPPORTUNITIES (light gray) */}
       <Section id="choose-your-path" alt>
-        <H2>Choose Your Path</H2>
+        <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
         <P dim>
           Three ways to lead a marketplace with us — each with meaningful equity ownership. Depending on the category and your strengths,
           we’ll place the right CEO: sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
@@ -1042,39 +1056,38 @@ export default function App() {
         </div>
       </Section>
 
-     {/* Footer */}
-<footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
-  <Container>
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 6,
-        alignItems: "flex-start",
-        justifyContent: "center",
-        padding: "22px 0",
-        color: theme.subtext,
-        fontSize: 14,
-        lineHeight: 1.6,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <svg width="22" height="22" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="4" fill={theme.red} />
-        </svg>
-        <span>© {new Date().getFullYear()} Marketplace Holdings</span>
-      </div>
-      <div style={{ fontSize: 13, color: "#94a3b8" }}>
-        17190 Bernardo Center Dr, Suite 200  
-        <br />
-        San Diego, CA 92128
-      </div>
-    </div>
-  </Container>
-</footer>
-
+      {/* Footer (improved spacing for address) */}
+      <footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
+        <Container>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 6,
+              alignItems: "flex-start",
+              justifyContent: "center",
+              padding: "22px 0",
+              color: theme.subtext,
+              fontSize: 14,
+              lineHeight: 1.6,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <svg width="22" height="22" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="4" fill={theme.red} />
+              </svg>
+              <span>© {new Date().getFullYear()} Marketplace Holdings</span>
+            </div>
+            <div style={{ fontSize: 13, color: "#94a3b8" }}>
+              17190 Bernardo Center Dr, Suite 200
+              <br />
+              San Diego, CA 92128
+            </div>
+          </div>
+        </Container>
+      </footer>
     </div>
   );
 }
