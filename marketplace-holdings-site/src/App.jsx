@@ -298,6 +298,36 @@ const Input = (props) => (
   />
 );
 
+const Select = (props) => (
+  <select
+    {...props}
+    style={{
+      width: "100%",
+      padding: "12px 14px",
+      borderRadius: theme.radius.lg,
+      border: `1px solid ${theme.border}`,
+      fontSize: 14,
+      outline: "none",
+      transition: "box-shadow .2s ease, border-color .2s ease, background-color .2s ease",
+      fontFamily: stack,
+      background: "#fff",
+      appearance: "none",
+      WebkitAppearance: "none",
+      MozAppearance: "none",
+    }}
+    onFocus={(e) => {
+      e.currentTarget.style.borderColor = theme.red;
+      e.currentTarget.style.boxShadow = "0 0 0 6px rgba(225,29,72,.12)";
+      e.currentTarget.style.background = "#fff";
+    }}
+    onBlur={(e) => {
+      e.currentTarget.style.borderColor = theme.border;
+      e.currentTarget.style.boxShadow = "none";
+      e.currentTarget.style.background = "#fff";
+    }}
+  />
+);
+
 const Textarea = (props) => (
   <textarea
     {...props}
@@ -408,7 +438,6 @@ const steps = [
       "Once traction is proven, the venture spins out as a standalone company. The CEO leads expansion, builds the team, and grows into a category leader — with meaningful equity and life-changing upside.",
   },
 ];
-
 
 const whoWeWant = [
   { label: "Relentlessly Driven", desc: "You bring unwavering energy and follow-through, no matter the obstacles." },
@@ -976,9 +1005,9 @@ export default function App() {
 
         <div className="apply-inner" style={{ maxWidth: 860, margin: "0 auto" }}>
           <Card hover={false}>
-            <CardHeader title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>Apply</span>} />
+            <CardHeader title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>Start the Conversation</span>} />
             <CardBody>
-              <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
+              <P dim>Tell us a bit about you and which opportunity fits you best.</P>
 
               <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
                 <div>
@@ -1006,20 +1035,19 @@ export default function App() {
                 </div>
 
                 <div style={{ gridColumn: "1 / -1" }}>
-                  <Field label="Venture Interest">
-                    <Input placeholder="Select or type a venture" />
+                  <Field label="Preferred Opportunity">
+                    <Select defaultValue="">
+                      <option value="" disabled>Select a path</option>
+                      <option>Path 1: Industry Expert</option>
+                      <option>Path 2: Proven Operator</option>
+                      <option>Path 3: Bring Your Own Marketplace Idea</option>
+                    </Select>
                   </Field>
                 </div>
 
                 <div style={{ gridColumn: "1 / -1" }}>
                   <Field label="Why You?">
                     <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
-                  </Field>
-                </div>
-
-                <div style={{ gridColumn: "1 / -1" }}>
-                  <Field label="Resume / Portfolio URL">
-                    <Input placeholder="https://..." />
                   </Field>
                 </div>
 
