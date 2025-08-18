@@ -968,7 +968,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Founder Letter */}
+      {/* Founder Letter — UPDATED */}
       <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
         <style>{`
           @media (max-width: 639px) {
@@ -991,6 +991,7 @@ export default function App() {
                   boxShadow: theme.shadow.sm,
                 }}
               >
+                {/* Founder image row (single) */}
                 <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
                   <Img
                     src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
@@ -1001,47 +1002,41 @@ export default function App() {
                   />
                 </div>
 
-                <H2>Dear Future CEO,</H2>
+                <H2>Dear Future Partner,</H2>
                 <P size={16.5}>
-                  Some of the most talented people we’ve ever met aren’t running companies — they’re stuck in jobs. Not because they lack
-                  drive, but because the leap feels too risky.
+                  At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
+                  category-defining marketplaces — as CEOs and meaningful equity owners.
                 </P>
-                <P size={16.5}>We built Marketplace Holdings to change that.</P>
-
                 <P dim>
-                  That’s why we start our Founding CEOs with <strong>just ~10 hours a week</strong>. It lets you keep your paycheck while
-                  proving traction on something that could change your life. It also lets us both see if this is the right fit before going all
-                  in. Building a company together is like a marriage — and you don’t marry someone on the first date.
+                  We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
+                  venture is <strong>who leads it</strong>. That’s where you come in.
                 </P>
 
                 <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-                <H3>The Opportunity</H3>
+                <H3>Three Ways to Partner</H3>
+
+                <H3 style={{ marginTop: 14 }}>Path 1: The Industry Expert</H3>
                 <P dim>
-                  We specialize in building online marketplaces that become category leaders. We’ve done over <strong>$1B in online sales</strong>,
-                  scaled marketplaces from zero to millions of users, and built growth systems that compound over time.
+                  You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
+                  You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
                 </P>
-                <P dim>Now, we’re looking for high-agency, results-driven people who can lead and grow a venture while keeping their current job.</P>
 
-                <H3 style={{ marginTop: 22 }}>Here’s How It Works</H3>
-                <ol style={{ marginTop: 10, paddingLeft: 20, color: theme.subtext }}>
-                  <li style={{ marginTop: 8 }}>
-                    <strong>We bring the idea and infrastructure.</strong> Category-defining marketplace concept. Premium domain name. World-class
-                    product and marketing team. Capital to build and test — without touching your savings.
-                  </li>
-                  <li style={{ marginTop: 8 }}>
-                    <strong>You bring your leadership and expertise.</strong> We’re looking for people with tech or digital marketing experience
-                    who can execute, adapt, and think strategically. This isn’t theory — you’ll be hands-on building, launching, and growing from day one.
-                  </li>
-                  <li style={{ marginTop: 8 }}>
-                    <strong>You start part-time (~10 hours/week).</strong> Work evenings, weekends, or whenever fits your schedule. Build traction before you make the leap.
-                  </li>
-                  <li style={{ marginTop: 8 }}>
-                    <strong>You transition to full-time when it’s working.</strong> Once you’ve got product-market fit, paying customers, and momentum, you go all-in — with significant equity and a proven growth engine behind you.
-                  </li>
-                </ol>
+                <H3 style={{ marginTop: 14 }}>Path 2: The Proven Operator</H3>
+                <P dim>
+                  You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
+                  quickly in a category and move fast from validation to traction.
+                </P>
 
-                <H3 style={{ marginTop: 22 }}>Your Unfair Advantage</H3>
+                <H3 style={{ marginTop: 14 }}>Path 3: The Founder With an Idea</H3>
+                <P dim>
+                  You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
+                  launch using our resources and growth systems.
+                </P>
+
+                <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
+
+                <H3>Why Partner With Us</H3>
                 <div
                   style={{
                     display: "grid",
@@ -1051,26 +1046,29 @@ export default function App() {
                   }}
                 >
                   <P dim style={{ margin: 0 }}>
-                    <strong>$1B+ Track Record</strong> — We’ve built and exited multiple high-growth companies.
+                    <strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.
                   </P>
                   <P dim style={{ margin: 0 }}>
-                    <strong>Full Product Team</strong> — Engineers, designers, and marketers who move fast.
+                    <strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.
                   </P>
                   <P dim style={{ margin: 0 }}>
-                    <strong>Capital & Runway</strong> — We fund the early build and market tests.
+                    <strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.
                   </P>
                   <P dim style={{ margin: 0 }}>
-                    <strong>Proven Playbooks</strong> — Growth, product, and GTM strategies tested at scale.
+                    <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
+                  </P>
+                  <P dim style={{ margin: 0 }}>
+                    <strong>Proven Playbooks</strong> — Liquidity tactics, growth loops, and marketplace frameworks.
+                  </P>
+                  <P dim style={{ margin: 0 }}>
+                    <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
                   </P>
                 </div>
 
-                <H3 style={{ marginTop: 22 }}>What’s In It for You</H3>
+                <H3 style={{ marginTop: 22 }}>The Upside</H3>
                 <P dim>
-                  You skip the most dangerous part of starting a company — the lonely, underfunded early days — and jump straight to building
-                  with resources, mentorship, and capital in place.
-                </P>
-                <P dim>
-                  When the venture scales, we spin it out, and your equity stake could mean a <strong>life-changing financial outcome</strong>.
+                  This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
+                  With meaningful equity, the upside can be life-changing.
                 </P>
 
                 <div
@@ -1082,28 +1080,16 @@ export default function App() {
                     background: theme.bgAlt,
                   }}
                 >
-                  <H3>Why Equity Is Your Shot at Life-Changing Wealth</H3>
+                  <H3>Why Equity Matters</H3>
                   <P dim>
-                    A paycheck stops the moment you do. Equity keeps working — compounding your effort, your vision, and your wins. We’re on a mission to launch products that dominate their markets and create generational wealth for the people who build them.
+                    A paycheck stops the moment you do. Equity keeps compounding your effort, your vision, and your wins. Our mission is to build
+                    marketplaces that dominate their categories — and reward the people who build them.
                   </P>
-                  <P dim style={{ margin: 0 }}>
-                    Here, you’re not an employee. You’re a builder. An owner.
-                  </P>
-                </div>
-
-                <div style={{ paddingTop: 28 }}>
-                  <H3 style={{ marginTop: 0 }}>Who We’re Looking For</H3>
-                  <ul style={{ marginTop: 12, paddingLeft: 20, color: theme.subtext }}>
-                    <li style={{ marginTop: 6 }}>Thrive on ownership and accountability.</li>
-                    <li style={{ marginTop: 6 }}>Have proven skills in tech or digital marketing.</li>
-                    <li style={{ marginTop: 6 }}>Can lead, adapt, and solve problems in real time.</li>
-                    <li style={{ marginTop: 6 }}>Want to build something big — but smart.</li>
-                  </ul>
                 </div>
 
                 <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
                 <P dim>
-                  If you’re ready to explore this, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
+                  If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
                 </P>
 
                 <P>
@@ -1118,42 +1104,35 @@ export default function App() {
       </section>
 
       {/* Footer */}
-<footer style={{ borderTop: `1px solid ${theme.border}` }}>
-  <Container>
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 12,
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "18px 0",
-        color: theme.subtext,
-        fontSize: 14,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 34 34"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ display: "block" }}
-        >
-          <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
-          <circle cx="17" cy="17" r="4" fill={theme.red} />
-        </svg>
-        <span>
-          © {new Date().getFullYear()} Marketplace Holdings
-          <br />
-          17190 Bernardo Center Dr Suite 200, San Diego, CA 92128
-        </span>
-      </div>
-    </div>
-  </Container>
-</footer>
-
+      <footer style={{ borderTop: `1px solid ${theme.border}` }}>
+        <Container>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 12,
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "18px 0",
+              color: theme.subtext,
+              fontSize: 14,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <svg width="24" height="24" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" style={{ display: "block" }}>
+                <circle cx="17" cy="17" r="15" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="9" fill="white" stroke={theme.red} strokeWidth="4" />
+                <circle cx="17" cy="17" r="4" fill={theme.red} />
+              </svg>
+              <span>
+                © {new Date().getFullYear()} Marketplace Holdings
+                <br />
+                17190 Bernardo Center Dr Suite 200, San Diego, CA 92128
+              </span>
+            </div>
+          </div>
+        </Container>
+      </footer>
     </div>
   );
 }
