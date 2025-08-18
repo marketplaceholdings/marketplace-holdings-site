@@ -132,7 +132,6 @@ const PH = (w = 1200, h = 800, label = "Placeholder") =>
     </svg>`
   );
 
-// Reusable Image with cover/contain + radius + border
 const Img = ({ src, alt, aspect = "16/9", cover = true, radius = "16px", border = true, shadow = "sm", style }) => (
   <div
     style={{
@@ -340,7 +339,7 @@ const MenuIcon = ({ open = false, size = 22 }) => (
   </svg>
 );
 
-/* Cute line icons to accompany list items (SVG inline so color matches theme) */
+/* Cute line icons to accompany list items */
 const SmallIcon = ({ path }) => (
   <span
     aria-hidden="true"
@@ -394,42 +393,15 @@ const whoWeWant = [
 ];
 
 const faqs = [
-  {
-    q: "Do I need to be an industry expert?",
-    a: "Not always. For some ventures, credibility and insider knowledge are critical — so we look for industry experts to step in as CEOs. For others, what matters most is proven execution and entrepreneurial drive — so we look for proven operators.",
-  },
-  {
-    q: "What if I don’t come from the industry?",
-    a: "That’s fine. Many marketplaces benefit most from strong operators who excel at building, scaling, and problem-solving. We pair these leaders with advisors, category specialists, and our playbooks so they can quickly build credibility in the space.",
-  },
-  {
-    q: "How do you decide whether to place an industry expert or a proven operator?",
-    a: "It depends on the marketplace. Some markets demand insider knowledge from day one (e.g., regulated healthcare). Others are best served by a proven builder who can execute fast, raise standards, and create traction.",
-  },
-  {
-    q: "Do I need prior startup or CEO experience?",
-    a: "No. What matters is your track record of success — whether building companies, leading teams, or achieving consistently in your field. We’re looking for people who know how to win and can translate that into leadership.",
-  },
-  {
-    q: "Do I need to code or be technical?",
-    a: "No. Our studio provides engineering and design resources. You’ll focus on leading, making decisions, and driving growth. Technical skills are a plus but not a requirement.",
-  },
-  {
-    q: "What resources and support will I get?",
-    a: "Every venture has access to our studio’s playbooks, product and engineering teams, design system, go-to-market experts, and capital to fund the early build and initial traction. You’re not alone — we’re in it with you.",
-  },
-  {
-    q: "What happens if the marketplace doesn’t succeed?",
-    a: "Even if a specific venture doesn’t scale, you walk away with new skills, experience, and relationships — plus the opportunity to be considered for another venture. Importantly, you won’t have put your own savings at risk.",
-  },
-  {
-    q: "How does equity work?",
-    a: "CEOs receive a meaningful equity stake in the venture, with standard vesting and performance top-ups. The exact structure depends on the path (Industry Expert vs Proven Operator) and the marketplace’s requirements.",
-  },
-  {
-    q: "What kind of outcomes are possible?",
-    a: "Our goal is to build category-defining marketplaces that can scale into 8-, 9-, or even 10-figure outcomes. With a meaningful equity stake, your success as CEO can be life-changing.",
-  },
+  { q: "Do I need to be an industry expert?", a: "Not always. For some ventures, credibility and insider knowledge are critical — so we look for industry experts to step in as CEOs. For others, what matters most is proven execution and entrepreneurial drive — so we look for proven operators." },
+  { q: "What if I don’t come from the industry?", a: "That’s fine. Many marketplaces benefit most from strong operators who excel at building, scaling, and problem-solving. We pair these leaders with advisors, category specialists, and our playbooks so they can quickly build credibility in the space." },
+  { q: "How do you decide whether to place an industry expert or a proven operator?", a: "It depends on the marketplace. Some markets demand insider knowledge from day one (e.g., regulated healthcare). Others are best served by a proven builder who can execute fast, raise standards, and create traction." },
+  { q: "Do I need prior startup or CEO experience?", a: "No. What matters is your track record of success — whether building companies, leading teams, or achieving consistently in your field. We’re looking for people who know how to win and can translate that into leadership." },
+  { q: "Do I need to code or be technical?", a: "No. Our studio provides engineering and design resources. You’ll focus on leading, making decisions, and driving growth. Technical skills are a plus but not a requirement." },
+  { q: "What resources and support will I get?", a: "Every venture has access to our studio’s playbooks, product and engineering teams, design system, go-to-market experts, and capital to fund the early build and initial traction. You’re not alone — we’re in it with you." },
+  { q: "What happens if the marketplace doesn’t succeed?", a: "Even if a specific venture doesn’t scale, you walk away with new skills, experience, and relationships — plus the opportunity to be considered for another venture. Importantly, you won’t have put your own savings at risk." },
+  { q: "How does equity work?", a: "CEOs receive a meaningful equity stake in the venture, with standard vesting and performance top-ups. The exact structure depends on the path (Industry Expert vs Proven Operator) and the marketplace’s requirements." },
+  { q: "What kind of outcomes are possible?", a: "Our goal is to build category-defining marketplaces that can scale into 8-, 9-, or even 10-figure outcomes. With a meaningful equity stake, your success as CEO can be life-changing." },
 ];
 
 /* -------------------------------------------------
@@ -519,8 +491,8 @@ export default function App() {
 
             {/* Desktop links */}
             <nav className="nav-links" aria-label="Primary">
-              <a href="#why-us" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
-                Why Us
+              <a href="#why-marketplaces" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Why Marketplaces
               </a>
               <a href="#ventures" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
                 Ventures
@@ -528,7 +500,9 @@ export default function App() {
               <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
                 Paths
               </a>
-              <Button href="#apply" size="md">Apply</Button>
+              <a href="#apply" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
+                Apply
+              </a>
             </nav>
 
             {/* Mobile hamburger */}
@@ -549,7 +523,7 @@ export default function App() {
 
         {/* Mobile menu sheet */}
         <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-          <a href="#why-us" onClick={() => setMenuOpen(false)}>Why Us</a>
+          <a href="#why-marketplaces" onClick={() => setMenuOpen(false)}>Why Marketplaces</a>
           <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
           <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Paths</a>
           <a href="#apply" onClick={() => setMenuOpen(false)} style={{ color: "#fff", background: theme.red, borderRadius: `${theme.radius.lg}px`, margin: 12, textAlign: "center" }}>
@@ -558,7 +532,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 1) HERO */}
+      {/* 1) HERO (white) */}
       <section
         style={{
           position: "relative",
@@ -605,13 +579,51 @@ export default function App() {
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">Explore Paths</Button>
-              <Button href="#why-us" variant="secondary" size="lg">How We Help</Button>
+              <Button href="#why-marketplaces" variant="secondary" size="lg">Why Marketplaces</Button>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* 2) VENTURES (social proof) */}
+      {/* 2) WHY MARKETPLACES (light gray) */}
+      <Section id="why-marketplaces" alt>
+        <div className="media-grid">
+          <div>
+            <H2>Why We Only Build Online Marketplaces</H2>
+            <P dim>
+              We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
+              and we apply that specialization to each new category we build.
+            </P>
+
+            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
+              <Card>
+                <CardHeader title="Crack the Chicken-and-Egg" />
+                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Scalable Growth Loops" />
+                <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
+              </Card>
+              <Card>
+                <CardHeader title="Capital Efficient" />
+                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
+              </Card>
+            </div>
+          </div>
+
+          <div>
+            <Img
+              src="/images/rvsharehome.png"
+              alt="RV marketplace homepage mockup"
+              aspect="1487/768"
+              cover={false}
+              style={{ marginTop: 10 }}
+            />
+          </div>
+        </div>
+      </Section>
+
+      {/* 3) VENTURES (white) */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -628,7 +640,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 3) WHY US (value props) */}
+      {/* 4) WHY US (light gray) */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -675,7 +687,38 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 4) CHOOSE YOUR PATH (decision) */}
+      {/* 5) THE JOURNEY (white) */}
+      <Section id="model">
+        <H2>The Journey</H2>
+        <div style={{ position: "relative", marginTop: 18 }}>
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: 12,
+              top: 0,
+              bottom: 0,
+              width: 2,
+              background: "linear-gradient(#e5e7eb, #f1f5f9)",
+              borderRadius: 2,
+              opacity: 0.7,
+            }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginLeft: 24 }}>
+            {steps.map((s, i) => (
+              <Card key={s.title}>
+                <CardHeader
+                  title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>}
+                  media={<SmallIcon path={["M5 12l5 5L20 7", "M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L2 9h7z", "M3 12h18", "M12 2v20", "M4 6h16"][i % 5]} />}
+                />
+                <CardBody>{s.text}</CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 6) CHOOSE YOUR PATH (light gray) */}
       <Section id="choose-your-path" alt>
         <H2>Choose Your Path</H2>
         <P dim>
@@ -743,168 +786,131 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 5) APPLY (moved up) */}
-      <section id="apply" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bgAlt }}>
-        <style>{`
-          @media (max-width: 639px) {
-            #apply .apply-inner { padding-left: 20px; padding-right: 20px; }
-          }
-          #apply input, #apply textarea, #apply select { box-sizing: border-box; width: 100%; }
-          #apply .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-          @media (max-width: 860px) { #apply .apply-grid { grid-template-columns: 1fr; } }
-          a { color: ${theme.red}; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-          a:hover { opacity: .9; }
-        `}</style>
-
-        <Container>
-          <div className="apply-inner" style={{ padding: "80px 0", maxWidth: 860, margin: "0 auto" }}>
-            <Card hover={false}>
-              <CardHeader title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>Apply</span>} />
-              <CardBody>
-                <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
-
-                <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
-                  <div>
-                    <Field label="Full Name">
-                      <Input placeholder="Jane Founder" />
-                    </Field>
-                  </div>
-
-                  <div>
-                    <Field label="Email">
-                      <Input type="email" placeholder="jane@domain.com" />
-                    </Field>
-                  </div>
-
-                  <div>
-                    <Field label="LinkedIn">
-                      <Input placeholder="https://linkedin.com/in/..." />
-                    </Field>
-                  </div>
-
-                  <div>
-                    <Field label="Location">
-                      <Input placeholder="City, Country" />
-                    </Field>
-                  </div>
-
-                  <div style={{ gridColumn: "1 / -1" }}>
-                    <Field label="Venture Interest">
-                      <Input placeholder="Select or type a venture" />
-                    </Field>
-                  </div>
-
-                  <div style={{ gridColumn: "1 / -1" }}>
-                    <Field label="Why You?">
-                      <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
-                    </Field>
-                  </div>
-
-                  <div style={{ gridColumn: "1 / -1" }}>
-                    <Field label="Resume / Portfolio URL">
-                      <Input placeholder="https://..." />
-                    </Field>
-                  </div>
-
-                  <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                    <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
-                  </div>
-                </form>
-              </CardBody>
-            </Card>
-          </div>
-        </Container>
-      </section>
-
-      {/* 6) CEO PLACEMENT (reassurance) */}
-      <Section id="ceo-placement">
-        <H2>Where Proven Leaders Become Marketplace CEOs</H2>
-        <P dim>
-          You don’t need to start from scratch. We originate the concept, secure the premium domain, and fund the early build.
-          Our model is to match people with a <strong>track record of success</strong> — alongside <strong>industry experts</strong> —
-          to lead each marketplace, backed by our engineering, design, go-to-market resources, and growth playbooks.
-        </P>
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
-          <Button href="#apply" size="md">Apply to Lead</Button>
-          <Button href="#why-us" variant="secondary" size="md">How We Support</Button>
-        </div>
-      </Section>
-
-      {/* 7) JOURNEY (process) */}
-      <Section id="model" alt>
-        <H2>The Journey</H2>
-        <div style={{ position: "relative", marginTop: 18 }}>
-          <div
-            aria-hidden="true"
+      {/* 7) FOUNDER LETTER (white) */}
+      <Section id="equity">
+        <div style={{ display: "grid", placeItems: "center" }}>
+          <article
             style={{
-              position: "absolute",
-              left: 12,
-              top: 0,
-              bottom: 0,
-              width: 2,
-              background: "linear-gradient(#e5e7eb, #f1f5f9)",
-              borderRadius: 2,
-              opacity: 0.7,
+              maxWidth: 880,
+              background: "#fff",
+              border: `1px solid ${theme.border}`,
+              borderRadius: theme.radius.xl,
+              padding: 30,
+              lineHeight: 1.75,
+              boxShadow: theme.shadow.sm,
             }}
-          />
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginLeft: 24 }}>
-            {steps.map((s, i) => (
-              <Card key={s.title}>
-                <CardHeader
-                  title={<span style={{ fontSize: 18, fontWeight: 800 }}>{`${s.phase} — ${s.title}`}</span>}
-                  media={
-                    <SmallIcon
-                      path={["M5 12l5 5L20 7", "M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5 20l2-7L2 9h7z", "M3 12h18", "M12 2v20", "M4 6h16"][i % 5]}
-                    />
-                  }
-                />
-                <CardBody>{s.text}</CardBody>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
+          >
+            <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+              <Img
+                src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+                alt="Founder portrait: Mark Jenney"
+                aspect="1/1"
+                radius="50%"
+                style={{ width: 72 }}
+              />
+            </div>
 
-      {/* 8) WHY MARKETPLACES (thesis) */}
-      <Section id="why-marketplaces">
-        <div className="media-grid">
-          <div>
-            <H2>Why We Only Build Online Marketplaces</H2>
+            <H2>Dear Future Partner,</H2>
+            <P size={16.5}>
+              At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
+              category-defining marketplaces — as CEOs and meaningful equity owners.
+            </P>
             <P dim>
-              We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
-              and we apply that specialization to each new category we build.
+              We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
+              venture is <strong>who leads it</strong>. That’s where you come in.
             </P>
 
-            <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
-              <Card>
-                <CardHeader title="Crack the Chicken-and-Egg" />
-                <CardBody>Proven tactics to seed both sides of the market, create liquidity quickly, and keep engagement compounding.</CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Scalable Growth Loops" />
-                <CardBody>Acquisition, conversion, and retention playbooks that turn early traction into durable network effects.</CardBody>
-              </Card>
-              <Card>
-                <CardHeader title="Capital Efficient" />
-                <CardBody>Build smart, not bloated. We prioritize high-leverage features and channels that move core marketplace KPIs.</CardBody>
-              </Card>
-            </div>
-          </div>
+            <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-          <div>
-            <Img
-              src="/images/rvsharehome.png"
-              alt="RV marketplace homepage mockup"
-              aspect="1487/768"
-              cover={false}
-              style={{ marginTop: 10 }}
-            />
-          </div>
+            <H3>Three Ways to Partner</H3>
+
+            <H3 style={{ marginTop: 14 }}>Path 1: The Industry Expert</H3>
+            <P dim>
+              You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
+              You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
+            </P>
+
+            <H3 style={{ marginTop: 14 }}>Path 2: The Proven Operator</H3>
+            <P dim>
+              You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
+              quickly in a category and move fast from validation to traction.
+            </P>
+
+            <H3 style={{ marginTop: 14 }}>Path 3: The Founder With an Idea</H3>
+            <P dim>
+              You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
+              launch using our resources and growth systems.
+            </P>
+
+            <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
+
+            <H3>Why Partner With Us</H3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: 12,
+                marginTop: 10,
+              }}
+            >
+              <P dim style={{ margin: 0 }}>
+                <strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Proven Playbooks</strong> — Liquidity tactics, growth loops, and marketplace frameworks.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
+              </P>
+            </div>
+
+            <H3 style={{ marginTop: 22 }}>The Upside</H3>
+            <P dim>
+              This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
+              With meaningful equity, the upside can be life-changing.
+            </P>
+
+            <div
+              style={{
+                marginTop: 18,
+                padding: 38,
+                border: `1px dashed ${theme.border}`,
+                borderRadius: theme.radius.lg,
+                background: theme.bgAlt,
+              }}
+            >
+              <H3>Why Equity Matters</H3>
+              <P dim>
+                A paycheck stops the moment you do. Equity keeps compounding your effort, your vision, and your wins. Our mission is to build
+                marketplaces that dominate their categories — and reward the people who build them.
+              </P>
+            </div>
+
+            <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
+            <P dim>
+              If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
+            </P>
+
+            <P>
+              <strong>– Mark Jenney</strong>
+              <br />
+              Founder, Marketplace Holdings
+            </P>
+          </article>
         </div>
       </Section>
 
-      {/* 9) WHO WE'RE LOOKING FOR (qualifiers) */}
-      <Section id="kpis">
+      {/* 8) WHO WE'RE LOOKING FOR (light gray) */}
+      <Section id="kpis" alt>
         <H2>Who We're Looking For</H2>
         <div
           style={{
@@ -938,7 +944,78 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 10) FAQ (objections) */}
+      {/* 9) APPLY (white) */}
+      <Section id="apply">
+        <style>{`
+          @media (max-width: 639px) {
+            #apply .apply-inner { padding-left: 20px; padding-right: 20px; }
+          }
+          #apply input, #apply textarea, #apply select { box-sizing: border-box; width: 100%; }
+          #apply .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+          @media (max-width: 860px) { #apply .apply-grid { grid-template-columns: 1fr; } }
+          a { color: ${theme.red}; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+          a:hover { opacity: .9; }
+        `}</style>
+
+        <div className="apply-inner" style={{ maxWidth: 860, margin: "0 auto" }}>
+          <Card hover={false}>
+            <CardHeader title={<span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>Apply</span>} />
+            <CardBody>
+              <P dim>Tell us a bit about you and the venture(s) you're excited about.</P>
+
+              <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <Field label="Full Name">
+                    <Input placeholder="Jane Founder" />
+                  </Field>
+                </div>
+
+                <div>
+                  <Field label="Email">
+                    <Input type="email" placeholder="jane@domain.com" />
+                  </Field>
+                </div>
+
+                <div>
+                  <Field label="LinkedIn">
+                    <Input placeholder="https://linkedin.com/in/..." />
+                  </Field>
+                </div>
+
+                <div>
+                  <Field label="Location">
+                    <Input placeholder="City, Country" />
+                  </Field>
+                </div>
+
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <Field label="Venture Interest">
+                    <Input placeholder="Select or type a venture" />
+                  </Field>
+                </div>
+
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <Field label="Why You?">
+                    <Textarea rows={5} placeholder="Share relevant wins, domain expertise, or the unfair advantage you bring." />
+                  </Field>
+                </div>
+
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <Field label="Resume / Portfolio URL">
+                    <Input placeholder="https://..." />
+                  </Field>
+                </div>
+
+                <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+                  <Button size="md" onClick={() => alert("Submitted!")}>Submit</Button>
+                </div>
+              </form>
+            </CardBody>
+          </Card>
+        </div>
+      </Section>
+
+      {/* 10) FAQ (light gray) */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
@@ -962,140 +1039,6 @@ export default function App() {
           ))}
         </div>
       </Section>
-
-      {/* 11) FOUNDER LETTER (story) */}
-      <section id="equity" style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
-        <style>{`
-          @media (max-width: 639px) {
-            #equity .equity-inner { padding-left: 20px; padding-right: 20px; }
-          }
-          #equity article { box-sizing: border-box; width: 100%; }
-        `}</style>
-
-        <Container>
-          <div className="equity-inner" style={{ padding: "64px 0" }}>
-            <div style={{ display: "grid", placeItems: "center" }}>
-              <article
-                style={{
-                  maxWidth: 880,
-                  background: "#fff",
-                  border: `1px solid ${theme.border}`,
-                  borderRadius: theme.radius.xl,
-                  padding: 30,
-                  lineHeight: 1.75,
-                  boxShadow: theme.shadow.sm,
-                }}
-              >
-                <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
-                  <Img
-                    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
-                    alt="Founder portrait: Mark Jenney"
-                    aspect="1/1"
-                    radius="50%"
-                    style={{ width: 72 }}
-                  />
-                </div>
-
-                <H2>Dear Future Partner,</H2>
-                <P size={16.5}>
-                  At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
-                  category-defining marketplaces — as CEOs and meaningful equity owners.
-                </P>
-                <P dim>
-                  We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
-                  venture is <strong>who leads it</strong>. That’s where you come in.
-                </P>
-
-                <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
-
-                <H3>Three Ways to Partner</H3>
-
-                <H3 style={{ marginTop: 14 }}>Path 1: The Industry Expert</H3>
-                <P dim>
-                  You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
-                  You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
-                </P>
-
-                <H3 style={{ marginTop: 14 }}>Path 2: The Proven Operator</H3>
-                <P dim>
-                  You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
-                  quickly in a category and move fast from validation to traction.
-                </P>
-
-                <H3 style={{ marginTop: 14 }}>Path 3: The Founder With an Idea</H3>
-                <P dim>
-                  You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
-                  launch using our resources and growth systems.
-                </P>
-
-                <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
-
-                <H3>Why Partner With Us</H3>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                    gap: 12,
-                    marginTop: 10,
-                  }}
-                >
-                  <P dim style={{ margin: 0 }}>
-                    <strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.
-                  </P>
-                  <P dim style={{ margin: 0 }}>
-                    <strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.
-                  </P>
-                  <P dim style={{ margin: 0 }}>
-                    <strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.
-                  </P>
-                  <P dim style={{ margin: 0 }}>
-                    <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
-                  </P>
-                  <P dim style={{ margin: 0 }}>
-                    <strong>Proven Playbooks</strong> — Liquidity tactics, growth loops, and marketplace frameworks.
-                  </P>
-                  <P dim style={{ margin: 0 }}>
-                    <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
-                  </P>
-                </div>
-
-                <H3 style={{ marginTop: 22 }}>The Upside</H3>
-                <P dim>
-                  This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
-                  With meaningful equity, the upside can be life-changing.
-                </P>
-
-                <div
-                  style={{
-                    marginTop: 18,
-                    padding: 38,
-                    border: `1px dashed ${theme.border}`,
-                    borderRadius: theme.radius.lg,
-                    background: theme.bgAlt,
-                  }}
-                >
-                  <H3>Why Equity Matters</H3>
-                  <P dim>
-                    A paycheck stops the moment you do. Equity keeps compounding your effort, your vision, and your wins. Our mission is to build
-                    marketplaces that dominate their categories — and reward the people who build them.
-                  </P>
-                </div>
-
-                <H3 style={{ marginTop: 22 }}>Your Next Step</H3>
-                <P dim>
-                  If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
-                </P>
-
-                <P>
-                  <strong>– Mark Jenney</strong>
-                  <br />
-                  Founder, Marketplace Holdings
-                </P>
-              </article>
-            </div>
-          </div>
-        </Container>
-      </section>
 
       {/* Footer */}
       <footer style={{ borderTop: `1px solid ${theme.border}` }}>
