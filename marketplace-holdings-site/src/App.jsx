@@ -187,8 +187,10 @@ const Img = ({
    UI PRIMITIVES
 -------------------------------------------------- */
 const Button = ({ children, variant = "primary", size = "md", href, onClick, full = false }) => {
+  const gap = 20; // keep card-side gutters even on both sides
+
   const base = {
-    display: "inline-flex",
+    display: full ? "block" : "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: theme.radius.pill,
@@ -203,14 +205,19 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
       "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
-    width: full ? "100%" : "auto",           // ← simplified full-width
+    // EXACT, SYMMETRICAL SPACING INSIDE CARDS:
+    width: full ? `calc(100% - ${gap * 2}px)` : "auto",
+    marginLeft: full ? gap : 0,
+    marginRight: full ? gap : 0,
   };
+
   const variants = {
     primary: { background: theme.red, color: "#fff" },
     secondary: { background: "#fff", color: theme.text, border: `1px solid ${theme.border}` },
     dark: { background: "#0f172a", color: "#fff" },
     ghost: { background: "transparent", color: theme.text, border: `1px solid ${theme.border}` },
   };
+
   const Comp = href ? "a" : "button";
   const props = href ? { href } : { onClick };
 
@@ -880,8 +887,7 @@ export default function App() {
                 <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
                 <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
               </ul>
-              {/* Even left/right padding wrapper */}
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
+              <div className="full-sm" style={{ marginTop: 14 }}>
                 <Button href="#apply" full>Apply as Industry Expert</Button>
               </div>
             </CardBody>
@@ -900,7 +906,7 @@ export default function App() {
                 <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
                 <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
               </ul>
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
+              <div className="full-sm" style={{ marginTop: 14 }}>
                 <Button href="#apply" variant="dark" full>Apply as Proven Operator</Button>
               </div>
             </CardBody>
@@ -919,7 +925,7 @@ export default function App() {
                 <li><strong>Structured validation</strong> to find signal fast and allocate capital wisely.</li>
                 <li><strong>Founder-led</strong> — you remain the driving force and prospective CEO.</li>
               </ul>
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
+              <div className="full-sm" style={{ marginTop: 14 }}>
                 <Button href="#apply" variant="secondary" full>Pitch Your Idea</Button>
               </div>
             </CardBody>
@@ -1145,7 +1151,6 @@ export default function App() {
                   </Field>
                 </div>
 
-                {/* Submit button already looks centered; keep full width, no extra wrapper needed */}
                 <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
                   <Button size="lg" full onClick={() => alert("Submitted!")}>Submit</Button>
                 </div>
