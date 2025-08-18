@@ -94,7 +94,7 @@ const H2 = ({ children }) => (
   </h2>
 );
 
-const H3 = ({ children, weight = 700 }) => (
+const H3 = ({ children, weight = 700, style }) => (
   <h3
     style={{
       margin: 0,
@@ -103,6 +103,7 @@ const H3 = ({ children, weight = 700 }) => (
       lineHeight: 1.25,
       fontWeight: weight,
       color: theme.text,
+      ...style,
     }}
   >
     {children}
@@ -451,36 +452,11 @@ const ventures = [
 
 /* Journey copy (final) */
 const steps = [
-  {
-    phase: "Phase 1",
-    title: "Originate the Idea",
-    text:
-      "We identify high-potential marketplace opportunities, secure a category-defining domain, and frame the strategy with clear success criteria.",
-  },
-  {
-    phase: "Phase 2",
-    title: "Build the Foundation",
-    text:
-      "We launch the MVP fast using our studio’s product, design, and engineering resources — trusted experts who plug in with proven playbooks to get the platform market-ready in weeks, not years.",
-  },
-  {
-    phase: "Phase 3",
-    title: "Match the Right CEO",
-    text:
-      "Depending on the venture, we place the best-fit leader: an industry expert, a proven operator, or a founder with their own idea. This ensures every marketplace has the right leadership DNA from day one.",
-  },
-  {
-    phase: "Phase 4",
-    title: "Drive Early Growth",
-    text:
-      "We fuel adoption with proven playbooks, test scalable acquisition channels, and create retention loops — turning the initial MVP into a marketplace with compounding engagement.",
-  },
-  {
-    phase: "Phase 5",
-    title: "Scale & Spin Out",
-    text:
-      "Once traction is proven, the venture spins out as a standalone company. The CEO leads expansion, builds the team, and grows into a category leader — with meaningful equity and life-changing upside.",
-  },
+  { phase: "Phase 1", title: "Originate the Idea", text: "We identify high-potential marketplace opportunities, secure a category-defining domain, and frame the strategy with clear success criteria." },
+  { phase: "Phase 2", title: "Build the Foundation", text: "We launch the MVP fast using our studio’s product, design, and engineering resources — trusted experts who plug in with proven playbooks to get the platform market-ready in weeks, not years." },
+  { phase: "Phase 3", title: "Match the Right CEO", text: "Depending on the venture, we place the best-fit leader: an industry expert, a proven operator, or a founder with their own idea. This ensures every marketplace has the right leadership DNA from day one." },
+  { phase: "Phase 4", title: "Drive Early Growth", text: "We fuel adoption with proven playbooks, test scalable acquisition channels, and create retention loops — turning the initial MVP into a marketplace with compounding engagement." },
+  { phase: "Phase 5", title: "Scale & Spin Out", text: "Once traction is proven, the venture spins out as a standalone company. The CEO leads expansion, builds the team, and grows into a category leader — with meaningful equity and life-changing upside." },
 ];
 
 const whoWeWant = [
@@ -638,7 +614,6 @@ export default function App() {
               <span style={{ fontWeight: 800, letterSpacing: "-0.01em" }}>Marketplace Holdings</span>
             </div>
 
-            {/* Desktop links */}
             <nav className="nav-links" aria-label="Primary">
               <a href="#why-marketplaces" className={active === "why-marketplaces" ? "active" : ""}>Why Marketplaces</a>
               <a href="#ventures" className={active === "ventures" ? "active" : ""}>Ventures</a>
@@ -646,7 +621,6 @@ export default function App() {
               <a href="#apply" className={active === "apply" ? "active" : ""}>Apply</a>
             </nav>
 
-            {/* Mobile hamburger */}
             <button
               className="hamburger"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -659,10 +633,8 @@ export default function App() {
           </div>
         </Container>
 
-        {/* Backdrop */}
         <div className="backdrop" onClick={() => setMenuOpen(false)} role="presentation" />
 
-        {/* Mobile menu sheet */}
         <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <a href="#why-marketplaces" onClick={() => setMenuOpen(false)}>Why Marketplaces</a>
           <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
@@ -928,23 +900,23 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER — congruent with rest of site */}
+      {/* 7) FOUNDER LETTER — formatted like a letter, consistent styling */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
             style={{
-              maxWidth: 880,
+              maxWidth: 820, // a touch narrower for a letter feel
               background: "linear-gradient(180deg, rgba(225,29,72,.03), #ffffff)",
               border: `1px solid ${theme.border}`,
               borderRadius: theme.radius.xxl,
               padding: 34,
-              lineHeight: 1.7,
+              lineHeight: 1.8, // slightly looser line-height
               boxShadow: theme.shadow.lg,
               fontFamily: stack,
             }}
           >
-            {/* Photo + Heading */}
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
+            {/* Letterhead: photo + org */}
+            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
               <Img
                 src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
                 alt="Founder portrait: Mark Jenney"
@@ -955,12 +927,12 @@ export default function App() {
               />
               <div>
                 <H2>Dear Future Partner,</H2>
-                <P dim style={{ marginTop: 0 }}>Marketplace Holdings</P>
+                <P dim style={{ marginTop: 4, marginBottom: 0 }}>Marketplace Holdings</P>
               </div>
             </div>
 
-            {/* Intro */}
-            <P>
+            {/* Opening paragraphs */}
+            <P style={{ marginTop: 12 }}>
               At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
               category-defining marketplaces — as CEOs and meaningful equity owners.
             </P>
@@ -969,10 +941,11 @@ export default function App() {
               venture is <strong>who leads it</strong>. That’s where you come in.
             </P>
 
+            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* Paths */}
-            <H3 weight={700}>Three Ways to Partner</H3>
+            {/* “Three Ways” as letter paragraphs */}
+            <H3 weight={700} style={{ letterSpacing: ".02em" }}>Three Ways to Partner</H3>
             <P style={{ marginTop: 16 }}>
               <strong>Path 1: The Industry Expert.</strong> You’ve spent years inside a category — you understand the nuance, the trust
               dynamics, the regulations, and the players. You bring insider knowledge and credibility; we bring the team, capital, domain,
@@ -987,51 +960,30 @@ export default function App() {
               aligns, we’ll fund validation, build with you, and help launch using our resources and growth systems.
             </P>
 
+            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* Why Partner */}
-            <H3 weight={700}>Why Partner With Us</H3>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: 12,
-                marginTop: 10,
-              }}
-            >
-              <P dim style={{ margin: 0 }}>
-                <strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.
-              </P>
-              <P dim style={{ margin: 0 }}>
-                <strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.
-              </P>
-              <P dim style={{ margin: 0 }}>
-                <strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.
-              </P>
-              <P dim style={{ margin: 0 }}>
-                <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
-              </P>
-              <P dim style={{ margin: 0 }}>
-                <strong>Proven Playbooks</strong> — Supply & demand flywheels, growth loops, and marketplace frameworks.
-              </P>
-              <P dim style={{ margin: 0 }}>
-                <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
-              </P>
-            </div>
+            {/* Why Partner — kept as compact letter lines, no bullets */}
+            <H3 weight={700} style={{ letterSpacing: ".02em" }}>Why Partner With Us</H3>
+            <P dim style={{ marginTop: 12 }}><strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.</P>
+            <P dim style={{ marginTop: 8 }}><strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.</P>
+            <P dim style={{ marginTop: 8 }}><strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.</P>
+            <P dim style={{ marginTop: 8 }}><strong>Capital &amp; Runway</strong> — Funded validation and early growth without risking your savings.</P>
+            <P dim style={{ marginTop: 8 }}><strong>Proven Playbooks</strong> — Supply &amp; demand flywheels, growth loops, and marketplace frameworks.</P>
+            <P dim style={{ marginTop: 8 }}><strong>Premium Domains</strong> — Category-defining assets that build instant credibility.</P>
 
-            <H3 style={{ marginTop: 28 }} weight={700}>The Upside</H3>
+            {/* Upside */}
+            <H3 weight={700} style={{ marginTop: 28, letterSpacing: ".02em" }}>The Upside</H3>
             <P>
               This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
               With meaningful equity, the upside can be life-changing.
             </P>
 
-            <H3 style={{ marginTop: 28 }} weight={700}>Your Next Step</H3>
+            {/* CTA */}
+            <H3 weight={700} style={{ marginTop: 28, letterSpacing: ".02em" }}>Your Next Step</H3>
             <P>
               If you’re ready to explore a partnership,{" "}
-              <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>
-                click here to apply
-              </a>
-              .
+              <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
             </P>
 
             {/* Signature */}
