@@ -673,7 +673,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 1) HERO (white with soft vignette) */}
+      {/* 1) HERO */}
       <section
         style={{
           position: "relative",
@@ -727,7 +727,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* 2) WHY MARKETPLACES (light gray + gradient) */}
+      {/* 2) WHY MARKETPLACES */}
       <Section id="why-marketplaces" alt gradient>
         <div className="media-grid">
           <div>
@@ -765,7 +765,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 3) VENTURES (white) */}
+      {/* 3) VENTURES */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -782,7 +782,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 4) WHY US (light gray) */}
+      {/* 4) WHY US */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim style={{ maxWidth: 680 }}>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -829,7 +829,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 5) THE JOURNEY (white) */}
+      {/* 5) THE JOURNEY */}
       <Section id="model">
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
@@ -860,7 +860,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 6) OPPORTUNITIES (light gray) */}
+      {/* 6) OPPORTUNITIES */}
       <Section id="choose-your-path" alt>
         <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
         <P dim style={{ maxWidth: 680 }}>
@@ -928,7 +928,7 @@ export default function App() {
         </div>
       </Section>
 
-     {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
+      {/* 7) FOUNDER LETTER — congruent with rest of site */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
@@ -938,11 +938,13 @@ export default function App() {
               border: `1px solid ${theme.border}`,
               borderRadius: theme.radius.xxl,
               padding: 34,
-              lineHeight: 1.75,
+              lineHeight: 1.7,
               boxShadow: theme.shadow.lg,
+              fontFamily: stack,
             }}
           >
-            <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+            {/* Photo + Heading */}
+            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
               <Img
                 src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
                 alt="Founder portrait: Mark Jenney"
@@ -951,44 +953,44 @@ export default function App() {
                 style={{ width: 72 }}
                 shadow={null}
               />
+              <div>
+                <H2>Dear Future Partner,</H2>
+                <P dim style={{ marginTop: 0 }}>Marketplace Holdings</P>
+              </div>
             </div>
 
-            <H2>Dear Future Partner,</H2>
-            <P size={16.5} style={{ maxWidth: 680 }}>
+            {/* Intro */}
+            <P>
               At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
               category-defining marketplaces — as CEOs and meaningful equity owners.
             </P>
-            <P dim style={{ maxWidth: 680 }}>
+            <P>
               We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
               venture is <strong>who leads it</strong>. That’s where you come in.
             </P>
 
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            <H3 weight={600}>Three Ways to Partner</H3>
-
-            {/* Added extra space before Path 1 */}
-            <H3 style={{ marginTop: 28 }} weight={700}>Path 1: The Industry Expert</H3>
-            <P dim>
-              You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
-              You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
+            {/* Paths */}
+            <H3 weight={700}>Three Ways to Partner</H3>
+            <P style={{ marginTop: 16 }}>
+              <strong>Path 1: The Industry Expert.</strong> You’ve spent years inside a category — you understand the nuance, the trust
+              dynamics, the regulations, and the players. You bring insider knowledge and credibility; we bring the team, capital, domain,
+              and playbooks to build the category standard.
             </P>
-
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 2: The Proven Operator</H3>
-            <P dim>
-              You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
-              quickly in a category and move fast from validation to traction.
+            <P>
+              <strong>Path 2: The Proven Operator.</strong> You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L.
+              We pair you with advisors and frameworks to ramp quickly in a category and move fast from validation to traction.
             </P>
-
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 3: The Founder With an Idea</H3>
-            <P dim>
-              You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
-              launch using our resources and growth systems.
+            <P>
+              <strong>Path 3: The Founder With an Idea.</strong> You already have a marketplace you’re burning to build. If our thesis
+              aligns, we’ll fund validation, build with you, and help launch using our resources and growth systems.
             </P>
 
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            <H3 weight={600}>Why Partner With Us</H3>
+            {/* Why Partner */}
+            <H3 weight={700}>Why Partner With Us</H3>
             <div
               style={{
                 display: "grid",
@@ -1010,28 +1012,30 @@ export default function App() {
                 <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
               </P>
               <P dim style={{ margin: 0 }}>
-                <strong>Proven Playbooks</strong> — Liquidity tactics, growth loops, and marketplace frameworks.
+                <strong>Proven Playbooks</strong> — Supply & demand flywheels, growth loops, and marketplace frameworks.
               </P>
               <P dim style={{ margin: 0 }}>
                 <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
               </P>
             </div>
 
-            {/* Pushed The Upside down a bit more */}
-            <H3 style={{ marginTop: 36 }} weight={600}>The Upside</H3>
-            <P dim style={{ maxWidth: 680 }}>
+            <H3 style={{ marginTop: 28 }} weight={700}>The Upside</H3>
+            <P>
               This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
               With meaningful equity, the upside can be life-changing.
             </P>
 
-            {/* Removed the “Why Equity Matters” dashed box */}
-
-            <H3 style={{ marginTop: 22 }} weight={600}>Your Next Step</H3>
-            <P dim>
-              If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
+            <H3 style={{ marginTop: 28 }} weight={700}>Your Next Step</H3>
+            <P>
+              If you’re ready to explore a partnership,{" "}
+              <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>
+                click here to apply
+              </a>
+              .
             </P>
 
-            <P>
+            {/* Signature */}
+            <P style={{ marginTop: 28 }}>
               <strong>– Mark Jenney</strong>
               <br />
               Founder, Marketplace Holdings
@@ -1040,8 +1044,7 @@ export default function App() {
         </div>
       </Section>
 
-
-      {/* 8) WHO WE'RE LOOKING FOR (light gray) */}
+      {/* 8) WHO WE'RE LOOKING FOR */}
       <Section id="kpis" alt>
         <H2>Who We're Looking For</H2>
         <div
@@ -1076,7 +1079,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 9) APPLY (white) */}
+      {/* 9) APPLY */}
       <Section id="apply">
         <style>{`
           @media (max-width: 639px) { #apply .apply-inner { padding-left: 20px; padding-right: 20px; } }
@@ -1144,7 +1147,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 10) FAQ (light gray) */}
+      {/* 10) FAQ */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
