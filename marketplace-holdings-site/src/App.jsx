@@ -752,7 +752,7 @@ export default function App() {
   }}
 >
   <Img
-    src="https://marketplace-holdings-site.vercel.app/images/marketplacecycle.png"
+    src="https://marketplace-holdings-site.vercel.app/images/marketplaceimage.png"
     alt="Marketplace flywheel: the circular liquidity cycle for online marketplaces"
     aspect="16/9"         // roomy on desktop; feels premium
     cover={false}         // important: no cropping; show full diagram
