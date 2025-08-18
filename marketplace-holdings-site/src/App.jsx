@@ -579,7 +579,9 @@ export default function App() {
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
   <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
+  <Button href="#ventures" variant="secondary" size="lg">See Ventures</Button>
 </div>
+
 
           </div>
         </Container>
