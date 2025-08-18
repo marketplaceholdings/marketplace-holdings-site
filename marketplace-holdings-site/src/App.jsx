@@ -743,22 +743,30 @@ export default function App() {
               required to accelerate traction and become category leaders.
             </P>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 860, boxShadow: theme.shadow.lg }}>
-              <Img
-                src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
-                alt="Marketplace analytics dashboard"
-                aspect="3/2"
-                cover={true}
-                shadow="md"
-              />
-              <Img
-                src="/images/founders-collab.png"
-                alt="Founders collaborating in a startup office"
-                aspect="3/2"
-                cover={true}
-                shadow="md"
-              />
-            </div>
+            {/* HERO media — replace the two-image grid with this single image card */}
+<div
+  style={{
+    // single, centered block that scales nicely with the heading width
+    maxWidth: 860,
+    marginTop: 6,
+  }}
+>
+  <Img
+    src="https://marketplace-holdings-site.vercel.app/images/marketplacecycle.png"
+    alt="Marketplace flywheel: the circular liquidity cycle for online marketplaces"
+    aspect="16/9"         // roomy on desktop; feels premium
+    cover={false}         // important: no cropping; show full diagram
+    shadow="lg"           // same design language as rest of site
+    style={{
+      // white canvas + breathing room so the PNG feels crisp
+      background: "#fff",
+      padding: 18,
+      // keep it from touching edges on small screens
+      boxSizing: "border-box",
+    }}
+  />
+</div>
+
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 10, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
