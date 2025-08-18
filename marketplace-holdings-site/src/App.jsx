@@ -916,17 +916,18 @@ export default function App() {
             }}
           >
             {/* Letterhead: photo + org */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, marginBottom: 20 }}>
+           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, marginBottom: 20 }}>
   <Img
     src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
     alt="Founder portrait: Mark Jenney"
     aspect="1/1"
     radius="50%"
-    style={{ width: 90 }}
+    style={{ width: 72 }}
     shadow={null}
   />
   <H2>Dear Future Partner,</H2>
 </div>
+
 
 
 
