@@ -101,7 +101,7 @@ const H3 = ({ children, weight = 700 }) => (
       fontFamily: stack,
       fontSize: 18,
       lineHeight: 1.25,
-      fontWeight: weight, // lets us use 600 for subheads where helpful
+      fontWeight: weight,
       color: theme.text,
     }}
   >
@@ -187,6 +187,7 @@ const Img = ({
    UI PRIMITIVES
 -------------------------------------------------- */
 const Button = ({ children, variant = "primary", size = "md", href, onClick, full = false }) => {
+  // base styles
   const base = {
     display: "inline-flex",
     alignItems: "center",
@@ -203,14 +204,19 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
       "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
-    width: full ? "100%" : "auto",
+    // Full-width buttons get side breathing room inside cards
+    width: full ? "calc(100% - 24px)" : "auto",
+    marginLeft: full ? 12 : 0,
+    marginRight: full ? 12 : 0,
   };
+
   const variants = {
     primary: { background: theme.red, color: "#fff" },
     secondary: { background: "#fff", color: theme.text, border: `1px solid ${theme.border}` },
     dark: { background: "#0f172a", color: "#fff" },
     ghost: { background: "transparent", color: theme.text, border: `1px solid ${theme.border}` },
   };
+
   const Comp = href ? "a" : "button";
   const props = href ? { href } : { onClick };
 
@@ -695,14 +701,11 @@ export default function App() {
               The Startup Studio That Builds Category-Defining <span style={{ color: theme.red }}>Marketplaces</span>
             </H1>
 
-         <P dim size={18}>
-  <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong>
-  <br />
-  These include premium domains, rapid product development, liquidity tactics, growth loops, and capital — giving
-  ventures the unfair advantages required to accelerate traction and become category leaders.
-</P>
-
-
+            <P dim size={18} style={{ maxWidth: 680 }}>
+              <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
+              rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
+              required to accelerate traction and become category leaders.
+            </P>
 
             {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 860, boxShadow: theme.shadow.lg }}>
