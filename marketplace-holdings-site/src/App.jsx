@@ -187,9 +187,8 @@ const Img = ({
    UI PRIMITIVES
 -------------------------------------------------- */
 const Button = ({ children, variant = "primary", size = "md", href, onClick, full = false }) => {
-  // base styles (FIX: let CardBody padding create equal left/right space)
   const base = {
-    display: "inline-flex",
+    display: full ? "flex" : "inline-flex", // block-level when full
     alignItems: "center",
     justifyContent: "center",
     borderRadius: theme.radius.pill,
@@ -204,7 +203,8 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
       "transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease",
     outline: "none",
     fontFamily: stack,
-    width: full ? "100%" : "auto", // ← key: no manual margins or calc()
+    width: full ? "100%" : "auto",
+    boxSizing: "border-box", // include padding in width to keep even side spacing
   };
 
   const variants = {
@@ -673,7 +673,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 1) HERO (white with soft vignette) */}
+      {/* 1) HERO */}
       <section
         style={{
           position: "relative",
@@ -703,7 +703,6 @@ export default function App() {
               required to accelerate traction and become category leaders.
             </P>
 
-            {/* Hero collage */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 860, boxShadow: theme.shadow.lg }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/dashboardnew.png"
@@ -728,7 +727,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* 2) WHY MARKETPLACES (light gray + gradient) */}
+      {/* 2) WHY MARKETPLACES */}
       <Section id="why-marketplaces" alt gradient>
         <div className="media-grid">
           <div>
@@ -766,7 +765,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 3) VENTURES (white) */}
+      {/* 3) VENTURES */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -783,7 +782,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 4) WHY US (light gray) */}
+      {/* 4) WHY US */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim style={{ maxWidth: 680 }}>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -830,7 +829,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 5) THE JOURNEY (white) */}
+      {/* 5) THE JOURNEY */}
       <Section id="model">
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
@@ -861,7 +860,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 6) OPPORTUNITIES (light gray) */}
+      {/* 6) OPPORTUNITIES */}
       <Section id="choose-your-path" alt>
         <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
         <P dim style={{ maxWidth: 680 }}>
@@ -929,7 +928,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
+      {/* 7) FOUNDER LETTER */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
@@ -1053,7 +1052,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 8) WHO WE'RE LOOKING FOR (light gray) */}
+      {/* 8) WHO WE'RE LOOKING FOR */}
       <Section id="kpis" alt>
         <H2>Who We're Looking For</H2>
         <div
@@ -1088,7 +1087,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 9) APPLY (white) */}
+      {/* 9) APPLY */}
       <Section id="apply">
         <style>{`
           @media (max-width: 639px) { #apply .apply-inner { padding-left: 20px; padding-right: 20px; } }
@@ -1156,7 +1155,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 10) FAQ (light gray) */}
+      {/* 10) FAQ */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
