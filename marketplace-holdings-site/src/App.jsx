@@ -861,73 +861,76 @@ export default function App() {
       </Section>
 
       {/* 6) OPPORTUNITIES (light gray) */}
-      <Section id="choose-your-path" alt>
-        <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
-        <P dim style={{ maxWidth: 680 }}>
-          Three ways to lead a marketplace with us — each with meaningful equity ownership. Depending on the category and your strengths,
-          we’ll place the right CEO: sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
+<Section id="choose-your-path" alt>
+  <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
+  <P dim style={{ maxWidth: 680 }}>
+    Three ways to lead a marketplace with us — each with meaningful equity ownership. Depending on the category and your strengths,
+    we’ll place the right CEO: sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
+  </P>
+
+  <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
+    <Card>
+      <CardBody>
+        <H3 weight={800} style={{ margin: 0 }}>Path 1: Industry Expert</H3>
+        <P>
+          For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
+          strong network to accelerate credibility and adoption.
         </P>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
-          <Card>
-            <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 1: Industry Expert</H3>
-              <P>
-                For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
-                strong network to accelerate credibility and adoption.
-              </P>
-              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-                <li><strong>Insider advantage</strong> on regulations, quality, supply, and demand.</li>
-                <li><strong>Instant credibility</strong> with practitioners, partners, and customers.</li>
-                <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
-                <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
-              </ul>
-              {/* Gutter ensures even 20px left/right */}
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
-                <Button href="#apply" full>Apply as Industry Expert</Button>
-              </div>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 2: Proven Operator</H3>
-              <P>
-                For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
-                growth regardless of industry background.
-              </P>
-              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-                <li><strong>Track record of execution</strong> across GTM, ops, product, or P&amp;L ownership.</li>
-                <li><strong>Bias to action</strong>: validate, ship, iterate, and find signal fast.</li>
-                <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
-                <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
-              </ul>
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
-                <Button href="#apply" variant="dark" full>Apply as Proven Operator</Button>
-              </div>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardBody>
-              <H3 weight={800} style={{ margin: 0 }}>Path 3: Bring Your Own Marketplace Idea</H3>
-              <P>
-                Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to validate,
-                build, and launch using our capital, team, and playbooks.
-              </P>
-              <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
-                <li><strong>Co-develop the thesis</strong> and success criteria with our studio.</li>
-                <li><strong>Access our build engine</strong> — engineers, designers, and GTM support.</li>
-                <li><strong>Structured validation</strong> to find signal fast and allocate capital wisely.</li>
-                <li><strong>Founder-led</strong> — you remain the driving force and prospective CEO.</li>
-              </ul>
-              <div className="full-sm" style={{ marginTop: 14, padding: "0 20px" }}>
-                <Button href="#apply" variant="secondary" full>Pitch Your Idea</Button>
-              </div>
-            </CardBody>
-          </Card>
+        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+          <li><strong>Insider advantage</strong> on regulations, quality, supply, and demand.</li>
+          <li><strong>Instant credibility</strong> with practitioners, partners, and customers.</li>
+          <li><strong>Product influence</strong> from day one: standards, workflows, and UX that match reality.</li>
+          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+        </ul>
+        {/* FIXED BUTTON WRAPPER */}
+        <div style={{ marginTop: 14, padding: "0 20px" }}>
+          <Button href="#apply" full>Apply as Industry Expert</Button>
         </div>
-      </Section>
+      </CardBody>
+    </Card>
+
+    <Card>
+      <CardBody>
+        <H3 weight={800} style={{ margin: 0 }}>Path 2: Proven Operator</H3>
+        <P>
+          For entrepreneurial builders with a history of winning — operators who learn fast, execute hard, and drive
+          growth regardless of industry background.
+        </P>
+        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+          <li><strong>Track record of execution</strong> across GTM, ops, product, or P&amp;L ownership.</li>
+          <li><strong>Bias to action</strong>: validate, ship, iterate, and find signal fast.</li>
+          <li><strong>Domain ramp</strong> supported by advisors and playbooks tailored to the category.</li>
+          <li><strong>Studio-backed</strong> engineering, design, GTM, and capital to scale.</li>
+        </ul>
+        {/* FIXED BUTTON WRAPPER */}
+        <div style={{ marginTop: 14, padding: "0 20px" }}>
+          <Button href="#apply" variant="dark" full>Apply as Proven Operator</Button>
+        </div>
+      </CardBody>
+    </Card>
+
+    <Card>
+      <CardBody>
+        <H3 weight={800} style={{ margin: 0 }}>Path 3: Bring Your Own Marketplace Idea</H3>
+        <P>
+          Have a marketplace you’re burning to build? Pitch it to us. If we align on the thesis, we’ll partner with you to validate,
+          build, and launch using our capital, team, and playbooks.
+        </P>
+        <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
+          <li><strong>Co-develop the thesis</strong> and success criteria with our studio.</li>
+          <li><strong>Access our build engine</strong> — engineers, designers, and GTM support.</li>
+          <li><strong>Structured validation</strong> to find signal fast and allocate capital wisely.</li>
+          <li><strong>Founder-led</strong> — you remain the driving force and prospective CEO.</li>
+        </ul>
+        {/* FIXED BUTTON WRAPPER */}
+        <div style={{ marginTop: 14, padding: "0 20px" }}>
+          <Button href="#apply" variant="secondary" full>Pitch Your Idea</Button>
+        </div>
+      </CardBody>
+    </Card>
+  </div>
+</Section>
+
 
       {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
       <Section id="equity" gradient>
