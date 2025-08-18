@@ -379,35 +379,36 @@ const ventures = [
 const steps = [
   {
     phase: "Phase 1",
-    title: "Foundation Created by the Studio",
+    title: "Originate the Idea",
     text:
-      "We originate the thesis, validate early signals, and secure a premium, category-defining domain. We fund the initial build and set success metrics — reducing risk before you step in.",
+      "We identify high-potential marketplace opportunities, secure a category-defining domain, and frame the strategy with clear success criteria.",
   },
   {
     phase: "Phase 2",
-    title: "You Join as Part-Time Founding CEO",
+    title: "Build the Foundation",
     text:
-      "Step in ~10 hrs/week while we ship the MVP with our in-house product, design, and engineering team. You lead decisions and narrative — without quitting your day job yet.",
+      "We launch the MVP fast using our studio’s product, design, and engineering resources — trusted experts who plug in with proven playbooks to get the platform market-ready in weeks, not years.",
   },
   {
     phase: "Phase 3",
-    title: "Traction with GTM Muscle",
+    title: "Match the Right CEO",
     text:
-      "Launch with playbooks for supply/demand seeding, liquidity, and growth loops. Our paid media, content, and analytics support help you find signal and revenue quickly.",
+      "Depending on the venture, we place the best-fit leader: an industry expert, a proven operator, or a founder with their own idea. This ensures every marketplace has the right leadership DNA from day one.",
   },
   {
     phase: "Phase 4",
-    title: "Scale Full-Time with Capital & Team",
+    title: "Drive Early Growth",
     text:
-      "Once traction is proven, you transition full-time. We double down with capital, expand the team, and professionalize ops while you lead category expansion.",
+      "We fuel adoption with proven playbooks, test scalable acquisition channels, and create retention loops — turning the initial MVP into a marketplace with compounding engagement.",
   },
   {
     phase: "Phase 5",
-    title: "Spin Out & Own the Upside",
+    title: "Scale & Spin Out",
     text:
-      "We spin the venture into a standalone company. With meaningful, vesting equity — plus potential performance top-ups — you’re positioned for a life-changing outcome.",
+      "Once traction is proven, the venture spins out as a standalone company. The CEO leads expansion, builds the team, and grows into a category leader — with meaningful equity and life-changing upside.",
   },
 ];
+
 
 const whoWeWant = [
   { label: "Relentlessly Driven", desc: "You bring unwavering energy and follow-through, no matter the obstacles." },
