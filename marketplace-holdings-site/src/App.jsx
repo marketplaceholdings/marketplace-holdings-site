@@ -188,7 +188,7 @@ const Img = ({
 -------------------------------------------------- */
 const Button = ({ children, variant = "primary", size = "md", href, onClick, full = false }) => {
   const base = {
-    display: full ? "flex" : "inline-flex", // block-level when full
+    display: full ? "flex" : "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: theme.radius.pill,
@@ -204,7 +204,7 @@ const Button = ({ children, variant = "primary", size = "md", href, onClick, ful
     outline: "none",
     fontFamily: stack,
     width: full ? "100%" : "auto",
-    boxSizing: "border-box", // include padding in width to keep even side spacing
+    boxSizing: "border-box",
   };
 
   const variants = {
@@ -673,7 +673,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 1) HERO */}
+      {/* 1) HERO (white with soft vignette) */}
       <section
         style={{
           position: "relative",
@@ -727,7 +727,7 @@ export default function App() {
         </Container>
       </section>
 
-      {/* 2) WHY MARKETPLACES */}
+      {/* 2) WHY MARKETPLACES (light gray + gradient) */}
       <Section id="why-marketplaces" alt gradient>
         <div className="media-grid">
           <div>
@@ -765,7 +765,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 3) VENTURES */}
+      {/* 3) VENTURES (white) */}
       <Section id="ventures">
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
@@ -782,7 +782,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 4) WHY US */}
+      {/* 4) WHY US (light gray) */}
       <Section id="why-us" alt>
         <H2>Big Upside. Minimal Risk. Maximum Support.</H2>
         <P dim style={{ maxWidth: 680 }}>Unfair advantages from day one so you can focus on building, learning, and compounding traction.</P>
@@ -829,7 +829,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 5) THE JOURNEY */}
+      {/* 5) THE JOURNEY (white) */}
       <Section id="model">
         <H2>The Journey</H2>
         <div style={{ position: "relative", marginTop: 18 }}>
@@ -860,7 +860,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 6) OPPORTUNITIES */}
+      {/* 6) OPPORTUNITIES (light gray) */}
       <Section id="choose-your-path" alt>
         <H2>Explore the Opportunities. Choose the Path That Fits You.</H2>
         <P dim style={{ maxWidth: 680 }}>
@@ -928,7 +928,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER */}
+      {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
@@ -967,7 +967,8 @@ export default function App() {
 
             <H3 weight={600}>Three Ways to Partner</H3>
 
-            <H3 style={{ marginTop: 14 }} weight={700}>Path 1: The Industry Expert</H3>
+            {/* Added extra space before Path 1 */}
+            <H3 style={{ marginTop: 28 }} weight={700}>Path 1: The Industry Expert</H3>
             <P dim>
               You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
               You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
@@ -1016,27 +1017,14 @@ export default function App() {
               </P>
             </div>
 
-            <H3 style={{ marginTop: 22 }} weight={600}>The Upside</H3>
+            {/* Pushed The Upside down a bit more */}
+            <H3 style={{ marginTop: 36 }} weight={600}>The Upside</H3>
             <P dim style={{ maxWidth: 680 }}>
               This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
               With meaningful equity, the upside can be life-changing.
             </P>
 
-            <div
-              style={{
-                marginTop: 18,
-                padding: 38,
-                border: `1px dashed ${theme.border}`,
-                borderRadius: theme.radius.lg,
-                background: theme.bgAlt,
-              }}
-            >
-              <H3 weight={600}>Why Equity Matters</H3>
-              <P dim style={{ maxWidth: 680 }}>
-                A paycheck stops the moment you do. Equity keeps compounding your effort, your vision, and your wins. Our mission is to build
-                marketplaces that dominate their categories — and reward the people who build them.
-              </P>
-            </div>
+            {/* Removed the “Why Equity Matters” dashed box */}
 
             <H3 style={{ marginTop: 22 }} weight={600}>Your Next Step</H3>
             <P dim>
@@ -1052,7 +1040,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 8) WHO WE'RE LOOKING FOR */}
+      {/* 8) WHO WE'RE LOOKING FOR (light gray) */}
       <Section id="kpis" alt>
         <H2>Who We're Looking For</H2>
         <div
@@ -1087,7 +1075,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 9) APPLY */}
+      {/* 9) APPLY (white) */}
       <Section id="apply">
         <style>{`
           @media (max-width: 639px) { #apply .apply-inner { padding-left: 20px; padding-right: 20px; } }
@@ -1155,7 +1143,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 10) FAQ */}
+      {/* 10) FAQ (light gray) */}
       <Section id="faq" alt>
         <H2>FAQs</H2>
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
