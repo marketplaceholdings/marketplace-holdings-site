@@ -917,19 +917,19 @@ export default function App() {
           >
             {/* Letterhead: photo + org */}
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
-              <Img
-                src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
-                alt="Founder portrait: Mark Jenney"
-                aspect="1/1"
-                radius="50%"
-                style={{ width: 72 }}
-                shadow={null}
-              />
-              <div>
-                <H2>Dear Future Partner,</H2>
-                <P dim style={{ marginTop: 4, marginBottom: 0 }}>Marketplace Holdings</P>
-              </div>
-            </div>
+  <Img
+    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+    alt="Founder portrait: Mark Jenney"
+    aspect="1/1"
+    radius="50%"
+    style={{ width: 72 }}
+    shadow={null}
+  />
+  <div>
+    <H2>Dear Future Partner,</H2>
+  </div>
+</div>
+
 
             {/* Opening paragraphs */}
             <P style={{ marginTop: 12 }}>
