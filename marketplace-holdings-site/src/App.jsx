@@ -528,7 +528,7 @@ export default function App() {
                 Ventures
               </a>
               <a href="#choose-your-path" style={{ color: theme.text, textDecoration: "none", padding: "8px 10px", borderRadius: 8, fontWeight: 600 }}>
-                Tracks
+                Paths
               </a>
               <Button href="#apply" size="md">Apply</Button>
             </nav>
@@ -553,7 +553,7 @@ export default function App() {
         <div id="mobile-menu" className="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <a href="#why-us" onClick={() => setMenuOpen(false)}>Why Us</a>
           <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
-          <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Tracks</a>
+          <a href="#choose-your-path" onClick={() => setMenuOpen(false)}>Paths</a>
           <a href="#apply" onClick={() => setMenuOpen(false)} style={{ color: "#fff", background: theme.red, borderRadius: `${theme.radius.lg}px`, margin: 12, textAlign: "center" }}>
             Apply
           </a>
@@ -607,7 +607,7 @@ export default function App() {
             </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6, zIndex: 1 }}>
-              <Button href="#choose-your-path" size="lg">See Tracks</Button>
+              <Button href="#choose-your-path" size="lg">Explore Paths</Button>
               <Button href="#why-us" variant="secondary" size="lg">How We Help</Button>
             </div>
           </div>
@@ -620,7 +620,8 @@ export default function App() {
           <div>
             <H2>Why We Only Build Online Marketplaces</H2>
             <P dim>
-              We don’t dabble—we specialize. Our team helped build one of the largest two-sided marketplaces online, serving millions of users and generating over $1B in transactions.
+              We don’t dabble — we specialize. Our team has operated at marketplace scale (millions of users; $1B+ in transactions)
+              and we apply that specialization to each new category we build.
             </P>
 
             <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", marginTop: 18 }}>
@@ -699,7 +700,7 @@ export default function App() {
           <Card>
             <CardHeader title="Proven Track Record" media={<SmallIcon path="M3 12l7 7 11-11" />} />
             <CardBody>
-              $1B+ in online sales. Multiple exits across SaaS, e-commerce, and marketplaces. We bring operating muscle to your build.
+              $1B+ in online sales. Operating experience across SaaS, e-commerce, and marketplaces that brings real operating muscle to your build.
             </CardBody>
           </Card>
 
@@ -804,7 +805,8 @@ export default function App() {
       <Section id="choose-your-path" alt>
         <H2>Choose Your Path</H2>
         <P dim>
-          Three ways to lead a marketplace with us. Depending on the category and your strengths, we’ll place the right CEO — sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
+          Three ways to lead a marketplace with us — each with meaningful equity ownership. Depending on the category and your strengths,
+          we’ll place the right CEO: sometimes the domain insider, other times the operator with a track record of winning, or you can bring your own idea.
         </P>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 18, maxWidth: 860, marginInline: "auto" }}>
