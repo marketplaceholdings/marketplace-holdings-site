@@ -714,66 +714,166 @@ export default function App() {
       </header>
 
       {/* 1) HERO */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background:
-            "radial-gradient(900px 400px at 20% -10%, rgba(225,29,72,.08), transparent 60%), radial-gradient(700px 280px at 90% 0%, rgba(2,6,23,.06), transparent 60%)",
-        }}
-      >
-        <Img
-          src={PH(2400, 1200, "")}
-          alt=""
-          aspect="3/1"
-          cover
-          border={false}
-          shadow={null}
-          style={{ position: "absolute", inset: 0, filter: "grayscale(10%)", opacity: 0.22 }}
-        />
-        <Container>
-          <div style={{ position: "relative", padding: "110px 0 80px", display: "grid", gap: 18, maxWidth: 900 }}>
-            <H1>
-              The Startup Studio That Builds Category-Defining <span style={{ color: theme.red }}>Marketplaces</span>
-            </H1>
+     // HybridHero.jsx (or inline in App.jsx)
+import * as React from "react";
 
-            <P dim size={18} style={{ maxWidth: 680 }}>
-              <strong>We originate ideas, fund the early build, and apply proven playbooks.</strong> These include premium domains,
-              rapid product development, liquidity tactics, growth loops, and capital — giving ventures the unfair advantages
-              required to accelerate traction and become category leaders.
-            </P>
+export default function HybridHero() {
+  // if theme isn’t in scope, this keeps things from breaking in Storybook/local
+  const t = typeof theme !== "undefined" ? theme : {
+    red: "#e11d48",
+    text: "#0f172a",
+    subtext: "#475569",
+    border: "#e5e7eb",
+    bg: "#ffffff",
+    bgAlt: "#f8fafc",
+    radius: { sm: 8, md: 12, lg: 16, xl: 24, xxl: 32, pill: 999 },
+    space: (n) => `${n * 4}px`,
+    shadow: {
+      sm: "0 1px 2px rgba(2,6,23,.06)",
+      md: "0 8px 30px rgba(2,6,23,.08)",
+      lg: "0 18px 60px rgba(2,6,23,.12)",
+      xl: "0 30px 80px rgba(2,6,23,.16)",
+    },
+  };
 
-            {/* HERO media — replace the two-image grid with this single image card */}
-<div
-  style={{
-    // single, centered block that scales nicely with the heading width
-    maxWidth: 860,
-    marginTop: 6,
-  }}
->
-  <Img
-    src="https://marketplace-holdings-site.vercel.app/images/marketplaceimage.png"
-    alt="Marketplace flywheel: the circular liquidity cycle for online marketplaces"
-    aspect="16/9"         // roomy on desktop; feels premium
-    cover={false}         // important: no cropping; show full diagram
-    shadow="lg"           // same design language as rest of site
-    style={{
-      // white canvas + breathing room so the PNG feels crisp
-      background: "#fff",
-      padding: 18,
-      // keep it from touching edges on small screens
-      boxSizing: "border-box",
-    }}
-  />
-</div>
+  return (
+    <section
+      style={{
+        background: `linear-gradient(180deg, ${t.bg} 0%, ${t.bgAlt} 100%)`,
+        padding: `${t.space(16)} ${t.space(6)}`,
+        borderRadius: t.radius.xl,
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        {/* Copy */}
+        <header style={{ marginBottom: t.space(8) }}>
+          <h1
+            style={{
+              color: t.text,
+              fontSize: "48px",
+              lineHeight: 1.05,
+              fontWeight: 800,
+              letterSpacing: "-0.02em",
+              margin: 0,
+            }}
+          >
+            The Startup Studio That Builds
+            <br />
+            Category-Defining <span style={{ color: t.red }}>Marketplaces</span>
+          </h1>
 
+          <p
+            style={{
+              color: t.subtext,
+              fontSize: "18px",
+              lineHeight: 1.6,
+              marginTop: t.space(5),
+              maxWidth: 820,
+            }}
+          >
+            We originate ideas, fund the early build, and apply proven playbooks.
+            These include premium domains, rapid product development, liquidity tactics,
+            growth loops, and capital — giving ventures the unfair advantages required
+            to accelerate traction and become category leaders.
+          </p>
+        </header>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 10, zIndex: 1 }}>
-              <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+        {/* Visuals */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.2fr 1fr",
+            gap: t.space(6),
+            alignItems: "center",
+          }}
+        >
+          {/* Left: Marketplace Flywheel (primary concept) */}
+          <figure
+            style={{
+              background: t.bg,
+              border: `1px solid ${t.border}`,
+              boxShadow: t.shadow.lg,
+              borderRadius: t.radius.xxl,
+              padding: t.space(8),
+            }}
+          >
+            <img
+              src="/images/marketplacecycle.png" // ⬅️ your flywheel image
+              alt="Marketplace flywheel: More Buyers → More Sellers → More Supply → More Buyers"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+            <figcaption
+              style={{
+                color: t.subtext,
+                fontSize: 14,
+                marginTop: t.space(4),
+                textAlign: "center",
+              }}
+            >
+              The Marketplace Flywheel
+            </figcaption>
+          </figure>
+
+          {/* Right: Dashboard mockup (proof of execution) */}
+          <figure
+            style={{
+              background: t.bg,
+              border: `1px solid ${t.border}`,
+              boxShadow: t.shadow.lg,
+              borderRadius: t.radius.xxl,
+              padding: t.space(4),
+              transform: "rotate(-1deg)",
+            }}
+          >
+            <img
+              src="/images/dashboard.png" // ⬅️ replace with your dashboard mock path
+              alt="Marketplace Holdings dashboard with growth and liquidity metrics"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                borderRadius: t.radius.lg,
+              }}
+            />
+          </figure>
+        </div>
+
+        {/* CTA */}
+        <div style={{ marginTop: t.space(8) }}>
+          <a
+            href="/opportunities"
+            style={{
+              display: "inline-block",
+              background: t.red,
+              color: "#fff",
+              fontWeight: 700,
+              padding: `${t.space(3)} ${t.space(6)}`,
+              borderRadius: t.radius.pill,
+              boxShadow: t.shadow.md,
+              textDecoration: "none",
+            }}
+          >
+            Explore Opportunities
+          </a>
+        </div>
+      </div>
+
+      {/* Responsive tweaks */}
+      <style>{`
+        @media (max-width: 980px) {
+          section > div > div {
+            grid-template-columns: 1fr !important;
+          }
+          section h1 { font-size: 38px !important; }
+        }
+        @media (max-width: 640px) {
+          section h1 { font-size: 32px !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
 
       {/* 2) WHY MARKETPLACES */}
       <Section id="why-marketplaces" alt gradient>
