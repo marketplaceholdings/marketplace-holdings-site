@@ -928,135 +928,114 @@ export default function App() {
         </div>
       </Section>
 
-      /* 7) FOUNDER LETTER — letter style */
+     {/* 7) FOUNDER LETTER (white with soft brand gradient) */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
             style={{
-              maxWidth: 760,
-              background: "#fff",
+              maxWidth: 880,
+              background: "linear-gradient(180deg, rgba(225,29,72,.03), #ffffff)",
               border: `1px solid ${theme.border}`,
               borderRadius: theme.radius.xxl,
-              padding: 40,
+              padding: 34,
+              lineHeight: 1.75,
               boxShadow: theme.shadow.lg,
-              fontFamily:
-                'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-              color: theme.text,
-              lineHeight: 1.85,
             }}
           >
-            {/* optional letterhead / subtle top rule */}
-            <div style={{ height: 2, background: "#f1f5f9", marginBottom: 18 }} />
+            <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 12 }}>
+              <Img
+                src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+                alt="Founder portrait: Mark Jenney"
+                aspect="1/1"
+                radius="50%"
+                style={{ width: 72 }}
+                shadow={null}
+              />
+            </div>
 
-            {/* Salutation */}
-            <p style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>
-              Dear Future Partner,
-            </p>
+            <H2>Dear Future Partner,</H2>
+            <P size={16.5} style={{ maxWidth: 680 }}>
+              At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
+              category-defining marketplaces — as CEOs and meaningful equity owners.
+            </P>
+            <P dim style={{ maxWidth: 680 }}>
+              We originate ideas, validate models, secure premium domains, and fund the early build. But the most important part of every
+              venture is <strong>who leads it</strong>. That’s where you come in.
+            </P>
 
-            {/* Opening paragraphs */}
-            <p style={{ marginTop: 14 }}>
-              At <strong>Marketplace Holdings</strong>, we’re not building alone.
-              We’re looking for partners to lead the next generation of
-              category-defining marketplaces — as CEOs and meaningful equity
-              owners.
-            </p>
-
-            <p style={{ marginTop: 14 }}>
-              We originate ideas, validate models, secure premium domains, and
-              fund the early build. But the most important part of every venture
-              is <strong>who leads it</strong>. That’s where you come in.
-            </p>
-
-            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* Three ways to partner — letter style */}
-            <p style={{ margin: 0, fontWeight: 700 }}>Three Ways to Partner</p>
+            <H3 weight={600}>Three Ways to Partner</H3>
 
-            <p style={{ marginTop: 16 }}>
-              <strong>Path 1: The Industry Expert.</strong> You’ve spent years
-              inside a category — you understand the nuance, the trust dynamics,
-              the regulations, and the players. You bring insider knowledge and
-              credibility; we bring the team, capital, domain, and playbooks to
-              build the category standard.
-            </p>
+            {/* Added extra space before Path 1 */}
+            <H3 style={{ marginTop: 28 }} weight={700}>Path 1: The Industry Expert</H3>
+            <P dim>
+              You’ve spent years inside a category — you understand the nuance, the trust dynamics, the regulations, and the players.
+              You bring insider knowledge and credibility; we bring the team, capital, domain, and playbooks to build the category standard.
+            </P>
 
-            <p style={{ marginTop: 14 }}>
-              <strong>Path 2: The Proven Operator.</strong> You’ve shown you can
-              execute and win — across GTM, ops, product, or P&amp;L. We pair you
-              with advisors and frameworks to ramp quickly in a category and move
-              fast from validation to traction.
-            </p>
+            <H3 style={{ marginTop: 14 }} weight={700}>Path 2: The Proven Operator</H3>
+            <P dim>
+              You’ve shown you can execute and win — across GTM, ops, product, or P&amp;L. We pair you with advisors and frameworks to ramp
+              quickly in a category and move fast from validation to traction.
+            </P>
 
-            <p style={{ marginTop: 14 }}>
-              <strong>Path 3: The Founder With an Idea.</strong> You already have
-              a marketplace you’re burning to build. If our thesis aligns, we’ll
-              fund validation, build with you, and help launch using our
-              resources and growth systems.
-            </p>
+            <H3 style={{ marginTop: 14 }} weight={700}>Path 3: The Founder With an Idea</H3>
+            <P dim>
+              You already have a marketplace you’re burning to build. If our thesis aligns, we’ll fund validation, build with you, and help
+              launch using our resources and growth systems.
+            </P>
 
-            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* Why partner — presented as a tidy list */}
-            <p style={{ margin: 0, fontWeight: 700 }}>Why Partner With Us</p>
-            <ul
+            <H3 weight={600}>Why Partner With Us</H3>
+            <div
               style={{
-                marginTop: 14,
-                paddingLeft: 22,
-                listStyle: "disc",
-                lineHeight: 1.9,
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: 12,
+                marginTop: 10,
               }}
             >
-              <li>
-                <strong>Meaningful Equity</strong> — Own a significant stake in
-                the company you lead.
-              </li>
-              <li>
-                <strong>$1B+ Track Record</strong> — Operating experience guiding
-                strategy and execution.
-              </li>
-              <li>
-                <strong>Full Product Team</strong> — Engineers, designers, and GTM
-                support from day one.
-              </li>
-              <li>
-                <strong>Capital &amp; Runway</strong> — Funded validation and early
-                growth without risking your savings.
-              </li>
-              <li>
-                <strong>Proven Playbooks</strong> — Liquidity tactics, growth
-                loops, and marketplace frameworks.
-              </li>
-              <li>
-                <strong>Premium Domains</strong> — Category-defining assets that
-                build instant credibility.
-              </li>
-            </ul>
-
-            {/* Extra breathing room before The Upside (per your earlier spacing ask) */}
-            <p style={{ marginTop: 28, fontWeight: 700 }}>The Upside</p>
-            <p style={{ marginTop: 12 }}>
-              This isn’t employment — it’s ownership. We’re building companies
-              designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
-              With meaningful equity, the upside can be life-changing.
-            </p>
-
-            {/* Call to action */}
-            <p style={{ marginTop: 22, fontWeight: 700 }}>Your Next Step</p>
-            <p style={{ marginTop: 12 }}>
-              If you’re ready to explore a partnership,{" "}
-              <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>
-                click here to apply
-              </a>
-              .
-            </p>
-
-            {/* Signature block — right aligned for letter feel */}
-            <div style={{ marginTop: 28, textAlign: "right" }}>
-              <p style={{ margin: 0, fontWeight: 700 }}>– Mark Jenney</p>
-              <p style={{ margin: 0 }}>Founder, Marketplace Holdings</p>
+              <P dim style={{ margin: 0 }}>
+                <strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Full Product Team</strong> — Engineers, designers, and GTM support from day one.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Capital & Runway</strong> — Funded validation and early growth without risking your savings.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Proven Playbooks</strong> — Liquidity tactics, growth loops, and marketplace frameworks.
+              </P>
+              <P dim style={{ margin: 0 }}>
+                <strong>Premium Domains</strong> — Category-defining assets that build instant credibility.
+              </P>
             </div>
+
+            {/* Pushed The Upside down a bit more */}
+            <H3 style={{ marginTop: 36 }} weight={600}>The Upside</H3>
+            <P dim style={{ maxWidth: 680 }}>
+              This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
+              With meaningful equity, the upside can be life-changing.
+            </P>
+
+            {/* Removed the “Why Equity Matters” dashed box */}
+
+            <H3 style={{ marginTop: 22 }} weight={600}>Your Next Step</H3>
+            <P dim>
+              If you’re ready to explore a partnership, <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
+            </P>
+
+            <P>
+              <strong>– Mark Jenney</strong>
+              <br />
+              Founder, Marketplace Holdings
+            </P>
           </article>
         </div>
       </Section>
