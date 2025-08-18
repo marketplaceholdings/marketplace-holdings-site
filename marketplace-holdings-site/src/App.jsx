@@ -468,16 +468,84 @@ const whoWeWant = [
   { label: "Lifelong Learner", desc: "You constantly expand your skills and knowledge to stay ahead of the curve." },
 ];
 
+/* >>> UPDATED FAQs <<< */
 const faqs = [
-  { q: "Do I need to be an industry expert?", a: "Not always. For some ventures, credibility and insider knowledge are critical — so we look for industry experts to step in as CEOs. For others, what matters most is proven execution and entrepreneurial drive — so we look for proven operators." },
-  { q: "What if I don’t come from the industry?", a: "That’s fine. Many marketplaces benefit most from strong operators who excel at building, scaling, and problem-solving. We pair these leaders with advisors, category specialists, and our playbooks so they can quickly build credibility in the space." },
-  { q: "How do you decide whether to place an industry expert or a proven operator?", a: "It depends on the marketplace. Some markets demand insider knowledge from day one (e.g., regulated healthcare). Others are best served by a proven builder who can execute fast, raise standards, and create traction." },
-  { q: "Do I need prior startup or CEO experience?", a: "No. What matters is your track record of success — whether building companies, leading teams, or achieving consistently in your field. We’re looking for people who know how to win and can translate that into leadership." },
-  { q: "Do I need to code or be technical?", a: "No. Our studio provides engineering and design resources. You’ll focus on leading, making decisions, and driving growth. Technical skills are a plus but not a requirement." },
-  { q: "What resources and support will I get?", a: "Every venture has access to our studio’s playbooks, product and engineering teams, design system, go-to-market experts, and capital to fund the early build and initial traction. You’re not alone — we’re in it with you." },
-  { q: "What happens if the marketplace doesn’t succeed?", a: "Even if a specific venture doesn’t scale, you walk away with new skills, experience, and relationships — plus the opportunity to be considered for another venture. Importantly, you won’t have put your own savings at risk." },
-  { q: "How does equity work?", a: "CEOs receive a meaningful equity stake in the venture, with standard vesting and performance top-ups. The exact structure depends on the path (Industry Expert vs Proven Operator) and the marketplace’s requirements." },
-  { q: "What kind of outcomes are possible?", a: "Our goal is to build category-defining marketplaces that can scale into 8-, 9-, or even 10-figure outcomes. With a meaningful equity stake, your success as CEO can be life-changing." },
+  // Fit & background
+  {
+    q: "Who’s a great fit for this?",
+    a:
+      "Builders who bias to action, have a track record of winning (in any domain), and want meaningful ownership. You don’t need to be a coder; you do need to lead, learn quickly, and ship."
+  },
+  {
+    q: "Do I need to be an industry expert?",
+    a:
+      "Not always. Some ventures benefit from an insider on day one; others succeed fastest with a proven operator. We’ll place you on the best path based on your strengths."
+  },
+  {
+    q: "I’m not technical — is that a blocker?",
+    a:
+      "No. Our studio provides engineering and design resources. Technical literacy helps, but your focus is leading the company and driving traction."
+  },
+
+  // Process & timing
+  {
+    q: "What does the selection process look like?",
+    a:
+      "Short application → intro conversation → deep-dive on a venture or your idea → practical exercise (lightweight) → mutual fit & offer. The exact steps vary by path and category."
+  },
+  {
+    q: "How soon will I hear back after applying?",
+    a:
+      "We review every application and typically respond quickly with next steps if there’s a potential fit."
+  },
+  {
+    q: "Can I apply to multiple paths?",
+    a:
+      "Yes. If you’re open to more than one path, note that on your application and we’ll guide you toward the best fit."
+  },
+
+  // Role & setup
+  {
+    q: "Where is the role based? Is it remote?",
+    a:
+      "We work with CEOs across the U.S. with a remote-first setup. Some ventures may benefit from periodic in-person work with customers or advisors."
+  },
+  {
+    q: "What’s the time commitment?",
+    a:
+      "This is a full-time CEO role once we green-light a venture. During early validation we may scope part-time work case-by-case to test fit and signal."
+  },
+
+  // Ownership, comp, support
+  {
+    q: "How do compensation and equity work?",
+    a:
+      "CEOs receive meaningful equity with standard vesting. Cash comp is set to support focus, and we add performance-based top-ups as the venture scales."
+  },
+  {
+    q: "Who owns the IP and the domain?",
+    a:
+      "The venture. We form the company, assign assets to it, and you lead it with a significant ownership stake."
+  },
+  {
+    q: "What resources do I get in the first 90 days?",
+    a:
+      "Playbooks, product/design/engineering support, GTM help, access to advisors, and budget for validation and early growth."
+  },
+
+  // Bring-your-own idea
+  {
+    q: "How do I pitch my own marketplace idea?",
+    a:
+      "Share the customer, the painful problem, why a marketplace is the right mechanism, how liquidity forms, and early proof (signals, waitlist, expert calls). We’ll co-develop the thesis if we align."
+  },
+
+  // Risk & resilience
+  {
+    q: "What if the first concept doesn’t hit traction?",
+    a:
+      "We kill ideas quickly and keep winners. If a concept isn’t working, we’ll decide together whether to pivot within the category or place you on another venture."
+  }
 ];
 
 /* -------------------------------------------------
