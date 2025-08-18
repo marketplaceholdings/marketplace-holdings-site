@@ -1051,13 +1051,13 @@ export default function App() {
               <form className="apply-grid" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <Field label="Full Name">
-                    <Input placeholder="Jane Founder" />
+                    <Input placeholder="John Founder" />
                   </Field>
                 </div>
 
                 <div>
                   <Field label="Email">
-                    <Input type="email" placeholder="jane@domain.com" />
+                    <Input type="email" placeholder="john@domain.com" />
                   </Field>
                 </div>
 
