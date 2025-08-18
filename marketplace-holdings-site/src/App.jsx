@@ -1085,7 +1085,7 @@ export default function App() {
         </div>
       </Section>
 
-     {/* Footer (with updated nav links + softer address color) */}
+    {/* Footer (with updated nav links, no separators, softer address color) */}
 <footer style={{ borderTop: `1px solid ${theme.border}`, background: theme.bg }}>
   <Container>
     <div
@@ -1111,14 +1111,11 @@ export default function App() {
         <span>© {new Date().getFullYear()} Marketplace Holdings</span>
       </div>
 
-      {/* Muted Nav Links */}
-      <nav style={{ display: "flex", gap: 14, fontSize: 13, color: "#94a3b8" }}>
+      {/* Muted Nav Links (no separators) */}
+      <nav style={{ display: "flex", gap: 18, fontSize: 13, color: "#94a3b8" }}>
         <a href="#why-marketplaces" style={{ color: "inherit", textDecoration: "none" }}>Why Marketplaces</a>
-        <span>·</span>
         <a href="#ventures" style={{ color: "inherit", textDecoration: "none" }}>Ventures</a>
-        <span>·</span>
         <a href="#choose-your-path" style={{ color: "inherit", textDecoration: "none" }}>Opportunities</a>
-        <span>·</span>
         <a href="#apply" style={{ color: "inherit", textDecoration: "none" }}>Apply</a>
       </nav>
 
