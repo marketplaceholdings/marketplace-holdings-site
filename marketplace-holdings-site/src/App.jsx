@@ -436,7 +436,7 @@ const SmallIcon = ({ path }) => (
 );
 
 /* -------------------------------------------------
-   DATA
+   DATA (updated ventures)
 -------------------------------------------------- */
 const ventures = [
   { name: "RVshare.com", blurb: "The largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
@@ -447,15 +447,24 @@ const ventures = [
   { name: "UHNW.org", blurb: "A private network and directory for ultra-high-net-worth services.", tag: "Finance" },
   { name: "CustomHomeBuilders.com", blurb: "The official directory for custom home builders in every U.S. market.", tag: "PropTech" },
   { name: "FundManagers.org", blurb: "An industry registry connecting LPs with verified fund managers.", tag: "Capital Markets" },
-  
-  // ✅ NEW VENTURES
+
+  // Existing new ventures
   { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
   { name: "LicensedContractor.org", blurb: "The trusted platform to find vetted, licensed contractors across the U.S. for any project.", tag: "Construction" },
   { name: "LuxuryPoolBuilders.com", blurb: "The official directory for luxury pool designers and builders, serving homeowners with high-end custom pools.", tag: "Luxury Living" },
   { name: "StructuralPestControl.com", blurb: "An industry directory for professional pest control companies specializing in structural protection and treatment.", tag: "Home Services" },
   { name: "ScaffoldingMarketplace.com", blurb: "The marketplace for scaffolding providers, connecting contractors with reliable suppliers and services.", tag: "Construction" },
   { name: "AutoBodyShops.org", blurb: "Consumer-first directory helping car owners find certified and reputable auto body shops.", tag: "Auto" },
+
+  // ✅ Newly added ventures
+  { name: "SupplementManufacturers.com", blurb: "The category hub connecting brands with vetted, NSF/cGMP-compliant supplement manufacturers, turnkey formulators, and packaging partners.", tag: "Manufacturing" },
+  { name: "CraneInspectors.org", blurb: "A national registry of certified crane inspectors to schedule OSHA/ASME-compliant inspections, load testing, and safety audits.", tag: "Safety & Compliance" },
+  { name: "ElevatorMaintenance.org", blurb: "Directory and marketplace for licensed elevator maintenance, modernization, and 24/7 service providers for residential and commercial properties.", tag: "Facilities" },
+  { name: "FireproofingMarketplace.com", blurb: "Connects builders with verified fireproofing contractors and materials suppliers for code-compliant solutions across commercial and residential projects.", tag: "Construction" },
+  { name: "HeavyEquipmentMovers.org", blurb: "Find specialized heavy equipment movers and rigging teams for safe transport, set-up, and plant relocations nationwide.", tag: "Logistics" },
+  { name: "IndustrialMovers.org", blurb: "The national network for industrial moving, rigging, and machinery relocation—covering single-machine moves to full facility transitions.", tag: "Industrial Services" },
 ];
+
 
 
 /* Journey copy (final) */
