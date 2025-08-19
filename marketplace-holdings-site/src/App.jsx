@@ -450,7 +450,7 @@ const ventures = [
   
   // ✅ NEW VENTURES
   { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
-  { name: "LicensedContractors.org", blurb: "The trusted platform to find vetted, licensed contractors across the U.S. for any project.", tag: "Construction" },
+  { name: "LicensedContractor.org", blurb: "The trusted platform to find vetted, licensed contractors across the U.S. for any project.", tag: "Construction" },
   { name: "LuxuryPoolBuilders.com", blurb: "The official directory for luxury pool designers and builders, serving homeowners with high-end custom pools.", tag: "Luxury Living" },
   { name: "StructuralPestControl.com", blurb: "An industry directory for professional pest control companies specializing in structural protection and treatment.", tag: "Home Services" },
   { name: "ScaffoldingMarketplace.com", blurb: "The marketplace for scaffolding providers, connecting contractors with reliable suppliers and services.", tag: "Construction" },
