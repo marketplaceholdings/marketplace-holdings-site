@@ -455,7 +455,7 @@ const ventures = [
   { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
   { name: "SportsPerformanceCoaches.com", blurb: "A curated directory of elite sports performance coaches helping athletes optimize strength, speed, recovery, and mindset.", tag: "Sports & Wellness" },
   { name: "IntegrativeHealthClinics.com", blurb: "The go-to directory for integrative and functional health clinics, connecting patients with providers that blend conventional and holistic care.", tag: "Healthcare" },
-  { name: "CommercialBanking.org", blurb: "The definitive platform for commercial banking services, connecting businesses with banks that provide lending, treasury, and financial solutions.", tag: "Finance" },
+ 
 ];
 
 
