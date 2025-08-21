@@ -931,7 +931,7 @@ export default function App() {
             <CardBody>
               <H3 weight={800} style={{ margin: 0 }}>Path 1: Industry Expert</H3>
               <P>
-                For category insiders — e.g., a leader in stem cell therapy — who bring deep domain knowledge, trust, and a
+                For category insiders who bring deep domain knowledge, trust, and a
                 strong network to accelerate credibility and adoption.
               </P>
               <ul style={{ marginTop: 12, paddingLeft: 18, color: theme.subtext, lineHeight: 1.7 }}>
