@@ -441,37 +441,20 @@ const SmallIcon = ({ path }) => (
 const ventures = [
   { name: "RVshare.com", blurb: "The largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
   { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery." },
-  { name: "RVing.com", blurb: "The definitive online marketplace for the RV lifestyle — connecting travelers, owners, dealers, and service providers in one trusted platform.", tag: "Travel" },
-  { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
-  { name: "UHNW.org", blurb: "A private network and directory for ultra-high-net-worth services.", tag: "Finance" },
-  { name: "CustomHomeBuilders.com", blurb: "The official directory for custom home builders in every U.S. market.", tag: "PropTech" },
-  { name: "FundManagers.org", blurb: "An industry registry connecting LPs with verified fund managers.", tag: "Capital Markets" },
-
-  // Existing ventures
-  { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
-  { name: "LicensedContractor.org", blurb: "The trusted platform to find vetted, licensed contractors across the U.S. for any project.", tag: "Construction" },
-  { name: "LuxuryPoolBuilders.com", blurb: "The official directory for luxury pool designers and builders, serving homeowners with high-end custom pools.", tag: "Luxury Living" },
-  { name: "StructuralPestControl.com", blurb: "An industry directory for professional pest control companies specializing in structural protection and treatment.", tag: "Home Services" },
-  { name: "ScaffoldingMarketplace.com", blurb: "The marketplace for scaffolding providers, connecting contractors with reliable suppliers and services.", tag: "Construction" },
-  { name: "AutoBodyShops.org", blurb: "Consumer-first directory helping car owners find certified and reputable auto body shops.", tag: "Auto" },
-
-  // Newly added ventures
-  { name: "SupplementManufacturers.com", blurb: "The category hub connecting brands with vetted, NSF/cGMP-compliant supplement manufacturers, turnkey formulators, and packaging partners.", tag: "Manufacturing" },
-  { name: "CraneInspectors.org", blurb: "A national registry of certified crane inspectors to schedule OSHA/ASME-compliant inspections, load testing, and safety audits.", tag: "Safety & Compliance" },
-  { name: "ElevatorMaintenance.org", blurb: "Directory and marketplace for licensed elevator maintenance, modernization, and 24/7 service providers for residential and commercial properties.", tag: "Facilities" },
-  { name: "FireproofingMarketplace.com", blurb: "Connects builders with verified fireproofing contractors and materials suppliers for code-compliant solutions across commercial and residential projects.", tag: "Construction" },
-  { name: "HeavyEquipmentMovers.org", blurb: "Find specialized heavy equipment movers and rigging teams for safe transport, set-up, and plant relocations nationwide.", tag: "Logistics" },
-  { name: "IndustrialMovers.org", blurb: "The national network for industrial moving, rigging, and machinery relocation—covering single-machine moves to full facility transitions.", tag: "Industrial Services" },
-
-  // ✅ New domains from your list
   { name: "IndustrialManufacturing.com", blurb: "The category-defining directory for industrial manufacturers, connecting buyers with trusted suppliers of heavy machinery, components, and plant equipment.", tag: "Manufacturing" },
-  { name: "RegenerativeMedicine.org", blurb: "An authoritative hub for regenerative medicine — connecting patients, researchers, and clinics advancing stem cell, gene therapy, and other cutting-edge treatments.", tag: "Healthcare" },
-  { name: "GeneralContracting.com", blurb: "A marketplace and directory built for commercial general contractors, helping developers and property owners find qualified firms for large-scale projects.", tag: "Construction" },
-  { name: "AccountantsAndAuditors.com", blurb: "A professional directory connecting businesses and individuals with licensed accountants and auditors for tax, assurance, and advisory needs.", tag: "Finance" },
+  { name: "RVing.com", blurb: "The definitive online marketplace for the RV lifestyle — connecting travelers, owners, dealers, and service providers in one trusted platform.", tag: "Travel" },
+  { name: "CustomHomeBuilders.com", blurb: "The official directory for custom home builders in every U.S. market.", tag: "PropTech" },
+  { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
+  { name: "RegenerativeMedicine.org", blurb: "An authoritative hub for regenerative medicine — connecting patients, researchers, and clinics advancing stem cell, gene therapy, and other cutting-edge treatments.", tag: "Healthcare" }, 
+  { name: "GeneralContracting.com", blurb: "A marketplace and directory built for commercial general contractors, helping developers and property owners find qualified firms for large-scale projects.", tag: "Construction" },    
+  { name: "UHNW.org", blurb: "A private network and directory for ultra-high-net-worth services.", tag: "Finance" },
+  { name: "CommercialBanking.org", blurb: "The definitive platform for commercial banking services, connecting businesses with banks that provide lending, treasury, and financial solutions.", tag: "Finance" },
+  { name: "LuxuryPoolBuilders.com", blurb: "The official directory for luxury pool designers and builders, serving homeowners with high-end custom pools.", tag: "Luxury Living" },
+  { name: "FundManagers.org", blurb: "An industry registry connecting LPs with verified fund managers.", tag: "Capital Markets" },
+  { name: "SupplementManufacturers.com", blurb: "The category hub connecting brands with vetted, NSF/cGMP-compliant supplement manufacturers, turnkey formulators, and packaging partners.", tag: "Manufacturing" },
+  { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
   { name: "SportsPerformanceCoaches.com", blurb: "A curated directory of elite sports performance coaches helping athletes optimize strength, speed, recovery, and mindset.", tag: "Sports & Wellness" },
   { name: "IntegrativeHealthClinics.com", blurb: "The go-to directory for integrative and functional health clinics, connecting patients with providers that blend conventional and holistic care.", tag: "Healthcare" },
-  { name: "BrandingAgencies.org", blurb: "An industry hub for branding and creative agencies, helping businesses connect with top firms for brand identity, strategy, and design.", tag: "Marketing" },
-  { name: "AircraftManufacturing.org", blurb: "A global directory for aircraft manufacturers and aerospace suppliers, connecting buyers, engineers, and aviation professionals.", tag: "Aerospace" },
   { name: "CommercialBanking.org", blurb: "The definitive platform for commercial banking services, connecting businesses with banks that provide lending, treasury, and financial solutions.", tag: "Finance" },
 ];
 
