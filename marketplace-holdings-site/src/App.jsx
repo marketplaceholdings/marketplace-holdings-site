@@ -1021,18 +1021,35 @@ export default function App() {
               fontFamily: stack,
             }}
           >
-            {/* Letterhead: photo + org */}
-           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, marginBottom: 20 }}>
+{/* Letterhead: two photos side by side + org */}
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginBottom: 20,
+  }}
+>
   <Img
-    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
-    alt="Founder portrait: Mark Jenney"
+    src="https://media.licdn.com/dms/image/v2/D5603AQGAEAcvSKVjqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696810635655?e=1759363200&v=beta&t=i5g3DPcfedPZHvh9vuQUb34Y3YI1c9Ds2pEg7fmi_v4"
+    alt="Founder portrait (LinkedIn)"
     aspect="1/1"
     radius="50%"
     style={{ width: 72 }}
     shadow={null}
   />
-  <H2>Dear Future Partner,</H2>
+  <Img
+    src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+    alt="Founder portrait (Twitter)"
+    aspect="1/1"
+    radius="50%"
+    style={{ width: 72 }}
+    shadow={null}
+  />
+  <H2 style={{ marginLeft: 12 }}>Dear Future Partner,</H2>
 </div>
+
 
 
 
