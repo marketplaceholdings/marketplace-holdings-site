@@ -455,8 +455,28 @@ const ventures = [
   { name: "TaxAdvisors.org", blurb: "A specialized directory connecting individuals and businesses with verified tax advisors for every unique need.", tag: "Finance" },
   { name: "SportsPerformanceCoaches.com", blurb: "A curated directory of elite sports performance coaches helping athletes optimize strength, speed, recovery, and mindset.", tag: "Sports & Wellness" },
   { name: "IntegrativeHealthClinics.com", blurb: "The go-to directory for integrative and functional health clinics, connecting patients with providers that blend conventional and holistic care.", tag: "Healthcare" },
- 
+
+  // 🔹 Newly Added
+  { name: "ChemicalEngineers.com", blurb: "A central hub for chemical engineers, connecting talent, employers, and industry partners across research, manufacturing, and consulting.", tag: "Engineering" },
+  { name: "ComplianceAudits.com", blurb: "The definitive directory for compliance audits — helping businesses find trusted auditors across industries from SOC 2 to HIPAA.", tag: "Compliance" },
+  { name: "MedicalResearch.org", blurb: "A trusted directory for medical research organizations, CROs, and labs advancing clinical trials and scientific discovery.", tag: "Healthcare" },
+  { name: "ValuationFirms.com", blurb: "A specialized directory of valuation firms for businesses, assets, and intellectual property, connecting clients with experts they can trust.", tag: "Finance" },
+  { name: "ElectricalContractors.org", blurb: "The authoritative directory of licensed electrical contractors serving commercial, residential, and industrial markets.", tag: "Construction" },
+  { name: "CommercialConstruction.org", blurb: "A directory connecting developers and property owners with verified commercial construction firms nationwide.", tag: "Construction" },
+  { name: "SeniorCompanionship.com", blurb: "A trusted platform connecting families with vetted senior companionship and caregiving services.", tag: "Healthcare" },
+  { name: "CommercialArchitect.org", blurb: "A curated directory for commercial architects, helping developers find top talent for complex projects.", tag: "Design & Construction" },
+  { name: "IndustrialDesigners.org", blurb: "The go-to hub for industrial designers, connecting brands with design talent across product, packaging, and innovation.", tag: "Design" },
+  { name: "PrivateEquityDirectory.org", blurb: "A verified directory for private equity firms, connecting investors, founders, and advisors.", tag: "Capital Markets" },
+  { name: "CPAfirms.org", blurb: "The authoritative registry of certified public accounting firms across the U.S., connecting businesses with trusted financial partners.", tag: "Finance" },
+  { name: "BeverageManufacturers.org", blurb: "The industry hub connecting beverage brands with contract manufacturers, bottlers, and co-packers.", tag: "Manufacturing" },
+  { name: "PatentLitigation.org", blurb: "A specialized directory of law firms and experts in patent litigation, helping innovators protect and defend their IP.", tag: "Legal" },
+  { name: "CommercialRoofingContractors.org", blurb: "A trusted directory of commercial roofing contractors, connecting businesses with licensed experts for large-scale projects.", tag: "Construction" },
+  { name: "3plCompanies.org", blurb: "The definitive directory of third-party logistics (3PL) companies, connecting brands with warehousing, shipping, and fulfillment partners.", tag: "Logistics" },
+  { name: "soc2audit.org", blurb: "A directory of SOC 2 audit firms, connecting companies with trusted providers for data security compliance.", tag: "Compliance" },
+  { name: "HIPAAfirms.org", blurb: "The leading hub for HIPAA compliance firms, helping healthcare providers and tech companies meet privacy standards.", tag: "Compliance" },
+  { name: "FDAcompliance.org", blurb: "The authoritative directory for FDA compliance consultants and firms, guiding companies through regulatory approval and audits.", tag: "Compliance" },
 ];
+
 
 
 
