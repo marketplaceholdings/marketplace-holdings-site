@@ -1111,9 +1111,9 @@ export default function App() {
 
             {/* Signature */}
             <P style={{ marginTop: 28 }}>
-              <strong>– Mark Jenney</strong>
+              <strong>– Zach Whitehead, Mark Jenney</strong>
               <br />
-              Founder, Marketplace Holdings
+              Founders, Marketplace Holdings
             </P>
           </article>
         </div>
