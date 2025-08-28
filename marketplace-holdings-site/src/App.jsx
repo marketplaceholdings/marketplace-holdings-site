@@ -459,7 +459,6 @@ const ventures = [
   { name: "ChemicalEngineers.com", blurb: "A central hub for chemical engineers, connecting talent, employers, and industry partners across research, manufacturing, and consulting.", tag: "Engineering" },
   { name: "IntegrativeHealthClinics.com", blurb: "The go-to directory for integrative and functional health clinics, connecting patients with providers that blend conventional and holistic care.", tag: "Healthcare" },
   { name: "SportsPerformanceCoaches.com", blurb: "A curated directory of elite sports performance coaches helping athletes optimize strength, speed, recovery, and mindset.", tag: "Sports & Wellness" },
-  { name: "LuxuryPoolBuilders.com", blurb: "The official directory for luxury pool designers and builders, serving homeowners with high-end custom pools.", tag: "Luxury Living" },
   { name: "SeniorCompanionship.com", blurb: "A trusted platform connecting families with vetted senior companionship and caregiving services.", tag: "Healthcare" },
   { name: "CustomPoolCompanies.com", blurb: "A trusted directory for custom pool companies, helping homeowners design and build high-quality pools.", tag: "Luxury Living" },
 
