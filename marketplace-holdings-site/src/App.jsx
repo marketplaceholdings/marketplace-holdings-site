@@ -522,82 +522,19 @@ const whoWeWant = [
 
 /* >>> UPDATED FAQs <<< */
 const faqs = [
-  // Fit & background
-  {
-    q: "Who’s a great fit for this?",
-    a:
-      "Builders who bias to action, have a track record of winning (in any domain), and want meaningful ownership. You don’t need to be a coder; you do need to lead, learn quickly, and ship."
-  },
-  {
-    q: "Do I need to be an industry expert?",
-    a:
-      "Not always. Some ventures benefit from an insider on day one; others succeed fastest with a proven operator. We’ll place you on the best path based on your strengths."
-  },
-  {
-    q: "I’m not technical — is that a blocker?",
-    a:
-      "No. Our studio provides engineering and design resources. Technical literacy helps, but your focus is leading the company and driving traction."
-  },
-
-  // Process & timing
-  {
-    q: "What does the selection process look like?",
-    a:
-      "Short application → intro conversation → deep-dive on a venture or your idea → practical exercise (lightweight) → mutual fit & offer. The exact steps vary by path and category."
-  },
-  {
-    q: "How soon will I hear back after applying?",
-    a:
-      "We review every application and typically respond quickly with next steps if there’s a potential fit."
-  },
-  {
-    q: "Can I apply to multiple paths?",
-    a:
-      "Yes. If you’re open to more than one path, note that on your application and we’ll guide you toward the best fit."
-  },
-
-  // Role & setup
-  {
-    q: "Where is the role based? Is it remote?",
-    a:
-      "We work with CEOs across the U.S. with a remote-first setup. Some ventures may benefit from periodic in-person work with customers or advisors."
-  },
-  {
-    q: "What’s the time commitment?",
-    a:
-      "This is a full-time CEO role once we green-light a venture. During early validation we may scope part-time work case-by-case to test fit and signal."
-  },
-
-  // Ownership, comp, support
-  {
-    q: "How do compensation and equity work?",
-    a:
-      "CEOs receive meaningful equity with standard vesting. Cash comp is set to support focus, and we add performance-based top-ups as the venture scales."
-  },
-  {
-    q: "Who owns the IP and the domain?",
-    a:
-      "The venture. We form the company, assign assets to it, and you lead it with a significant ownership stake."
-  },
-  {
-    q: "What resources do I get in the first 90 days?",
-    a:
-      "Playbooks, product/design/engineering support, GTM help, access to advisors, and budget for validation and early growth."
-  },
-
-  // Bring-your-own idea
-  {
-    q: "How do I pitch my own marketplace idea?",
-    a:
-      "Share the customer, the painful problem, why a marketplace is the right mechanism, how liquidity forms, and early proof (signals, waitlist, expert calls). We’ll co-develop the thesis if we align."
-  },
-
-  // Risk & resilience
-  {
-    q: "What if the first concept doesn’t hit traction?",
-    a:
-      "We kill ideas quickly and keep winners. If a concept isn’t working, we’ll decide together whether to pivot within the category or place you on another venture."
-  }
+  { q: "Who’s a great fit for this?", a: "Builders who bias to action, have a track record of winning (in any domain), and want meaningful ownership. You don’t need to be a coder; you do need to lead, learn quickly, and ship." },
+  { q: "Do I need to be an industry expert?", a: "Not always. Some ventures benefit from an insider on day one; others succeed fastest with a proven operator. We’ll place you on the best path based on your strengths." },
+  { q: "I’m not technical — is that a blocker?", a: "No. Our studio provides engineering and design resources. Technical literacy helps, but your focus is leading the company and driving traction." },
+  { q: "What does the selection process look like?", a: "Short application → intro conversation → deep-dive on a venture or your idea → practical exercise (lightweight) → mutual fit & offer. The exact steps vary by path and category." },
+  { q: "How soon will I hear back after applying?", a: "We review every application and typically respond quickly with next steps if there’s a potential fit." },
+  { q: "Can I apply to multiple paths?", a: "Yes. If you’re open to more than one path, note that on your application and we’ll guide you toward the best fit." },
+  { q: "Where is the role based? Is it remote?", a: "We work with CEOs across the U.S. with a remote-first setup. Some ventures may benefit from periodic in-person work with customers or advisors." },
+  { q: "What’s the time commitment?", a: "This is a full-time CEO role once we green-light a venture. During early validation we may scope part-time work case-by-case to test fit and signal." },
+  { q: "How do compensation and equity work?", a: "CEOs receive meaningful equity with standard vesting. Cash comp is set to support focus, and we add performance-based top-ups as the venture scales." },
+  { q: "Who owns the IP and the domain?", a: "The venture. We form the company, assign assets to it, and you lead it with a significant ownership stake." },
+  { q: "What resources do I get in the first 90 days?", a: "Playbooks, product/design/engineering support, GTM help, access to advisors, and budget for validation and early growth." },
+  { q: "How do I pitch my own marketplace idea?", a: "Share the customer, the painful problem, why a marketplace is the right mechanism, how liquidity forms, and early proof (signals, waitlist, expert calls). We’ll co-develop the thesis if we align." },
+  { q: "What if the first concept doesn’t hit traction?", a: "We kill ideas quickly and keep winners. If a concept isn’t working, we’ll decide together whether to pivot within the category or place you on another venture." },
 ];
 
 /* -------------------------------------------------
@@ -657,14 +594,9 @@ function useActiveSection(ids) {
 export default function App() {
   const scrolled = useScrolled();
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const active = useActiveSection([
-    "why-marketplaces",
-    "ventures",
-    "choose-your-path",
-    "apply",
-  ]);
+  const active = useActiveSection(["why-marketplaces", "ventures", "choose-your-path", "apply"]);
 
-  // 👇 Progressive reveal state for ventures
+  // Progressive reveal state for ventures
   const [visibleCount, setVisibleCount] = React.useState(BATCH_SIZE);
   const remaining = Math.max(ventures.length - visibleCount, 0);
 
@@ -799,7 +731,6 @@ export default function App() {
               required to accelerate traction and become category leaders.
             </P>
 
-            {/* HERO media — replace the two-image grid with this single image card */}
             <div style={{ maxWidth: 860, marginTop: 6 }}>
               <Img
                 src="https://marketplace-holdings-site.vercel.app/images/marketplaceimage.png"
@@ -880,7 +811,7 @@ export default function App() {
               variant="secondary"
               onClick={() => setVisibleCount((n) => Math.min(n + BATCH_SIZE, ventures.length))}
             >
-              View {Math.min(BATCH_SIZE, remaining)} more {remaining > BATCH_SIZE ? `(${remaining} left)` : ""}
+              View more
             </Button>
           ) : (
             <Button variant="ghost" onClick={() => setVisibleCount(BATCH_SIZE)}>
@@ -1036,7 +967,7 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER — formatted like a letter */}
+      {/* 7) FOUNDER LETTER */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
@@ -1157,9 +1088,7 @@ export default function App() {
                 }
               />
               <p style={{ margin: 0, color: theme.text }}>
-                <strong>{item.label}</strong>
-                {" — "}
-                {item.desc}
+                <strong>{item.label}</strong>{" — "}{item.desc}
               </p>
             </div>
           ))}
