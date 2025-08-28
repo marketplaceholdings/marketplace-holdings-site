@@ -436,7 +436,7 @@ const SmallIcon = ({ path }) => (
 );
 
 /* -------------------------------------------------
-   DATA (updated ventures)
+   DATA (updated ventures with new domains)
 -------------------------------------------------- */
 const ventures = [
   { name: "RVshare.com", blurb: "The largest peer-to-peer RV rental marketplace, connecting RV owners with travelers for memorable road trip experiences.", tag: "Travel" },
@@ -456,7 +456,7 @@ const ventures = [
   { name: "SportsPerformanceCoaches.com", blurb: "A curated directory of elite sports performance coaches helping athletes optimize strength, speed, recovery, and mindset.", tag: "Sports & Wellness" },
   { name: "IntegrativeHealthClinics.com", blurb: "The go-to directory for integrative and functional health clinics, connecting patients with providers that blend conventional and holistic care.", tag: "Healthcare" },
 
-  // 🔹 Newly Added
+  // 🔹 Newly Added Before
   { name: "ChemicalEngineers.com", blurb: "A central hub for chemical engineers, connecting talent, employers, and industry partners across research, manufacturing, and consulting.", tag: "Engineering" },
   { name: "ComplianceAudits.com", blurb: "The definitive directory for compliance audits — helping businesses find trusted auditors across industries from SOC 2 to HIPAA.", tag: "Compliance" },
   { name: "MedicalResearch.org", blurb: "A trusted directory for medical research organizations, CROs, and labs advancing clinical trials and scientific discovery.", tag: "Healthcare" },
@@ -475,7 +475,30 @@ const ventures = [
   { name: "soc2audit.org", blurb: "A directory of SOC 2 audit firms, connecting companies with trusted providers for data security compliance.", tag: "Compliance" },
   { name: "HIPAAfirms.org", blurb: "The leading hub for HIPAA compliance firms, helping healthcare providers and tech companies meet privacy standards.", tag: "Compliance" },
   { name: "FDAcompliance.org", blurb: "The authoritative directory for FDA compliance consultants and firms, guiding companies through regulatory approval and audits.", tag: "Compliance" },
+
+  // 🔹 Newly Requested Domains
+  { name: "RoofingContractors.org", blurb: "The authoritative directory for roofing contractors, connecting homeowners and businesses with licensed professionals nationwide.", tag: "Construction" },
+  { name: "RegisteredInvestmentAdvisors.org", blurb: "A verified registry of Registered Investment Advisors (RIAs), helping investors find fiduciary-grade financial partners.", tag: "Finance" },
+  { name: "ThirdPartyLogistics.org", blurb: "A category hub for third-party logistics providers, linking brands to shipping, warehousing, and fulfillment solutions.", tag: "Logistics" },
+  { name: "CoPackers.com", blurb: "The go-to directory for food and beverage co-packers, helping brands scale production with trusted partners.", tag: "Manufacturing" },
+  { name: "ResidentialContractors.org", blurb: "The official directory for licensed residential contractors, connecting homeowners with vetted builders and remodelers.", tag: "Construction" },
+  { name: "CustomPoolCompanies.com", blurb: "A trusted directory for custom pool companies, helping homeowners design and build high-quality pools.", tag: "Luxury Living" },
+  { name: "EscrowAgents.org", blurb: "A centralized directory for escrow agents, ensuring buyers and sellers find trusted professionals for secure transactions.", tag: "Finance" },
+  { name: "HairRestorationClinics.com", blurb: "A specialized directory for hair restoration clinics, connecting patients with trusted providers for advanced treatments.", tag: "Healthcare" },
+  { name: "LasikCenters.org", blurb: "A trusted hub for LASIK centers, helping patients find accredited providers for corrective eye surgery.", tag: "Healthcare" },
+  { name: "FreightBrokerage.org", blurb: "A marketplace directory for freight brokerages, connecting shippers with licensed freight professionals.", tag: "Logistics" },
+  { name: "LogisticsProviders.org", blurb: "A definitive hub for logistics providers, helping companies connect with partners across supply chain, transport, and distribution.", tag: "Logistics" },
+  { name: "SidingContractors.org", blurb: "A directory for siding contractors, helping homeowners find experts in siding installation and repair.", tag: "Construction" },
+  { name: "StuccoContractors.org", blurb: "The authoritative directory for stucco contractors, connecting property owners with skilled specialists.", tag: "Construction" },
+  { name: "TileInstallers.org", blurb: "A trusted directory of professional tile installers, helping homeowners and developers source qualified craftsmen.", tag: "Construction" },
+  { name: "StructuralPestControl.com", blurb: "A definitive directory for structural pest control companies, protecting homes and businesses from infestations.", tag: "Home Services" },
+  { name: "CommercialAsphaltContractors.com", blurb: "The go-to directory for commercial asphalt contractors, connecting property owners with paving experts.", tag: "Construction" },
+  { name: "SmallEngineRepair.org", blurb: "A national directory of small engine repair shops, helping consumers and businesses maintain equipment.", tag: "Services" },
+  { name: "PenetrationTestingFirms.com", blurb: "A trusted hub for penetration testing firms, helping businesses strengthen cybersecurity through verified experts.", tag: "Cybersecurity" },
+  { name: "TennisCourtBuilders.org", blurb: "A specialized directory for tennis court builders, connecting property owners and clubs with expert installers.", tag: "Construction" },
+  { name: "SecurityAuditDirectory.com", blurb: "A central hub for security audit firms, helping companies find experts in cloud, SOC, and IT infrastructure audits.", tag: "Cybersecurity" },
 ];
+
 
 
 
