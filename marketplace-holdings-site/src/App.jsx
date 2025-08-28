@@ -450,6 +450,7 @@ const ventures = [
   { name: "ComplianceAudits.com", blurb: "The definitive directory for compliance audits — helping businesses find trusted auditors across industries from SOC 2 to HIPAA.", tag: "Compliance" },
   { name: "SupplementManufacturers.com", blurb: "The category hub connecting brands with vetted, NSF/cGMP-compliant supplement manufacturers, turnkey formulators, and packaging partners.", tag: "Manufacturing" },
   { name: "CustomHomeBuilders.com", blurb: "The official directory for custom home builders in every U.S. market.", tag: "PropTech" },
+  { name: "WeightLossClinics.com", blurb: "The definitive directory of weight loss clinics across the U.S., connecting patients with trusted providers offering medical, surgical, and lifestyle-based weight management programs.", tag: "Healthcare" },
   { name: "EndAddiction.com", blurb: "Authoritative addiction recovery directory connecting patients to vetted treatment.", tag: "Healthcare" },
   { name: "RVing.com", blurb: "The definitive online marketplace for the RV lifestyle — connecting travelers, owners, dealers, and service providers in one trusted platform.", tag: "Travel" },
   { name: "SecurityAuditDirectory.com", blurb: "A central hub for security audit firms, helping companies find experts in cloud, SOC, and IT infrastructure audits.", tag: "Cybersecurity" },
