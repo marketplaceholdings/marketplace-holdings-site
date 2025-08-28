@@ -499,10 +499,8 @@ const ventures = [
   { name: "SmallEngineRepair.org", blurb: "A national directory of small engine repair shops, helping consumers and businesses maintain equipment.", tag: "Services" },
 ];
 
-
-
-
-
+/* Show X at a time */
+const BATCH_SIZE = 6;
 
 /* Journey copy (final) */
 const steps = [
@@ -666,6 +664,10 @@ export default function App() {
     "apply",
   ]);
 
+  // 👇 Progressive reveal state for ventures
+  const [visibleCount, setVisibleCount] = React.useState(BATCH_SIZE);
+  const remaining = Math.max(ventures.length - visibleCount, 0);
+
   React.useEffect(() => {
     const onHashChange = () => setMenuOpen(false);
     window.addEventListener("hashchange", onHashChange);
@@ -798,29 +800,16 @@ export default function App() {
             </P>
 
             {/* HERO media — replace the two-image grid with this single image card */}
-<div
-  style={{
-    // single, centered block that scales nicely with the heading width
-    maxWidth: 860,
-    marginTop: 6,
-  }}
->
-  <Img
-    src="https://marketplace-holdings-site.vercel.app/images/marketplaceimage.png"
-    alt="Marketplace flywheel: the circular liquidity cycle for online marketplaces"
-    aspect="16/9"         // roomy on desktop; feels premium
-    cover={false}         // important: no cropping; show full diagram
-    shadow="lg"           // same design language as rest of site
-    style={{
-      // white canvas + breathing room so the PNG feels crisp
-      background: "#fff",
-      padding: 18,
-      // keep it from touching edges on small screens
-      boxSizing: "border-box",
-    }}
-  />
-</div>
-
+            <div style={{ maxWidth: 860, marginTop: 6 }}>
+              <Img
+                src="https://marketplace-holdings-site.vercel.app/images/marketplaceimage.png"
+                alt="Marketplace flywheel: the circular liquidity cycle for online marketplaces"
+                aspect="16/9"
+                cover={false}
+                shadow="lg"
+                style={{ background: "#fff", padding: 18, boxSizing: "border-box" }}
+              />
+            </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 10, zIndex: 1 }}>
               <Button href="#choose-your-path" size="lg">Explore Opportunities</Button>
@@ -872,8 +861,9 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 12 }}>
           <H2>Active & Incubating Ventures</H2>
         </div>
+
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-          {ventures.map((v) => (
+          {ventures.slice(0, visibleCount).map((v) => (
             <Card key={v.name}>
               <CardHeader title={v.name} />
               <CardBody>
@@ -881,6 +871,22 @@ export default function App() {
               </CardBody>
             </Card>
           ))}
+        </div>
+
+        {/* Load more controls */}
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 16, gap: 10 }}>
+          {remaining > 0 ? (
+            <Button
+              variant="secondary"
+              onClick={() => setVisibleCount((n) => Math.min(n + BATCH_SIZE, ventures.length))}
+            >
+              View {Math.min(BATCH_SIZE, remaining)} more {remaining > BATCH_SIZE ? `(${remaining} left)` : ""}
+            </Button>
+          ) : (
+            <Button variant="ghost" onClick={() => setVisibleCount(BATCH_SIZE)}>
+              Show less
+            </Button>
+          )}
         </div>
       </Section>
 
@@ -1030,59 +1036,44 @@ export default function App() {
         </div>
       </Section>
 
-      {/* 7) FOUNDER LETTER — formatted like a letter, consistent styling */}
+      {/* 7) FOUNDER LETTER — formatted like a letter */}
       <Section id="equity" gradient>
         <div style={{ display: "grid", placeItems: "center" }}>
           <article
             style={{
-              maxWidth: 820, // a touch narrower for a letter feel
+              maxWidth: 820,
               background: "linear-gradient(180deg, rgba(225,29,72,.03), #ffffff)",
               border: `1px solid ${theme.border}`,
               borderRadius: theme.radius.xxl,
               padding: 34,
-              lineHeight: 1.8, // slightly looser line-height
+              lineHeight: 1.8,
               boxShadow: theme.shadow.lg,
               fontFamily: stack,
             }}
           >
-{/* Letterhead: two photos side by side, then heading below */}
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    gap: 12,
-    marginBottom: 20,
-  }}
->
-  <div style={{ display: "flex", flexDirection: "row", gap: 12 }}>
-    <Img
-      src="https://media.licdn.com/dms/image/v2/D5603AQGAEAcvSKVjqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696810635655?e=1759363200&v=beta&t=i5g3DPcfedPZHvh9vuQUb34Y3YI1c9Ds2pEg7fmi_v4"
-      alt="Founder portrait (LinkedIn)"
-      aspect="1/1"
-      radius="50%"
-      style={{ width: 72 }}
-      shadow={null}
-    />
-    <Img
-      src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
-      alt="Founder portrait (Twitter)"
-      aspect="1/1"
-      radius="50%"
-      style={{ width: 72 }}
-      shadow={null}
-    />
-  </div>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12, marginBottom: 20 }}>
+              <div style={{ display: "flex", flexDirection: "row", gap: 12 }}>
+                <Img
+                  src="https://media.licdn.com/dms/image/v2/D5603AQGAEAcvSKVjqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696810635655?e=1759363200&v=beta&t=i5g3DPcfedPZHvh9vuQUb34Y3YI1c9Ds2pEg7fmi_v4"
+                  alt="Founder portrait (LinkedIn)"
+                  aspect="1/1"
+                  radius="50%"
+                  style={{ width: 72 }}
+                  shadow={null}
+                />
+                <Img
+                  src="https://pbs.twimg.com/profile_images/1447733203716902915/LHIXjIIR_400x400.jpg"
+                  alt="Founder portrait (Twitter)"
+                  aspect="1/1"
+                  radius="50%"
+                  style={{ width: 72 }}
+                  shadow={null}
+                />
+              </div>
 
-  <H2>Dear Future Partner,</H2>
-</div>
+              <H2>Dear Future Partner,</H2>
+            </div>
 
-
-
-
-
-
-            {/* Opening paragraphs */}
             <P style={{ marginTop: 12 }}>
               At <strong>Marketplace Holdings</strong>, we’re not building alone. We’re looking for partners to lead the next generation of
               category-defining marketplaces — as CEOs and meaningful equity owners.
@@ -1092,10 +1083,8 @@ export default function App() {
               venture is <strong>who leads it</strong>. That’s where you come in.
             </P>
 
-            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* “Three Ways” as letter paragraphs */}
             <H3 weight={700} style={{ letterSpacing: ".02em" }}>Three Ways to Partner</H3>
             <P style={{ marginTop: 16 }}>
               <strong>Path 1: The Industry Expert.</strong> You’ve spent years inside a category — you understand the nuance, the trust
@@ -1111,10 +1100,8 @@ export default function App() {
               aligns, we’ll fund validation, build with you, and help launch using our resources and growth systems.
             </P>
 
-            {/* Divider */}
             <div style={{ height: 1, background: theme.border, margin: "22px 0" }} />
 
-            {/* Why Partner — kept as compact letter lines, no bullets */}
             <H3 weight={700} style={{ letterSpacing: ".02em" }}>Why Partner With Us</H3>
             <P dim style={{ marginTop: 12 }}><strong>Meaningful Equity</strong> — Own a significant stake in the company you lead.</P>
             <P dim style={{ marginTop: 8 }}><strong>$1B+ Track Record</strong> — Operating experience guiding strategy and execution.</P>
@@ -1123,21 +1110,18 @@ export default function App() {
             <P dim style={{ marginTop: 8 }}><strong>Proven Playbooks</strong> — Supply &amp; demand flywheels, growth loops, and marketplace frameworks.</P>
             <P dim style={{ marginTop: 8 }}><strong>Premium Domains</strong> — Category-defining assets that build instant credibility.</P>
 
-            {/* Upside */}
             <H3 weight={700} style={{ marginTop: 28, letterSpacing: ".02em" }}>The Upside</H3>
             <P>
               This isn’t employment — it’s ownership. We’re building companies designed to scale into <strong>8-, 9-, even 10-figure outcomes</strong>.
               With meaningful equity, the upside can be life-changing.
             </P>
 
-            {/* CTA */}
             <H3 weight={700} style={{ marginTop: 28, letterSpacing: ".02em" }}>Your Next Step</H3>
             <P>
               If you’re ready to explore a partnership,{" "}
               <a href="#apply" style={{ color: theme.red, fontWeight: 700 }}>click here to apply</a>.
             </P>
 
-            {/* Signature */}
             <P style={{ marginTop: 28 }}>
               <strong>– Zach Whitehead, Mark Jenney</strong>
               <br />
@@ -1247,31 +1231,6 @@ export default function App() {
               </form>
             </CardBody>
           </Card>
-        </div>
-      </Section>
-
-      {/* 10) FAQ */}
-      <Section id="faq" alt>
-        <H2>FAQs</H2>
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 18 }}>
-          {faqs.map((f) => (
-            <Card key={f.q}>
-              <div
-                style={{
-                  padding: 20,
-                  background: "transparent",
-                  fontWeight: 800,
-                  fontSize: 16,
-                  color: theme.text,
-                  fontFamily: stack,
-                  borderBottom: `1px solid ${theme.border}`,
-                }}
-              >
-                {f.q}
-              </div>
-              <CardBody>{f.a}</CardBody>
-            </Card>
-          ))}
         </div>
       </Section>
 
