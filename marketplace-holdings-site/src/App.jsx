@@ -465,7 +465,6 @@ const ventures = [
 
   // High-value .org (category terms; fiduciary/regulated & trade-heavy near top)
   { name: "RegisteredInvestmentAdvisors.org", blurb: "A verified registry of Registered Investment Advisors (RIAs), helping investors find fiduciary-grade financial partners.", tag: "Finance" },
-  { name: "RoofingContractors.org", blurb: "The authoritative directory for roofing contractors, connecting homeowners and businesses with licensed professionals nationwide.", tag: "Construction" },
   { name: "Hormones.org", blurb: "The most trusted, medically reviewed hub for hormone health with provider discovery.", tag: "Healthcare" },
   { name: "Painters.org", blurb: "The authoritative directory for professional painters and painting contractors — connecting homeowners, property managers, and developers with vetted interior/exterior pros for residential and commercial projects.", tag: "Construction" },
   { name: "RealEstateAgents.org", blurb: "The authoritative directory for real estate agents and teams, helping buyers and sellers find vetted local pros with verified profiles, production data, specialties, and designations.", tag: "PropTech" },
